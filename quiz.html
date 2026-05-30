@@ -1,20 +1,24 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MedQuiz</title>
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Larger vignette text */
+    .vignette-text { font-size: 1rem; line-height: 1.8; }
+  </style>
 </head>
 <body>
-
+ 
 <!-- TOP BAR -->
 <nav class="topbar">
   <div class="topbar-logo">🩺 <span style="color:#fff;font-weight:900;font-size:1.1rem;">MedQuiz</span></div>
   <div class="score-pill" id="scorePill">0 / 0</div>
   <a class="topbar-back" href="index.html">← Início</a>
 </nav>
-
+ 
 <!-- PROGRESS -->
 <div class="prog-wrap">
   <div class="prog-top">
@@ -23,11 +27,11 @@
   </div>
   <div class="prog-bg"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
 </div>
-
+ 
 <!-- QUIZ CARD -->
 <div class="page" style="padding-top:14px; padding-bottom:20px;">
   <div class="qcard" id="qcard">
-
+ 
     <div class="qcard-header">
       <div class="q-num" id="qNum">–</div>
       <div class="qcard-meta">
@@ -35,20 +39,20 @@
         <span class="level-badge" id="qLevel"></span>
       </div>
     </div>
-
-    <!-- Vignette (shown for clinical type or when vignette exists) -->
+ 
+    <!-- Vignette -->
     <div class="vignette-wrap" id="vignetteWrap" style="display:none">
       <div class="section-label-inline">Vinheta Clínica</div>
       <div class="vignette-text" id="vignetteText"></div>
       <div id="labTableWrap"></div>
     </div>
-
+ 
     <!-- Question -->
     <div class="question-box"><p id="questionText"></p></div>
-
+ 
     <!-- Options -->
     <div class="options" id="optionsContainer"></div>
-
+ 
     <!-- Explanation (hidden until answered) -->
     <div class="exp-panel" id="expPanel">
       <div class="exp-correct">
@@ -63,15 +67,15 @@
       <div class="dist-header">❌ Distratores</div>
       <div class="dist-list" id="distList"></div>
     </div>
-
+ 
   </div><!-- /qcard -->
-
+ 
   <!-- Next button -->
   <div class="bottom-bar">
     <button class="btn-next" id="btnNext" onclick="nextQuestion()">Próxima →</button>
   </div>
-
-  <!-- Finish screen (hidden until done) -->
+ 
+  <!-- Finish screen -->
   <div class="finish" id="finishScreen">
     <div class="finish-header">
       <h2 id="finTitle">Quiz Concluído! 🎉</h2>
@@ -87,31 +91,70 @@
       </div>
     </div>
   </div>
-
+ 
 </div><!-- /page -->
-
+ 
 <script>
-/* ══════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    MedQuiz — Universal Quiz Engine
-   Reads ?bank=filename.json from URL
-═══════════════════════════════════════════ */
-
-let bank      = null;   // full JSON object
-let questions = [];     // bank.questions
+   Features:
+   · Seeded PRNG — questions AND answer order randomised
+     from a seed generated once per session; the seed is
+     shown so a run can be reproduced if needed.
+   · Letters A-E are always displayed in order; only the
+     text behind each letter changes.
+   · Larger vignette text.
+   · After answering, scrolls so the "Próxima" button is
+     fully visible.
+══════════════════════════════════════════════════════ */
+ 
+let bank      = null;
+let questions = [];       // shuffled question order for this session
 let cur       = 0;
 let score     = 0;
 let answered  = false;
-
-// ── Bootstrap ──────────────────────────────
+let sessionSeed = 0;
+ 
+// Per-question option permutations, built once per session
+// optionMaps[i] = array of original option objects reordered for display
+let optionMaps = [];
+// correctDisplayLetter[i] = which display letter (A-E) is correct for question i
+let correctDisplayLetters = [];
+ 
+/* ─── Seeded PRNG (Mulberry32) ────────────────────────
+   Returns a function that gives floats in [0, 1).
+   Deterministic for a given seed → same shuffle every
+   time the same seed is used.                          */
+function makePRNG(seed) {
+  let s = seed >>> 0;
+  return function() {
+    s += 0x6D2B79F5;
+    let t = Math.imul(s ^ (s >>> 15), 1 | s);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) >>> 0;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+ 
+/* ─── Fisher-Yates shuffle using the PRNG ─────────── */
+function shuffle(arr, rng) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+ 
+/* ─── Bootstrap ────────────────────────────────────── */
 async function boot() {
   const params   = new URLSearchParams(window.location.search);
   const bankFile = params.get('bank');
-
+ 
   if (!bankFile) {
     showError('Nenhum ficheiro de quiz especificado na URL.<br>Volta à <a href="index.html">página inicial</a>.');
     return;
   }
-
+ 
   try {
     const res = await fetch(`data/${bankFile}`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -120,36 +163,71 @@ async function boot() {
     showError(`Não foi possível carregar <strong>${bankFile}</strong>.<br>${e.message}<br>Volta à <a href="index.html">página inicial</a>.`);
     return;
   }
-
-  // Validate minimal structure
+ 
   if (!bank.questions || !Array.isArray(bank.questions) || !bank.questions.length) {
     showError('O ficheiro JSON não contém questões válidas.');
     return;
   }
-
-  questions = bank.questions;
+ 
   document.title = `MedQuiz — ${bank.meta?.title || bankFile}`;
+  initSession();
+}
+ 
+/* ─── Initialise a new randomised session ──────────── */
+function initSession() {
+  // Generate a random seed for this session
+  sessionSeed = Math.floor(Math.random() * 2 ** 32);
+  const rng   = makePRNG(sessionSeed);
+ 
+  // 1. Shuffle question order
+  const indices = bank.questions.map((_, i) => i);
+  const shuffledIndices = shuffle(indices, rng);
+  questions = shuffledIndices.map(i => bank.questions[i]);
+ 
+  // 2. For each question, shuffle the options and record
+  //    which display letter (A, B, C…) maps to the correct answer
+  const displayLetters = ['A', 'B', 'C', 'D', 'E'];
+  optionMaps           = [];
+  correctDisplayLetters = [];
+ 
+  questions.forEach(q => {
+    const shuffledOpts = shuffle(q.options, rng);   // reordered option objects
+    optionMaps.push(shuffledOpts);
+ 
+    // Find which position the correct answer landed in
+    const correctOriginalLetter = q.correct;
+    const correctIdx = shuffledOpts.findIndex(o => o.letter === correctOriginalLetter);
+    correctDisplayLetters.push(displayLetters[correctIdx] ?? correctOriginalLetter);
+  });
+ 
+  cur      = 0;
+  score    = 0;
+  answered = false;
   render();
 }
-
-// ── Render question ─────────────────────────
+ 
+/* ─── Render current question ───────────────────────── */
 function render() {
-  const q = questions[cur];
+  const q           = questions[cur];
+  const displayOpts = optionMaps[cur];          // shuffled options for this question
+  const correctDisp = correctDisplayLetters[cur]; // display letter of correct answer
+  const displayLetters = ['A', 'B', 'C', 'D', 'E'];
+ 
   answered = false;
-
-  // progress
+ 
+  // Progress
   const pct = Math.round((cur / questions.length) * 100);
   document.getElementById('progFill').style.width  = pct + '%';
   document.getElementById('progLabel').textContent = `Questão ${cur + 1} de ${questions.length}`;
   document.getElementById('progPct').textContent   = pct + '%';
   document.getElementById('scorePill').textContent = `${score} / ${cur}`;
-
-  // header
-  document.getElementById('qNum').textContent    = `Q${q.id ?? cur + 1} / ${questions.length}`;
+ 
+  // Header
+  document.getElementById('qNum').textContent    = `Q${cur + 1} / ${questions.length}`;
   document.getElementById('qDomain').textContent = q.domain ?? '';
   document.getElementById('qLevel').textContent  = q.level  ?? '';
-
-  // vignette
+ 
+  // Vignette
   const vigWrap = document.getElementById('vignetteWrap');
   if (q.vignette) {
     vigWrap.style.display = 'block';
@@ -158,75 +236,98 @@ function render() {
   } else {
     vigWrap.style.display = 'none';
   }
-
-  // question
+ 
+  // Question
   document.getElementById('questionText').textContent = q.question;
-
-  // options
+ 
+  // Options — displayed as A, B, C, D, E regardless of original letters
   const container = document.getElementById('optionsContainer');
   container.innerHTML = '';
-  q.options.forEach(opt => {
+  displayOpts.forEach((opt, idx) => {
+    const dispLetter = displayLetters[idx];
     const div = document.createElement('div');
     div.className = 'opt';
-    div.dataset.letter = opt.letter;
-    div.innerHTML = `<span class="letter">${opt.letter}</span><span>${opt.text}</span>`;
-    div.addEventListener('click', () => selectAnswer(opt.letter));
+    div.dataset.dispLetter = dispLetter;      // what the user sees
+    div.dataset.origLetter = opt.letter;      // original letter in JSON
+    div.innerHTML = `<span class="letter">${dispLetter}</span><span>${opt.text}</span>`;
+    div.addEventListener('click', () => selectAnswer(dispLetter));
     container.appendChild(div);
   });
-
-  // reset panels
+ 
+  // Reset panels
   document.getElementById('expPanel').classList.remove('show');
   document.getElementById('btnNext').style.display = 'none';
 }
-
-// ── Answer selection ────────────────────────
-function selectAnswer(chosen) {
+ 
+/* ─── Answer selection ──────────────────────────────── */
+function selectAnswer(chosenDisp) {
   if (answered) return;
   answered = true;
-
-  const q  = questions[cur];
-  const ok = chosen === q.correct;
+ 
+  const correctDisp = correctDisplayLetters[cur];
+  const ok          = chosenDisp === correctDisp;
   if (ok) score++;
-
+ 
+  // Colour the options
   document.querySelectorAll('.opt').forEach(el => {
     el.classList.add('disabled');
-    const l = el.dataset.letter;
-    if      (l === q.correct && l === chosen) el.classList.add('correct');
-    else if (l === q.correct)                 el.classList.add('correct');
-    else if (l === chosen)                    el.classList.add('wrong');
-    else                                      el.classList.add('neutral');
+    const l = el.dataset.dispLetter;
+    if      (l === correctDisp && l === chosenDisp) el.classList.add('correct');
+    else if (l === correctDisp)                     el.classList.add('correct');
+    else if (l === chosenDisp)                      el.classList.add('wrong');
+    else                                            el.classList.add('neutral');
   });
-
-  // fill explanation
+ 
+  // Fill explanation (always use original data from question)
+  const q           = questions[cur];
+  const displayOpts = optionMaps[cur];
+  const displayLetters = ['A', 'B', 'C', 'D', 'E'];
+ 
   document.getElementById('expText').textContent   = q.explanation ?? '';
   document.getElementById('expSource').textContent = q.source ? `📚 Fonte: ${q.source}` : '';
   document.getElementById('logicText').textContent = q.logic ?? '';
-
+ 
+  // Build distractor list, re-mapped to display letters
+  // Build a lookup: originalLetter → displayLetter
+  const origToDisp = {};
+  displayOpts.forEach((opt, idx) => {
+    origToDisp[opt.letter] = displayLetters[idx];
+  });
+ 
   const distList = document.getElementById('distList');
   distList.innerHTML = '';
+ 
+  // Show distractors for every option that is NOT the correct one
+  // Use the original distractors array but swap in display letters
+  const correctOrigLetter = q.correct;
   (q.distractors ?? []).forEach(d => {
+    // d.letter is the original letter in the JSON
+    const mappedDisp = origToDisp[d.letter] ?? d.letter;
+    // Only show if it's actually a distractor (not the correct answer)
+    if (d.letter === correctOrigLetter) return;
     const div = document.createElement('div');
     div.className = 'dist-item';
     div.innerHTML = `
-      <span class="dist-tag">${d.letter}) Incorrecta</span>
+      <span class="dist-tag">${mappedDisp}) Incorrecta</span>
       <p>${d.text}</p>
       ${d.source ? `<p class="dist-source">📚 ${d.source}</p>` : ''}`;
     distList.appendChild(div);
   });
-
+ 
   document.getElementById('expPanel').classList.add('show');
   document.getElementById('scorePill').textContent = `${score} / ${cur + 1}`;
-
-  const btn = document.getElementById('btnNext');
-  btn.style.display   = 'block';
-  btn.textContent     = cur < questions.length - 1 ? 'Próxima →' : 'Ver Resultado';
-
+ 
+  const btn     = document.getElementById('btnNext');
+  btn.style.display = 'block';
+  btn.textContent   = cur < questions.length - 1 ? 'Próxima →' : 'Ver Resultado';
+ 
+  // Scroll so the "Próxima" button is fully visible
   setTimeout(() => {
-    document.getElementById('expPanel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    btn.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }, 120);
 }
-
-// ── Next / finish ───────────────────────────
+ 
+/* ─── Next / finish ─────────────────────────────────── */
 function nextQuestion() {
   cur++;
   if (cur >= questions.length) { showFinish(); return; }
@@ -234,39 +335,39 @@ function nextQuestion() {
   render();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
+ 
 function showFinish() {
-  document.getElementById('qcard').style.display       = 'none';
-  document.getElementById('btnNext').style.display     = 'none';
+  document.getElementById('qcard').style.display        = 'none';
+  document.getElementById('btnNext').style.display      = 'none';
   document.getElementById('finishScreen').style.display = 'block';
   document.getElementById('progFill').style.width       = '100%';
   document.getElementById('progPct').textContent        = '100%';
   document.getElementById('progLabel').textContent      = `${questions.length} de ${questions.length} questões`;
-
+ 
   const pct = Math.round((score / questions.length) * 100);
   let msg = '';
   if      (pct >= 85) msg = '🏆 Excelente! Domínio sólido do tema. Estás pronto para o exame.';
   else if (pct >= 65) msg = '👍 Bom resultado! Revê os casos onde erraste, focando nos distratores.';
   else                msg = '📖 Continua a estudar — volta ao material de estudo e refaz os casos.';
-
+ 
   document.getElementById('finTitle').textContent    = bank.meta?.title ?? 'Quiz Concluído! 🎉';
   document.getElementById('finSubtitle').textContent = bank.meta?.subtitle ?? '';
   document.getElementById('finScore').textContent    = `${score} / ${questions.length}`;
   document.getElementById('finPct').textContent      = `${pct}% de respostas correctas`;
   document.getElementById('finMsg').textContent      = msg;
-
+ 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
+ 
 function restart() {
-  cur = 0; score = 0;
   document.getElementById('finishScreen').style.display = 'none';
   document.getElementById('qcard').style.display        = 'block';
-  render();
+  // New seed → different shuffle on every restart
+  initSession();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-// ── Helpers ─────────────────────────────────
+ 
+/* ─── Helpers ───────────────────────────────────────── */
 function buildLabTable(rows) {
   if (!rows || !rows.length) return '';
   const thead = `<thead><tr><th>Parâmetro</th><th>Valor</th><th>Referência</th></tr></thead>`;
@@ -275,7 +376,7 @@ function buildLabTable(rows) {
   ).join('');
   return `<table class="lab-table">${thead}<tbody>${tbody}</tbody></table>`;
 }
-
+ 
 function showError(html) {
   document.getElementById('qcard').innerHTML = `
     <div style="padding:40px 24px;text-align:center;color:var(--sub)">
@@ -284,8 +385,8 @@ function showError(html) {
     </div>`;
   document.getElementById('progLabel').textContent = 'Erro ao carregar';
 }
-
-// ── Start ────────────────────────────────────
+ 
+/* ─── Start ─────────────────────────────────────────── */
 boot();
 </script>
 </body>

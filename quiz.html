@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedQuiz</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<nav class="topbar">
+  <div class="topbar-logo">🩺 <span style="color:#fff;font-weight:900;font-size:1.1rem;">MedQuiz</span></div>
+  <div class="score-pill" id="scorePill">0 / 0</div>
+  <a class="topbar-back" href="index.html">← Início</a>
+</nav>
+
+<!-- PROGRESS -->
+<div class="prog-wrap">
+  <div class="prog-top">
+    <span id="progLabel">A carregar…</span>
+    <span id="progPct">0%</span>
+  </div>
+  <div class="prog-bg"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+</div>
+
+<!-- QUIZ CARD -->
+<div class="page" style="padding-top:14px; padding-bottom:20px;">
+  <div class="qcard" id="qcard">
+
+    <div class="qcard-header">
+      <div class="q-num" id="qNum">–</div>
+      <div class="qcard-meta">
+        <div class="domain" id="qDomain"></div>
+        <span class="level-badge" id="qLevel"></span>
+      </div>
+    </div>
+
+    <!-- Vignette (shown for clinical type or when vignette exists) -->
+    <div class="vignette-wrap" id="vignetteWrap" style="display:none">
+      <div class="section-label-inline">Vinheta Clínica</div>
+      <div class="vignette-text" id="vignetteText"></div>
+      <div id="labTableWrap"></div>
+    </div>
+
+    <!-- Question -->
+    <div class="question-box"><p id="questionText"></p></div>
+
+    <!-- Options -->
+    <div class="options" id="optionsContainer"></div>
+
+    <!-- Explanation (hidden until answered) -->
+    <div class="exp-panel" id="expPanel">
+      <div class="exp-correct">
+        <div class="exp-tag">✅ Resposta Correcta</div>
+        <p id="expText"></p>
+        <p class="exp-source" id="expSource"></p>
+      </div>
+      <div class="logic-box">
+        <div class="logic-tag">🔗 Raciocínio</div>
+        <p id="logicText"></p>
+      </div>
+      <div class="dist-header">❌ Distratores</div>
+      <div class="dist-list" id="distList"></div>
+    </div>
+
+  </div><!-- /qcard -->
+
+  <!-- Next button -->
+  <div class="bottom-bar">
+    <button class="btn-next" id="btnNext" onclick="nextQuestion()">Próxima →</button>
+  </div>
+
+  <!-- Finish screen (hidden until done) -->
+  <div class="finish" id="finishScreen">
+    <div class="finish-header">
+      <h2 id="finTitle">Quiz Concluído! 🎉</h2>
+      <p id="finSubtitle"></p>
+    </div>
+    <div class="finish-body">
+      <div class="finish-score" id="finScore"></div>
+      <div class="finish-pct"  id="finPct"></div>
+      <div class="finish-msg"  id="finMsg"></div>
+      <div class="finish-btns">
+        <button class="btn-primary"   onclick="restart()">Recomeçar</button>
+        <button class="btn-secondary" onclick="window.location.href='index.html'">← Início</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+/* ══════════════════════════════════════════
+   MedQuiz — Universal Quiz Engine
+   Reads ?bank=filename.json from URL
+═══════════════════════════════════════════ */
+
+let bank      = null;   // full JSON object
+let questions = [];     // bank.questions
+let cur       = 0;
+let score     = 0;
+let answered  = false;
+
+// ── Bootstrap ──────────────────────────────
+async function boot() {
+  const params   = new URLSearchParams(window.location.search);
+  const bankFile = params.get('bank');
+
+  if (!bankFile) {
+    showError('Nenhum ficheiro de quiz especificado na URL.<br>Volta à <a href="index.html">página inicial</a>.');
+    return;
+  }
+
+  try {
+    const res = await fetch(`data/${bankFile}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    bank = await res.json();
+  } catch (e) {
+    showError(`Não foi possível carregar <strong>${bankFile}</strong>.<br>${e.message}<br>Volta à <a href="index.html">página inicial</a>.`);
+    return;
+  }
+
+  // Validate minimal structure
+  if (!bank.questions || !Array.isArray(bank.questions) || !bank.questions.length) {
+    showError('O ficheiro JSON não contém questões válidas.');
+    return;
+  }
+
+  questions = bank.questions;
+  document.title = `MedQuiz — ${bank.meta?.title || bankFile}`;
+  render();
+}
+
+// ── Render question ─────────────────────────
+function render() {
+  const q = questions[cur];
+  answered = false;
+
+  // progress
+  const pct = Math.round((cur / questions.length) * 100);
+  document.getElementById('progFill').style.width  = pct + '%';
+  document.getElementById('progLabel').textContent = `Questão ${cur + 1} de ${questions.length}`;
+  document.getElementById('progPct').textContent   = pct + '%';
+  document.getElementById('scorePill').textContent = `${score} / ${cur}`;
+
+  // header
+  document.getElementById('qNum').textContent    = `Q${q.id ?? cur + 1} / ${questions.length}`;
+  document.getElementById('qDomain').textContent = q.domain ?? '';
+  document.getElementById('qLevel').textContent  = q.level  ?? '';
+
+  // vignette
+  const vigWrap = document.getElementById('vignetteWrap');
+  if (q.vignette) {
+    vigWrap.style.display = 'block';
+    document.getElementById('vignetteText').textContent = q.vignette;
+    document.getElementById('labTableWrap').innerHTML   = buildLabTable(q.labTable);
+  } else {
+    vigWrap.style.display = 'none';
+  }
+
+  // question
+  document.getElementById('questionText').textContent = q.question;
+
+  // options
+  const container = document.getElementById('optionsContainer');
+  container.innerHTML = '';
+  q.options.forEach(opt => {
+    const div = document.createElement('div');
+    div.className = 'opt';
+    div.dataset.letter = opt.letter;
+    div.innerHTML = `<span class="letter">${opt.letter}</span><span>${opt.text}</span>`;
+    div.addEventListener('click', () => selectAnswer(opt.letter));
+    container.appendChild(div);
+  });
+
+  // reset panels
+  document.getElementById('expPanel').classList.remove('show');
+  document.getElementById('btnNext').style.display = 'none';
+}
+
+// ── Answer selection ────────────────────────
+function selectAnswer(chosen) {
+  if (answered) return;
+  answered = true;
+
+  const q  = questions[cur];
+  const ok = chosen === q.correct;
+  if (ok) score++;
+
+  document.querySelectorAll('.opt').forEach(el => {
+    el.classList.add('disabled');
+    const l = el.dataset.letter;
+    if      (l === q.correct && l === chosen) el.classList.add('correct');
+    else if (l === q.correct)                 el.classList.add('correct');
+    else if (l === chosen)                    el.classList.add('wrong');
+    else                                      el.classList.add('neutral');
+  });
+
+  // fill explanation
+  document.getElementById('expText').textContent   = q.explanation ?? '';
+  document.getElementById('expSource').textContent = q.source ? `📚 Fonte: ${q.source}` : '';
+  document.getElementById('logicText').textContent = q.logic ?? '';
+
+  const distList = document.getElementById('distList');
+  distList.innerHTML = '';
+  (q.distractors ?? []).forEach(d => {
+    const div = document.createElement('div');
+    div.className = 'dist-item';
+    div.innerHTML = `
+      <span class="dist-tag">${d.letter}) Incorrecta</span>
+      <p>${d.text}</p>
+      ${d.source ? `<p class="dist-source">📚 ${d.source}</p>` : ''}`;
+    distList.appendChild(div);
+  });
+
+  document.getElementById('expPanel').classList.add('show');
+  document.getElementById('scorePill').textContent = `${score} / ${cur + 1}`;
+
+  const btn = document.getElementById('btnNext');
+  btn.style.display   = 'block';
+  btn.textContent     = cur < questions.length - 1 ? 'Próxima →' : 'Ver Resultado';
+
+  setTimeout(() => {
+    document.getElementById('expPanel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 120);
+}
+
+// ── Next / finish ───────────────────────────
+function nextQuestion() {
+  cur++;
+  if (cur >= questions.length) { showFinish(); return; }
+  document.getElementById('expPanel').classList.remove('show');
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showFinish() {
+  document.getElementById('qcard').style.display       = 'none';
+  document.getElementById('btnNext').style.display     = 'none';
+  document.getElementById('finishScreen').style.display = 'block';
+  document.getElementById('progFill').style.width       = '100%';
+  document.getElementById('progPct').textContent        = '100%';
+  document.getElementById('progLabel').textContent      = `${questions.length} de ${questions.length} questões`;
+
+  const pct = Math.round((score / questions.length) * 100);
+  let msg = '';
+  if      (pct >= 85) msg = '🏆 Excelente! Domínio sólido do tema. Estás pronto para o exame.';
+  else if (pct >= 65) msg = '👍 Bom resultado! Revê os casos onde erraste, focando nos distratores.';
+  else                msg = '📖 Continua a estudar — volta ao material de estudo e refaz os casos.';
+
+  document.getElementById('finTitle').textContent    = bank.meta?.title ?? 'Quiz Concluído! 🎉';
+  document.getElementById('finSubtitle').textContent = bank.meta?.subtitle ?? '';
+  document.getElementById('finScore').textContent    = `${score} / ${questions.length}`;
+  document.getElementById('finPct').textContent      = `${pct}% de respostas correctas`;
+  document.getElementById('finMsg').textContent      = msg;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function restart() {
+  cur = 0; score = 0;
+  document.getElementById('finishScreen').style.display = 'none';
+  document.getElementById('qcard').style.display        = 'block';
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Helpers ─────────────────────────────────
+function buildLabTable(rows) {
+  if (!rows || !rows.length) return '';
+  const thead = `<thead><tr><th>Parâmetro</th><th>Valor</th><th>Referência</th></tr></thead>`;
+  const tbody = rows.map(r =>
+    `<tr><td>${r.param}</td><td>${r.value}</td><td>${r.ref ?? ''}</td></tr>`
+  ).join('');
+  return `<table class="lab-table">${thead}<tbody>${tbody}</tbody></table>`;
+}
+
+function showError(html) {
+  document.getElementById('qcard').innerHTML = `
+    <div style="padding:40px 24px;text-align:center;color:var(--sub)">
+      <div style="font-size:2rem;margin-bottom:12px">⚠️</div>
+      <p style="font-size:.92rem;line-height:1.7">${html}</p>
+    </div>`;
+  document.getElementById('progLabel').textContent = 'Erro ao carregar';
+}
+
+// ── Start ────────────────────────────────────
+boot();
+</script>
+</body>
+</html>

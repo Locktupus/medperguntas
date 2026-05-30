@@ -1,0 +1,22 @@
+[
+  {
+    "id": "renal_casos_clinicos",
+    "file": "renal_casos_clinicos.json",
+    "title": "Fisiologia Renal — Casos Clínicos",
+    "subtitle": "Costanzo Fisiologia, Cap. 6 · 20 questões",
+    "icon": "🫘",
+    "type": "clinical",
+    "questionCount": 20,
+    "levels": ["L1", "L2", "L3"]
+  },
+  {
+    "id": "renal_banco",
+    "file": "renal_banco.json",
+    "title": "Fisiologia Renal — Banco de Questões",
+    "subtitle": "Costanzo Fisiologia, Cap. 6 · 20 questões",
+    "icon": "🔬",
+    "type": "general",
+    "questionCount": 20,
+    "levels": ["L1", "L2", "L3"]
+  }
+]

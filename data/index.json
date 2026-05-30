@@ -8,6 +8,7 @@
     "type": "clinical",
     "questionCount": 20,
     "levels": ["L1", "L2", "L3"]
+    "color": "#0f766e"
   },
   {
     "id": "renal_banco",

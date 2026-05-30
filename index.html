@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casos Clínicos — Fisiologia Renal</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --blue:#1d4ed8;--blue-light:#eff6ff;--blue-mid:#bfdbfe;
+    --green:#15803d;--green-light:#f0fdf4;--green-mid:#bbf7d0;
+    --red:#b91c1c;--red-light:#fef2f2;--red-mid:#fecaca;
+    --amber:#92400e;--amber-light:#fffbeb;--amber-mid:#fde68a;
+    --slate:#334155;--slate-light:#f8fafc;--slate-mid:#e2e8f0;
+    --text:#0f172a;--sub:#64748b;
+  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f1f5f9;color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 14px 40px}
+
+  /* ── TOP BAR ── */
+  .topbar{width:100%;max-width:800px;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .topbar-title{display:flex;align-items:center;gap:10px}
+  .topbar-title .icon{width:36px;height:36px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .topbar-title h1{font-size:.95rem;font-weight:700;color:var(--blue);line-height:1.3}
+  .topbar-title p{font-size:.72rem;color:var(--sub)}
+  .score-pill{background:#fff;border:1.5px solid var(--slate-mid);border-radius:99px;padding:5px 14px;font-size:.82rem;font-weight:600;color:var(--slate);white-space:nowrap}
+
+  /* ── PROGRESS ── */
+  .prog-wrap{width:100%;max-width:800px;margin-bottom:18px}
+  .prog-top{display:flex;justify-content:space-between;font-size:.72rem;color:var(--sub);margin-bottom:5px}
+  .prog-bar-bg{background:var(--slate-mid);border-radius:99px;height:7px}
+  .prog-bar{height:7px;border-radius:99px;background:linear-gradient(90deg,#3b82f6,#1d4ed8);transition:width .45s ease}
+
+  /* ── CARD ── */
+  .card{width:100%;max-width:800px;background:#fff;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,.08);overflow:hidden}
+
+  /* card header */
+  .card-header{background:linear-gradient(135deg,#1e3a5f 0%,#1d4ed8 100%);padding:18px 24px;display:flex;align-items:flex-start;gap:14px}
+  .q-number{background:rgba(255,255,255,.18);color:#fff;border-radius:8px;padding:6px 12px;font-size:.8rem;font-weight:700;white-space:nowrap;letter-spacing:.03em}
+  .card-header-meta{flex:1}
+  .card-header-meta .domain{font-size:.7rem;color:rgba(255,255,255,.7);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
+  .card-header-meta .level-badge{display:inline-block;background:rgba(255,255,255,.15);color:#fff;border-radius:99px;padding:2px 10px;font-size:.7rem;font-weight:700}
+
+  /* vinheta */
+  .vinheta-wrap{padding:20px 24px 0}
+  .section-label{font-size:.65rem;font-weight:800;color:var(--sub);text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;display:flex;align-items:center;gap:5px}
+  .section-label::before{content:'';display:block;width:3px;height:12px;background:var(--blue);border-radius:99px}
+  .vinheta-text{font-size:.9rem;color:var(--slate);line-height:1.7;margin-bottom:14px}
+
+  /* lab table */
+  .lab-table{width:100%;border-collapse:collapse;font-size:.82rem;margin-bottom:14px;border-radius:8px;overflow:hidden;border:1px solid var(--slate-mid)}
+  .lab-table thead{background:var(--slate-light)}
+  .lab-table th{text-align:left;padding:7px 12px;font-size:.7rem;font-weight:700;color:var(--sub);letter-spacing:.06em;text-transform:uppercase}
+  .lab-table td{padding:7px 12px;border-top:1px solid var(--slate-mid);color:var(--slate)}
+  .lab-table td:nth-child(2){font-weight:700;color:var(--text)}
+  .lab-table tr:nth-child(even){background:var(--slate-light)}
+
+  /* question text */
+  .question-box{margin:0 24px 20px;padding:14px 16px;background:var(--blue-light);border:1.5px solid var(--blue-mid);border-radius:10px}
+  .question-box p{font-size:.95rem;font-weight:600;color:#1e3a5f;line-height:1.5}
+
+  /* options */
+  .options{padding:0 24px 22px;display:flex;flex-direction:column;gap:9px}
+  .opt{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border:2px solid var(--slate-mid);border-radius:10px;cursor:pointer;font-size:.9rem;line-height:1.5;transition:border-color .15s,background .15s;user-select:none;background:#fff}
+  .opt:hover:not(.disabled){border-color:#93c5fd;background:var(--blue-light)}
+  .opt .letter{flex-shrink:0;width:28px;height:28px;border-radius:8px;background:var(--slate-light);color:var(--slate);font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:background .15s,color .15s;border:1.5px solid var(--slate-mid)}
+  .opt.correct{border-color:#4ade80;background:var(--green-light)}
+  .opt.correct .letter{background:#16a34a;color:#fff;border-color:#16a34a}
+  .opt.wrong{border-color:#f87171;background:var(--red-light)}
+  .opt.wrong .letter{background:#dc2626;color:#fff;border-color:#dc2626}
+  .opt.disabled{cursor:default}
+  .opt.neutral{opacity:.55}
+
+  /* ── EXPLANATION PANEL ── */
+  .exp-panel{display:none;border-top:2px solid var(--slate-mid);padding:22px 24px;background:var(--slate-light)}
+  .exp-panel.show{display:block}
+
+  .exp-correct-card{background:var(--green-light);border:1.5px solid var(--green-mid);border-radius:12px;padding:16px 18px;margin-bottom:16px}
+  .exp-correct-card .exp-tag{font-size:.68rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+  .exp-correct-card p{font-size:.88rem;line-height:1.68;color:#14532d}
+  .exp-source{font-size:.73rem;color:#166534;margin-top:7px;font-style:italic;opacity:.8}
+
+  .logic-card{background:var(--amber-light);border:1.5px solid var(--amber-mid);border-radius:12px;padding:13px 16px;margin-bottom:16px}
+  .logic-card .logic-tag{font-size:.68rem;font-weight:800;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px;display:flex;align-items:center;gap:6px}
+  .logic-card p{font-size:.85rem;line-height:1.6;color:var(--amber)}
+
+  .dist-header{font-size:.68rem;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+  .dist-list{display:flex;flex-direction:column;gap:8px}
+  .dist-item{background:#fff;border:1.5px solid var(--red-mid);border-radius:10px;padding:11px 14px}
+  .dist-item .dist-tag{font-size:.68rem;font-weight:800;color:var(--red);display:block;margin-bottom:3px}
+  .dist-item p{font-size:.85rem;line-height:1.55;color:#7f1d1d}
+  .dist-item .dist-source{font-size:.7rem;color:#9f1717;margin-top:4px;font-style:italic;opacity:.75}
+
+  /* ── BOTTOM BAR ── */
+  .bottom-bar{width:100%;max-width:800px;display:flex;justify-content:flex-end;margin-top:14px}
+  .btn-next{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;border-radius:10px;padding:11px 28px;font-size:.9rem;font-weight:700;cursor:pointer;transition:opacity .15s;display:none;box-shadow:0 2px 8px rgba(29,78,216,.3)}
+  .btn-next:hover{opacity:.88}
+
+  /* ── FINISH ── */
+  .finish{display:none;width:100%;max-width:800px;background:#fff;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,.08);overflow:hidden}
+  .finish-header{background:linear-gradient(135deg,#1e3a5f,#1d4ed8);padding:36px 28px;text-align:center;color:#fff}
+  .finish-header h2{font-size:1.4rem;font-weight:800;margin-bottom:6px}
+  .finish-header p{font-size:.85rem;opacity:.8}
+  .finish-body{padding:30px 28px;text-align:center}
+  .finish-score{font-size:3.5rem;font-weight:900;color:var(--blue);line-height:1}
+  .finish-pct{font-size:1rem;color:var(--sub);margin:6px 0 14px}
+  .finish-msg{font-size:.9rem;color:var(--slate);background:var(--slate-light);border-radius:10px;padding:12px 18px;margin-bottom:22px}
+  .btn-restart{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;border-radius:10px;padding:12px 32px;font-size:.95rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(29,78,216,.3)}
+  .btn-restart:hover{opacity:.88}
+
+  @media(max-width:500px){
+    .card-header{padding:14px 16px}
+    .vinheta-wrap{padding:16px 16px 0}
+    .question-box{margin:0 16px 16px}
+    .options{padding:0 16px 18px}
+    .exp-panel{padding:18px 16px}
+    .finish-body{padding:22px 16px}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-title">
+    <div class="icon">🫘</div>
+    <div>
+      <h1>Casos Clínicos — Fisiologia Renal</h1>
+      <p>Costanzo Fisiologia, 5.ª Edição — Capítulo 6</p>
+    </div>
+  </div>
+  <div class="score-pill" id="scorePill">0 / 0</div>
+</div>
+
+<!-- PROGRESS -->
+<div class="prog-wrap">
+  <div class="prog-top">
+    <span id="progLabel">Questão 1 de 20</span>
+    <span id="progPct">0%</span>
+  </div>
+  <div class="prog-bar-bg"><div class="prog-bar" id="progBar" style="width:0%"></div></div>
+</div>
+
+<!-- QUIZ CARD -->
+<div class="card" id="quizCard">
+  <div class="card-header">
+    <div class="q-number" id="qNum">Q1 / 20</div>
+    <div class="card-header-meta">
+      <div class="domain" id="qDomain"></div>
+      <span class="level-badge" id="qLevel"></span>
+    </div>
+  </div>
+
+  <div class="vinheta-wrap">
+    <div class="section-label">Vinheta Clínica</div>
+    <div class="vinheta-text" id="vinheta"></div>
+    <div id="labTableWrap"></div>
+  </div>
+
+  <div class="question-box"><p id="questionText"></p></div>
+
+  <div class="options" id="optionsContainer"></div>
+
+  <div class="exp-panel" id="expPanel">
+    <div class="exp-correct-card">
+      <div class="exp-tag">✅ Resposta Correcta</div>
+      <p id="expCorrectText"></p>
+      <p class="exp-source" id="expSource"></p>
+    </div>
+    <div class="logic-card">
+      <div class="logic-tag">🔗 Raciocínio</div>
+      <p id="logicText"></p>
+    </div>
+    <div class="dist-header">❌ Distratores</div>
+    <div class="dist-list" id="distList"></div>
+  </div>
+</div>
+
+<!-- BOTTOM -->
+<div class="bottom-bar">
+  <button class="btn-next" id="btnNext" onclick="nextQ()">Próximo Caso →</button>
+</div>
+
+<!-- FINISH -->
+<div class="finish" id="finishCard">
+  <div class="finish-header">
+    <h2>Casos Clínicos Concluídos 🎉</h2>
+    <p>Costanzo Fisiologia — Capítulo 6: Fisiologia Renal</p>
+  </div>
+  <div class="finish-body">
+    <div class="finish-score" id="finScore"></div>
+    <div class="finish-pct" id="finPct"></div>
+    <div class="finish-msg" id="finMsg"></div>
+    <button class="btn-restart" onclick="restart()">Recomeçar</button>
+  </div>
+</div>
+
+<script>
+const Qs = [
+  {
+    n:1, level:"L1", domain:"Fisiologia Renal",
+    vinheta:"Um homem de 48 anos é admitido no serviço de urgência após referir cefaleia intensa de início súbito. Não tem antecedentes pessoais de relevo e não faz medicação habitual. À avaliação inicial, a pressão arterial é de 160 mmHg (sistólica), registando-se um aumento súbito relativamente ao valor basal habitual de 100 mmHg. Apesar desta subida pressórica, os estudos de função renal realizados à admissão mostram que o fluxo sanguíneo renal (FSR) e a taxa de filtração glomerular (TFG) se mantêm dentro dos valores normais.",
+    lab:null,
+    question:"Qual dos seguintes mecanismos explica melhor a manutenção do FSR e da TFG dentro dos valores normais apesar do aumento súbito da pressão arterial?",
+    opts:[
+      {l:"A",t:"Vasodilatação da arteríola eferente mediada pelo sistema nervoso simpático"},
+      {l:"B",t:"Vasoconstrição da arteríola eferente pela angiotensina II"},
+      {l:"C",t:"Constrição reflexa da arteríola aferente induzida pelo estiramento (mecanismo miogénico)"},
+      {l:"D",t:"Constrição da arteríola aferente pela mácula densa em resposta ao aumento do aporte de soluto tubular"},
+      {l:"E",t:"Dilatação das arteríolas aferente e eferente pelas prostaglandinas renais"}
+    ],
+    correct:"D",
+    exp:"O feedback tubuloglomerular é um mecanismo de autorregulação no qual um aumento da TFG eleva o aporte de NaCl à mácula densa (trecho inicial do túbulo distal). A mácula densa, como parte do aparelho justaglomerular, liberta substâncias vasoactivas (adenosina, ATP, tromboxanos) que actuam localmente sobre a arteríola aferente, promovendo a sua constrição. O aumento de resistência reduz o FSR e a TFG, corrigindo o desvio inicial. O sistema nervoso autónomo não está envolvido — rins transplantados (desnervados) autorregulam-se igualmente bem.",
+    source:"Cap. 6 — Feedback tubuloglomerular",
+    logic:"PA ↑ → FSR e TFG ↑ transitoriamente → mais NaCl à mácula densa → substância vasoactiva libertada → constrição aferente → resistência ↑ → FSR e TFG normalizam.",
+    distractors:[
+      {l:"A",t:"A vasodilatação eferente reduziria a TFG (não a normalizaria); além disso, o simpático causa vasoconstrição, não vasodilatação.",src:"Cap. 6 — Regulação do FSR"},
+      {l:"B",t:"A angiotensina II em baixas concentrações constringe preferencialmente a eferente, o que aumentaria a TFG — agravando o desvio.",src:"Cap. 6 — Angiotensina II"},
+      {l:"C",t:"O mecanismo miogénico também contribui para a autorregulação, mas a questão descreve especificamente a detecção do aporte de soluto pela mácula densa.",src:"Cap. 6 — Hipótese miogénica"},
+      {l:"E",t:"As prostaglandinas renais (PGE₂, PGI₂) são vasodilatadoras com papel protector em vasoconstrição excessiva; não são o mecanismo principal de autorregulação.",src:"Cap. 6 — Prostaglandinas"}
+    ]
+  },
+  {
+    n:2, level:"L2", domain:"Fisiologia Renal",
+    vinheta:"Um homem de 35 anos é trazido ao serviço de urgência após traumatismo abdominal por acidente de viação. Apresenta-se agitado e pálido. Os sinais vitais são: FC 118/min, PA 82/54 mmHg, FR 24/min, T 36,2 ºC. O exame abdominal revela dor difusa e sinais de irritação peritoneal. É diagnosticado choque hemorrágico com activação marcada do sistema renina-angiotensina-aldosterona; os níveis plasmáticos de angiotensina II encontram-se marcadamente elevados.",
+    lab:null,
+    question:"Qual dos seguintes pares de alterações melhor descreve o efeito esperado dos níveis elevados de angiotensina II sobre o fluxo plasmático renal (FPR) e a taxa de filtração glomerular (TFG)?",
+    opts:[
+      {l:"A",t:"FPR diminui; TFG aumenta"},
+      {l:"B",t:"FPR aumenta; TFG aumenta"},
+      {l:"C",t:"FPR diminui; TFG diminui"},
+      {l:"D",t:"FPR diminui; TFG não se altera"},
+      {l:"E",t:"FPR não se altera; TFG diminui"}
+    ],
+    correct:"C",
+    exp:"Em níveis elevados de angiotensina II (como na hemorragia), o vasoconstritor actua nas arteríolas aferente e eferente. Com concentrações altas, o efeito constritor sobre a arteríola aferente é pronunciado o suficiente para reduzir a pressão hidrostática no capilar glomerular (PCG) e, consequentemente, a TFG. O FPR diminui porque ambas as arteríolas contraem, aumentando a resistência total. Assim, tanto o FPR como a TFG diminuem.",
+    source:"Cap. 6 — Angiotensina II / Regulação do FSR",
+    logic:"Hemorragia → SRAA activado → angiotensina II ↑↑ → constrição aferente + eferente (predominância aferente a altas doses) → PCG ↓ → TFG ↓; resistência total ↑ → FPR ↓.",
+    distractors:[
+      {l:"A",t:"TFG aumenta apenas com baixos níveis de angiotensina II (constrição preferencial da eferente); com níveis altos, a TFG diminui.",src:"Cap. 6 — Angiotensina II"},
+      {l:"B",t:"A angiotensina II é sempre vasoconstritora; o FPR nunca aumenta com a sua acção.",src:"Cap. 6 — Regulação do FSR"},
+      {l:"D",t:"A TFG mantém-se inalterada só se os efeitos aferente e eferente se equilibrarem exactamente; a níveis elevados, a redução aferente predomina.",src:"Cap. 6 — Tabela 6-6"},
+      {l:"E",t:"A constrição de ambas as arteríolas aumenta a resistência total, reduzindo sempre o FPR.",src:"Cap. 6 — Regulação do FSR"}
+    ]
+  },
+  {
+    n:3, level:"L1", domain:"Fisiologia Renal",
+    vinheta:"Um investigador de fisiologia renal pretende medir com rigor a taxa de filtração glomerular (TFG) num voluntário saudável do sexo masculino, com 28 anos. Para o efeito, é planeada a infusão endovenosa de uma substância exógena que permita calcular a TFG a partir da respectiva depuração renal.",
+    lab:null,
+    question:"Qual das seguintes substâncias é o marcador glomerular ideal para determinar a TFG?",
+    opts:[
+      {l:"A",t:"Albumina"},
+      {l:"B",t:"Creatinina"},
+      {l:"C",t:"PAH (ácido para-amino-hipúrico)"},
+      {l:"D",t:"Ureia"},
+      {l:"E",t:"Inulina"}
+    ],
+    correct:"E",
+    exp:"A inulina é o único marcador glomerular perfeito porque: (1) é filtrada livremente pelos capilares glomerulares, sem restrições de tamanho ou carga; (2) não é reabsorvida nem secretada pelo túbulo renal; (3) quando infundida, não altera a TFG. Estas três propriedades garantem que toda a inulina filtrada seja excretada, tornando a sua depuração exactamente igual à TFG (120 mL/min em condições normais).",
+    source:"Cap. 6 — Determinação da TFG / Depuração da Inulina",
+    logic:"Marcador ideal = filtração livre + sem reabsorção + sem secreção → D(marcador) = TFG. Só a inulina cumpre as 3 condições.",
+    distractors:[
+      {l:"A",t:"A albumina não é filtrada (grande dimensão e carga negativa); a sua depuração é próxima de zero.",src:"Cap. 6 — Depuração de Várias Substâncias"},
+      {l:"B",t:"A creatinina é filtrada mas também secretada em pequenas quantidades, pelo que a sua depuração sobrestima ligeiramente a TFG. Usada por conveniência clínica, não como padrão.",src:"Cap. 6 — Outros Marcadores de TFG"},
+      {l:"C",t:"O PAH é filtrado e secretado; a sua depuração mede o fluxo plasmático renal efetivo (FPRe), não a TFG.",src:"Cap. 6 — PAH — Exemplo de Secreção"},
+      {l:"D",t:"A ureia é filtrada e parcialmente reabsorvida no túbulo proximal; a sua depuração subestima a TFG.",src:"Cap. 6 — Ureia — Reabsorção Passiva"}
+    ]
+  },
+  {
+    n:4, level:"L2", domain:"Fisiologia Renal / Patologia",
+    vinheta:"Uma mulher de 72 anos é trazida ao serviço de urgência por vómitos persistentes com três dias de evolução, sem conseguir manter qualquer ingestão oral. Os sinais vitais são: FC 102/min, PA 98/64 mmHg, T 36,8 ºC, SpO₂ 97%. O exame físico revela mucosas secas, turgência cutânea diminuída e ausência de edemas. Os resultados analíticos são os seguintes:",
+    lab:[
+      {param:"BUN",val:"56 mg/dL",ref:"N: 7–20"},
+      {param:"Creatinina sérica",val:"2,0 mg/dL",ref:"N: 0,6–1,2"},
+      {param:"Relação BUN/creatinina",val:"28",ref:"N: 10–20"}
+    ],
+    question:"Qual dos seguintes mecanismos é responsável pelo valor elevado da relação BUN/creatinina nesta doente?",
+    opts:[
+      {l:"A",t:"A creatinina é secretada pelos túbulos, diluindo a sua concentração sérica"},
+      {l:"B",t:"A ureia é secretada pelos túbulos, elevando a concentração sérica"},
+      {l:"C",t:"A reabsorção tubular de ureia está aumentada, enquanto a creatinina não é reabsorvida"},
+      {l:"D",t:"A TFG aumenta selectivamente a filtração de ureia em relação à creatinina"},
+      {l:"E",t:"A creatinina é metabolizada pelos túbulos renais, reduzindo o seu nível sérico"}
+    ],
+    correct:"C",
+    exp:"Na contracção de volume (azotemia pré-renal), a redução do FSR reduz a TFG, aumentando ambas BUN e creatinina sérica. Contudo, como a ureia é reabsorvida no túbulo proximal (junto com Na⁺ e outros solutos) e a creatinina não é reabsorvida, o BUN sobe desproporcionalmente. Relação BUN/creatinina > 20 é indicador de azotemia pré-renal.",
+    source:"Cap. 6 — Outros Marcadores de TFG / BUN e creatinina sérica",
+    logic:"Contracção de volume → TFG ↓ → BUN ↑ e creatinina ↑. Mas: ureia reabsorvida no proximal (↑↑ com contracção) + creatinina não reabsorvida → BUN sobe mais → BUN/creatinina > 20 → azotemia pré-renal.",
+    distractors:[
+      {l:"A",t:"A creatinina é levemente secretada (não reabsorvida), o que tenderia a aumentar a sua excreção urinária, não a diluir a concentração sérica.",src:"Cap. 6 — Outros Marcadores de TFG"},
+      {l:"B",t:"A ureia é reabsorvida, não secretada. A secreção aumentaria a excreção urinária, não a sérica.",src:"Cap. 6 — Ureia — Reabsorção Passiva"},
+      {l:"D",t:"A filtração glomerular não distingue selectivamente entre ureia e creatinina; ambas são filtradas livremente.",src:"Cap. 6 — Determinação da TFG"},
+      {l:"E",t:"Os túbulos renais não metabolizam a creatinina; é um produto metabólico estável do músculo.",src:"Cap. 6 — Outros Marcadores de TFG"}
+    ]
+  },
+  {
+    n:5, level:"L2", domain:"Fisiologia Renal",
+    vinheta:"Num modelo experimental de fisiologia renal, baixas concentrações de angiotensina II são administradas por perfusão intra-arterial renal de forma a actuar selectivamente na arteríola eferente, aumentando a sua resistência vascular, sem efeito relevante sobre a arteríola aferente.",
+    lab:null,
+    question:"Qual dos seguintes pares de alterações descreve correctamente o efeito esperado sobre o fluxo plasmático renal (FPR) e a taxa de filtração glomerular (TFG)?",
+    opts:[
+      {l:"A",t:"FPR aumenta; TFG aumenta"},
+      {l:"B",t:"FPR diminui; TFG diminui"},
+      {l:"C",t:"FPR não se altera; TFG aumenta"},
+      {l:"D",t:"FPR diminui; TFG aumenta"},
+      {l:"E",t:"FPR aumenta; TFG não se altera"}
+    ],
+    correct:"D",
+    exp:"A constrição da arteríola eferente impede o sangue de sair livremente do capilar glomerular, aumentando a pressão hidrostática no capilar glomerular (PCG) e a pressão efectiva de ultrafiltração → TFG aumenta. Contudo, o aumento da resistência arteriolar eferente reduz o FPR. A fração de filtração (TFG/FPR) aumenta, concentrando as proteínas no sangue capilar peritubular.",
+    source:"Cap. 6 — Tabela 6-6 / Figura 6-11B",
+    logic:"Constrição eferente → sangue acumula no capilar glomerular → PCG ↑ → ultrafiltração ↑ → TFG ↑. Resistência total ↑ → FPR ↓.",
+    distractors:[
+      {l:"A",t:"O FPR não aumenta; a constrição de qualquer arteríola aumenta a resistência total e reduz o FPR.",src:"Cap. 6 — Tabela 6-6"},
+      {l:"B",t:"Este padrão (FPR↓, TFG↓) corresponde à constrição da arteríola aferente, não da eferente.",src:"Cap. 6 — Figura 6-11A"},
+      {l:"C",t:"O FPR diminui (não se mantém inalterado) porque a resistência arteriolar eferente aumenta.",src:"Cap. 6 — Tabela 6-6"},
+      {l:"E",t:"A TFG aumenta (não se mantém inalterada) com a constrição eferente, por aumento da PCG.",src:"Cap. 6 — Tabela 6-6"}
+    ]
+  },
+  {
+    n:6, level:"L2", domain:"Fisiologia Renal / Patologia",
+    vinheta:"Um rapaz de 6 anos é trazido à consulta de pediatria por edema facial com duas semanas de evolução, mais marcado pela manhã, e edema dos membros inferiores ao fim do dia. A mãe refere que a urina tem aspecto espumoso. Não tem antecedentes pessoais de relevo. O exame físico revela edema palpebral bilateral e edema com godet nos membros inferiores. Os estudos analíticos confirmam proteinúria maciça (>3,5 g/dia) e hipoalbuminemia. O diagnóstico de síndrome nefrótica é estabelecido. A biópsia renal demonstra perda das glicoproteínas com carga negativa da barreira de filtração glomerular.",
+    lab:null,
+    question:"Qual das seguintes alternativas melhor explica o aumento da filtração de proteínas plasmáticas neste doente?",
+    opts:[
+      {l:"A",t:"A filtração de proteínas diminui porque o tamanho dos poros fica reduzido"},
+      {l:"B",t:"A filtração de proteínas aumenta porque a barreira perde a repulsão electrostática sobre as proteínas"},
+      {l:"C",t:"A filtração de proteínas não se altera porque o tamanho molecular das proteínas é o factor determinante exclusivo"},
+      {l:"D",t:"A filtração de pequenos solutos como o Na⁺ e o K⁺ fica marcadamente aumentada"},
+      {l:"E",t:"A filtração de proteínas diminui porque a pressão oncótica glomerular aumenta"}
+    ],
+    correct:"B",
+    exp:"As glicoproteínas com carga negativa presentes no endotélio, membrana basal e podócitos repelem as proteínas plasmáticas (que têm carga negativa efectiva ao pH fisiológico). Quando estas cargas são perdidas (como em certas glomerulopatias), a repulsão electrostática cessa e as proteínas são filtradas em maior quantidade → proteinúria, sinal cardinal da síndrome nefrótica.",
+    source:"Cap. 6 — Carga Negativa da Barreira dos Capilares Glomerulares",
+    logic:"Cargas negativas fixas na barreira → repulsão de proteínas plasmáticas (negativas) → filtração mínima. Perda das cargas → repulsão eliminada → proteínas filtradas em excesso → proteinúria.",
+    distractors:[
+      {l:"A",t:"A perda de cargas negativas não altera o tamanho dos poros; o mecanismo é electrostático, não mecânico.",src:"Cap. 6 — Camadas do Capilar Glomerular"},
+      {l:"C",t:"Para grandes moléculas como proteínas, tanto o tamanho como a carga determinam a filtrabilidade; a carga é especialmente relevante quando os diâmetros moleculares se aproximam dos poros.",src:"Cap. 6 — Carga Negativa da Barreira"},
+      {l:"D",t:"Para pequenos solutos (Na⁺, K⁺, Cl⁻), as cargas da barreira têm pouco efeito — são filtrados livremente independentemente da carga.",src:"Cap. 6 — Carga Negativa da Barreira"},
+      {l:"E",t:"A filtração de proteínas aumenta (não diminui); a pressão oncótica glomerular não aumenta por este mecanismo.",src:"Cap. 6 — Carga Negativa da Barreira"}
+    ]
+  },
+  {
+    n:7, level:"L1", domain:"Fisiologia Renal",
+    vinheta:"Um homem de 52 anos recorre ao serviço de urgência por dor lombar esquerda de início súbito, tipo cólica, com irradiação para a fossa ilíaca esquerda e genitais externos, e hematúria macroscópica. Os sinais vitais são: FC 88/min, PA 138/86 mmHg, T 37,1 ºC, SpO₂ 98%. O exame físico revela dor à punho-percussão lombar esquerda. A urografia por TC demonstra obstrução completa do ureter esquerdo por cálculo de 8 mm na sua porção média, com dilatação pielocalicial homolateral.",
+    lab:null,
+    question:"Qual é o efeito esperado da obstrução ureteral completa sobre a taxa de filtração glomerular (TFG) do rim esquerdo?",
+    opts:[
+      {l:"A",t:"TFG aumenta, porque a resistência à saída de urina força mais filtração"},
+      {l:"B",t:"TFG não se altera, porque a autorregulação compensa a obstrução"},
+      {l:"C",t:"TFG diminui, porque a pressão hidrostática no espaço de Bowman aumenta"},
+      {l:"D",t:"TFG diminui, porque a pressão oncótica glomerular aumenta"},
+      {l:"E",t:"TFG aumenta, porque a pressão hidrostática no capilar glomerular aumenta"}
+    ],
+    correct:"C",
+    exp:"Com a obstrução ureteral, a urina não pode fluir para a bexiga, causando refluxo e aumento progressivo da pressão hidrostática intratubular até o espaço de Bowman. A PEB (pressão hidrostática no espaço de Bowman) é uma força que se opõe à filtração (sinal negativo na equação de Starling). O aumento da PEB reduz a pressão efectiva de ultrafiltração → TFG diminui.",
+    source:"Cap. 6 — Alterações nas Pressões de Starling (constrição do ureter)",
+    logic:"Obstrução ureteral → urina não flui → pressão ↑ nos néfrons → PEB ↑ → pressão efectiva de ultrafiltração = PCG − PEB − πCG diminui → TFG ↓.",
+    distractors:[
+      {l:"A",t:"A obstrução não promove filtração; a pressão retrógrada opõe-se à filtração glomerular.",src:"Cap. 6 — Equação de Starling"},
+      {l:"B",t:"A autorregulação actua sobre variações da pressão arterial, não sobre obstáculos ao escoamento tubular.",src:"Cap. 6 — Autorregulação"},
+      {l:"D",t:"A pressão oncótica glomerular (πCG) é determinada pela concentração proteica do sangue glomerular, não pela obstrução ureteral.",src:"Cap. 6 — Forças de Starling"},
+      {l:"E",t:"A pressão hidrostática do capilar glomerular (PCG) não é afectada pela obstrução ureteral — só a PEB aumenta.",src:"Cap. 6 — Tabela 6-6"}
+    ]
+  },
+  {
+    n:8, level:"L2", domain:"Fisiologia Renal",
+    vinheta:"Num modelo experimental de fisiologia renal, a constrição selectiva da arteríola eferente de um rim isolado provoca um aumento da fração de filtração de 20% para 30%, mantendo-se constante o fluxo plasmático renal total.",
+    lab:null,
+    question:"Qual é o efeito esperado sobre a pressão oncótica do sangue nos capilares peritubulares?",
+    opts:[
+      {l:"A",t:"A pressão oncótica peritubular diminui, porque menos proteínas chegam aos capilares peritubulares"},
+      {l:"B",t:"A pressão oncótica peritubular não se altera, porque as proteínas não são filtradas"},
+      {l:"C",t:"A pressão oncótica peritubular aumenta, porque as proteínas ficam concentradas no sangue após filtração aumentada"},
+      {l:"D",t:"A pressão oncótica peritubular diminui, porque o volume de plasma nos capilares peritubulares aumenta"},
+      {l:"E",t:"A pressão oncótica peritubular aumenta, porque a reabsorção de Na⁺ no túbulo proximal é inibida"}
+    ],
+    correct:"C",
+    exp:"Quando a fração de filtração aumenta, mais plasma é filtrado para fora do capilar glomerular. As proteínas (impermeáveis à barreira glomerular) ficam retidas no sangue que atravessa a arteríola eferente. Este sangue — que se torna sangue capilar peritubular — fica com concentração proteica mais elevada e maior pressão oncótica (πc). Esta πc peritubular elevada é a força impulsora da reabsorção de líquido no túbulo proximal.",
+    source:"Cap. 6 — Fração de Filtração / Forças de Starling nos capilares peritubulares",
+    logic:"Fração de filtração ↑ → mais plasma filtrado → proteínas concentram-se no sangue remanescente → πc peritubular ↑ → favorece reabsorção proximal.",
+    distractors:[
+      {l:"A",t:"As proteínas não são filtradas e acumulam-se no sangue; a concentração proteica peritubular aumenta, não diminui.",src:"Cap. 6 — Fração de Filtração"},
+      {l:"B",t:"Embora as proteínas não sejam filtradas, quando mais plasma (sem proteínas) é filtrado, as proteínas ficam mais concentradas — a pressão oncótica aumenta.",src:"Cap. 6 — Fração de Filtração"},
+      {l:"D",t:"O volume de plasma nos capilares peritubulares diminui (não aumenta), porque mais foi filtrado; o que resta fica mais concentrado em proteínas.",src:"Cap. 6 — Fração de Filtração"},
+      {l:"E",t:"A πc peritubular elevada favorece (não inibe) a reabsorção proximal de Na⁺.",src:"Cap. 6 — Balanço Glomerulotubular"}
+    ]
+  },
+  {
+    n:9, level:"L1", domain:"Fisiologia Renal / Bioquímica",
+    vinheta:"Um homem de 24 anos, saudável, sem antecedentes pessoais de relevo e sem medicação habitual, é submetido a uma avaliação de fisiologia renal em contexto de investigação. Os valores de glicemia em jejum encontram-se dentro dos parâmetros de normalidade, e a urina não apresenta glicosúria. Sabe-se que, nas condições basais, a totalidade da glicose filtrada pelo glomérulo é reabsorvida no túbulo convoluto proximal.",
+    lab:null,
+    question:"Qual é o mecanismo de entrada da glicose através da membrana luminal das células epiteliais tubulares proximais?",
+    opts:[
+      {l:"A",t:"Difusão facilitada via GLUT1 e GLUT2 na membrana luminal"},
+      {l:"B",t:"Transporte activo primário directamente alimentado por ATP na membrana luminal"},
+      {l:"C",t:"Cotransporte Na⁺-glicose (TSG) — transporte activo secundário"},
+      {l:"D",t:"Difusão simples a favor do gradiente de concentração de glicose"},
+      {l:"E",t:"Troca Na⁺-H⁺ acoplada à captação de glicose"}
+    ],
+    correct:"C",
+    exp:"O cotransportador Na⁺-glicose (TSG) na membrana luminal transporta simultaneamente 2 iões Na⁺ e 1 molécula de glicose. A glicose é transportada contra o seu gradiente electroquímico, usando a energia do gradiente de Na⁺ mantido pela Na⁺-K⁺ ATPase basolateral. Como a energia é derivada indiretamente do ATP (via gradiente de Na⁺), classifica-se como transporte activo secundário. Na membrana basolateral, a glicose sai por difusão facilitada (GLUT1 e GLUT2).",
+    source:"Cap. 6 — Mecanismo Celular de Reabsorção de Glicose (Figura 6-14)",
+    logic:"Glicose no lúmen → TSG na membrana luminal (cotransporte Na⁺-glicose) → energia do gradiente de Na⁺ (mantido pela Na⁺-K⁺ ATPase basolateral) → transporte activo secundário. Saída basolateral: difusão facilitada (GLUT1/GLUT2).",
+    distractors:[
+      {l:"A",t:"O GLUT1 e GLUT2 estão na membrana basolateral (não luminal) e medeiam a saída de glicose da célula para o sangue peritubular.",src:"Cap. 6 — Mecanismo Celular de Reabsorção de Glicose"},
+      {l:"B",t:"Não há ATPase de glicose na membrana luminal; o transporte activo primário directo é da Na⁺-K⁺ ATPase e H⁺-K⁺ ATPase, não do transporte de glicose.",src:"Cap. 6 — Mecanismo Celular de Reabsorção de Glicose"},
+      {l:"D",t:"A glicose é transportada contra o seu gradiente (do lúmen para a célula); a difusão simples não é possível.",src:"Cap. 6 — Mecanismo Celular de Reabsorção de Glicose"},
+      {l:"E",t:"O trocador Na⁺-H⁺ reabsorve Na⁺ e HCO₃⁻ no início do túbulo proximal; não tem papel no transporte de glicose.",src:"Cap. 6 — Porção Inicial do Túbulo Convoluto Proximal"}
+    ]
+  },
+  {
+    n:10, level:"L1", domain:"Fisiologia Renal",
+    vinheta:"Durante uma aula prática de fisiologia renal, um estudante de medicina analisa o processamento tubular do sódio. Sabe-se que, para manter o balanço de Na⁺, o rim reabsorve mais de 99% da carga filtrada, distribuindo esta reabsorção pelos diferentes segmentos do néfron em proporções bem definidas.",
+    lab:null,
+    question:"Qual dos seguintes segmentos do néfron é responsável pela maior percentagem de reabsorção de Na⁺?",
+    opts:[
+      {l:"A",t:"Ramo ascendente espesso da alça de Henle — 25%"},
+      {l:"B",t:"Túbulo convoluto proximal — 67%"},
+      {l:"C",t:"Trecho final do túbulo distal e ductos coletores — 3%"},
+      {l:"D",t:"Trecho inicial do túbulo distal — 5%"},
+      {l:"E",t:"Ductos coletores medulares — 10%"}
+    ],
+    correct:"B",
+    exp:"O túbulo convoluto proximal reabsorve dois terços (67%) da carga filtrada de Na⁺ — a maior porção de qualquer segmento. Esta reabsorção é isosmótica: a água acompanha sempre o Na⁺ em proporções iguais. A seguir: ramo ascendente espesso (25%), trecho inicial do túbulo distal (5%), trecho final do túbulo distal e ductos coletores (3%), com excreção final < 1%.",
+    source:"Cap. 6 — Processamento Global do Na⁺ (Figura 6-19)",
+    logic:"Carga filtrada → proximal (67%) → alça espessa (25%) → distal inicial (5%) → distal final + coletores (3%) → excreção < 1%.",
+    distractors:[
+      {l:"A",t:"O ramo ascendente espesso reabsorve 25% — segundo segmento mais importante, mas não o principal.",src:"Cap. 6 — Processamento Global do Na⁺"},
+      {l:"C",t:"O trecho final do túbulo distal e ductos coletores reabsorvem apenas 3%; são locais de ajuste fino.",src:"Cap. 6 — Processamento Global do Na⁺"},
+      {l:"D",t:"O trecho inicial do túbulo distal reabsorve apenas 5% da carga filtrada.",src:"Cap. 6 — Trecho Inicial do Túbulo Distal"},
+      {l:"E",t:"Este valor (10%) não corresponde a nenhum segmento descrito no texto.",src:"Cap. 6 — Processamento Global do Na⁺"}
+    ]
+  },
+  {
+    n:11, level:"L1", domain:"Fisiologia Renal / Farmacologia",
+    vinheta:"Uma mulher de 68 anos com insuficiência cardíaca crónica é seguida em consulta de cardiologia. Refere agravamento progressivo da dispneia de esforço e edema dos membros inferiores com duas semanas de evolução. Os sinais vitais são: FC 88/min, PA 142/90 mmHg, FR 20/min, SpO₂ 94%. O exame físico revela crepitações bibasais à auscultação pulmonar e edema com godet bilateral até ao joelho. A médica decide iniciar terapêutica com furosemida endovenosa para promover diurese.",
+    lab:null,
+    question:"Qual é o mecanismo de acção molecular da furosemida no néfron?",
+    opts:[
+      {l:"A",t:"Inibe o cotransportador Na⁺-Cl⁻ no trecho inicial do túbulo distal"},
+      {l:"B",t:"Bloqueia os canais de Na⁺ epiteliais (CNaE) no ducto coletor"},
+      {l:"C",t:"Antagoniza a aldosterona nos seus receptores nucleares"},
+      {l:"D",t:"Inibe o cotransportador Na⁺-K⁺-2Cl⁻ no ramo ascendente espesso"},
+      {l:"E",t:"Inibe a anidrase carbónica no túbulo proximal"}
+    ],
+    correct:"D",
+    exp:"Os diuréticos de alça (furosemida, bumetanida, ácido etacrínico) são ácidos orgânicos que, ao pH fisiológico, existem como aniões. Ligam-se ao sítio do Cl⁻ no cotransportador Na⁺-K⁺-2Cl⁻ da membrana luminal do ramo ascendente espesso, impedindo o seu ciclo de transporte. Em doses máximas, inibem completamente a reabsorção de NaCl neste segmento, podendo causar excreção de mais de 25% do Na⁺ filtrado — são os diuréticos mais potentes.",
+    source:"Cap. 6 — Ramo Ascendente Espesso (diuréticos de alça)",
+    logic:"Furosemida (ânião) → sítio do Cl⁻ no Na⁺-K⁺-2Cl⁻ → cotransportador incapaz de completar o ciclo → reabsorção de NaCl no ramo espesso cessa → até 25% do Na⁺ filtrado excretado.",
+    distractors:[
+      {l:"A",t:"Este é o mecanismo dos diuréticos tiazídicos (inibição do cotransportador Na⁺-Cl⁻ no túbulo distal inicial).",src:"Cap. 6 — Trecho Inicial do Túbulo Distal"},
+      {l:"B",t:"O bloqueio dos CNaE é o mecanismo da amilorida e do triantereno (diuréticos poupadores de K⁺).",src:"Cap. 6 — Trecho Final do Túbulo Distal e Ducto Coletor"},
+      {l:"C",t:"O antagonismo dos receptores de aldosterona é o mecanismo da espironolactona (diurético poupador de K⁺), não dos diuréticos de alça.",src:"Cap. 6 — Aldosterona"},
+      {l:"E",t:"A inibição da anidrase carbónica é o mecanismo de fármacos como a acetazolamida, que actuam no túbulo proximal e têm efeito diurético muito mais fraco.",src:"Cap. 6 — Tabela 6-7"}
+    ]
+  },
+  {
+    n:12, level:"L1", domain:"Fisiologia Renal / Endocrinologia",
+    vinheta:"Um homem de 41 anos é referenciado à consulta de endocrinologia por astenia marcada, hipotensão postural e hiperpigmentação cutânea com seis meses de evolução. Os sinais vitais são: FC 96/min, PA 88/56 mmHg em ortostatismo, T 36,4 ºC. Os estudos analíticos confirmam insuficiência supra-renal primária (doença de Addison), com níveis de aldosterona indetectáveis.",
+    lab:null,
+    question:"Qual é o efeito mais directo da ausência de aldosterona sobre o néfron?",
+    opts:[
+      {l:"A",t:"Redução da reabsorção de Na⁺ no túbulo proximal, com hipocalemia"},
+      {l:"B",t:"Redução da reabsorção de Na⁺ e da secreção de K⁺ no trecho final do túbulo distal e ductos coletores"},
+      {l:"C",t:"Aumento da permeabilidade à água no ducto coletor, com poliúria"},
+      {l:"D",t:"Redução da reabsorção de Na⁺ no ramo ascendente espesso, com hiponatremia"},
+      {l:"E",t:"Inibição da síntese de aquaporinas, com diabetes insípido nefrogénico"}
+    ],
+    correct:"B",
+    exp:"A aldosterona actua nas células principais do trecho final do túbulo distal e ductos coletores. Induz a síntese de canais de Na⁺ epiteliais (CNaE) na membrana luminal, da Na⁺-K⁺ ATPase basolateral e de enzimas metabólicas. Na ausência de aldosterona, estas proteínas não são sintetizadas: a reabsorção de Na⁺ diminui e a secreção de K⁺ também diminui → perda de Na⁺ e retenção de K⁺ (hipercalemia).",
+    source:"Cap. 6 — Trecho Final do Túbulo Distal e Ducto Coletor / Aldosterona",
+    logic:"Sem aldosterona → sem activação de receptores nucleares nas células principais → sem síntese de CNaE e Na⁺-K⁺ ATPase → reabsorção de Na⁺ ↓ + secreção de K⁺ ↓ → excreção de Na⁺ ↑ + hipercalemia.",
+    distractors:[
+      {l:"A",t:"A aldosterona não actua no túbulo proximal; a reabsorção proximal de Na⁺ é regulada pela angiotensina II e forças de Starling peritubulares.",src:"Cap. 6 — Tabela 6-7"},
+      {l:"C",t:"A permeabilidade à água nos ductos coletores é regulada pelo ADH, não pela aldosterona.",src:"Cap. 6 — ADH / Tabela 6-7"},
+      {l:"D",t:"No ramo ascendente espesso, a reabsorção de Na⁺ é mediada pelo Na⁺-K⁺-2Cl⁻; este segmento não é controlado directamente pela aldosterona.",src:"Cap. 6 — Tabela 6-7"},
+      {l:"E",t:"A regulação das aquaporinas é função do ADH; a aldosterona não controla a síntese de aquaporinas.",src:"Cap. 6 — ADH / Aquaporinas"}
+    ]
+  },
+  {
+    n:13, level:"L2", domain:"Fisiologia Renal / Farmacologia",
+    vinheta:"Dois doentes com hiperaldosteronismo primário confirmado e hipocalemia são tratados com diuréticos poupadores de K⁺: o doente A recebe espironolactona e o doente B recebe amilorida. Ambos têm níveis circulantes de aldosterona marcadamente elevados.",
+    lab:null,
+    question:"Em qual dos doentes a inibição da reabsorção de Na⁺ no túbulo distal persistiria mesmo perante níveis muito elevados de aldosterona, e porquê?",
+    opts:[
+      {l:"A",t:"No doente com espironolactona, porque bloqueia irreversivelmente o receptor de aldosterona"},
+      {l:"B",t:"No doente com amilorida, porque bloqueia directamente os canais de Na⁺ independentemente dos níveis de aldosterona"},
+      {l:"C",t:"Em ambos os doentes, porque os dois fármacos actuam no mesmo alvo molecular"},
+      {l:"D",t:"No doente com espironolactona, porque estimula a síntese de novos canais de Na⁺"},
+      {l:"E",t:"Em nenhum dos doentes, porque a aldosterona sempre supera os efeitos destes diuréticos"}
+    ],
+    correct:"B",
+    exp:"A espironolactona é um antagonista competitivo da aldosterona: impede a aldosterona de entrar no núcleo das células principais e induzir a síntese de proteínas. Com aldosterona muito elevada, a competição pode ser ultrapassada. A amilorida actua directamente nos canais de Na⁺ (CNaE) na membrana luminal, bloqueando o canal independentemente dos níveis de aldosterona. Portanto, a amilorida mantém a inibição mesmo com aldosterona muito elevada.",
+    source:"Cap. 6 — Trecho Final do Túbulo Distal (espironolactona, amilorida, triantereno)",
+    logic:"Espironolactona = antagonista competitivo do receptor de aldosterona → pode ser superada por [aldosterona] muito alta. Amilorida = bloqueia directamente CNaE na membrana luminal → eficaz independentemente dos níveis de aldosterona.",
+    distractors:[
+      {l:"A",t:"A espironolactona é um antagonista competitivo (não irreversível); concentrações elevadas de aldosterona podem superar o bloqueio.",src:"Cap. 6 — Aldosterona / Diuréticos Poupadores de K⁺"},
+      {l:"C",t:"Os alvos moleculares são distintos: espironolactona actua no receptor nuclear; amilorida actua nos CNaE da membrana luminal.",src:"Cap. 6 — Diuréticos Poupadores de K⁺"},
+      {l:"D",t:"A espironolactona inibe a síntese de novas proteínas (ao bloquear a translocação nuclear da aldosterona); não estimula a síntese de canais.",src:"Cap. 6 — Aldosterona"},
+      {l:"E",t:"A amilorida é eficaz independentemente dos níveis de aldosterona; esta afirmação está incorrecta para a amilorida.",src:"Cap. 6 — Diuréticos Poupadores de K⁺"}
+    ]
+  },
+  {
+    n:14, level:"L2", domain:"Fisiologia Renal / Acidobásico",
+    vinheta:"Um homem de 58 anos com insuficiência renal crónica avançada é admitido no serviço de urgência por astenia marcada e palpitações. Os sinais vitais são: FC 58/min, PA 156/94 mmHg. O ECG mostra ondas T apiculadas. Os resultados analíticos são os seguintes:",
+    lab:[
+      {param:"pH arterial",val:"7,10",ref:"N: 7,35–7,45"},
+      {param:"HCO₃⁻",val:"10 mEq/L",ref:"N: 22–26"},
+      {param:"K⁺ sérico",val:"6,8 mEq/L",ref:"N: 3,5–5,0"}
+    ],
+    question:"Qual é o mecanismo responsável pela hipercalemia associada à acidemia metabólica neste doente?",
+    opts:[
+      {l:"A",t:"O H⁺ activa a Na⁺-K⁺ ATPase, bombeando K⁺ para fora das células"},
+      {l:"B",t:"A acidose aumenta a excreção renal de K⁺, reduzindo o K⁺ intracelular"},
+      {l:"C",t:"O H⁺ entra nas células em troca de K⁺, elevando a concentração sérica de K⁺"},
+      {l:"D",t:"A hiperosmolaridade associada à acidose arrasta o K⁺ para o espaço extracelular"},
+      {l:"E",t:"Os agonistas β₂-adrenérgicos libertados na acidose deslocam o K⁺ para o exterior das células"}
+    ],
+    correct:"C",
+    exp:"Na acidemia, a concentração extracelular de H⁺ está elevada. Para tamponar o H⁺ usando os tampões intracelulares, o H⁺ entra nas células. Para preservar a electroneutralidade, o H⁺ é trocado por K⁺: quando o H⁺ entra, o K⁺ sai. Este movimento de K⁺ para fora do compartimento intracelular aumenta a concentração extracelular de K⁺, causando hipercalemia. Nota: este mecanismo é específico de acidose por acumulação de ácidos inorgânicos; na acidose respiratória ou por ácidos orgânicos pode não ocorrer.",
+    source:"Cap. 6 — Anormalidades Acidobásicas (Balanço Interno de K⁺)",
+    logic:"Acidemia → [H⁺] extracelular ↑ → H⁺ entra nas células (tamponamento) → troca com K⁺ (electroneutralidade) → K⁺ sai das células → [K⁺] extracelular ↑ → hipercalemia.",
+    distractors:[
+      {l:"A",t:"A acidemia inibe (não activa) a Na⁺-K⁺ ATPase; além disso, a bomba transporta K⁺ para dentro das células, não para fora.",src:"Cap. 6 — Balanço Interno de K⁺"},
+      {l:"B",t:"O mecanismo da hipercalemia aguda é o deslocamento trans-celular (H⁺-K⁺), não a alteração da excreção renal.",src:"Cap. 6 — Anormalidades Acidobásicas"},
+      {l:"D",t:"A hiperosmolaridade por si causa hipercalemia por arrastamento osmótico, mas este não é o mecanismo principal na acidose metabólica simples.",src:"Cap. 6 — Osmolaridade (Tabela 6-8)"},
+      {l:"E",t:"Os agonistas β₂-adrenérgicos deslocam o K⁺ para dentro das células (hipocalemia), não para fora.",src:"Cap. 6 — Agonistas e Antagonistas Adrenérgicos"}
+    ]
+  },
+  {
+    n:15, level:"L1", domain:"Fisiologia Renal",
+    vinheta:"Durante uma sessão de fisiologia renal, um estudante analisa as características do líquido tubular ao longo dos diferentes segmentos do néfron. Verifica que, à saída do ramo ascendente espesso da alça de Henle, o líquido tubular apresenta uma osmolaridade de aproximadamente 100 mOsm/L — valor marcadamente inferior ao do plasma (300 mOsm/L) e ao do líquido tubular que entra neste segmento pelo ramo descendente.",
+    lab:null,
+    question:"Por que razão o líquido tubular se torna hiposmótico neste segmento?",
+    opts:[
+      {l:"A",t:"O ramo ascendente espesso secreta água para o lúmen, diluindo o líquido tubular"},
+      {l:"B",t:"A reabsorção de soluto no ramo ascendente espesso é baixa, permitindo a diluição por osmose"},
+      {l:"C",t:"O ramo ascendente espesso reabsorve NaCl activamente mas é impermeável à água, deixando-a no lúmen"},
+      {l:"D",t:"O ramo ascendente espesso reabsorve apenas água (sem soluto), diluindo os solutos restantes"},
+      {l:"E",t:"A aldosterona inibe a reabsorção de NaCl no ramo ascendente espesso, causando diluição"}
+    ],
+    correct:"C",
+    exp:"O ramo ascendente espesso possui o cotransportador Na⁺-K⁺-2Cl⁻ que reabsorve activamente NaCl. A característica distintiva é a sua impermeabilidade à água — propriedade rara entre membranas celulares. Como o soluto é reabsorvido sem que a água o acompanhe, o líquido tubular dilui-se progressivamente, atingindo ~100 mOsm/L à saída. Daí a denominação de «segmento diluidor».",
+    source:"Cap. 6 — Ramo Ascendente Espesso / Etapas da Produção de Urina Hiperosmótica (ponto 2)",
+    logic:"Na⁺-K⁺-2Cl⁻ reabsorve NaCl activamente → mas ramo ascendente espesso é impermeável à água → soluto sai, água fica → líquido tubular torna-se hiposmótico (~100 mOsm/L) = «segmento diluidor».",
+    distractors:[
+      {l:"A",t:"O ramo ascendente espesso não secreta água; a água permanece no lúmen porque este segmento é impermeável à água.",src:"Cap. 6 — Ramo Ascendente Espesso"},
+      {l:"B",t:"A reabsorção de soluto é elevada (25% do Na⁺ filtrado); é precisamente porque o soluto é reabsorvido activamente sem a água que ocorre a diluição.",src:"Cap. 6 — Ramo Ascendente Espesso"},
+      {l:"D",t:"É o contrário: apenas o soluto é reabsorvido, não a água. A reabsorção exclusiva de água concentraria os solutos.",src:"Cap. 6 — Ramo Ascendente Espesso"},
+      {l:"E",t:"A aldosterona actua nas células principais do trecho final do túbulo distal e ductos coletores, não no ramo ascendente espesso.",src:"Cap. 6 — Tabela 6-7"}
+    ]
+  },
+  {
+    n:16, level:"L2", domain:"Fisiologia Renal / Endocrinologia",
+    vinheta:"Uma mulher de 33 anos pratica exercício físico intenso num dia de calor elevado sem ingestão adequada de líquidos. No final do exercício refere sede intensa. Os sinais vitais são: FC 104/min, PA 108/70 mmHg, T 37,8 ºC. Os estudos analíticos mostram osmolaridade plasmática de 298 mOsm/L e níveis séricos de ADH marcadamente elevados. O rim está a produzir urina concentrada em resposta ao ADH circulante.",
+    lab:null,
+    question:"Qual é a sequência correcta do mecanismo intracelular pelo qual o ADH aumenta a permeabilidade à água nas células principais dos ductos coletores?",
+    opts:[
+      {l:"A",t:"ADH → receptor α₁ → Ca²⁺ intracelular → abertura de canais de água"},
+      {l:"B",t:"ADH → receptor V₂ → Gs → adenilato ciclase → AMPc → proteínocinase A → inserção de AQP2 na membrana luminal"},
+      {l:"C",t:"ADH → receptor V₁ → fosfolipase C → IP₃ → inserção de AQP2 na membrana basolateral"},
+      {l:"D",t:"ADH → receptor V₂ → Gi → redução de AMPc → activação directa dos canais de K⁺"},
+      {l:"E",t:"ADH → receptor nuclear → síntese de novas aquaporinas → inserção na membrana luminal"}
+    ],
+    correct:"B",
+    exp:"O ADH liga-se aos receptores V₂ na membrana basolateral das células principais. Estes receptores estão acoplados à proteína G estimulatória (Gs), que activa a adenilato ciclase. A adenilato ciclase converte ATP em AMPc. O AMPc activa a proteínocinase A, que fosforila estruturas intracelulares (microtúbulos/microfilamentos). Isto desencadeia o transporte de vesículas contendo aquaporina 2 (AQP2) e a sua inserção na membrana luminal, aumentando a permeabilidade à água.",
+    source:"Cap. 6 — Hormônio Antidiurético / Mecanismo celular de acção do ADH (Figura 6-41)",
+    logic:"ADH → receptor V₂ (basolateral) → Gs → adenilato ciclase → ATP → AMPc → proteínocinase A → fosforilação → vesículas com AQP2 → inserção na membrana luminal → permeabilidade à água ↑.",
+    distractors:[
+      {l:"A",t:"O receptor α₁ é adrenérgico; o ADH actua no receptor V₂, não em receptores adrenérgicos.",src:"Cap. 6 — Figura 6-41"},
+      {l:"C",t:"Os receptores V₁ associam-se a vasoconstrição (via IP₃/Ca²⁺), não à regulação renal da água; as AQP2 são inseridas na membrana luminal, não basolateral.",src:"Cap. 6 — Figura 6-41"},
+      {l:"D",t:"A proteína Gi inibe a adenilato ciclase (reduz AMPc); o ADH actua via Gs (estimulatória), aumentando o AMPc.",src:"Cap. 6 — Figura 6-41"},
+      {l:"E",t:"O ADH não actua em receptores nucleares (esse é o mecanismo dos esteróides como a aldosterona); actua em receptores de membrana (V₂) via AMPc.",src:"Cap. 6 — Figura 6-41"}
+    ]
+  },
+  {
+    n:17, level:"L3", domain:"Fisiologia Renal / Endocrinologia / Patologia",
+    vinheta:"Dois doentes são admitidos na consulta de nefrologia com quadro de poliúria (>3 L/dia) e urina hiposmótica. O doente A é um homem de 29 anos com antecedentes de traumatismo craniano grave há seis meses; os níveis séricos de ADH estão baixos e, após a administração de ADH exógeno sintético, a osmolaridade urinária normaliza para valores superiores a 800 mOsm/L. O doente B é uma mulher de 42 anos sem antecedentes relevantes; os níveis séricos de ADH estão francamente elevados, mas a administração de ADH exógeno não produz qualquer alteração na osmolaridade urinária.",
+    lab:null,
+    question:"Qual dos seguintes pares de diagnósticos corresponde, respectivamente, ao doente A e ao doente B?",
+    opts:[
+      {l:"A",t:"Doente A: SIADH; Doente B: Diabetes insípido central"},
+      {l:"B",t:"Doente A: Diabetes insípido nefrogénico; Doente B: SIADH"},
+      {l:"C",t:"Doente A: Diabetes insípido central; Doente B: Diabetes insípido nefrogénico"},
+      {l:"D",t:"Ambos os doentes têm diabetes insípido central, com diferentes graus de deficiência de ADH"},
+      {l:"E",t:"Doente A: Polidipsia primária; Doente B: Diabetes insípido central"}
+    ],
+    correct:"C",
+    exp:"Doente A tem diabetes insípido central: o lobo posterior da hipófise produz insuficiente ADH (níveis baixos) → ductos coletores impermeáveis à água → poliúria e urina hiposmótica. O ADH exógeno supre a deficiência e normaliza a osmolaridade. Doente B tem diabetes insípido nefrogénico: o ADH é produzido em resposta à hiperosmolaridade plasmática (por isso está elevado), mas os rins são resistentes ao ADH — os receptores V₂ ou as vias de sinalização estão disfuncionais. O ADH exógeno não produz qualquer efeito.",
+    source:"Cap. 6 — Diabetes Insípido Central / Diabetes Insípido Nefrogénico / Tabela 6-10",
+    logic:"Poliúria + urina hiposmótica → ausência ou ineficácia do ADH. ADH baixo + responde ao ADH exógeno → deficiência de produção → DI central. ADH elevado + não responde ao ADH exógeno → resistência renal → DI nefrogénico.",
+    distractors:[
+      {l:"A",t:"A SIADH caracteriza-se por ADH elevado com urina hiperosmótica e plasma diluído; o doente A tem ADH baixo e urina hiposmótica — incompatível com SIADH.",src:"Cap. 6 — SIADH / Tabela 6-10"},
+      {l:"B",t:"No DI nefrogénico, o ADH está elevado (estimulado pela hiperosmolaridade plasmática), não baixo; a SIADH não causa urina hiposmótica.",src:"Cap. 6 — Tabela 6-10"},
+      {l:"D",t:"No DI central, o ADH está baixo; o doente B tem ADH elevado — exclui o DI central.",src:"Cap. 6 — Diabetes Insípido Central / Tabela 6-10"},
+      {l:"E",t:"Na polidipsia primária, o ADH está suprimido pela ingestão excessiva de água e a osmolaridade plasmática está baixa-normal; os dados do doente A são mais consistentes com DI central.",src:"Cap. 6 — Tabela 6-10"}
+    ]
+  },
+  {
+    n:18, level:"L2", domain:"Fisiologia Renal",
+    vinheta:"Durante uma aula de fisiologia renal, é discutido o mecanismo de multiplicação por contracorrente na alça de Henle, responsável pelo estabelecimento do gradiente osmótico corticopapilar que permite ao rim concentrar a urina. O docente pede ao estudante que identifique o papel específico do ramo ascendente espesso neste processo.",
+    lab:null,
+    question:"Qual das seguintes alternativas descreve correctamente a função do ramo ascendente espesso na multiplicação por contracorrente («efeito isolado»)?",
+    opts:[
+      {l:"A",t:"O ramo ascendente espesso reabsorve água passivamente, concentrando os solutos no lúmen"},
+      {l:"B",t:"O ramo ascendente espesso secreta NaCl para o lúmen, aumentando a osmolaridade do líquido tubular"},
+      {l:"C",t:"O ramo ascendente espesso transporta activamente NaCl para o interstício sem reabsorção de água, diluindo o lúmen e concentrando o interstício"},
+      {l:"D",t:"O ramo ascendente espesso reabsorve ureia activamente, contribuindo para o gradiente corticopapilar"},
+      {l:"E",t:"O ramo ascendente espesso é permeável à água e ao NaCl, equilibrando osmoticamente o lúmen com o interstício"}
+    ],
+    correct:"C",
+    exp:"O «efeito isolado» é a função do ramo ascendente espesso na multiplicação por contracorrente. O cotransportador Na⁺-K⁺-2Cl⁻ transporta NaCl activamente do lúmen para o líquido intersticial, aumentando a osmolaridade do interstício medular. Como este segmento é impermeável à água, a água não pode sair do lúmen para equilibrar o gradiente — o lúmen dilui-se e o interstício concentra-se. O ADH intensifica este processo ao estimular o cotransportador Na⁺-K⁺-2Cl⁻, amplificando o gradiente corticopapilar.",
+    source:"Cap. 6 — Multiplicação por Contracorrente / Efeito Isolado",
+    logic:"Na⁺-K⁺-2Cl⁻ → NaCl do lúmen para o interstício. Impermeabilidade à água do ramo ascendente espesso → água não sai do lúmen. Resultado: interstício hiperosmótico; lúmen hiposmótico → gradiente corticopapilar estabelecido.",
+    distractors:[
+      {l:"A",t:"O ramo ascendente espesso é impermeável à água; não reabsorve água. É o ramo descendente fino que é permeável à água.",src:"Cap. 6 — Ramo Ascendente Espesso"},
+      {l:"B",t:"O NaCl é reabsorvido do lúmen para o interstício, não secretado para o lúmen.",src:"Cap. 6 — Ramo Ascendente Espesso"},
+      {l:"D",t:"A reciclagem de ureia é função dos ductos coletores da medula interna, não do ramo ascendente espesso.",src:"Cap. 6 — Reciclagem da Ureia"},
+      {l:"E",t:"A impermeabilidade à água é a característica essencial do ramo ascendente espesso; se fosse permeável à água e ao NaCl, não poderia estabelecer nenhum gradiente osmótico.",src:"Cap. 6 — Ramo Ascendente Espesso"}
+    ]
+  },
+  {
+    n:19, level:"L2", domain:"Fisiologia Renal / Endocrinologia",
+    vinheta:"Um jovem de 19 anos com diabetes mellitus tipo I diagnosticada há dois anos encontra-se sem tratamento insulínico há 48 horas por esquecimento da sua insulina durante uma viagem. Recorre ao serviço de urgência após ingerir uma refeição rica em K⁺ (frutos secos, banana e leguminosas). À observação, apresenta-se confuso e com fraqueza muscular proximal. O electrocardiograma mostra alargamento do complexo QRS.",
+    lab:null,
+    question:"Qual é o distúrbio electrolítico esperado neste doente e o seu mecanismo fisiopatológico?",
+    opts:[
+      {l:"A",t:"Hipocalemia, porque a ausência de insulina aumenta a excreção renal de K⁺"},
+      {l:"B",t:"Hipercalemia, porque sem insulina o K⁺ ingerido não é captado pelas células"},
+      {l:"C",t:"Hipocalemia, porque a ausência de insulina activa os receptores β₂-adrenérgicos"},
+      {l:"D",t:"Hipercalemia, porque a acidose associada ao diabetes activa a Na⁺-K⁺ ATPase"},
+      {l:"E",t:"Normocalemia, porque os rins compensam rapidamente qualquer alteração do K⁺ sérico"}
+    ],
+    correct:"B",
+    exp:"Normalmente, a ingestão de uma refeição desencadeia a secreção de insulina, que estimula a Na⁺-K⁺ ATPase, promovendo a captação de K⁺ pelas células. Isto protege o LEC de hipercalemia pós-prandial. No diabetes mellitus tipo I sem tratamento, a insulina está ausente: quando o K⁺ é absorvido e entra no LEC, não é deslocado para as células. O K⁺ acumula-se no compartimento extracelular, causando hipercalemia — com repercussões cardíacas graves (alargamento do QRS).",
+    source:"Cap. 6 — Insulina (Balanço Interno de K⁺)",
+    logic:"Refeição com K⁺ → K⁺ absorvido para o LEC → normalmente insulina → Na⁺-K⁺ ATPase → K⁺ entra nas células. Sem insulina (DM tipo I) → sem captação celular → K⁺ acumula no LEC → hipercalemia → toxicidade cardíaca.",
+    distractors:[
+      {l:"A",t:"O papel principal da insulina no balanço de K⁺ é no deslocamento trans-celular (balanço interno), não na excreção renal directa.",src:"Cap. 6 — Insulina"},
+      {l:"C",t:"Os agonistas β₂-adrenérgicos deslocam o K⁺ para dentro das células (hipocalemia); a ausência de insulina não activa estes receptores.",src:"Cap. 6 — Agonistas Adrenérgicos"},
+      {l:"D",t:"A cetoacidose diabética pode contribuir para hipercalemia por troca H⁺-K⁺, mas não por activação da Na⁺-K⁺ ATPase (a acidose geralmente inibe esta bomba).",src:"Cap. 6 — Anormalidades Acidobásicas"},
+      {l:"E",t:"Os mecanismos renais de ajuste de K⁺ são mais lentos e não compensam instantaneamente grandes cargas de K⁺ sem o tamponamento intracelular mediado pela insulina.",src:"Cap. 6 — Balanço Externo do K⁺"}
+    ]
+  },
+  {
+    n:20, level:"L3", domain:"Fisiologia Renal / Farmacologia",
+    vinheta:"Um homem de 47 anos é referenciado à consulta de nefrologia por litíase renal recorrente. Nos últimos quatro anos sofreu três episódios de cólica renal, com expulsão de cálculos de cálcio confirmada por análise composicional. Os estudos metabólicos revelam hipercalciúria idiopática (excreção urinária de Ca²⁺ de 380 mg/24h; N < 250 mg/24h), sem hipercalcemia nem outras alterações. O nefrologista decide iniciar tratamento com hidroclorotiazida. Embora os diuréticos tiazídicos inibam a reabsorção de Na⁺ no trecho inicial do túbulo distal, o doente apresenta redução significativa da excreção urinária de Ca²⁺ após o início da terapêutica.",
+    lab:null,
+    question:"Qual dos seguintes mecanismos explica este efeito paradoxal dos tiazídicos sobre a excreção de Ca²⁺?",
+    opts:[
+      {l:"A",t:"Os tiazídicos estimulam directamente os canais de Ca²⁺ na membrana luminal do túbulo distal"},
+      {l:"B",t:"Os tiazídicos aumentam a secreção de PTH, que estimula a reabsorção de Ca²⁺ no túbulo distal"},
+      {l:"C",t:"A reabsorção de Ca²⁺ e de Na⁺ estão sempre acopladas no túbulo distal; ao inibir o Na⁺, os tiazídicos inibem também o Ca²⁺"},
+      {l:"D",t:"No túbulo distal, a reabsorção de Ca²⁺ está dissociada da de Na⁺; os tiazídicos aumentam a reabsorção de Ca²⁺ por um mecanismo independente (via gradiente de Na⁺ e trocador Na⁺-Ca²⁺)"},
+      {l:"E",t:"Os tiazídicos inibem a reabsorção de Ca²⁺ no ramo ascendente espesso, redireccionando-o para o túbulo distal onde é reabsorvido em maior quantidade"}
+    ],
+    correct:"D",
+    exp:"O túbulo distal é o único segmento do néfron onde a reabsorção de Ca²⁺ está dissociada da de Na⁺. Os tiazídicos inibem o cotransportador Na⁺-Cl⁻ na membrana luminal, reduzindo o Na⁺ intracelular. Esta redução estimula a Na⁺-K⁺ ATPase e o trocador Na⁺-Ca²⁺ na membrana basolateral, aumentando a saída de Ca²⁺ da célula para o sangue → maior reabsorção de Ca²⁺ → menor excreção urinária. Esta propriedade fundamenta o uso dos tiazídicos no tratamento da hipercalciúria idiopática.",
+    source:"Cap. 6 — Cálcio (Túbulo Distal) — desacoplamento das reabsorções distais do Ca²⁺ e do Na⁺",
+    logic:"Tiazídico → inibe Na⁺-Cl⁻ → [Na⁺] intracelular ↓ → Na⁺-K⁺ ATPase + trocador Na⁺-Ca²⁺ mais activos → Ca²⁺ sai da célula para o sangue ↑ → reabsorção de Ca²⁺ ↑ → excreção urinária de Ca²⁺ ↓. Possível porque no túbulo distal Ca²⁺ e Na⁺ estão desacoplados.",
+    distractors:[
+      {l:"A",t:"Os tiazídicos não actuam directamente em canais de Ca²⁺; o mecanismo é indirecto, mediado pela alteração do gradiente de Na⁺.",src:"Cap. 6 — Cálcio (Túbulo Distal)"},
+      {l:"B",t:"Os tiazídicos não têm efeito directo sobre a secreção de PTH; embora o PTH estimule a reabsorção distal de Ca²⁺, este não é o mecanismo dos tiazídicos.",src:"Cap. 6 — Cálcio (Túbulo Distal)"},
+      {l:"C",t:"Esta afirmação descreve o túbulo proximal e o ramo ascendente espesso, não o túbulo distal; no túbulo distal as reabsorções de Ca²⁺ e Na⁺ estão dissociadas — por isso o efeito é oposto.",src:"Cap. 6 — Cálcio (Túbulo Distal)"},
+      {l:"E",t:"Os tiazídicos não actuam no ramo ascendente espesso (esse é o local dos diuréticos de alça, que inibem Ca²⁺); não há redirecionamento de Ca²⁺.",src:"Cap. 6 — Cálcio (Ramo Ascendente Espesso)"}
+    ]
+  }
+];
+
+let cur=0, answered=false, score=0;
+
+function buildLabTable(rows){
+  if(!rows||!rows.length) return '';
+  let h=`<table class="lab-table"><thead><tr><th>Parâmetro</th><th>Valor</th><th>Referência</th></tr></thead><tbody>`;
+  rows.forEach(r=>{ h+=`<tr><td>${r.param}</td><td>${r.val}</td><td>${r.ref}</td></tr>`; });
+  return h+`</tbody></table>`;
+}
+
+function render(){
+  const q=Qs[cur]; answered=false;
+  const pct=Math.round((cur/Qs.length)*100);
+  document.getElementById('progBar').style.width=pct+'%';
+  document.getElementById('progLabel').textContent=`Questão ${cur+1} de ${Qs.length}`;
+  document.getElementById('progPct').textContent=pct+'%';
+  document.getElementById('scorePill').textContent=`${score} / ${cur}`;
+  document.getElementById('qNum').textContent=`Caso ${q.n} / ${Qs.length}`;
+  document.getElementById('qDomain').textContent=q.domain;
+  document.getElementById('qLevel').textContent=q.level;
+  document.getElementById('vinheta').textContent=q.vinheta;
+  document.getElementById('labTableWrap').innerHTML=buildLabTable(q.lab);
+  document.getElementById('questionText').textContent=q.question;
+
+  const oc=document.getElementById('optionsContainer');
+  oc.innerHTML='';
+  q.opts.forEach(o=>{
+    const d=document.createElement('div');
+    d.className='opt'; d.dataset.l=o.l;
+    d.innerHTML=`<span class="letter">${o.l}</span><span>${o.t}</span>`;
+    d.addEventListener('click',()=>pick(o.l));
+    oc.appendChild(d);
+  });
+
+  document.getElementById('expPanel').classList.remove('show');
+  document.getElementById('btnNext').style.display='none';
+}
+
+function pick(chosen){
+  if(answered) return;
+  answered=true;
+  const q=Qs[cur];
+  const ok=chosen===q.correct;
+  if(ok) score++;
+
+  document.querySelectorAll('.opt').forEach(el=>{
+    el.classList.add('disabled');
+    const l=el.dataset.l;
+    if(l===q.correct) el.classList.add('correct');
+    else if(l===chosen&&!ok) el.classList.add('wrong');
+    else el.classList.add('neutral');
+  });
+
+  document.getElementById('expCorrectText').textContent=q.exp;
+  document.getElementById('expSource').textContent='📚 Fonte: Costanzo Fisiologia — '+q.source;
+  document.getElementById('logicText').textContent=q.logic;
+
+  const dl=document.getElementById('distList');
+  dl.innerHTML='';
+  q.distractors.forEach(d=>{
+    const div=document.createElement('div');
+    div.className='dist-item';
+    div.innerHTML=`<span class="dist-tag">${d.l}) Incorrecta</span><p>${d.t}</p><p class="dist-source">📚 ${d.src}</p>`;
+    dl.appendChild(div);
+  });
+
+  document.getElementById('expPanel').classList.add('show');
+  document.getElementById('scorePill').textContent=`${score} / ${cur+1}`;
+
+  const btn=document.getElementById('btnNext');
+  btn.style.display='block';
+  btn.textContent=cur<Qs.length-1?'Próximo Caso →':'Ver Resultado Final';
+
+  // scroll to explanation
+  setTimeout(()=>document.getElementById('expPanel').scrollIntoView({behavior:'smooth',block:'nearest'}),120);
+}
+
+function nextQ(){
+  cur++;
+  if(cur>=Qs.length){showFinish();return;}
+  document.getElementById('expPanel').classList.remove('show');
+  render();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showFinish(){
+  document.getElementById('quizCard').style.display='none';
+  document.getElementById('btnNext').style.display='none';
+  document.getElementById('progBar').style.width='100%';
+  document.getElementById('progPct').textContent='100%';
+  document.getElementById('progLabel').textContent=`${Qs.length} de ${Qs.length} casos`;
+  const pct=Math.round((score/Qs.length)*100);
+  let msg='';
+  if(pct>=85) msg='🏆 Excelente! Domínio sólido da Fisiologia Renal. Estás pronto para o exame.';
+  else if(pct>=65) msg='👍 Bom resultado! Revê os casos onde erraste, focando nos distratores.';
+  else msg='📖 Continua a estudar — volta ao Capítulo 6 do Costanzo e refaz os casos.';
+  document.getElementById('finScore').textContent=`${score} / ${Qs.length}`;
+  document.getElementById('finPct').textContent=`${pct}% de respostas correctas`;
+  document.getElementById('finMsg').textContent=msg;
+  document.getElementById('finishCard').style.display='block';
+}
+
+function restart(){
+  cur=0; score=0;
+  document.getElementById('finishCard').style.display='none';
+  document.getElementById('quizCard').style.display='block';
+  render();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+render();
+</script>
+</body>
+</html>

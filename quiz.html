@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
@@ -6,8 +6,21 @@
   <title>MedQuiz</title>
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* Larger vignette text */
-    .vignette-text { font-size: 1rem; line-height: 1.8; }
+    .vignette-text { font-size: 1.05rem; line-height: 1.85; }
+ 
+    .qcard-header {
+      background: linear-gradient(135deg, var(--quiz-color-dark, #1e3a5f) 0%, var(--quiz-color, #1d4ed8) 100%);
+    }
+    .prog-fill {
+      background: var(--quiz-color, #3b82f6);
+    }
+    .btn-next {
+      background: linear-gradient(135deg, var(--quiz-color-dark, #2563eb), var(--quiz-color, #1d4ed8));
+      box-shadow: 0 2px 8px rgba(29,78,216,.3);
+    }
+    .section-label-inline::before {
+      background: var(--quiz-color, #1d4ed8);
+    }
   </style>
 </head>
 <body>
@@ -95,36 +108,34 @@
 </div><!-- /page -->
  
 <script>
-/* ══════════════════════════════════════════════════════
-   MedQuiz — Universal Quiz Engine
-   Features:
-   · Seeded PRNG — questions AND answer order randomised
-     from a seed generated once per session; the seed is
-     shown so a run can be reproduced if needed.
-   · Letters A-E are always displayed in order; only the
-     text behind each letter changes.
-   · Larger vignette text.
-   · After answering, scrolls so the "Próxima" button is
-     fully visible.
-══════════════════════════════════════════════════════ */
  
 let bank      = null;
-let questions = [];       // shuffled question order for this session
+let questions = [];
 let cur       = 0;
 let score     = 0;
 let answered  = false;
 let sessionSeed = 0;
  
-// Per-question option permutations, built once per session
-// optionMaps[i] = array of original option objects reordered for display
-let optionMaps = [];
-// correctDisplayLetter[i] = which display letter (A-E) is correct for question i
+let optionMaps            = [];
 let correctDisplayLetters = [];
  
-/* ─── Seeded PRNG (Mulberry32) ────────────────────────
-   Returns a function that gives floats in [0, 1).
-   Deterministic for a given seed → same shuffle every
-   time the same seed is used.                          */
+/* ─── Colour helper ─────────────────────────────────── */
+function shadeColor(hex, pct) {
+  const n = parseInt(hex.replace('#',''), 16);
+  const r = Math.min(255, Math.max(0, (n >> 16) + pct));
+  const g = Math.min(255, Math.max(0, ((n >> 8) & 0xff) + pct));
+  const b = Math.min(255, Math.max(0, (n & 0xff) + pct));
+  return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
+}
+ 
+function applyThemeColor(hex) {
+  const color     = hex || '#1d4ed8';
+  const colorDark = shadeColor(color, -35);
+  document.documentElement.style.setProperty('--quiz-color',      color);
+  document.documentElement.style.setProperty('--quiz-color-dark', colorDark);
+}
+ 
+/* ─── Seeded PRNG (Mulberry32) ──────────────────────── */
 function makePRNG(seed) {
   let s = seed >>> 0;
   return function() {
@@ -135,7 +146,7 @@ function makePRNG(seed) {
   };
 }
  
-/* ─── Fisher-Yates shuffle using the PRNG ─────────── */
+/* ─── Fisher-Yates shuffle ──────────────────────────── */
 function shuffle(arr, rng) {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
@@ -145,7 +156,7 @@ function shuffle(arr, rng) {
   return a;
 }
  
-/* ─── Bootstrap ────────────────────────────────────── */
+/* ─── Bootstrap ─────────────────────────────────────── */
 async function boot() {
   const params   = new URLSearchParams(window.location.search);
   const bankFile = params.get('bank');
@@ -170,34 +181,35 @@ async function boot() {
   }
  
   document.title = `MedQuiz — ${bank.meta?.title || bankFile}`;
+ 
+  // Apply theme colour from meta — falls back to default blue
+  applyThemeColor(bank.meta?.color);
+ 
   initSession();
 }
  
 /* ─── Initialise a new randomised session ──────────── */
 function initSession() {
-  // Generate a random seed for this session
   sessionSeed = Math.floor(Math.random() * 2 ** 32);
   const rng   = makePRNG(sessionSeed);
  
   // 1. Shuffle question order
-  const indices = bank.questions.map((_, i) => i);
+  const indices         = bank.questions.map((_, i) => i);
   const shuffledIndices = shuffle(indices, rng);
-  questions = shuffledIndices.map(i => bank.questions[i]);
+  questions             = shuffledIndices.map(i => bank.questions[i]);
  
-  // 2. For each question, shuffle the options and record
-  //    which display letter (A, B, C…) maps to the correct answer
-  const displayLetters = ['A', 'B', 'C', 'D', 'E'];
-  optionMaps           = [];
+  // 2. For each question, shuffle options and track which display
+  //    letter (A-E) maps to the correct answer
+  const displayLetters  = ['A', 'B', 'C', 'D', 'E'];
+  optionMaps            = [];
   correctDisplayLetters = [];
  
   questions.forEach(q => {
-    const shuffledOpts = shuffle(q.options, rng);   // reordered option objects
+    const shuffledOpts = shuffle(q.options, rng);
     optionMaps.push(shuffledOpts);
  
-    // Find which position the correct answer landed in
-    const correctOriginalLetter = q.correct;
-    const correctIdx = shuffledOpts.findIndex(o => o.letter === correctOriginalLetter);
-    correctDisplayLetters.push(displayLetters[correctIdx] ?? correctOriginalLetter);
+    const correctIdx = shuffledOpts.findIndex(o => o.letter === q.correct);
+    correctDisplayLetters.push(displayLetters[correctIdx] ?? q.correct);
   });
  
   cur      = 0;
@@ -208,9 +220,8 @@ function initSession() {
  
 /* ─── Render current question ───────────────────────── */
 function render() {
-  const q           = questions[cur];
-  const displayOpts = optionMaps[cur];          // shuffled options for this question
-  const correctDisp = correctDisplayLetters[cur]; // display letter of correct answer
+  const q              = questions[cur];
+  const displayOpts    = optionMaps[cur];
   const displayLetters = ['A', 'B', 'C', 'D', 'E'];
  
   answered = false;
@@ -240,21 +251,21 @@ function render() {
   // Question
   document.getElementById('questionText').textContent = q.question;
  
-  // Options — displayed as A, B, C, D, E regardless of original letters
+  // Options — always displayed A, B, C, D, E; text shuffled
   const container = document.getElementById('optionsContainer');
   container.innerHTML = '';
   displayOpts.forEach((opt, idx) => {
     const dispLetter = displayLetters[idx];
     const div = document.createElement('div');
     div.className = 'opt';
-    div.dataset.dispLetter = dispLetter;      // what the user sees
-    div.dataset.origLetter = opt.letter;      // original letter in JSON
+    div.dataset.dispLetter = dispLetter;
+    div.dataset.origLetter = opt.letter;
     div.innerHTML = `<span class="letter">${dispLetter}</span><span>${opt.text}</span>`;
     div.addEventListener('click', () => selectAnswer(dispLetter));
     container.appendChild(div);
   });
  
-  // Reset panels
+  // Reset
   document.getElementById('expPanel').classList.remove('show');
   document.getElementById('btnNext').style.display = 'none';
 }
@@ -272,38 +283,31 @@ function selectAnswer(chosenDisp) {
   document.querySelectorAll('.opt').forEach(el => {
     el.classList.add('disabled');
     const l = el.dataset.dispLetter;
-    if      (l === correctDisp && l === chosenDisp) el.classList.add('correct');
-    else if (l === correctDisp)                     el.classList.add('correct');
-    else if (l === chosenDisp)                      el.classList.add('wrong');
-    else                                            el.classList.add('neutral');
+    if      (l === correctDisp) el.classList.add('correct');
+    else if (l === chosenDisp)  el.classList.add('wrong');
+    else                        el.classList.add('neutral');
   });
  
-  // Fill explanation (always use original data from question)
-  const q           = questions[cur];
-  const displayOpts = optionMaps[cur];
+  // Explanation
+  const q              = questions[cur];
+  const displayOpts    = optionMaps[cur];
   const displayLetters = ['A', 'B', 'C', 'D', 'E'];
  
   document.getElementById('expText').textContent   = q.explanation ?? '';
   document.getElementById('expSource').textContent = q.source ? `📚 Fonte: ${q.source}` : '';
   document.getElementById('logicText').textContent = q.logic ?? '';
  
-  // Build distractor list, re-mapped to display letters
-  // Build a lookup: originalLetter → displayLetter
+  // Build original → display letter lookup
   const origToDisp = {};
-  displayOpts.forEach((opt, idx) => {
-    origToDisp[opt.letter] = displayLetters[idx];
-  });
+  displayOpts.forEach((opt, idx) => { origToDisp[opt.letter] = displayLetters[idx]; });
  
-  const distList = document.getElementById('distList');
+  // Distractors sorted by display letter order
+  const distList     = document.getElementById('distList');
+  const displayOrder = ['A','B','C','D','E'];
   distList.innerHTML = '';
  
-  // Show distractors for every option that is NOT the correct one
-  // Use the original distractors array but swap in display letters
-  const correctOrigLetter = q.correct;
-  const displayOrder = ['A','B','C','D','E'];
-
   (q.distractors ?? [])
-    .filter(d => d.letter !== correctOrigLetter)
+    .filter(d => d.letter !== q.correct)
     .sort((a, b) => displayOrder.indexOf(origToDisp[a.letter]) - displayOrder.indexOf(origToDisp[b.letter]))
     .forEach(d => {
       const mappedDisp = origToDisp[d.letter] ?? d.letter;
@@ -319,13 +323,13 @@ function selectAnswer(chosenDisp) {
   document.getElementById('expPanel').classList.add('show');
   document.getElementById('scorePill').textContent = `${score} / ${cur + 1}`;
  
-  const btn     = document.getElementById('btnNext');
+  const btn = document.getElementById('btnNext');
   btn.style.display = 'block';
   btn.textContent   = cur < questions.length - 1 ? 'Próxima →' : 'Ver Resultado';
  
-  // Scroll so the "Próxima" button is fully visible
+  // Scroll so the Próxima button is fully visible
   setTimeout(() => {
-    btn.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }, 120);
 }
  
@@ -364,7 +368,6 @@ function showFinish() {
 function restart() {
   document.getElementById('finishScreen').style.display = 'none';
   document.getElementById('qcard').style.display        = 'block';
-  // New seed → different shuffle on every restart
   initSession();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }

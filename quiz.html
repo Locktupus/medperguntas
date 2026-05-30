@@ -300,19 +300,21 @@ function selectAnswer(chosenDisp) {
   // Show distractors for every option that is NOT the correct one
   // Use the original distractors array but swap in display letters
   const correctOrigLetter = q.correct;
-  (q.distractors ?? []).forEach(d => {
-    // d.letter is the original letter in the JSON
-    const mappedDisp = origToDisp[d.letter] ?? d.letter;
-    // Only show if it's actually a distractor (not the correct answer)
-    if (d.letter === correctOrigLetter) return;
-    const div = document.createElement('div');
-    div.className = 'dist-item';
-    div.innerHTML = `
-      <span class="dist-tag">${mappedDisp}) Incorrecta</span>
-      <p>${d.text}</p>
-      ${d.source ? `<p class="dist-source">📚 ${d.source}</p>` : ''}`;
-    distList.appendChild(div);
-  });
+  const displayOrder = ['A','B','C','D','E'];
+
+  (q.distractors ?? [])
+    .filter(d => d.letter !== correctOrigLetter)
+    .sort((a, b) => displayOrder.indexOf(origToDisp[a.letter]) - displayOrder.indexOf(origToDisp[b.letter]))
+    .forEach(d => {
+      const mappedDisp = origToDisp[d.letter] ?? d.letter;
+      const div = document.createElement('div');
+      div.className = 'dist-item';
+      div.innerHTML = `
+        <span class="dist-tag">${mappedDisp}) Incorrecta</span>
+        <p>${d.text}</p>
+        ${d.source ? `<p class="dist-source">📚 ${d.source}</p>` : ''}`;
+      distList.appendChild(div);
+    });
  
   document.getElementById('expPanel').classList.add('show');
   document.getElementById('scorePill').textContent = `${score} / ${cur + 1}`;

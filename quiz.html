@@ -166,13 +166,29 @@ async function boot() {
     return;
   }
  
-  try {
-    const res = await fetch(`data/${bankFile}`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    bank = await res.json();
-  } catch (e) {
-    showError(`Não foi possível carregar <strong>${bankFile}</strong>.<br>${e.message}<br>Volta à <a href="index.html">página inicial</a>.`);
-    return;
+  // LOCAL: read from localStorage (imported via drag/drop on landing page)
+  if (bankFile === 'local') {
+    const raw = localStorage.getItem('mq_imported_bank');
+    if (!raw) {
+      showError('Nenhum quiz importado encontrado.<br>Volta à <a href="index.html">página inicial</a> e importa um ficheiro JSON.');
+      return;
+    }
+    try { bank = JSON.parse(raw); }
+    catch (_) {
+      showError('Erro ao ler o quiz importado.<br>Volta à <a href="index.html">página inicial</a> e importa novamente.');
+      return;
+    }
+ 
+  // REMOTE: fetch from data/ folder as usual
+  } else {
+    try {
+      const res = await fetch(`data/${bankFile}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      bank = await res.json();
+    } catch (e) {
+      showError(`Não foi possível carregar <strong>${bankFile}</strong>.<br>${e.message}<br>Volta à <a href="index.html">página inicial</a>.`);
+      return;
+    }
   }
  
   if (!bank.questions || !Array.isArray(bank.questions) || !bank.questions.length) {
@@ -180,7 +196,7 @@ async function boot() {
     return;
   }
  
-  document.title = `MedQuiz — ${bank.meta?.title || bankFile}`;
+  document.title = `MedQuiz — ${bank.meta?.title || 'Quiz'}`;
  
   // Apply theme colour from meta — falls back to default blue
   applyThemeColor(bank.meta?.color);

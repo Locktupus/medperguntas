@@ -149,7 +149,7 @@
 <body>
  
 <nav class="topbar">
-  <div class="topbar-logo">🩺 <span style="color:#fff;font-weight:900;font-size:1.1rem;">MedQuiz</span> <span>Fisiologia</span></div>
+  <div class="topbar-logo">🩺 <span style="color:#fff;font-weight:900;font-size:1.1rem;">Compilações de Exercícios</span> <span>Medicina</span></div>
 </nav>
  
 <div class="page">
@@ -257,12 +257,17 @@ async function loadPermanent() {
 }
  
 function makePermCard(bank) {
-  const ti = TYPE_LABELS[bank.type] || { label: bank.type, cls: 'tag-gen' };
-  const lvl = (bank.levels || []).map(l => `<span class="tag tag-l">${l}</span>`).join('');
-  const card = document.createElement('div');
+  const ti    = TYPE_LABELS[bank.type] || { label: bank.type, cls: 'tag-gen' };
+  const lvl   = (bank.levels || []).map(l => `<span class="tag tag-l">${l}</span>`).join('');
+  const color = bank.color || '#1d4ed8';
+  const dark  = shadeColor(color, -35);
+  const card  = document.createElement('div');
   card.className = 'quiz-card';
+  // Apply card accent colour
+  card.style.setProperty('--card-color',      color);
+  card.style.setProperty('--card-color-dark', dark);
   card.innerHTML = `
-    <div class="quiz-card-banner"></div>
+    <div class="quiz-card-banner" style="background:linear-gradient(90deg,${dark},${color})"></div>
     <div class="quiz-card-body">
       <div class="quiz-card-icon">${bank.icon || '📋'}</div>
       <div class="quiz-card-title">${bank.title}</div>
@@ -273,6 +278,8 @@ function makePermCard(bank) {
         ${lvl}
       </div>
     </div>`;
+  card.addEventListener('mouseover', () => { card.style.borderColor = color; });
+  card.addEventListener('mouseout',  () => { card.style.borderColor = ''; });
   card.addEventListener('click', () => {
     window.location.href = `quiz.html?bank=${encodeURIComponent(bank.file)}`;
   });

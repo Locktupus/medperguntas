@@ -60,6 +60,111 @@
       background: #fef2f2;
       color: #b91c1c;
     }
+ 
+    /* ── Seed bar ── */
+    .seed-bar {
+      max-width: 860px;
+      margin: 10px auto 0;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .seed-label {
+      font-size: .72rem;
+      color: var(--sub);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .seed-code {
+      font-family: 'Courier New', monospace;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--slate);
+      background: #fff;
+      border: 1.5px solid var(--slate-mid);
+      border-radius: 7px;
+      padding: 4px 10px;
+      letter-spacing: .05em;
+    }
+    .btn-seed-copy {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--blue);
+      background: var(--blue-light);
+      border: 1.5px solid var(--blue-mid);
+      border-radius: 7px;
+      padding: 4px 10px;
+      cursor: pointer;
+      transition: opacity .15s;
+      white-space: nowrap;
+    }
+    .btn-seed-copy:hover { opacity: .8; }
+ 
+    /* divider */
+    .seed-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--slate-mid);
+      flex-shrink: 0;
+    }
+ 
+    .seed-join-label {
+      font-size: .72rem;
+      color: var(--sub);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .seed-input {
+      font-family: 'Courier New', monospace;
+      font-size: .78rem;
+      width: 110px;
+      border: 1.5px solid var(--slate-mid);
+      border-radius: 7px;
+      padding: 4px 8px;
+      color: var(--slate);
+      outline: none;
+      transition: border-color .15s;
+    }
+    .seed-input:focus { border-color: #93c5fd; }
+    .btn-seed-join {
+      font-size: .72rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--blue, #1d4ed8);
+      border: none;
+      border-radius: 7px;
+      padding: 5px 11px;
+      cursor: pointer;
+      transition: opacity .15s;
+      white-space: nowrap;
+    }
+    .btn-seed-join:hover { opacity: .85; }
+    .seed-input.error { border-color: #f87171; }
+ 
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(60px);
+      background: #1e293b;
+      color: #fff;
+      padding: 9px 20px;
+      border-radius: 99px;
+      font-size: .82rem;
+      font-weight: 600;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+      transition: transform .25s ease, opacity .25s ease;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -81,6 +186,17 @@
     <span id="progPct">0%</span>
   </div>
   <div class="prog-bg"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+</div>
+ 
+<!-- SEED BAR (shown after load) -->
+<div class="seed-bar" id="seedBar" style="display:none">
+  <span class="seed-label">🔗 Sessão:</span>
+  <span class="seed-code" id="seedDisplay">–</span>
+  <button class="btn-seed-copy" onclick="copyLink()">Copiar link</button>
+  <div class="seed-divider"></div>
+  <span class="seed-join-label">Entrar com seed:</span>
+  <input class="seed-input" id="seedInput" type="text" placeholder="ex: 2847361905" maxlength="12">
+  <button class="btn-seed-join" onclick="joinSeed()">Ir</button>
 </div>
  
 <!-- QUIZ CARD -->
@@ -153,6 +269,9 @@
  
 </div><!-- /page -->
  
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+ 
 <script>
  
 let bank      = null;
@@ -165,6 +284,17 @@ let sessionSeed = 0;
  
 let optionMaps            = [];
 let correctDisplayLetters = [];
+ 
+/* ─── Toast ─────────────────────────────────────────── */
+let _toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  clearTimeout(_toastTimer);
+  void t.offsetWidth;
+  t.classList.add('show');
+  _toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+}
  
 /* ─── Colour helper ─────────────────────────────────── */
 function shadeColor(hex, pct) {
@@ -187,6 +317,58 @@ function updateCounters() {
   document.getElementById('cntRight').textContent = `✓ ${score}`;
   document.getElementById('cntWrong').textContent = `✗ ${wrong}`;
 }
+ 
+/* ─── Seed bar ──────────────────────────────────────── */
+function updateSeedBar() {
+  document.getElementById('seedBar').style.display = 'flex';
+  document.getElementById('seedDisplay').textContent = sessionSeed;
+  // Keep seed in URL silently so the address bar is always shareable
+  const params = new URLSearchParams(window.location.search);
+  params.set('seed', sessionSeed);
+  history.replaceState(null, '', '?' + params.toString());
+}
+ 
+function copyLink() {
+  const url = window.location.href;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => showToast('✓ Link copiado!'));
+  } else {
+    // fallback for older mobile browsers
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('✓ Link copiado!');
+  }
+}
+ 
+function joinSeed() {
+  const input = document.getElementById('seedInput');
+  const val   = input.value.trim();
+  const num   = parseInt(val, 10);
+ 
+  if (!val || isNaN(num) || num < 0) {
+    input.classList.add('error');
+    setTimeout(() => input.classList.remove('error'), 1200);
+    return;
+  }
+ 
+  input.value = '';
+  // Restart with the provided seed
+  initSession(num);
+  showToast('🔗 Sessão sincronizada!');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+ 
+// Allow pressing Enter in the seed input
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('seedInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') joinSeed();
+  });
+});
  
 /* ─── Seeded PRNG (Mulberry32) ──────────────────────── */
 function makePRNG(seed) {
@@ -248,12 +430,16 @@ async function boot() {
  
   document.title = `Compilações de Exercícios — ${bank.meta?.title || 'Quiz'}`;
   applyThemeColor(bank.meta?.color);
-  initSession();
+ 
+  // Use seed from URL if present (someone followed a shared link)
+  const urlSeed = parseInt(params.get('seed'), 10);
+  initSession(isNaN(urlSeed) ? null : urlSeed);
 }
  
 /* ─── Initialise a new randomised session ──────────── */
-function initSession() {
-  sessionSeed = Math.floor(Math.random() * 2 ** 32);
+// Pass a seed to reproduce a session, or null/undefined to generate a new one
+function initSession(forceSeed) {
+  sessionSeed = (forceSeed != null) ? (forceSeed >>> 0) : Math.floor(Math.random() * 2 ** 32);
   const rng   = makePRNG(sessionSeed);
  
   const indices         = bank.questions.map((_, i) => i);
@@ -276,6 +462,7 @@ function initSession() {
   wrong    = 0;
   answered = false;
   updateCounters();
+  updateSeedBar();
   render();
 }
  
@@ -298,7 +485,7 @@ function render() {
   document.getElementById('qDomain').textContent = q.domain ?? '';
   document.getElementById('qLevel').textContent  = q.level  ?? '';
  
-  // Vignette — also toggle .has-vignette on qcard for margin control
+  // Vignette
   const vigWrap = document.getElementById('vignetteWrap');
   const qcard   = document.getElementById('qcard');
   if (q.vignette) {
@@ -427,7 +614,7 @@ function showFinish() {
 function restart() {
   document.getElementById('finishScreen').style.display = 'none';
   document.getElementById('qcard').style.display        = 'block';
-  initSession();
+  initSession(); // new random seed on restart
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
  

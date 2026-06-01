@@ -4,228 +4,176 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="favicon.png">
-  <title>MedQuiz</title>
+  <title>Compilações de Exercícios</title>
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* ── Import zone ── */
     .import-section { margin-top: 40px; }
- 
-    .import-section .section-title {
-      margin-bottom: 14px;
-    }
+    .import-section .section-title { margin-bottom: 14px; }
  
     .import-zone {
-      border: 2.5px dashed var(--slate-mid);
-      border-radius: 16px;
-      background: #fff;
-      padding: 40px 24px;
-      text-align: center;
-      transition: border-color .2s, background .2s;
-      cursor: pointer;
-      position: relative;
+      border: 2.5px dashed var(--slate-mid); border-radius: 16px;
+      background: #fff; padding: 40px 24px; text-align: center;
+      transition: border-color .2s, background .2s; cursor: pointer;
     }
-    .import-zone.drag-over {
-      border-color: #3b82f6;
-      background: #eff6ff;
-    }
+    .import-zone.drag-over { border-color: #3b82f6; background: #eff6ff; }
     .import-zone .iz-icon { font-size: 2.2rem; margin-bottom: 12px; }
-    .import-zone h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .import-zone p {
-      font-size: .83rem;
-      color: var(--sub);
-      line-height: 1.55;
-      margin-bottom: 18px;
-    }
+    .import-zone h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .import-zone p  { font-size: .83rem; color: var(--sub); line-height: 1.55; margin-bottom: 18px; }
     .btn-import {
-      display: inline-block;
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #fff;
-      border: none;
-      border-radius: 9px;
-      padding: 10px 24px;
-      font-size: .88rem;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(29,78,216,.25);
-      transition: opacity .15s;
+      display: inline-block; background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #fff; border: none; border-radius: 9px; padding: 10px 24px;
+      font-size: .88rem; font-weight: 700; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(29,78,216,.25); transition: opacity .15s;
     }
     .btn-import:hover { opacity: .88; }
-    /* Hidden real file input */
     #fileInput { display: none; }
  
-    /* ── Imported bank card ── */
-    .imported-card {
-      background: #fff;
-      border-radius: 16px;
+    /* ── Resume / imported card — shared style ── */
+    .res-card {
+      background: #fff; border-radius: 16px;
       box-shadow: 0 2px 10px rgba(0,0,0,.07);
-      overflow: hidden;
-      border: 2px solid #bfdbfe;
+      overflow: hidden; border: 2px solid var(--slate-mid);
     }
-    .imported-card-banner {
-      height: 7px;
-      background: linear-gradient(90deg, #1e3a5f, #3b82f6);
+    .res-card-banner { height: 7px; }
+    .res-card-body   { padding: 18px 20px 18px; }
+    .res-card-label  {
+      font-size: .65rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .1em; margin-bottom: 8px;
     }
-    .imported-card-body { padding: 18px 20px 16px; }
-    .imported-card-label {
-      font-size: .65rem;
-      font-weight: 800;
-      color: #3b82f6;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-bottom: 8px;
+    .res-card-icon  { font-size: 1.6rem; margin-bottom: 6px; }
+    .res-card-title { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .res-card-sub   { font-size: .78rem; color: var(--sub); margin-bottom: 10px; }
+    .res-card-stats {
+      display: flex; gap: 10px; align-items: center;
+      font-size: .78rem; font-weight: 600; margin-bottom: 14px; flex-wrap: wrap;
     }
-    .imported-card-icon { font-size: 1.6rem; margin-bottom: 8px; }
-    .imported-card-title {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-    .imported-card-sub {
-      font-size: .78rem;
-      color: var(--sub);
-      margin-bottom: 16px;
-    }
-    .imported-card-btns { display: flex; gap: 9px; flex-wrap: wrap; }
+    .res-stat-done  { color: var(--sub); }
+    .res-stat-right { color: #15803d; }
+    .res-stat-wrong { color: #b91c1c; }
+    .res-card-btns  { display: flex; gap: 9px; flex-wrap: wrap; }
     .btn-continue {
-      flex: 1;
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #fff;
-      border: none;
-      border-radius: 9px;
-      padding: 10px 16px;
-      font-size: .88rem;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(29,78,216,.25);
-      transition: opacity .15s;
-      min-width: 120px;
+      flex: 1; background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #fff; border: none; border-radius: 9px; padding: 10px 16px;
+      font-size: .88rem; font-weight: 700; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(29,78,216,.25); transition: opacity .15s; min-width: 120px;
     }
     .btn-continue:hover { opacity: .88; }
-    .btn-replace {
-      background: #fff;
-      color: var(--sub);
-      border: 2px solid var(--slate-mid);
-      border-radius: 9px;
-      padding: 10px 16px;
-      font-size: .83rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: border-color .15s, color .15s;
-      white-space: nowrap;
+    .btn-start-fresh {
+      background: #fff; color: var(--sub); border: 2px solid var(--slate-mid);
+      border-radius: 9px; padding: 10px 16px; font-size: .83rem; font-weight: 600;
+      cursor: pointer; transition: border-color .15s, color .15s; white-space: nowrap;
     }
-    .btn-replace:hover { border-color: #94a3b8; color: var(--text); }
+    .btn-start-fresh:hover { border-color: #94a3b8; color: var(--text); }
  
-    /* ── Toast ── */
+    /* Toast */
     .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
+      position: fixed; bottom: 24px; left: 50%;
       transform: translateX(-50%) translateY(80px);
-      background: #1e293b;
-      color: #fff;
-      padding: 11px 22px;
-      border-radius: 99px;
-      font-size: .85rem;
-      font-weight: 600;
-      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+      background: #1e293b; color: #fff; padding: 11px 22px; border-radius: 99px;
+      font-size: .85rem; font-weight: 600; box-shadow: 0 4px 16px rgba(0,0,0,.2);
       transition: transform .3s ease, opacity .3s ease;
-      opacity: 0;
-      pointer-events: none;
-      z-index: 999;
-      white-space: nowrap;
+      opacity: 0; pointer-events: none; z-index: 999; white-space: nowrap;
     }
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
-    }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
     .toast.error { background: #991b1b; }
   </style>
 </head>
 <body>
  
 <nav class="topbar">
-  <div class="topbar-logo">🥼 <span style="color:#ffffff;font-weight:900;font-size:1.1rem;">Compilações de Exercícios</span> <span style="color:rgba(255,255,255,0.7);">Medicina</span></div>
+  <div class="topbar-logo">
+    🥼
+    <span style="color:#ffffff;font-weight:900;font-size:1.1rem;">Compilações de Exercícios</span>
+    <span style="color:rgba(255,255,255,0.7);">Medicina</span>
+  </div>
 </nav>
  
 <div class="page">
- 
-  <!-- Hero -->
   <div class="hero">
     <h2>Banco de Questões</h2>
     <p>Escolhe um quiz abaixo, ou importa o teu próprio ficheiro JSON.</p>
     <div class="stat-row" id="statRow"></div>
   </div>
  
-  <!-- Permanent quizzes -->
   <div class="section-title" id="permanentLabel">Quizzes Disponíveis</div>
   <div class="quiz-grid" id="quizGrid">
     <div class="empty-state" style="grid-column:1/-1">
-      <div class="icon">⏳</div>
-      <p>A carregar…</p>
+      <div class="icon">⏳</div><p>A carregar…</p>
     </div>
   </div>
  
-  <!-- Import section -->
   <div class="import-section">
     <div class="section-title">Importar Quiz</div>
  
-    <!-- State A: drop zone (shown when no imported bank) -->
     <div id="dropZone" class="import-zone">
       <div class="iz-icon">📂</div>
       <h3>Importar ficheiro JSON</h3>
       <p>Arrasta um ficheiro <strong>.json</strong> para aqui,<br>ou clica para escolher do dispositivo.</p>
-      <button class="btn-import" onclick="document.getElementById('fileInput').click()">
-        Escolher ficheiro
-      </button>
+      <button class="btn-import" onclick="document.getElementById('fileInput').click()">Escolher ficheiro</button>
       <input type="file" id="fileInput" accept=".json,application/json">
     </div>
  
-    <!-- State B: imported bank card (shown when a bank exists in localStorage) -->
-    <div id="importedCard" class="imported-card" style="display:none">
-      <div class="imported-card-banner" id="importedBanner"></div>
-      <div class="imported-card-body">
-        <div class="imported-card-label">📥 Quiz importado</div>
-        <div class="imported-card-icon" id="importedIcon"></div>
-        <div class="imported-card-title" id="importedTitle"></div>
-        <div class="imported-card-sub"   id="importedSub"></div>
-        <div class="imported-card-btns">
-          <button class="btn-continue" onclick="launchImported()">▶ Continuar quiz</button>
-          <button class="btn-replace"  onclick="replaceImported()">↩ Importar outro</button>
-        </div>
-      </div>
-    </div>
- 
-  </div><!-- /import-section -->
+    <div id="importedCard" style="display:none"></div>
+  </div>
 </div>
  
-<!-- Toast notification -->
 <div class="toast" id="toast"></div>
  
 <script>
-const LOCAL_KEY = 'mq_imported_bank';
+const LOCAL_KEY      = 'mq_imported_bank';
+const PROGRESS_PREFIX = 'mq_progress_';
  
 const TYPE_LABELS = {
   clinical: { label: 'Casos Clínicos', cls: 'tag-cc' },
   general:  { label: 'Banco Geral',    cls: 'tag-gen' }
 };
  
-/* ── Toast ─────────────────────────────────────── */
+/* ── Colour helper ──────────────────────────────── */
+function shadeColor(hex, pct) {
+  const n = parseInt(hex.replace('#',''), 16);
+  const r = Math.min(255, Math.max(0, (n >> 16) + pct));
+  const g = Math.min(255, Math.max(0, ((n >> 8) & 0xff) + pct));
+  const b = Math.min(255, Math.max(0, (n & 0xff) + pct));
+  return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
+}
+ 
+/* ── Toast ──────────────────────────────────────── */
 let toastTimer;
 function showToast(msg, isError = false) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.className   = 'toast' + (isError ? ' error' : '');
   clearTimeout(toastTimer);
-  // force reflow so transition fires even on repeat calls
   void t.offsetWidth;
   t.classList.add('show');
   toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+}
+ 
+/* ── Progress helpers ───────────────────────────── */
+function getProgress(bankId) {
+  try {
+    const raw = localStorage.getItem(PROGRESS_PREFIX + bankId);
+    return raw ? JSON.parse(raw) : null;
+  } catch (_) { return null; }
+}
+ 
+function clearProgress(bankId) {
+  localStorage.removeItem(PROGRESS_PREFIX + bankId);
+}
+ 
+/* ── Stats row builder ──────────────────────────── */
+function buildStats(progress, totalQ) {
+  if (!progress || progress.cur <= 0) return '';
+  const done     = progress.cur;
+  const pctDone  = Math.round((done / totalQ) * 100);
+  const pctRight = Math.round((progress.score / done) * 100);
+  return `
+    <div class="res-card-stats">
+      <span class="res-stat-done">📊 ${done}/${totalQ} questões (${pctDone}%)</span>
+      <span class="res-stat-right">✓ ${progress.score}</span>
+      <span class="res-stat-wrong">✗ ${progress.wrong}</span>
+      <span class="res-stat-done">· ${pctRight}% certas</span>
+    </div>`;
 }
  
 /* ── Permanent quizzes ──────────────────────────── */
@@ -241,8 +189,7 @@ async function loadPermanent() {
  
   if (!banks.length) {
     grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
-      <div class="icon">📭</div>
-      <p>Nenhum quiz permanente encontrado.</p>
+      <div class="icon">📭</div><p>Nenhum quiz permanente encontrado.</p>
     </div>`;
     document.getElementById('permanentLabel').style.display = 'none';
     return;
@@ -258,33 +205,65 @@ async function loadPermanent() {
 }
  
 function makePermCard(bank) {
-  const ti    = TYPE_LABELS[bank.type] || { label: bank.type, cls: 'tag-gen' };
-  const lvl   = (bank.levels || []).map(l => `<span class="tag tag-l">${l}</span>`).join('');
-  const color = bank.color || '#1d4ed8';
-  const dark  = shadeColor(color, -35);
-  const card  = document.createElement('div');
-  card.className = 'quiz-card';
-  // Apply card accent colour
-  card.style.setProperty('--card-color',      color);
-  card.style.setProperty('--card-color-dark', dark);
-  card.innerHTML = `
-    <div class="quiz-card-banner" style="background:linear-gradient(90deg,${dark},${color})"></div>
-    <div class="quiz-card-body">
-      <div class="quiz-card-icon">${bank.icon || '📋'}</div>
-      <div class="quiz-card-title">${bank.title}</div>
-      <div class="quiz-card-sub">${bank.subtitle || ''}</div>
-      <div class="quiz-card-footer">
-        <span class="tag ${ti.cls}">${ti.label}</span>
-        <span class="tag tag-q">${bank.questionCount} questões</span>
-        ${lvl}
-      </div>
-    </div>`;
-  card.addEventListener('mouseover', () => { card.style.borderColor = color; });
-  card.addEventListener('mouseout',  () => { card.style.borderColor = ''; });
-  card.addEventListener('click', () => {
-    window.location.href = `quiz.html?bank=${encodeURIComponent(bank.file)}`;
-  });
+  const ti       = TYPE_LABELS[bank.type] || { label: bank.type, cls: 'tag-gen' };
+  const lvl      = (bank.levels || []).map(l => `<span class="tag tag-l">${l}</span>`).join('');
+  const color    = bank.color || '#1d4ed8';
+  const dark     = shadeColor(color, -35);
+  const progress = getProgress(bank.file);
+  const hasProgress = progress && progress.cur > 0 && progress.cur < (bank.questionCount || 99);
+ 
+  const card = document.createElement('div');
+ 
+  if (hasProgress) {
+    // Resume card
+    card.className = 'res-card';
+    card.style.borderColor = color + '60';
+    card.innerHTML = `
+      <div class="res-card-banner" style="background:linear-gradient(90deg,${dark},${color})"></div>
+      <div class="res-card-body">
+        <div class="res-card-label" style="color:${color}">📖 Em progresso</div>
+        <div class="res-card-icon">${bank.icon || '📋'}</div>
+        <div class="res-card-title">${bank.title}</div>
+        <div class="res-card-sub">${bank.subtitle || ''}</div>
+        ${buildStats(progress, bank.questionCount || progress.cur)}
+        <div class="res-card-btns">
+          <button class="btn-continue" style="background:linear-gradient(135deg,${dark},${color})"
+            onclick="goToQuiz('${bank.file}')">▶ Continuar</button>
+          <button class="btn-start-fresh"
+            onclick="freshStart(event,'${bank.file}')">↩ Recomeçar</button>
+        </div>
+      </div>`;
+  } else {
+    // Normal card
+    card.className = 'quiz-card';
+    card.innerHTML = `
+      <div class="quiz-card-banner" style="background:linear-gradient(90deg,${dark},${color})"></div>
+      <div class="quiz-card-body">
+        <div class="quiz-card-icon">${bank.icon || '📋'}</div>
+        <div class="quiz-card-title">${bank.title}</div>
+        <div class="quiz-card-sub">${bank.subtitle || ''}</div>
+        <div class="quiz-card-footer">
+          <span class="tag ${ti.cls}">${ti.label}</span>
+          <span class="tag tag-q">${bank.questionCount} questões</span>
+          ${lvl}
+        </div>
+      </div>`;
+    card.addEventListener('mouseover', () => { card.style.borderColor = color; });
+    card.addEventListener('mouseout',  () => { card.style.borderColor = ''; });
+    card.addEventListener('click', () => goToQuiz(bank.file));
+  }
+ 
   return card;
+}
+ 
+function goToQuiz(file) {
+  window.location.href = `quiz.html?bank=${encodeURIComponent(file)}`;
+}
+ 
+function freshStart(event, file) {
+  event.stopPropagation();
+  clearProgress(file);
+  window.location.href = `quiz.html?bank=${encodeURIComponent(file)}`;
 }
  
 /* ── Imported bank UI ───────────────────────────── */
@@ -295,16 +274,36 @@ function checkImported() {
   let bank;
   try { bank = JSON.parse(raw); } catch (_) { showDropZone(); return; }
  
-  const meta = bank.meta || {};
-  document.getElementById('importedIcon').textContent  = meta.icon    || '📋';
-  document.getElementById('importedTitle').textContent = meta.title   || 'Quiz importado';
-  document.getElementById('importedSub').textContent   = meta.subtitle || '';
+  const meta     = bank.meta || {};
+  const color    = meta.color || '#1d4ed8';
+  const dark     = shadeColor(color, -35);
+  const progress = getProgress('local');
+  const total    = bank.questions?.length || 0;
+  const hasProgress = progress && progress.cur > 0 && progress.cur < total;
  
-  // apply accent colour to the banner if present
-  if (meta.color) {
-    document.getElementById('importedBanner').style.background =
-      `linear-gradient(90deg, ${shadeColor(meta.color, -35)}, ${meta.color})`;
-  }
+  const label   = hasProgress ? '📖 Em progresso' : '📥 Quiz importado';
+  const btnText = hasProgress ? '▶ Continuar' : '▶ Iniciar quiz';
+  const stats   = hasProgress ? buildStats(progress, total) : '';
+ 
+  document.getElementById('importedCard').innerHTML = `
+    <div class="res-card" style="border-color:${color}60">
+      <div class="res-card-banner" style="background:linear-gradient(90deg,${dark},${color})"></div>
+      <div class="res-card-body">
+        <div class="res-card-label" style="color:${color}">${label}</div>
+        <div class="res-card-icon">${meta.icon || '📋'}</div>
+        <div class="res-card-title">${meta.title || 'Quiz importado'}</div>
+        <div class="res-card-sub">${meta.subtitle || ''}</div>
+        ${stats}
+        <div class="res-card-btns">
+          <button class="btn-continue" style="background:linear-gradient(135deg,${dark},${color})"
+            onclick="launchImported()">
+            ${btnText}
+          </button>
+          <button class="btn-start-fresh" onclick="replaceImported()">↩ Importar outro</button>
+          ${hasProgress ? `<button class="btn-start-fresh" onclick="freshStartImported()">🔄 Recomeçar</button>` : ''}
+        </div>
+      </div>
+    </div>`;
  
   document.getElementById('dropZone').style.display    = 'none';
   document.getElementById('importedCard').style.display = 'block';
@@ -323,30 +322,29 @@ function replaceImported() {
   document.getElementById('fileInput').click();
 }
  
+function freshStartImported() {
+  clearProgress('local');
+  window.location.href = 'quiz.html?bank=local';
+}
+ 
 /* ── File handling ──────────────────────────────── */
 function handleFile(file) {
   if (!file || !file.name.endsWith('.json')) {
     showToast('❌ Ficheiro inválido — precisa de ser um .json', true);
     return;
   }
- 
   const reader = new FileReader();
   reader.onload = e => {
     let bank;
     try { bank = JSON.parse(e.target.result); }
-    catch (_) {
-      showToast('❌ JSON inválido — verifica o ficheiro', true);
-      return;
-    }
- 
+    catch (_) { showToast('❌ JSON inválido — verifica o ficheiro', true); return; }
     if (!bank.questions || !Array.isArray(bank.questions) || !bank.questions.length) {
-      showToast('❌ O ficheiro não contém questões válidas', true);
-      return;
+      showToast('❌ O ficheiro não contém questões válidas', true); return;
     }
- 
+    // Clear old imported progress when importing a new file
+    clearProgress('local');
     localStorage.setItem(LOCAL_KEY, e.target.result);
     showToast('✅ Ficheiro carregado!');
-    // Launch immediately
     setTimeout(() => { window.location.href = 'quiz.html?bank=local'; }, 600);
   };
   reader.readAsText(file);
@@ -354,31 +352,16 @@ function handleFile(file) {
  
 /* ── Drag and drop ──────────────────────────────── */
 const dropZone = document.getElementById('dropZone');
- 
-dropZone.addEventListener('dragover', e => {
-  e.preventDefault();
-  dropZone.classList.add('drag-over');
-});
+dropZone.addEventListener('dragover',  e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
 dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
 dropZone.addEventListener('drop', e => {
-  e.preventDefault();
-  dropZone.classList.remove('drag-over');
+  e.preventDefault(); dropZone.classList.remove('drag-over');
   handleFile(e.dataTransfer.files[0]);
 });
- 
 document.getElementById('fileInput').addEventListener('change', e => {
   handleFile(e.target.files[0]);
-  e.target.value = ''; // reset so same file can be re-imported
+  e.target.value = '';
 });
- 
-/* ── Colour helper (shared with quiz.html logic) ── */
-function shadeColor(hex, pct) {
-  const n = parseInt(hex.replace('#',''), 16);
-  const r = Math.min(255, Math.max(0, (n >> 16) + pct));
-  const g = Math.min(255, Math.max(0, ((n >> 8) & 0xff) + pct));
-  const b = Math.min(255, Math.max(0, (n & 0xff) + pct));
-  return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
-}
  
 /* ── Boot ───────────────────────────────────────── */
 loadPermanent();

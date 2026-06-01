@@ -61,14 +61,50 @@
       color: #b91c1c;
     }
  
-    /* ── Seed bar ── */
-    .seed-bar {
+    /* ── Seed dropdown ── */
+    .seed-wrap {
       max-width: 860px;
-      margin: 10px auto 0;
+      margin: 8px auto 0;
       padding: 0 16px;
+    }
+    .btn-seed-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--sub);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 5px;
+      padding: 2px 0;
+      transition: color .15s;
+    }
+    .btn-seed-toggle:hover { color: var(--slate); }
+    .btn-seed-toggle .arrow {
+      display: inline-block;
+      transition: transform .2s ease;
+      font-style: normal;
+    }
+    .btn-seed-toggle.open .arrow { transform: rotate(180deg); }
+ 
+    .seed-panel {
+      display: none;
+      margin-top: 8px;
+      background: #fff;
+      border: 1.5px solid var(--slate-mid);
+      border-radius: 12px;
+      padding: 14px 16px;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .seed-panel.open { display: flex; }
+ 
+    .seed-group {
+      display: flex;
+      align-items: center;
+      gap: 7px;
       flex-wrap: wrap;
     }
     .seed-label {
@@ -82,7 +118,7 @@
       font-size: .78rem;
       font-weight: 700;
       color: var(--slate);
-      background: #fff;
+      background: var(--slate-light);
       border: 1.5px solid var(--slate-mid);
       border-radius: 7px;
       padding: 4px 10px;
@@ -101,25 +137,16 @@
       white-space: nowrap;
     }
     .btn-seed-copy:hover { opacity: .8; }
- 
-    /* divider */
     .seed-divider {
       width: 1px;
-      height: 18px;
+      height: 20px;
       background: var(--slate-mid);
       flex-shrink: 0;
-    }
- 
-    .seed-join-label {
-      font-size: .72rem;
-      color: var(--sub);
-      font-weight: 600;
-      white-space: nowrap;
     }
     .seed-input {
       font-family: 'Courier New', monospace;
       font-size: .78rem;
-      width: 110px;
+      width: 120px;
       border: 1.5px solid var(--slate-mid);
       border-radius: 7px;
       padding: 4px 8px;
@@ -128,6 +155,7 @@
       transition: border-color .15s;
     }
     .seed-input:focus { border-color: #93c5fd; }
+    .seed-input.error { border-color: #f87171; }
     .btn-seed-join {
       font-size: .72rem;
       font-weight: 700;
@@ -141,7 +169,6 @@
       white-space: nowrap;
     }
     .btn-seed-join:hover { opacity: .85; }
-    .seed-input.error { border-color: #f87171; }
  
     /* Toast */
     .toast {
@@ -188,15 +215,24 @@
   <div class="prog-bg"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
 </div>
  
-<!-- SEED BAR (shown after load) -->
-<div class="seed-bar" id="seedBar" style="display:none">
-  <span class="seed-label">🔗 Sessão:</span>
-  <span class="seed-code" id="seedDisplay">–</span>
-  <button class="btn-seed-copy" onclick="copyLink()">Copiar link</button>
-  <div class="seed-divider"></div>
-  <span class="seed-join-label">Entrar com seed:</span>
-  <input class="seed-input" id="seedInput" type="text" placeholder="ex: 2847361905" maxlength="12">
-  <button class="btn-seed-join" onclick="joinSeed()">Ir</button>
+<!-- SEED DROPDOWN (shown after load) -->
+<div class="seed-wrap" id="seedWrap" style="display:none">
+  <button class="btn-seed-toggle" id="seedToggle" onclick="toggleSeedPanel()">
+    <i class="arrow">▾</i> Sincronizar com outra sessão
+  </button>
+  <div class="seed-panel" id="seedPanel">
+    <div class="seed-group">
+      <span class="seed-label">A tua sessão:</span>
+      <span class="seed-code" id="seedDisplay">–</span>
+      <button class="btn-seed-copy" onclick="copyLink()">Copiar link</button>
+    </div>
+    <div class="seed-divider"></div>
+    <div class="seed-group">
+      <span class="seed-label">Entrar com seed:</span>
+      <input class="seed-input" id="seedInput" type="text" placeholder="ex: 2847361905" maxlength="12">
+      <button class="btn-seed-join" onclick="joinSeed()">Ir</button>
+    </div>
+  </div>
 </div>
  
 <!-- QUIZ CARD -->
@@ -320,12 +356,19 @@ function updateCounters() {
  
 /* ─── Seed bar ──────────────────────────────────────── */
 function updateSeedBar() {
-  document.getElementById('seedBar').style.display = 'flex';
+  document.getElementById('seedWrap').style.display = 'block';
   document.getElementById('seedDisplay').textContent = sessionSeed;
   // Keep seed in URL silently so the address bar is always shareable
   const params = new URLSearchParams(window.location.search);
   params.set('seed', sessionSeed);
   history.replaceState(null, '', '?' + params.toString());
+}
+ 
+function toggleSeedPanel() {
+  const panel  = document.getElementById('seedPanel');
+  const toggle = document.getElementById('seedToggle');
+  const open   = panel.classList.toggle('open');
+  toggle.classList.toggle('open', open);
 }
  
 function copyLink() {

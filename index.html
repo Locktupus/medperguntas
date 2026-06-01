@@ -28,39 +28,46 @@
     .btn-import:hover { opacity: .88; }
     #fileInput { display: none; }
  
-    /* ── Resume / imported card — shared style ── */
+    /* ── Unified quiz card (fresh + resume + imported) ── */
     .res-card {
       background: #fff; border-radius: 16px;
       box-shadow: 0 2px 10px rgba(0,0,0,.07);
       overflow: hidden; border: 2px solid var(--slate-mid);
     }
     .res-card-banner { height: 7px; }
-    .res-card-body   { padding: 18px 20px 18px; }
+    .res-card-body   { padding: 16px 20px 18px; }
     .res-card-label  {
       font-size: .65rem; font-weight: 800; text-transform: uppercase;
       letter-spacing: .1em; margin-bottom: 8px;
     }
     .res-card-icon  { font-size: 1.6rem; margin-bottom: 6px; }
     .res-card-title { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-    .res-card-sub   { font-size: .78rem; color: var(--sub); margin-bottom: 10px; }
+    .res-card-sub   { font-size: .78rem; color: var(--sub); margin-bottom: 12px; }
+ 
+    /* Bottom row: stats left, buttons right — single line */
+    .res-card-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; flex-wrap: wrap;
+    }
     .res-card-stats {
-      display: flex; gap: 10px; align-items: center;
-      font-size: .78rem; font-weight: 600; margin-bottom: 14px; flex-wrap: wrap;
+      display: flex; gap: 8px; align-items: center;
+      font-size: .76rem; font-weight: 600; flex-wrap: wrap;
     }
     .res-stat-done  { color: var(--sub); }
     .res-stat-right { color: #15803d; }
     .res-stat-wrong { color: #b91c1c; }
-    .res-card-btns  { display: flex; gap: 9px; flex-wrap: wrap; }
+    .res-card-btns  { display: flex; gap: 7px; flex-shrink: 0; }
+ 
     .btn-continue {
-      flex: 1; background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #fff; border: none; border-radius: 9px; padding: 10px 16px;
-      font-size: .88rem; font-weight: 700; cursor: pointer;
-      box-shadow: 0 2px 8px rgba(29,78,216,.25); transition: opacity .15s; min-width: 120px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #fff; border: none; border-radius: 9px; padding: 9px 16px;
+      font-size: .85rem; font-weight: 700; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(29,78,216,.2); transition: opacity .15s; white-space: nowrap;
     }
     .btn-continue:hover { opacity: .88; }
     .btn-start-fresh {
       background: #fff; color: var(--sub); border: 2px solid var(--slate-mid);
-      border-radius: 9px; padding: 10px 16px; font-size: .83rem; font-weight: 600;
+      border-radius: 9px; padding: 9px 14px; font-size: .8rem; font-weight: 600;
       cursor: pointer; transition: border-color .15s, color .15s; white-space: nowrap;
     }
     .btn-start-fresh:hover { border-color: #94a3b8; color: var(--text); }
@@ -104,7 +111,6 @@
  
   <div class="import-section">
     <div class="section-title">Importar Quiz</div>
- 
     <div id="dropZone" class="import-zone">
       <div class="iz-icon">📂</div>
       <h3>Importar ficheiro JSON</h3>
@@ -112,7 +118,6 @@
       <button class="btn-import" onclick="document.getElementById('fileInput').click()">Escolher ficheiro</button>
       <input type="file" id="fileInput" accept=".json,application/json">
     </div>
- 
     <div id="importedCard" style="display:none"></div>
   </div>
 </div>
@@ -120,7 +125,7 @@
 <div class="toast" id="toast"></div>
  
 <script>
-const LOCAL_KEY      = 'mq_imported_bank';
+const LOCAL_KEY       = 'mq_imported_bank';
 const PROGRESS_PREFIX = 'mq_progress_';
  
 const TYPE_LABELS = {
@@ -161,22 +166,62 @@ function clearProgress(bankId) {
   localStorage.removeItem(PROGRESS_PREFIX + bankId);
 }
  
-/* ── Stats row builder ──────────────────────────── */
-function buildStats(progress, totalQ) {
-  if (!progress || progress.cur <= 0) return '';
-  const done     = progress.cur;
-  const pctDone  = Math.round((done / totalQ) * 100);
-  const pctRight = Math.round((progress.score / done) * 100);
+/* ── Shared card builder ────────────────────────── */
+// Renders the unified card HTML for both permanent and imported quizzes.
+// onContinue / onFresh / onReplace are JS expression strings for onclick.
+function buildResCard({ color, dark, label, labelColor, icon, title, subtitle,
+                        progress, totalQ, onContinue, btnContinueText,
+                        onFresh, onReplace }) {
+  const hasProgress = progress && progress.cur > 0;
+ 
+  let statsHtml = '';
+  if (hasProgress) {
+    const done     = progress.cur;
+    const pctDone  = Math.round((done / totalQ) * 100);
+    const pctRight = done > 0 ? Math.round((progress.score / done) * 100) : 0;
+    statsHtml = `
+      <div class="res-card-stats">
+        <span class="res-stat-done">📊 ${done}/${totalQ} (${pctDone}%)</span>
+        <span class="res-stat-right">✓ ${progress.score}</span>
+        <span class="res-stat-wrong">✗ ${progress.wrong}</span>
+        <span class="res-stat-done">· ${pctRight}% certas</span>
+      </div>`;
+  } else {
+    statsHtml = `<div class="res-card-stats"></div>`;
+  }
+ 
+  const freshBtn = onFresh
+    ? `<button class="btn-start-fresh" onclick="${onFresh}">↩ Recomeçar</button>`
+    : '';
+  const replaceBtn = onReplace
+    ? `<button class="btn-start-fresh" onclick="${onReplace}">↩ Importar outro</button>`
+    : '';
+ 
   return `
-    <div class="res-card-stats">
-      <span class="res-stat-done">📊 ${done}/${totalQ} questões (${pctDone}%)</span>
-      <span class="res-stat-right">✓ ${progress.score}</span>
-      <span class="res-stat-wrong">✗ ${progress.wrong}</span>
-      <span class="res-stat-done">· ${pctRight}% certas</span>
+    <div class="res-card" style="border-color:${color}50">
+      <div class="res-card-banner" style="background:linear-gradient(90deg,${dark},${color})"></div>
+      <div class="res-card-body">
+        <div class="res-card-label" style="color:${labelColor || color}">${label}</div>
+        <div class="res-card-icon">${icon}</div>
+        <div class="res-card-title">${title}</div>
+        <div class="res-card-sub">${subtitle}</div>
+        <div class="res-card-bottom">
+          ${statsHtml}
+          <div class="res-card-btns">
+            <button class="btn-continue"
+              style="background:linear-gradient(135deg,${dark},${color})"
+              onclick="${onContinue}">${btnContinueText}</button>
+            ${freshBtn}${replaceBtn}
+          </div>
+        </div>
+      </div>
     </div>`;
 }
  
 /* ── Permanent quizzes ──────────────────────────── */
+// Keep a reference to bank metadata for in-place resets
+const _permBanks = [];
+ 
 async function loadPermanent() {
   const grid = document.getElementById('quizGrid');
   const stat = document.getElementById('statRow');
@@ -195,8 +240,16 @@ async function loadPermanent() {
     return;
   }
  
+  _permBanks.length = 0;
+  banks.forEach(b => _permBanks.push(b));
+ 
   grid.innerHTML = '';
-  banks.forEach(b => grid.appendChild(makePermCard(b)));
+  banks.forEach(b => {
+    const wrapper = document.createElement('div');
+    wrapper.id = `card_${CSS.escape(b.file)}`;
+    wrapper.appendChild(makePermCard(b));
+    grid.appendChild(wrapper);
+  });
  
   const totalQ = banks.reduce((s, b) => s + (b.questionCount || 0), 0);
   stat.innerHTML = `
@@ -210,50 +263,43 @@ function makePermCard(bank) {
   const color    = bank.color || '#1d4ed8';
   const dark     = shadeColor(color, -35);
   const progress = getProgress(bank.file);
-  const hasProgress = progress && progress.cur > 0 && progress.cur < (bank.questionCount || 99);
+  const hasProgress = progress && progress.cur > 0 && progress.cur < (bank.questionCount || 999);
  
-  const card = document.createElement('div');
+  // Escape the file string for safe inline onclick use
+  const fileEsc = bank.file.replace(/'/g, "\\'");
+ 
+  const el = document.createElement('div');
  
   if (hasProgress) {
-    // Resume card
-    card.className = 'res-card';
-    card.style.borderColor = color + '60';
-    card.innerHTML = `
-      <div class="res-card-banner" style="background:linear-gradient(90deg,${dark},${color})"></div>
-      <div class="res-card-body">
-        <div class="res-card-label" style="color:${color}">📖 Em progresso</div>
-        <div class="res-card-icon">${bank.icon || '📋'}</div>
-        <div class="res-card-title">${bank.title}</div>
-        <div class="res-card-sub">${bank.subtitle || ''}</div>
-        ${buildStats(progress, bank.questionCount || progress.cur)}
-        <div class="res-card-btns">
-          <button class="btn-continue" style="background:linear-gradient(135deg,${dark},${color})"
-            onclick="goToQuiz('${bank.file}')">▶ Continuar</button>
-          <button class="btn-start-fresh"
-            onclick="freshStart(event,'${bank.file}')">↩ Recomeçar</button>
-        </div>
-      </div>`;
+    el.innerHTML = buildResCard({
+      color, dark,
+      label: '📖 Em progresso', icon: bank.icon || '📋',
+      title: bank.title, subtitle: bank.subtitle || '',
+      progress, totalQ: bank.questionCount || progress.cur,
+      onContinue:     `goToQuiz('${fileEsc}')`,
+      btnContinueText:'▶ Continuar',
+      onFresh:        `freshStart(event,'${fileEsc}')`
+    });
   } else {
-    // Normal card
-    card.className = 'quiz-card';
-    card.innerHTML = `
-      <div class="quiz-card-banner" style="background:linear-gradient(90deg,${dark},${color})"></div>
-      <div class="quiz-card-body">
-        <div class="quiz-card-icon">${bank.icon || '📋'}</div>
-        <div class="quiz-card-title">${bank.title}</div>
-        <div class="quiz-card-sub">${bank.subtitle || ''}</div>
-        <div class="quiz-card-footer">
-          <span class="tag ${ti.cls}">${ti.label}</span>
-          <span class="tag tag-q">${bank.questionCount} questões</span>
-          ${lvl}
-        </div>
-      </div>`;
-    card.addEventListener('mouseover', () => { card.style.borderColor = color; });
-    card.addEventListener('mouseout',  () => { card.style.borderColor = ''; });
-    card.addEventListener('click', () => goToQuiz(bank.file));
+    el.innerHTML = buildResCard({
+      color, dark,
+      label: '📋 Quiz disponível', icon: bank.icon || '📋',
+      title: bank.title, subtitle: bank.subtitle || '',
+      progress: null, totalQ: bank.questionCount || 0,
+      onContinue:     `goToQuiz('${fileEsc}')`,
+      btnContinueText:'▶ Iniciar quiz',
+      onFresh: null
+    });
+    // Extra tags appended inside subtitle slot
+    el.querySelector('.res-card-sub').insertAdjacentHTML('afterend',
+      `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+        <span class="tag ${ti.cls}">${ti.label}</span>
+        <span class="tag tag-q">${bank.questionCount} questões</span>
+        ${lvl}
+       </div>`);
   }
  
-  return card;
+  return el;
 }
  
 function goToQuiz(file) {
@@ -263,7 +309,14 @@ function goToQuiz(file) {
 function freshStart(event, file) {
   event.stopPropagation();
   clearProgress(file);
-  window.location.href = `quiz.html?bank=${encodeURIComponent(file)}`;
+  // Re-render card in place — no navigation
+  const bank = _permBanks.find(b => b.file === file);
+  if (!bank) return;
+  const wrapperId = `card_${CSS.escape(file)}`;
+  const wrapper   = document.getElementById(wrapperId);
+  if (!wrapper) return;
+  wrapper.innerHTML = '';
+  wrapper.appendChild(makePermCard(bank));
 }
  
 /* ── Imported bank UI ───────────────────────────── */
@@ -281,29 +334,21 @@ function checkImported() {
   const total    = bank.questions?.length || 0;
   const hasProgress = progress && progress.cur > 0 && progress.cur < total;
  
-  const label   = hasProgress ? '📖 Em progresso' : '📥 Quiz importado';
-  const btnText = hasProgress ? '▶ Continuar' : '▶ Iniciar quiz';
-  const stats   = hasProgress ? buildStats(progress, total) : '';
+  const label    = hasProgress ? '📖 Em progresso' : '📥 Quiz importado';
+  const btnText  = hasProgress ? '▶ Continuar'     : '▶ Iniciar quiz';
  
-  document.getElementById('importedCard').innerHTML = `
-    <div class="res-card" style="border-color:${color}60">
-      <div class="res-card-banner" style="background:linear-gradient(90deg,${dark},${color})"></div>
-      <div class="res-card-body">
-        <div class="res-card-label" style="color:${color}">${label}</div>
-        <div class="res-card-icon">${meta.icon || '📋'}</div>
-        <div class="res-card-title">${meta.title || 'Quiz importado'}</div>
-        <div class="res-card-sub">${meta.subtitle || ''}</div>
-        ${stats}
-        <div class="res-card-btns">
-          <button class="btn-continue" style="background:linear-gradient(135deg,${dark},${color})"
-            onclick="launchImported()">
-            ${btnText}
-          </button>
-          <button class="btn-start-fresh" onclick="replaceImported()">↩ Importar outro</button>
-          ${hasProgress ? `<button class="btn-start-fresh" onclick="freshStartImported()">🔄 Recomeçar</button>` : ''}
-        </div>
-      </div>
-    </div>`;
+  document.getElementById('importedCard').innerHTML = buildResCard({
+    color, dark,
+    label, icon: meta.icon || '📋',
+    title: meta.title || 'Quiz importado',
+    subtitle: meta.subtitle || '',
+    progress: hasProgress ? progress : null,
+    totalQ: total,
+    onContinue:     'launchImported()',
+    btnContinueText: btnText,
+    onFresh:    hasProgress ? 'freshStartImported(event)' : null,
+    onReplace:  'replaceImported()'
+  });
  
   document.getElementById('dropZone').style.display    = 'none';
   document.getElementById('importedCard').style.display = 'block';
@@ -322,9 +367,11 @@ function replaceImported() {
   document.getElementById('fileInput').click();
 }
  
-function freshStartImported() {
+function freshStartImported(event) {
+  if (event) event.stopPropagation();
   clearProgress('local');
-  window.location.href = 'quiz.html?bank=local';
+  // Re-render imported card in place — no navigation
+  checkImported();
 }
  
 /* ── File handling ──────────────────────────────── */
@@ -341,7 +388,6 @@ function handleFile(file) {
     if (!bank.questions || !Array.isArray(bank.questions) || !bank.questions.length) {
       showToast('❌ O ficheiro não contém questões válidas', true); return;
     }
-    // Clear old imported progress when importing a new file
     clearProgress('local');
     localStorage.setItem(LOCAL_KEY, e.target.result);
     showToast('✅ Ficheiro carregado!');

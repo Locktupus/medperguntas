@@ -259,7 +259,8 @@ function updateCounters() {
 /* ─── Seed bar ──────────────────────────────────────── */
 function updateSeedBar() {
   document.getElementById('seedWrap').style.display = 'block';
-  document.getElementById('seedDisplay').textContent = sessionSeed;
+  // Display seed:position so the code itself is self-contained
+  document.getElementById('seedDisplay').textContent = `${sessionSeed}:${cur}`;
   const params = new URLSearchParams(window.location.search);
   params.set('seed', sessionSeed);
   params.set('pos',  cur);

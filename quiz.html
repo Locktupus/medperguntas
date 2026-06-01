@@ -21,14 +21,43 @@
     .section-label-inline::before {
       background: var(--quiz-color, #1d4ed8);
     }
+ 
+    /* Space above question when there is no vignette */
+    .question-box { margin-top: 20px; }
+    .has-vignette .question-box { margin-top: 0; }
+ 
+    /* Correct / wrong counter pills in topbar */
+    .score-counters {
+      display: flex;
+      gap: 7px;
+      margin-left: auto;
+    }
+    .score-counter {
+      border-radius: 99px;
+      padding: 4px 12px;
+      font-size: .78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .score-counter.right { background: rgba(74,222,128,.22); color: #bbf7d0; }
+    .score-counter.wrong { background: rgba(248,113,113,.22); color: #fecaca; }
   </style>
 </head>
 <body>
  
 <!-- TOP BAR -->
 <nav class="topbar">
-  <div class="topbar-logo">🩺 <span style="color:#fff;font-weight:900;font-size:1.1rem;">MedQuiz</span></div>
-  <div class="score-pill" id="scorePill">0 / 0</div>
+  <div class="topbar-logo">
+    🩺
+    <span style="color:#fff;font-weight:900;font-size:1.1rem;">Compilações de Exercícios</span>
+    <span>Medicina</span>
+  </div>
+  <div class="score-counters">
+    <div class="score-counter right" id="cntRight">✓ 0</div>
+    <div class="score-counter wrong" id="cntWrong">✗ 0</div>
+  </div>
   <a class="topbar-back" href="index.html">← Início</a>
 </nav>
  
@@ -113,6 +142,7 @@ let bank      = null;
 let questions = [];
 let cur       = 0;
 let score     = 0;
+let wrong     = 0;
 let answered  = false;
 let sessionSeed = 0;
  
@@ -133,6 +163,12 @@ function applyThemeColor(hex) {
   const colorDark = shadeColor(color, -35);
   document.documentElement.style.setProperty('--quiz-color',      color);
   document.documentElement.style.setProperty('--quiz-color-dark', colorDark);
+}
+ 
+/* ─── Update counters ───────────────────────────────── */
+function updateCounters() {
+  document.getElementById('cntRight').textContent = `✓ ${score}`;
+  document.getElementById('cntWrong').textContent = `✗ ${wrong}`;
 }
  
 /* ─── Seeded PRNG (Mulberry32) ──────────────────────── */
@@ -166,7 +202,6 @@ async function boot() {
     return;
   }
  
-  // LOCAL: read from localStorage (imported via drag/drop on landing page)
   if (bankFile === 'local') {
     const raw = localStorage.getItem('mq_imported_bank');
     if (!raw) {
@@ -178,8 +213,6 @@ async function boot() {
       showError('Erro ao ler o quiz importado.<br>Volta à <a href="index.html">página inicial</a> e importa novamente.');
       return;
     }
- 
-  // REMOTE: fetch from data/ folder as usual
   } else {
     try {
       const res = await fetch(`data/${bankFile}`);
@@ -196,11 +229,8 @@ async function boot() {
     return;
   }
  
-  document.title = `MedQuiz — ${bank.meta?.title || 'Quiz'}`;
- 
-  // Apply theme colour from meta — falls back to default blue
+  document.title = `Compilações de Exercícios — ${bank.meta?.title || 'Quiz'}`;
   applyThemeColor(bank.meta?.color);
- 
   initSession();
 }
  
@@ -209,13 +239,10 @@ function initSession() {
   sessionSeed = Math.floor(Math.random() * 2 ** 32);
   const rng   = makePRNG(sessionSeed);
  
-  // 1. Shuffle question order
   const indices         = bank.questions.map((_, i) => i);
   const shuffledIndices = shuffle(indices, rng);
   questions             = shuffledIndices.map(i => bank.questions[i]);
  
-  // 2. For each question, shuffle options and track which display
-  //    letter (A-E) maps to the correct answer
   const displayLetters  = ['A', 'B', 'C', 'D', 'E'];
   optionMaps            = [];
   correctDisplayLetters = [];
@@ -223,14 +250,15 @@ function initSession() {
   questions.forEach(q => {
     const shuffledOpts = shuffle(q.options, rng);
     optionMaps.push(shuffledOpts);
- 
     const correctIdx = shuffledOpts.findIndex(o => o.letter === q.correct);
     correctDisplayLetters.push(displayLetters[correctIdx] ?? q.correct);
   });
  
   cur      = 0;
   score    = 0;
+  wrong    = 0;
   answered = false;
+  updateCounters();
   render();
 }
  
@@ -247,27 +275,29 @@ function render() {
   document.getElementById('progFill').style.width  = pct + '%';
   document.getElementById('progLabel').textContent = `Questão ${cur + 1} de ${questions.length}`;
   document.getElementById('progPct').textContent   = pct + '%';
-  document.getElementById('scorePill').textContent = `${score} / ${cur}`;
  
   // Header
   document.getElementById('qNum').textContent    = `Q${cur + 1} / ${questions.length}`;
   document.getElementById('qDomain').textContent = q.domain ?? '';
   document.getElementById('qLevel').textContent  = q.level  ?? '';
  
-  // Vignette
+  // Vignette — also toggle .has-vignette on qcard for margin control
   const vigWrap = document.getElementById('vignetteWrap');
+  const qcard   = document.getElementById('qcard');
   if (q.vignette) {
     vigWrap.style.display = 'block';
+    qcard.classList.add('has-vignette');
     document.getElementById('vignetteText').textContent = q.vignette;
     document.getElementById('labTableWrap').innerHTML   = buildLabTable(q.labTable);
   } else {
     vigWrap.style.display = 'none';
+    qcard.classList.remove('has-vignette');
   }
  
   // Question
   document.getElementById('questionText').textContent = q.question;
  
-  // Options — always displayed A, B, C, D, E; text shuffled
+  // Options
   const container = document.getElementById('optionsContainer');
   container.innerHTML = '';
   displayOpts.forEach((opt, idx) => {
@@ -281,7 +311,6 @@ function render() {
     container.appendChild(div);
   });
  
-  // Reset
   document.getElementById('expPanel').classList.remove('show');
   document.getElementById('btnNext').style.display = 'none';
 }
@@ -293,7 +322,8 @@ function selectAnswer(chosenDisp) {
  
   const correctDisp = correctDisplayLetters[cur];
   const ok          = chosenDisp === correctDisp;
-  if (ok) score++;
+  if (ok) score++; else wrong++;
+  updateCounters();
  
   // Colour the options
   document.querySelectorAll('.opt').forEach(el => {
@@ -313,11 +343,9 @@ function selectAnswer(chosenDisp) {
   document.getElementById('expSource').textContent = q.source ? `📚 Fonte: ${q.source}` : '';
   document.getElementById('logicText').textContent = q.logic ?? '';
  
-  // Build original → display letter lookup
   const origToDisp = {};
   displayOpts.forEach((opt, idx) => { origToDisp[opt.letter] = displayLetters[idx]; });
  
-  // Distractors sorted by display letter order
   const distList     = document.getElementById('distList');
   const displayOrder = ['A','B','C','D','E'];
   distList.innerHTML = '';
@@ -337,13 +365,11 @@ function selectAnswer(chosenDisp) {
     });
  
   document.getElementById('expPanel').classList.add('show');
-  document.getElementById('scorePill').textContent = `${score} / ${cur + 1}`;
  
   const btn = document.getElementById('btnNext');
   btn.style.display = 'block';
   btn.textContent   = cur < questions.length - 1 ? 'Próxima →' : 'Ver Resultado';
  
-  // Scroll so the Próxima button is fully visible
   setTimeout(() => {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }, 120);

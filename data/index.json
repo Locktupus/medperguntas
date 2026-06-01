@@ -11,25 +11,14 @@
     "color": "#0f766e"
   },
   {
-    "id": "renal_casos_clinicos",
+    "id": "bn_exame23_24_exame25",
     "file": "bioquimica_aulas9-14.json",
     "title": "Bioquímica — Aulas 9 a 14",
-    "subtitle": " ",
+    "subtitle": "Adaptados e da Drive Principal",
     "icon": "🧪",
-    "type": "clinical",
-    "questionCount": 30,
-    "levels": ["L1", "L2", "L3"],
-    "color": "#0f766e"
-  },
-  {
-    "id": "renal_banco",
-    "file": "renal_banco.json",
-    "title": "Fisiologia Renal — Banco de Questões",
-    "subtitle": "Costanzo Fisiologia, Cap. 6 · 20 questões",
-    "icon": "🔬",
     "type": "general",
-    "questionCount": 20,
+    "questionCount": 66,
     "levels": ["L1", "L2", "L3"],
-    "color": "#0f766e"
+    "color": "#4a8f3f"
   }
 ]

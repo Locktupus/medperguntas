@@ -64,7 +64,7 @@
     .btn-seed-copy:hover { opacity: .8; }
     .seed-divider { width: 1px; height: 20px; background: var(--slate-mid); flex-shrink: 0; }
     .seed-input {
-      font-family: 'Courier New', monospace; font-size: .78rem; width: 120px;
+      font-family: 'Courier New', monospace; font-size: .78rem; width: 150px;
       border: 1.5px solid var(--slate-mid); border-radius: 7px; padding: 4px 8px;
       color: var(--slate); outline: none; transition: border-color .15s;
     }
@@ -87,6 +87,128 @@
       opacity: 0; pointer-events: none; z-index: 999;
     }
     .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+ 
+    /* ── Review mode ── */
+    #reviewScreen { display: none; }
+ 
+    .review-topbar {
+      max-width: 860px; margin: 0 auto 20px; padding: 0 16px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .review-title {
+      font-size: 1rem; font-weight: 700; color: var(--text);
+    }
+    .review-subtitle { font-size: .8rem; color: var(--sub); margin-top: 2px; }
+    .btn-review-back {
+      background: #fff; border: 1.5px solid var(--slate-mid); border-radius: 9px;
+      padding: 8px 16px; font-size: .82rem; font-weight: 600; color: var(--slate);
+      cursor: pointer; white-space: nowrap; transition: border-color .15s;
+      flex-shrink: 0;
+    }
+    .btn-review-back:hover { border-color: #94a3b8; }
+ 
+    /* Individual review card */
+    .review-card {
+      background: #fff; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,.07);
+      overflow: hidden; margin-bottom: 18px; border: 2px solid transparent;
+    }
+    .review-card.was-correct { border-color: #bbf7d0; }
+    .review-card.was-wrong   { border-color: #fecaca; }
+ 
+    .review-card-header {
+      padding: 12px 20px; display: flex; align-items: center; justify-content: space-between;
+      background: var(--slate-light); border-bottom: 1px solid var(--slate-mid);
+    }
+    .review-card-num {
+      font-size: .75rem; font-weight: 700; color: var(--sub);
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+    .review-result-badge {
+      font-size: .72rem; font-weight: 800; padding: 3px 10px;
+      border-radius: 99px; letter-spacing: .04em;
+    }
+    .review-result-badge.correct { background: #dcfce7; color: #15803d; }
+    .review-result-badge.wrong   { background: #fee2e2; color: #b91c1c; }
+    .review-result-badge.skipped { background: var(--slate-light); color: var(--sub); }
+ 
+    .review-card-body { padding: 16px 20px 0; }
+ 
+    /* Vignette in review */
+    .review-vignette {
+      font-size: .9rem; color: var(--slate); line-height: 1.7;
+      margin-bottom: 12px; padding: 10px 13px;
+      background: var(--slate-light); border-left: 3px solid var(--slate-mid);
+      border-radius: 0 6px 6px 0;
+    }
+ 
+    .review-question {
+      font-size: .95rem; font-weight: 600; color: var(--text);
+      line-height: 1.5; margin-bottom: 14px;
+    }
+ 
+    /* Read-only options in review */
+    .review-opts { display: flex; flex-direction: column; gap: 8px; margin-bottom: 0; }
+    .review-opt {
+      display: flex; align-items: flex-start; gap: 11px;
+      padding: 11px 14px; border-radius: 9px; border: 2px solid var(--slate-mid);
+      font-size: .88rem; line-height: 1.45;
+    }
+    .review-opt .letter {
+      flex-shrink: 0; width: 26px; height: 26px; border-radius: 7px;
+      font-weight: 700; font-size: .78rem; display: flex;
+      align-items: center; justify-content: center; margin-top: 1px;
+    }
+    .review-opt.opt-correct { border-color: #4ade80; background: #f0fdf4; }
+    .review-opt.opt-correct .letter { background: #16a34a; color: #fff; }
+    .review-opt.opt-wrong-chosen { border-color: #f87171; background: #fef2f2; }
+    .review-opt.opt-wrong-chosen .letter { background: #dc2626; color: #fff; }
+    .review-opt.opt-neutral { opacity: .45; }
+    .review-opt .letter { background: var(--slate-light); color: var(--slate); }
+ 
+    /* Explanation in review — always open */
+    .review-exp {
+      border-top: 1px solid var(--slate-mid); margin-top: 14px;
+      padding: 16px 20px 18px; background: var(--slate-light);
+    }
+    .review-exp-correct {
+      background: #f0fdf4; border: 1.5px solid #bbf7d0;
+      border-radius: 10px; padding: 13px 15px; margin-bottom: 12px;
+    }
+    .review-exp-correct .tag { font-size: .68rem; font-weight: 800; color: #15803d;
+      text-transform: uppercase; letter-spacing: .07em; display: block; margin-bottom: 5px; }
+    .review-exp-correct p { font-size: .87rem; line-height: 1.65; color: #14532d; }
+    .review-exp-source { font-size: .72rem; color: #166534; margin-top: 5px; font-style: italic; opacity: .8; }
+ 
+    .review-logic {
+      background: #fffbeb; border: 1.5px solid #fde68a;
+      border-radius: 10px; padding: 11px 14px; margin-bottom: 12px;
+    }
+    .review-logic .tag { font-size: .68rem; font-weight: 800; color: #92400e;
+      text-transform: uppercase; letter-spacing: .07em; display: block; margin-bottom: 4px; }
+    .review-logic p { font-size: .85rem; line-height: 1.55; color: #92400e; }
+ 
+    .review-dist-header { font-size: .68rem; font-weight: 800; color: #b91c1c;
+      text-transform: uppercase; letter-spacing: .07em; margin-bottom: 7px; }
+    .review-dist-item {
+      background: #fff; border: 1.5px solid #fecaca; border-radius: 9px;
+      padding: 10px 13px; margin-bottom: 7px;
+    }
+    .review-dist-item .tag { font-size: .68rem; font-weight: 800; color: #b91c1c;
+      display: block; margin-bottom: 3px; }
+    .review-dist-item p { font-size: .84rem; line-height: 1.5; color: #7f1d1d; }
+    .review-dist-source { font-size: .7rem; color: #9f1717; margin-top: 3px; font-style: italic; opacity: .75; }
+ 
+    /* Review summary bar at top */
+    .review-summary {
+      max-width: 860px; margin: 0 auto 18px; padding: 0 16px;
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .review-summary-pill {
+      background: #fff; border: 1.5px solid var(--slate-mid); border-radius: 99px;
+      padding: 5px 14px; font-size: .78rem; font-weight: 600; color: var(--slate);
+    }
+    .review-summary-pill.green { background: #f0fdf4; border-color: #bbf7d0; color: #15803d; }
+    .review-summary-pill.red   { background: #fef2f2; border-color: #fecaca; color: #b91c1c; }
   </style>
 </head>
 <body>
@@ -121,13 +243,15 @@
     <div class="seed-divider"></div>
     <div class="seed-group">
       <span class="seed-label">Entrar com seed:</span>
-      <input class="seed-input" id="seedInput" type="text" placeholder="seed ou seed:questão" maxlength="20">
+      <input class="seed-input" id="seedInput" type="text" placeholder="seed ou seed:questão" maxlength="25">
       <button class="btn-seed-join" onclick="joinSeed()">Ir</button>
     </div>
   </div>
 </div>
  
 <div class="page" style="padding-top:14px; padding-bottom:20px;">
+ 
+  <!-- Quiz card -->
   <div class="qcard" id="qcard">
     <div class="qcard-header">
       <div class="q-num" id="qNum">–</div>
@@ -158,6 +282,7 @@
     </div>
   </div>
  
+  <!-- Bottom bar -->
   <div class="bottom-bar">
     <div class="score-counters">
       <div class="score-counter right" id="cntRight">✓ 0</div>
@@ -166,6 +291,7 @@
     <button class="btn-next" id="btnNext" onclick="nextQuestion()">Próxima →</button>
   </div>
  
+  <!-- Finish screen -->
   <div class="finish" id="finishScreen">
     <div class="finish-header">
       <h2 id="finTitle">Quiz Concluído! 🎉</h2>
@@ -176,25 +302,23 @@
       <div class="finish-pct"  id="finPct"></div>
       <div class="finish-msg"  id="finMsg"></div>
       <div class="finish-btns">
-        <button class="btn-primary"   onclick="restart()">Recomeçar</button>
+        <button class="btn-primary"   onclick="showReview()">🔍 Rever respostas</button>
+        <button class="btn-secondary" onclick="restart()">↩ Recomeçar</button>
         <button class="btn-secondary" onclick="window.location.href='index.html'">← Início</button>
       </div>
     </div>
   </div>
+ 
+  <!-- Review screen -->
+  <div id="reviewScreen"></div>
+ 
 </div>
  
 <div class="toast" id="toast"></div>
  
 <script>
-/* ══════════════════════════════════════════════════════
-   MedQuiz — Quiz Engine
-   · Seeded shuffle (questions + answers)
-   · Progress saved to localStorage on every advance
-   · Seed sharing with position sync (?seed=X&pos=N)
-══════════════════════════════════════════════════════ */
- 
 let bank      = null;
-let bankId    = '';       // key used for localStorage progress
+let bankId    = '';
 let questions = [];
 let cur       = 0;
 let score     = 0;
@@ -203,22 +327,21 @@ let answered  = false;
 let sessionSeed = 0;
 let optionMaps            = [];
 let correctDisplayLetters = [];
+let userAnswers           = []; // stores display letter chosen per question, or null
  
 const PROGRESS_PREFIX = 'mq_progress_';
  
-/* ─── localStorage helpers ──────────────────────────── */
+/* ─── localStorage ──────────────────────────────────── */
 function saveProgress() {
   const data = { seed: sessionSeed, cur, score, wrong };
   localStorage.setItem(PROGRESS_PREFIX + bankId, JSON.stringify(data));
 }
- 
 function loadProgress() {
   try {
     const raw = localStorage.getItem(PROGRESS_PREFIX + bankId);
     return raw ? JSON.parse(raw) : null;
   } catch (_) { return null; }
 }
- 
 function clearProgress() {
   localStorage.removeItem(PROGRESS_PREFIX + bankId);
 }
@@ -242,7 +365,6 @@ function shadeColor(hex, pct) {
   const b = Math.min(255, Math.max(0, (n & 0xff) + pct));
   return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
 }
- 
 function applyThemeColor(hex) {
   const color     = hex || '#1d4ed8';
   const colorDark = shadeColor(color, -35);
@@ -259,23 +381,19 @@ function updateCounters() {
 /* ─── Seed bar ──────────────────────────────────────── */
 function updateSeedBar() {
   document.getElementById('seedWrap').style.display = 'block';
-  // Display seed:position so the code itself is self-contained
   document.getElementById('seedDisplay').textContent = `${sessionSeed}:${cur}`;
   const params = new URLSearchParams(window.location.search);
   params.set('seed', sessionSeed);
   params.set('pos',  cur);
   history.replaceState(null, '', '?' + params.toString());
 }
- 
 function toggleSeedPanel() {
   const panel  = document.getElementById('seedPanel');
   const toggle = document.getElementById('seedToggle');
   const open   = panel.classList.toggle('open');
   toggle.classList.toggle('open', open);
 }
- 
 function copyLink() {
-  // Always put the current position in the link
   const params = new URLSearchParams(window.location.search);
   params.set('seed', sessionSeed);
   params.set('pos',  cur);
@@ -290,24 +408,17 @@ function copyLink() {
     showToast('✓ Link copiado!');
   }
 }
- 
 function joinSeed() {
   const input = document.getElementById('seedInput');
   const val   = input.value.trim();
- 
-  // Accept two formats:
-  //   "2847361905"      → seed only, start at question 0
-  //   "2847361905:7"    → seed + position (colon-separated)
   const parts = val.split(':');
   const num   = parseInt(parts[0], 10);
   const pos   = parts.length > 1 ? Math.max(0, parseInt(parts[1], 10)) : 0;
- 
   if (!val || isNaN(num) || num < 0) {
     input.classList.add('error');
     setTimeout(() => input.classList.remove('error'), 1200);
     return;
   }
- 
   input.value = '';
   initSession(num, isNaN(pos) ? 0 : pos);
   const msg = pos > 0
@@ -316,14 +427,13 @@ function joinSeed() {
   showToast(msg);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
- 
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('seedInput').addEventListener('keydown', e => {
     if (e.key === 'Enter') joinSeed();
   });
 });
  
-/* ─── Seeded PRNG (Mulberry32) ──────────────────────── */
+/* ─── PRNG + shuffle ────────────────────────────────── */
 function makePRNG(seed) {
   let s = seed >>> 0;
   return function() {
@@ -333,7 +443,6 @@ function makePRNG(seed) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
- 
 function shuffle(arr, rng) {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
@@ -347,14 +456,11 @@ function shuffle(arr, rng) {
 async function boot() {
   const params   = new URLSearchParams(window.location.search);
   const bankFile = params.get('bank');
- 
   if (!bankFile) {
     showError('Nenhum ficheiro de quiz especificado na URL.<br>Volta à <a href="index.html">página inicial</a>.');
     return;
   }
- 
-  bankId = bankFile; // used as localStorage key
- 
+  bankId = bankFile;
   if (bankFile === 'local') {
     const raw = localStorage.getItem('mq_imported_bank');
     if (!raw) {
@@ -376,12 +482,10 @@ async function boot() {
       return;
     }
   }
- 
   if (!bank.questions || !Array.isArray(bank.questions) || !bank.questions.length) {
     showError('O ficheiro JSON não contém questões válidas.');
     return;
   }
- 
   document.title = `Compilações de Exercícios — ${bank.meta?.title || 'Quiz'}`;
   applyThemeColor(bank.meta?.color);
  
@@ -391,14 +495,11 @@ async function boot() {
   const hasPosInURL  = !isNaN(urlPos) && urlPos > 0;
  
   if (hasSeedInURL) {
-    // Shared link — use seed from URL, jump to position (mark previous as correct)
     initSession(urlSeed, hasPosInURL ? urlPos : 0);
     if (hasPosInURL) showToast(`🔗 A começar na questão ${urlPos + 1}`);
   } else {
-    // No URL seed — check for saved progress
     const saved = loadProgress();
     if (saved && saved.cur > 0 && saved.cur < bank.questions.length) {
-      // Offer to continue — boot will wait; show resume UI inside initSession
       initSessionWithResume(saved);
     } else {
       initSession(null, 0);
@@ -406,24 +507,12 @@ async function boot() {
   }
 }
  
-/* ─── Init with resume prompt ───────────────────────── */
+/* ─── Resume prompt ─────────────────────────────────── */
 function initSessionWithResume(saved) {
-  // Build the session silently first so we can show stats
   const rng = makePRNG(saved.seed >>> 0);
   const indices = bank.questions.map((_, i) => i);
-  const shuffledIndices = shuffle(indices, rng);
-  const qs = shuffledIndices.map(i => bank.questions[i]);
-  const displayLetters = ['A','B','C','D','E'];
-  const om = [], cdl = [];
-  qs.forEach(q => {
-    const so = shuffle(q.options, rng);
-    om.push(so);
-    const ci = so.findIndex(o => o.letter === q.correct);
-    cdl.push(displayLetters[ci] ?? q.correct);
-  });
- 
-  // Show resume card instead of quiz card
-  const total    = qs.length;
+  shuffle(indices, rng); // consume rng to match state
+  const total    = bank.questions.length;
   const done     = saved.cur;
   const pctDone  = Math.round((done / total) * 100);
   const pctRight = done > 0 ? Math.round((saved.score / done) * 100) : 0;
@@ -444,25 +533,18 @@ function initSessionWithResume(saved) {
         <button class="btn-primary" onclick="resumeSession(${JSON.stringify(saved).replace(/"/g,'&quot;')})">
           ▶ Continuar
         </button>
-        <button class="btn-secondary" onclick="initSession(null,0)">
-          ↩ Recomeçar
-        </button>
+        <button class="btn-secondary" onclick="initSession(null,0)">↩ Recomeçar</button>
       </div>
     </div>`;
-  // Hide progress bar until resumed
-  document.getElementById('progFill').style.width = pctDone + '%';
+  document.getElementById('progFill').style.width  = pctDone + '%';
   document.getElementById('progLabel').textContent = `Questão ${done + 1} de ${total}`;
   document.getElementById('progPct').textContent   = pctDone + '%';
 }
- 
 function resumeSession(saved) {
   initSession(saved.seed, saved.cur, saved.score, saved.wrong);
 }
  
-/* ─── Initialise session ────────────────────────────── */
-// forceSeed: number or null (generate random)
-// startCur:  question index to start at (default 0)
-// startScore/startWrong: for resume
+/* ─── Init session ──────────────────────────────────── */
 function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
   sessionSeed = (forceSeed != null) ? (forceSeed >>> 0) : Math.floor(Math.random() * 2 ** 32);
   const rng   = makePRNG(sessionSeed);
@@ -474,6 +556,7 @@ function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
   const displayLetters  = ['A','B','C','D','E'];
   optionMaps            = [];
   correctDisplayLetters = [];
+  userAnswers           = new Array(questions.length).fill(null);
  
   questions.forEach(q => {
     const shuffledOpts = shuffle(q.options, rng);
@@ -482,20 +565,21 @@ function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
     correctDisplayLetters.push(displayLetters[correctIdx] ?? q.correct);
   });
  
-  // Clamp startCur to valid range
   cur   = Math.min(Math.max(0, startCur), questions.length - 1);
   score = startScore;
   wrong = startWrong;
  
-  // If joining from a shared link with pos > 0, count skipped as correct
   if (startCur > 0 && startScore === 0 && startWrong === 0) {
     score = startCur;
   }
  
   answered = false;
  
-  // Restore quiz card if it was replaced by the resume prompt
+  // Hide review and finish, restore quiz card HTML if needed
+  document.getElementById('reviewScreen').style.display  = 'none';
+  document.getElementById('finishScreen').style.display  = 'none';
   const qcard = document.getElementById('qcard');
+  qcard.style.display = 'block';
   if (!qcard.querySelector('.qcard-header')) {
     qcard.innerHTML = `
       <div class="qcard-header">
@@ -527,10 +611,7 @@ function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
       </div>`;
   }
  
-  // Hide finish screen if visible
-  document.getElementById('finishScreen').style.display = 'none';
-  qcard.style.display = 'block';
- 
+  document.getElementById('btnNext').style.display = 'none';
   updateCounters();
   updateSeedBar();
   saveProgress();
@@ -542,7 +623,6 @@ function render() {
   const q              = questions[cur];
   const displayOpts    = optionMaps[cur];
   const displayLetters = ['A','B','C','D','E'];
- 
   answered = false;
  
   const pct = Math.round((cur / questions.length) * 100);
@@ -583,8 +663,6 @@ function render() {
  
   document.getElementById('expPanel').classList.remove('show');
   document.getElementById('btnNext').style.display = 'none';
- 
-  // Update URL pos
   updateSeedBar();
 }
  
@@ -596,6 +674,10 @@ function selectAnswer(chosenDisp) {
   const correctDisp = correctDisplayLetters[cur];
   const ok          = chosenDisp === correctDisp;
   if (ok) score++; else wrong++;
+ 
+  // Record what the user chose
+  userAnswers[cur] = chosenDisp;
+ 
   updateCounters();
   saveProgress();
  
@@ -656,7 +738,7 @@ function nextQuestion() {
 }
  
 function showFinish() {
-  clearProgress(); // done — remove saved state
+  clearProgress();
   document.getElementById('qcard').style.display        = 'none';
   document.getElementById('btnNext').style.display      = 'none';
   document.getElementById('finishScreen').style.display = 'block';
@@ -682,8 +764,125 @@ function showFinish() {
 function restart() {
   clearProgress();
   document.getElementById('finishScreen').style.display = 'none';
+  document.getElementById('reviewScreen').style.display = 'none';
   document.getElementById('qcard').style.display        = 'block';
   initSession(null, 0);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+ 
+/* ─── Review mode ───────────────────────────────────── */
+function showReview() {
+  document.getElementById('finishScreen').style.display = 'none';
+  document.getElementById('qcard').style.display        = 'none';
+  document.getElementById('btnNext').style.display      = 'none';
+ 
+  const displayLetters = ['A','B','C','D','E'];
+  const displayOrder   = ['A','B','C','D','E'];
+  const pct = Math.round((score / questions.length) * 100);
+ 
+  let html = `
+    <div class="review-topbar">
+      <div>
+        <div class="review-title">🔍 Revisão de respostas</div>
+        <div class="review-subtitle">${bank.meta?.title ?? ''}</div>
+      </div>
+      <button class="btn-review-back" onclick="backToFinish()">← Resultado</button>
+    </div>
+    <div class="review-summary">
+      <div class="review-summary-pill">${questions.length} questões</div>
+      <div class="review-summary-pill green">✓ ${score} correctas</div>
+      <div class="review-summary-pill red">✗ ${wrong} erradas</div>
+      <div class="review-summary-pill">${pct}% de sucesso</div>
+    </div>`;
+ 
+  questions.forEach((q, i) => {
+    const displayOpts  = optionMaps[i];
+    const correctDisp  = correctDisplayLetters[i];
+    const chosenDisp   = userAnswers[i]; // null if skipped (shared link position)
+    const wasCorrect   = chosenDisp === correctDisp;
+    const wasSkipped   = chosenDisp === null;
+ 
+    const cardClass   = wasSkipped ? '' : wasCorrect ? 'was-correct' : 'was-wrong';
+    const badgeClass  = wasSkipped ? 'skipped' : wasCorrect ? 'correct' : 'wrong';
+    const badgeText   = wasSkipped ? '— Não respondida' : wasCorrect ? '✓ Correcta' : '✗ Errada';
+ 
+    // Build origToDisp map for this question
+    const origToDisp = {};
+    displayOpts.forEach((opt, idx) => { origToDisp[opt.letter] = displayLetters[idx]; });
+ 
+    // Vignette
+    const vigHtml = q.vignette
+      ? `<div class="review-vignette">${escHtml(q.vignette)}</div>
+         ${q.labTable ? buildLabTable(q.labTable) : ''}`
+      : '';
+ 
+    // Options
+    const optsHtml = displayOpts.map((opt, idx) => {
+      const dl = displayLetters[idx];
+      let cls = 'review-opt';
+      if      (dl === correctDisp && dl === chosenDisp) cls += ' opt-correct';
+      else if (dl === correctDisp)                      cls += ' opt-correct';
+      else if (dl === chosenDisp)                       cls += ' opt-wrong-chosen';
+      else                                              cls += ' opt-neutral';
+      return `<div class="${cls}">
+        <span class="letter">${dl}</span>
+        <span>${escHtml(opt.text)}</span>
+      </div>`;
+    }).join('');
+ 
+    // Distractors (sorted by display letter)
+    const distsHtml = (q.distractors ?? [])
+      .filter(d => d.letter !== q.correct)
+      .sort((a, b) => displayOrder.indexOf(origToDisp[a.letter]) - displayOrder.indexOf(origToDisp[b.letter]))
+      .map(d => {
+        const ml = origToDisp[d.letter] ?? d.letter;
+        return `<div class="review-dist-item">
+          <span class="tag">${ml}) Incorrecta</span>
+          <p>${escHtml(d.text)}</p>
+          ${d.source ? `<p class="review-dist-source">📚 ${escHtml(d.source)}</p>` : ''}
+        </div>`;
+      }).join('');
+ 
+    html += `
+      <div class="review-card ${cardClass}">
+        <div class="review-card-header">
+          <span class="review-card-num">Questão ${i + 1} de ${questions.length} · ${q.level ?? ''} · ${q.domain ?? ''}</span>
+          <span class="review-result-badge ${badgeClass}">${badgeText}</span>
+        </div>
+        <div class="review-card-body">
+          ${vigHtml}
+          <div class="review-question">${escHtml(q.question)}</div>
+          <div class="review-opts">${optsHtml}</div>
+        </div>
+        <div class="review-exp">
+          <div class="review-exp-correct">
+            <span class="tag">✅ Resposta Correcta</span>
+            <p>${escHtml(q.explanation ?? '')}</p>
+            ${q.source ? `<p class="review-exp-source">📚 Fonte: ${escHtml(q.source)}</p>` : ''}
+          </div>
+          ${q.logic ? `<div class="review-logic">
+            <span class="tag">🔗 Raciocínio</span>
+            <p>${escHtml(q.logic)}</p>
+          </div>` : ''}
+          ${distsHtml ? `<div class="review-dist-header">❌ Distratores</div>${distsHtml}` : ''}
+        </div>
+      </div>`;
+  });
+ 
+  html += `
+    <div style="text-align:center;padding:10px 0 20px;">
+      <button class="btn-review-back" onclick="backToFinish()">← Voltar ao resultado</button>
+    </div>`;
+ 
+  const reviewScreen = document.getElementById('reviewScreen');
+  reviewScreen.innerHTML = html;
+  reviewScreen.style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+ 
+function backToFinish() {
+  document.getElementById('reviewScreen').style.display = 'none';
+  document.getElementById('finishScreen').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
  
@@ -695,6 +894,12 @@ function buildLabTable(rows) {
     `<tr><td>${r.param}</td><td>${r.value}</td><td>${r.ref ?? ''}</td></tr>`
   ).join('');
   return `<table class="lab-table">${thead}<tbody>${tbody}</tbody></table>`;
+}
+ 
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
  
 function showError(html) {

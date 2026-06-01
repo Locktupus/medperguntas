@@ -8,7 +8,7 @@
     "type": "clinical",
     "questionCount": 20,
     "levels": ["L1", "L2", "L3"],
-    "color": "#0f766e"
+    "color": "#780000"
   },
   {
     "id": "bn_exame23_24_exame25",

@@ -121,7 +121,7 @@
     <div class="seed-divider"></div>
     <div class="seed-group">
       <span class="seed-label">Entrar com seed:</span>
-      <input class="seed-input" id="seedInput" type="text" placeholder="ex: 2847361905" maxlength="12">
+      <input class="seed-input" id="seedInput" type="text" placeholder="seed ou seed:questão" maxlength="20">
       <button class="btn-seed-join" onclick="joinSeed()">Ir</button>
     </div>
   </div>
@@ -293,16 +293,26 @@ function copyLink() {
 function joinSeed() {
   const input = document.getElementById('seedInput');
   const val   = input.value.trim();
-  const num   = parseInt(val, 10);
+ 
+  // Accept two formats:
+  //   "2847361905"      → seed only, start at question 0
+  //   "2847361905:7"    → seed + position (colon-separated)
+  const parts = val.split(':');
+  const num   = parseInt(parts[0], 10);
+  const pos   = parts.length > 1 ? Math.max(0, parseInt(parts[1], 10)) : 0;
+ 
   if (!val || isNaN(num) || num < 0) {
     input.classList.add('error');
     setTimeout(() => input.classList.remove('error'), 1200);
     return;
   }
+ 
   input.value = '';
-  // When joining by manual seed, start at position 0
-  initSession(num, 0);
-  showToast('🔗 Sessão sincronizada!');
+  initSession(num, isNaN(pos) ? 0 : pos);
+  const msg = pos > 0
+    ? `🔗 Sessão sincronizada — a começar na questão ${pos + 1}`
+    : '🔗 Sessão sincronizada!';
+  showToast(msg);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
  

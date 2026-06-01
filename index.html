@@ -44,10 +44,9 @@
     .res-card-title { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
     .res-card-sub   { font-size: .78rem; color: var(--sub); margin-bottom: 12px; }
  
-    /* Bottom row: stats left, buttons right — single line */
+    /* Bottom row: stats above, then action row */
     .res-card-bottom {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 10px; flex-wrap: wrap;
+      display: flex; flex-direction: column; gap: 10px;
     }
     .res-card-stats {
       display: flex; gap: 8px; align-items: center;
@@ -56,11 +55,17 @@
     .res-stat-done  { color: var(--sub); }
     .res-stat-right { color: #15803d; }
     .res-stat-wrong { color: #b91c1c; }
-    .res-card-btns  { display: flex; gap: 7px; flex-shrink: 0; }
+ 
+    /* Action row: primary button left, reset icon right */
+    .res-card-btns {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    }
+    .res-card-btns-left  { display: flex; gap: 7px; }
+    .res-card-btns-right { display: flex; gap: 5px; margin-left: auto; }
  
     .btn-continue {
       background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #fff; border: none; border-radius: 9px; padding: 9px 16px;
+      color: #fff; border: none; border-radius: 9px; padding: 9px 18px;
       font-size: .85rem; font-weight: 700; cursor: pointer;
       box-shadow: 0 2px 8px rgba(29,78,216,.2); transition: opacity .15s; white-space: nowrap;
     }
@@ -71,6 +76,15 @@
       cursor: pointer; transition: border-color .15s, color .15s; white-space: nowrap;
     }
     .btn-start-fresh:hover { border-color: #94a3b8; color: var(--text); }
+ 
+    /* Icon-only restart button */
+    .btn-icon-reset {
+      background: none; border: 1.5px solid var(--slate-mid); border-radius: 8px;
+      width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; cursor: pointer; color: var(--sub);
+      transition: border-color .15s, color .15s; flex-shrink: 0;
+    }
+    .btn-icon-reset:hover { border-color: #94a3b8; color: #ef4444; }
  
     /* Toast */
     .toast {
@@ -190,11 +204,14 @@ function buildResCard({ color, dark, label, labelColor, icon, title, subtitle,
     statsHtml = `<div class="res-card-stats"></div>`;
   }
  
-  const freshBtn = onFresh
-    ? `<button class="btn-start-fresh" onclick="${onFresh}">↩ Recomeçar</button>`
-    : '';
+  // Left side: primary action + optional replace button
   const replaceBtn = onReplace
     ? `<button class="btn-start-fresh" onclick="${onReplace}">↩ Importar outro</button>`
+    : '';
+ 
+  // Right side: icon-only reset (only if onFresh provided)
+  const resetBtn = onFresh
+    ? `<button class="btn-icon-reset" onclick="${onFresh}" title="Recomeçar">↺</button>`
     : '';
  
   return `
@@ -208,10 +225,15 @@ function buildResCard({ color, dark, label, labelColor, icon, title, subtitle,
         <div class="res-card-bottom">
           ${statsHtml}
           <div class="res-card-btns">
-            <button class="btn-continue"
-              style="background:linear-gradient(135deg,${dark},${color})"
-              onclick="${onContinue}">${btnContinueText}</button>
-            ${freshBtn}${replaceBtn}
+            <div class="res-card-btns-left">
+              <button class="btn-continue"
+                style="background:linear-gradient(135deg,${dark},${color})"
+                onclick="${onContinue}">${btnContinueText}</button>
+              ${replaceBtn}
+            </div>
+            <div class="res-card-btns-right">
+              ${resetBtn}
+            </div>
           </div>
         </div>
       </div>

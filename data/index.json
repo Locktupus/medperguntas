@@ -8,17 +8,17 @@
     "type": "clinical",
     "questionCount": 20,
     "levels": ["L1", "L2", "L3"],
-    "color": "#0f766e"
+    "color": "#780000"
   },
   {
-    "id": "renal_banco",
-    "file": "renal_banco.json",
-    "title": "Fisiologia Renal — Banco de Questões",
-    "subtitle": "Costanzo Fisiologia, Cap. 6 · 20 questões",
-    "icon": "🔬",
+    "id": "bn_exame23_24_exame25",
+    "file": "BioqNutricional_QuizBank.json",
+    "title": "Bioquímica Nutricional — Exames 1ª Fase",
+    "subtitle": "Compilação 2022/2023 e 2023/2024 - Adaptados e da Drive Principal",
+    "icon": "🧪",
     "type": "general",
-    "questionCount": 20,
+    "questionCount": 66,
     "levels": ["L1", "L2", "L3"],
-    "color": "#0f766e"
+    "color": "#4a8f3f"
   }
 ]

@@ -1,9 +1,9 @@
 /* ═══════════════════════════════════════════
    MedQuiz — Shared Stylesheet
    ═══════════════════════════════════════════ */
-
+ 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
 :root {
   --blue:        #1d4ed8;
   --blue-dark:   #1e3a5f;
@@ -24,16 +24,16 @@
   --text:        #0f172a;
   --sub:         #64748b;
 }
-
+ 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   background: #f1f5f9;
   color: var(--text);
   min-height: 100vh;
 }
-
+ 
 a { color: inherit; text-decoration: none; }
-
+ 
 /* ── TOPBAR ── */
 .topbar {
   background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
@@ -69,10 +69,22 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
 }
 .topbar-back:hover { color: #fff; }
-
+.topbar-btn {
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  padding: 5px 13px;
+  color: #fff !important;
+  transition: background .15s, border-color .15s;
+}
+.topbar-btn:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.5);
+}
+ 
 /* ── PAGE WRAPPER ── */
 .page { max-width: 860px; margin: 0 auto; padding: 32px 16px 60px; }
-
+ 
 /* ── HERO (landing) ── */
 .hero {
   text-align: center;
@@ -91,7 +103,7 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto;
   line-height: 1.6;
 }
-
+ 
 /* ── QUIZ GRID (landing) ── */
 .section-title {
   font-size: .72rem;
@@ -157,7 +169,7 @@ a { color: inherit; text-decoration: none; }
 .tag-l  { background: var(--green-light); color: var(--green); }
 .tag-cc { background: var(--amber-light); color: var(--amber); }
 .tag-gen{ background: var(--slate-light); color: var(--slate); }
-
+ 
 /* ── EMPTY / ERROR STATE ── */
 .empty-state {
   text-align: center;
@@ -166,11 +178,11 @@ a { color: inherit; text-decoration: none; }
 }
 .empty-state .icon { font-size: 2.5rem; margin-bottom: 12px; }
 .empty-state p { font-size: .9rem; line-height: 1.6; }
-
+ 
 /* ══════════════════════════════════════
    QUIZ PAGE
 ═══════════════════════════════════════ */
-
+ 
 /* progress bar */
 .prog-wrap { max-width: 860px; margin: 0 auto; padding: 18px 16px 0; }
 .prog-top {
@@ -187,7 +199,7 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(90deg, #3b82f6, var(--blue));
   transition: width .45s ease;
 }
-
+ 
 /* score pill in topbar */
 .score-pill {
   margin-left: auto;
@@ -198,7 +210,7 @@ a { color: inherit; text-decoration: none; }
   font-size: .8rem;
   font-weight: 700;
 }
-
+ 
 /* quiz card */
 .qcard {
   background: #fff;
@@ -243,7 +255,7 @@ a { color: inherit; text-decoration: none; }
   font-size: .68rem;
   font-weight: 700;
 }
-
+ 
 /* vignette */
 .vignette-wrap { padding: 20px 24px 0; }
 .section-label-inline {
@@ -271,7 +283,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.75;
   margin-bottom: 14px;
 }
-
+ 
 /* lab table */
 .lab-table {
   width: 100%;
@@ -299,7 +311,7 @@ a { color: inherit; text-decoration: none; }
 }
 .lab-table td:nth-child(2) { font-weight: 700; color: var(--text); }
 .lab-table tr:nth-child(even) { background: var(--slate-light); }
-
+ 
 /* question box */
 .question-box {
   margin: 0 24px 20px;
@@ -314,7 +326,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--blue-dark);
   line-height: 1.5;
 }
-
+ 
 /* options */
 .options {
   padding: 0 24px 22px;
@@ -356,7 +368,7 @@ a { color: inherit; text-decoration: none; }
 .opt.wrong   .letter { background: #dc2626; color: #fff; border-color: #dc2626; }
 .opt.neutral { opacity: .5; }
 .opt.disabled { cursor: default; }
-
+ 
 /* explanation panel */
 .exp-panel {
   display: none;
@@ -365,7 +377,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--slate-light);
 }
 .exp-panel.show { display: block; }
-
+ 
 .exp-correct {
   background: var(--green-light);
   border: 1.5px solid var(--green-mid);
@@ -381,7 +393,7 @@ a { color: inherit; text-decoration: none; }
 }
 .exp-correct p { font-size: .88rem; line-height: 1.7; color: #14532d; }
 .exp-source { font-size: .73rem; color: #166534; margin-top: 7px; font-style: italic; opacity: .8; }
-
+ 
 .logic-box {
   background: var(--amber-light);
   border: 1.5px solid var(--amber-mid);
@@ -396,7 +408,7 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 7px;
 }
 .logic-box p { font-size: .85rem; line-height: 1.6; color: var(--amber); }
-
+ 
 .dist-header {
   font-size: .68rem; font-weight: 800;
   color: var(--red);
@@ -417,7 +429,7 @@ a { color: inherit; text-decoration: none; }
 }
 .dist-item p { font-size: .85rem; line-height: 1.55; color: #7f1d1d; }
 .dist-item .dist-source { font-size: .7rem; color: #9f1717; margin-top: 4px; font-style: italic; opacity: .75; }
-
+ 
 /* bottom bar */
 .bottom-bar {
   max-width: 860px;
@@ -440,7 +452,7 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 2px 8px rgba(29,78,216,.3);
 }
 .btn-next:hover { opacity: .88; }
-
+ 
 /* finish screen */
 .finish {
   display: none;
@@ -477,7 +489,7 @@ a { color: inherit; text-decoration: none; }
   padding: 12px 28px; font-size: .9rem; font-weight: 700; cursor: pointer;
 }
 .btn-secondary:hover { background: var(--blue-light); }
-
+ 
 /* ── RESPONSIVE ── */
 @media (max-width: 520px) {
   .qcard-header { padding: 14px 16px; }

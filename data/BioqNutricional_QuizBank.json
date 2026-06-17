@@ -1,0 +1,3973 @@
+{
+  "meta": {
+    "id": "bioq_nutricional_exames_1f",
+    "title": "Bioquímica Nutricional — Exames 1ª Fase",
+    "subtitle": "Compilação 2022/2023 e 2023/2024",
+    "icon": "🧪",
+    "type": "Questões de Exame",
+    "source": "Exames 1ª Fase Bioquímica Nutricional 2022/2023 e 2023/2024",
+    "color": "#4a8f3f"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Hidratos de Carbono",
+      "labTable": null,
+      "question": "Qual é a carga glicémica de uma fatia de pão de cereais integrais com as características descritas?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "12"
+        },
+        {
+          "letter": "B",
+          "text": "8"
+        },
+        {
+          "letter": "C",
+          "text": "10"
+        },
+        {
+          "letter": "D",
+          "text": "6"
+        },
+        {
+          "letter": "E",
+          "text": "11"
+        }
+      ],
+      "correct": "B",
+      "explanation": "CG = (45 × 18) / 100 = 810 / 100 = 8,1 ≈ 8. A carga glicémica reflete o impacto real de uma porção de alimento na glicemia, integrando tanto a qualidade (IG) como a quantidade de hidratos de carbono ingeridos.",
+      "source": "Desgravada Bioquímica — Hidratos de Carbono — Índice e Carga Glicémica",
+      "logic": "1. Aplicar a fórmula: CG = (IG × g HC) / 100.\n2. CG = (45 × 18) / 100 = 810 / 100 = 8,1.\n3. Arredondar: ≈ 8.\n4. Eliminar A (12), C (10), D (6), E (11) por erro aritmético.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Resultado de erro de cálculo; possivelmente usando 18 × 0,67 em vez da fórmula correta.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Índice e Carga Glicémica"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Índice e Carga Glicémica"
+        },
+        {
+          "letter": "C",
+          "text": "Resultado de arredondamento ou cálculo parcialmente correto com valores errados.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Índice e Carga Glicémica"
+        },
+        {
+          "letter": "D",
+          "text": "Subestima a carga; possível divisão por um fator errado.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Índice e Carga Glicémica"
+        },
+        {
+          "letter": "E",
+          "text": "Valor próximo mas resultado de erro aritmético.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Índice e Carga Glicémica"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Metabolismo dos Hidratos de Carbono",
+      "labTable": null,
+      "question": "Quais os substratos necessários para que a sintetase da lactose produza lactose?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1 molécula de glicose e 1 molécula de UDP-galactose"
+        },
+        {
+          "letter": "B",
+          "text": "2 moléculas de UDP-glicose"
+        },
+        {
+          "letter": "C",
+          "text": "1 molécula de UDP-glicose e 1 molécula de galactose"
+        },
+        {
+          "letter": "D",
+          "text": "2 moléculas de galactose"
+        },
+        {
+          "letter": "E",
+          "text": "1 molécula de glicose e 1 molécula de frutose"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A galactosiltransferase transfere normalmente galactose para N-acetilglucosamina, mas a α-lactalbumina modifica a sua especificidade para aceitar glicose livre como aceptor. A UDP-galactose é o dador e a glicose o aceptor, formando lactose (galactose-β1,4-glicose).",
+      "source": "Desgravada Bioquímica — Metabolismo dos Hidratos de Carbono — Síntese de Lactose",
+      "logic": "1. Identificar os componentes da sintetase: galactosiltransferase + α-lactalbumina.\n2. A α-lactalbumina muda a especificidade do aceptor de N-acetilglucosamina para glicose.\n3. O dador é sempre a UDP-galactose (dador de galactose ativada).\n4. Portanto: glicose (aceptor) + UDP-galactose (dador) → lactose.\n5. Eliminar B (dois UDP-glicose), C (inverte dador/aceptor), D (galactose livre inativa), E (frutose não intervém).",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Metabolismo dos Hidratos de Carbono — Síntese de Lactose"
+        },
+        {
+          "letter": "B",
+          "text": "A UDP-glicose pode ser convertida em UDP-galactose, mas não são os dois substratos diretos da reação.",
+          "source": "Desgravada Bioquímica — Metabolismo dos Hidratos de Carbono — Síntese de Lactose"
+        },
+        {
+          "letter": "C",
+          "text": "Inverte os papéis: é a UDP-galactose o dador, e a glicose (livre) o aceptor.",
+          "source": "Desgravada Bioquímica — Metabolismo dos Hidratos de Carbono — Síntese de Lactose"
+        },
+        {
+          "letter": "D",
+          "text": "A galactose livre não é substrato direto; requer ativação a UDP-galactose.",
+          "source": "Desgravada Bioquímica — Metabolismo dos Hidratos de Carbono — Síntese de Lactose"
+        },
+        {
+          "letter": "E",
+          "text": "A frutose não participa na síntese de lactose.",
+          "source": "Desgravada Bioquímica — Metabolismo dos Hidratos de Carbono — Síntese de Lactose"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Lípidos",
+      "labTable": null,
+      "question": "Quais são os ácidos gordos considerados essenciais para o ser humano?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ácido alfa-linolénico e ácido linoleico"
+        },
+        {
+          "letter": "B",
+          "text": "Ácido oleico e ácido linoleico"
+        },
+        {
+          "letter": "C",
+          "text": "Ácido alfa-linolénico e ácido araquidónico"
+        },
+        {
+          "letter": "D",
+          "text": "Ácido palmítico e ácido linoleico"
+        },
+        {
+          "letter": "E",
+          "text": "Ácido oleico e ácido araquidónico"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O ácido alfa-linolénico (18:3, ω-3) e o ácido linoleico (18:2, ω-6) são os dois ácidos gordos essenciais, pois o organismo carece das dessaturases Δ12 e Δ15 necessárias à sua síntese. Ambos servem como precursores de AGPICL como o EPA, DHA e o araquidónico.",
+      "source": "Desgravada Bioquímica — Lípidos — Ácidos Gordos Essenciais",
+      "logic": "1. Definição de essencial: não sintetizável de novo pelo organismo humano.\n2. Humanos carecem de dessaturases Δ12 e Δ15.\n3. Ácido linoleico (18:2, ω-6) não pode ser sintetizado → essencial.\n4. Ácido alfa-linolénico (18:3, ω-3) não pode ser sintetizado → essencial.\n5. Oleico (Δ9 disponível), araquidónico (derivável do linoleico), palmítico (produto de síntese de novo) → não essenciais.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Lípidos — Ácidos Gordos Essenciais"
+        },
+        {
+          "letter": "B",
+          "text": "O ácido oleico (18:1, ω-9) pode ser sintetizado endogenamente pela dessaturase Δ9; não é essencial.",
+          "source": "Desgravada Bioquímica — Lípidos — Ácidos Gordos Essenciais"
+        },
+        {
+          "letter": "C",
+          "text": "O ácido araquidónico pode ser sintetizado a partir do linoleico; não é estritamente essencial.",
+          "source": "Desgravada Bioquímica — Lípidos — Ácidos Gordos Essenciais"
+        },
+        {
+          "letter": "D",
+          "text": "O ácido palmítico (16:0) é o principal produto da síntese de ácidos gordos de novo; não é essencial.",
+          "source": "Desgravada Bioquímica — Lípidos — Ácidos Gordos Essenciais"
+        },
+        {
+          "letter": "E",
+          "text": "Nenhum dos dois é essencial nos termos da definição metabólica estrita.",
+          "source": "Desgravada Bioquímica — Lípidos — Ácidos Gordos Essenciais"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Digestão dos Hidratos de Carbono",
+      "labTable": null,
+      "question": "Qual a sequência correta das enzimas que participam na digestão da amilose?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Amilase salivar, amilase pancreática, maltase"
+        },
+        {
+          "letter": "B",
+          "text": "Amilase salivar, amilase pancreática, isomaltase"
+        },
+        {
+          "letter": "C",
+          "text": "Amilase pancreática, amilase salivar, maltase"
+        },
+        {
+          "letter": "D",
+          "text": "Amilase salivar, amilase pancreática, sucarase"
+        },
+        {
+          "letter": "E",
+          "text": "Amilase salivar, amilase pancreática, lactase"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A digestão inicia-se na boca com a amilase salivar (hidrolisa α-1,4 aleatoriamente → maltose e oligossacáridos), continua no intestino com a amilase pancreática, e termina na bordadura em escova com a maltase (maltose → 2 glicose). A amilose não tem ramificações α-1,6, pelo que a isomaltase não é necessária.",
+      "source": "Desgravada Bioquímica — Digestão — Hidratos de Carbono",
+      "logic": "1. Digestão começa na boca → amilase salivar (α-amilase).\n2. Continua no intestino delgado → amilase pancreática.\n3. Produto principal da amilase é maltose → dissacárido final.\n4. Maltase hidrolisa maltose em 2 glicoses na bordadura em escova.\n5. Amilose não tem α-1,6 → isomaltase dispensável; sucarase e lactase irrelevantes.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Digestão — Hidratos de Carbono"
+        },
+        {
+          "letter": "B",
+          "text": "A isomaltase hidrolisa ligações α-1,6 dos pontos de ramificação da amilopectina; a amilose não os tem.",
+          "source": "Desgravada Bioquímica — Digestão — Hidratos de Carbono"
+        },
+        {
+          "letter": "C",
+          "text": "A digestão começa na boca com a amilase salivar, que precede a ação pancreática.",
+          "source": "Desgravada Bioquímica — Digestão — Hidratos de Carbono"
+        },
+        {
+          "letter": "D",
+          "text": "A sucarase hidrolisa sacarose (frutose + glicose); não atua sobre a maltose.",
+          "source": "Desgravada Bioquímica — Digestão — Hidratos de Carbono"
+        },
+        {
+          "letter": "E",
+          "text": "A lactase hidrolisa lactose (glicose + galactose); não intervém na digestão do amido.",
+          "source": "Desgravada Bioquímica — Digestão — Hidratos de Carbono"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Hidratos de Carbono",
+      "labTable": null,
+      "question": "Quais os tipos de ligações glicosídicas presentes na amilopectina?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Beta-1,4 e beta-1,6"
+        },
+        {
+          "letter": "B",
+          "text": "Alfa-1,3 e alfa-1,4"
+        },
+        {
+          "letter": "C",
+          "text": "Alfa-1,4 apenas"
+        },
+        {
+          "letter": "D",
+          "text": "Alfa-1,4 e alfa-1,6"
+        },
+        {
+          "letter": "E",
+          "text": "Alfa-1,2 e alfa-1,4"
+        }
+      ],
+      "correct": "D",
+      "explanation": "A amilopectina possui ligações α-1,4 nas cadeias lineares e ligações α-1,6 nos pontos de ramificação (a cada 24–30 resíduos). Esta estrutura ramificada distingue-a da amilose, que tem apenas α-1,4.",
+      "source": "Desgravada Bioquímica — Hidratos de Carbono — Estrutura do Amido",
+      "logic": "1. Amido = amilose (linear, α-1,4) + amilopectina (ramificada).\n2. Cadeias lineares da amilopectina → α-1,4.\n3. Pontos de ramificação → α-1,6.\n4. Eliminar A (β não existe no amido), B (α-1,3 não existe), C (descreve a amilose), E (α-1,2 é da sacarose).",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Ligações beta são características da celulose; o amido tem configuração alfa.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Estrutura do Amido"
+        },
+        {
+          "letter": "B",
+          "text": "Ligações α-1,3 não existem na amilopectina.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Estrutura do Amido"
+        },
+        {
+          "letter": "C",
+          "text": "Alfa-1,4 apenas descreve a amilose, não a amilopectina ramificada.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Estrutura do Amido"
+        },
+        {
+          "letter": "D",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Estrutura do Amido"
+        },
+        {
+          "letter": "E",
+          "text": "Ligações α-1,2 são características da sacarose; não existem na amilopectina.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Estrutura do Amido"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Cadeia Respiratória",
+      "labTable": null,
+      "question": "Qual das seguintes substâncias atua como desacoplador da fosforilação oxidativa?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Monóxido de carbono"
+        },
+        {
+          "letter": "B",
+          "text": "Termogenina"
+        },
+        {
+          "letter": "C",
+          "text": "Oligomicina"
+        },
+        {
+          "letter": "D",
+          "text": "Cianeto"
+        },
+        {
+          "letter": "E",
+          "text": "Lactato"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A termogenina (UCP1) é uma proteína da membrana mitocondrial interna do tecido adiposo castanho que permite o retorno de protões para a matriz sem passar pela ATP-sintase, dissipando energia como calor (termogénese).",
+      "source": "Desgravada Bioquímica — Cadeia Respiratória — Desacopladores",
+      "logic": "1. Desacoplador = permite fluxo de H⁺ de volta à matriz sem gerar ATP.\n2. CO e cianeto inibem o complexo IV → inibidores, não desacopladores.\n3. Oligomicina bloqueia a ATP-sintase diretamente → inibidor, não desacoplador.\n4. Lactato é produto metabólico da glicólise anaeróbia → sem efeito na cadeia.\n5. Termogenina (UCP1) cria poro alternativo para H⁺ → desacoplador clássico.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O CO inibe o complexo IV por competição com O₂; é um inibidor da cadeia, não um desacoplador.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Desacopladores"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Desacopladores"
+        },
+        {
+          "letter": "C",
+          "text": "A oligomicina inibe diretamente a ATP-sintase, bloqueando a fosforilação mas não dissociando o gradiente de protões.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Desacopladores"
+        },
+        {
+          "letter": "D",
+          "text": "O cianeto inibe o complexo IV irreversivelmente; é um inibidor da cadeia, não um desacoplador.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Desacopladores"
+        },
+        {
+          "letter": "E",
+          "text": "O lactato é um produto metabólico; não interfere com a cadeia respiratória como desacoplador.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Desacopladores"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Vitaminas / Vitamina D",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações descreve corretamente uma ação hormonal da vitamina D?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Como hormona, promove a absorção de ferro"
+        },
+        {
+          "letter": "B",
+          "text": "Como hormona, regula a transcrição de renina"
+        },
+        {
+          "letter": "C",
+          "text": "Existe nos frutos vermelhos"
+        },
+        {
+          "letter": "D",
+          "text": "É ativada pela 24-hidroxilase no pâncreas"
+        },
+        {
+          "letter": "E",
+          "text": "É ativada pela 24-hidroxilase no tecido adiposo"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A forma ativa da vitamina D (1,25-dihidroxicolecalciferol) liga-se ao recetor VDR e regula a transcrição do gene da renina, contribuindo para a regulação do sistema renina-angiotensina-aldosterona e controlo da pressão arterial.",
+      "source": "Desgravada Bioquímica — Vitaminas Lipossolúveis — Vitamina D",
+      "logic": "1. Vitamina D ativa = 1,25(OH)₂D₃ → atua como hormona esteróide via VDR.\n2. VDR regula transcrição de vários genes, incluindo renina → B correta.\n3. A: vitamina D regula Ca²⁺ e PO₄³⁻, não ferro → eliminar.\n4. C: fontes são peixe gordo, ovos, síntese cutânea, não frutos vermelhos → eliminar.\n5. D e E: a 24-hidroxilase produz a forma inativa 24,25(OH)₂D₃; a ativação ocorre no rim pela 1α-hidroxilase → eliminar.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A vitamina D regula a absorção intestinal de cálcio e fósforo, não de ferro.",
+          "source": "Desgravada Bioquímica — Vitaminas Lipossolúveis — Vitamina D"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Vitaminas Lipossolúveis — Vitamina D"
+        },
+        {
+          "letter": "C",
+          "text": "A vitamina D não está presente em frutos vermelhos; as fontes são peixe gordo, ovos, fígado e síntese cutânea.",
+          "source": "Desgravada Bioquímica — Vitaminas Lipossolúveis — Vitamina D"
+        },
+        {
+          "letter": "D",
+          "text": "A 24-hidroxilase produz a forma inativa 24,25(OH)₂D₃; a ativação ocorre no rim pela 1α-hidroxilase.",
+          "source": "Desgravada Bioquímica — Vitaminas Lipossolúveis — Vitamina D"
+        },
+        {
+          "letter": "E",
+          "text": "A 24-hidroxilação é uma via de inativação/catabolismo da vitamina D, não de ativação.",
+          "source": "Desgravada Bioquímica — Vitaminas Lipossolúveis — Vitamina D"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Enzimologia / Glicólise",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações descreve corretamente a diferença de Km entre a hexocinase e a glucocinase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Menor Km da hexocinase, que leva a maior afinidade para a glicose em relação à glucocinase"
+        },
+        {
+          "letter": "B",
+          "text": "Menor Km da hexocinase porque é de menor tamanho em relação à glucocinase"
+        },
+        {
+          "letter": "C",
+          "text": "Maior Km da hexocinase em relação à glucocinase"
+        },
+        {
+          "letter": "D",
+          "text": "Km idêntico entre hexocinase e glucocinase"
+        },
+        {
+          "letter": "E",
+          "text": "O Km da glucocinase é inferior ao da hexocinase, conferindo maior sensibilidade a baixas concentrações de glicose"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A hexocinase tem Km baixo (~0,1 mM), funcionando mesmo em glicemia baixa. A glucocinase tem Km elevado (~10 mM), sendo ativa apenas no estado pós-prandial, funcionando como sensor de glicose no fígado e células β pancreáticas.",
+      "source": "Desgravada Bioquímica — Glicólise — Hexocinase vs Glucocinase",
+      "logic": "1. Km baixo = maior afinidade para o substrato.\n2. Hexocinase Km ≈ 0,1 mM → alta afinidade, funciona em qualquer glicemia.\n3. Glucocinase Km ≈ 10 mM → baixa afinidade, só ativa com glicemia alta.\n4. Logo: hexocinase tem menor Km e maior afinidade → A correta.\n5. B: Km não depende do tamanho. C, D, E invertem a realidade.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Glicólise — Hexocinase vs Glucocinase"
+        },
+        {
+          "letter": "B",
+          "text": "O Km não depende do tamanho da enzima, mas das suas propriedades de ligação ao substrato.",
+          "source": "Desgravada Bioquímica — Glicólise — Hexocinase vs Glucocinase"
+        },
+        {
+          "letter": "C",
+          "text": "É o oposto; é a glucocinase que tem Km mais elevado.",
+          "source": "Desgravada Bioquímica — Glicólise — Hexocinase vs Glucocinase"
+        },
+        {
+          "letter": "D",
+          "text": "As duas enzimas têm Km marcadamente diferentes, refletindo funções fisiológicas distintas.",
+          "source": "Desgravada Bioquímica — Glicólise — Hexocinase vs Glucocinase"
+        },
+        {
+          "letter": "E",
+          "text": "Inverte a realidade cinética; a glucocinase tem Km superior, não inferior.",
+          "source": "Desgravada Bioquímica — Glicólise — Hexocinase vs Glucocinase"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Ciclo da Ureia",
+      "labTable": null,
+      "question": "Qual a localização subcelular e o produto imediato da reação catalisada pela arginino-succinase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Citosólica, com formação de arginina e fumarato"
+        },
+        {
+          "letter": "B",
+          "text": "Mitocondrial, leva à formação de ureia"
+        },
+        {
+          "letter": "C",
+          "text": "Mitocondrial, leva à formação de citrulina"
+        },
+        {
+          "letter": "D",
+          "text": "Citosólica, com formação imediata de aspartato"
+        },
+        {
+          "letter": "E",
+          "text": "Nuclear"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A argininosuccinato liase (arginino-succinase) é citosólica e cliva o argininosuccinato em arginina e fumarato. A arginina é depois hidrolisada pela arginase em ureia e ornitina. O fumarato entra no ciclo de Krebs.",
+      "source": "Desgravada Bioquímica — Ciclo da Ureia — Reações Citosólicas",
+      "logic": "1. Ciclo da ureia: reações mitocondriais (CPS-I, OTC) e citosólicas (argininosuccinato sintetase, arginino-succinase, arginase).\n2. Arginino-succinase = argininosuccinato liase → citosólica.\n3. Produto: argininosuccinato → arginina + fumarato.\n4. Eliminar B e C (não é mitocondrial, não produz ureia nem citrulina neste passo).\n5. D: aspartato é substrato, não produto. E: não há enzimas do ciclo no núcleo.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Reações Citosólicas"
+        },
+        {
+          "letter": "B",
+          "text": "A formação de ureia ocorre no citosol pela arginase; a arginino-succinase não é mitocondrial.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Reações Citosólicas"
+        },
+        {
+          "letter": "C",
+          "text": "A citrulina é produzida na mitocôndria pela ornitina transcarbamilase, não pela arginino-succinase.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Reações Citosólicas"
+        },
+        {
+          "letter": "D",
+          "text": "O aspartato é substrato do ciclo (fornece azoto ao argininosuccinato), não produto da arginino-succinase.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Reações Citosólicas"
+        },
+        {
+          "letter": "E",
+          "text": "As enzimas do ciclo da ureia não têm localização nuclear.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Reações Citosólicas"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Cadeia Respiratória",
+      "labTable": null,
+      "question": "Quantos protões H⁺ bombeiam, respetivamente, os complexos I, III e IV por par de eletrões transportado?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "4, 2, 4"
+        },
+        {
+          "letter": "B",
+          "text": "4, 4, 4"
+        },
+        {
+          "letter": "C",
+          "text": "2, 2, 4"
+        },
+        {
+          "letter": "D",
+          "text": "4, 4, 2"
+        },
+        {
+          "letter": "E",
+          "text": "4, 2, 2"
+        }
+      ],
+      "correct": "E",
+      "explanation": "De acordo com os valores aceites no contexto deste curso: complexo I → 4 H⁺, complexo III → 2 H⁺ (via ciclo Q), complexo IV → 2 H⁺. Nota: existe variação na literatura (alguns textos indicam 4/4/2 ou 4/2/4); confirmar com o manual adotado.",
+      "source": "Desgravada Bioquímica — Cadeia Respiratória — Complexos Respiratórios",
+      "logic": "1. Complexo I (NADH desidrogenase): 4 H⁺.\n2. Complexo III (citocromo bc1): variável; neste curso aceite como 2 H⁺.\n3. Complexo IV (citocromo c oxidase): 2 H⁺.\n4. Sequência aceite neste exame: 4, 2, 2 → E.\n5. Nota: literatura diverge; verificar fonte primária do curso.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Atribui 4 H⁺ ao complexo IV, o que não corresponde ao valor aceite neste curso.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Complexos Respiratórios"
+        },
+        {
+          "letter": "B",
+          "text": "Sobrestima o complexo IV (4 em vez de 2).",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Complexos Respiratórios"
+        },
+        {
+          "letter": "C",
+          "text": "Subestima o complexo I (2 em vez de 4).",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Complexos Respiratórios"
+        },
+        {
+          "letter": "D",
+          "text": "Atribui 4 H⁺ ao complexo III; possível em alguns textos mas não foi a resposta aceite neste exame.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Complexos Respiratórios"
+        },
+        {
+          "letter": "E",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Complexos Respiratórios"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Cetogénese",
+      "labTable": null,
+      "question": "Qual das seguintes moléculas é um corpo cetónico?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Acetil-CoA"
+        },
+        {
+          "letter": "B",
+          "text": "Acil-CoA"
+        },
+        {
+          "letter": "C",
+          "text": "Acetato"
+        },
+        {
+          "letter": "D",
+          "text": "Acetoacetato"
+        },
+        {
+          "letter": "E",
+          "text": "HMG-CoA"
+        }
+      ],
+      "correct": "D",
+      "explanation": "Os três corpos cetónicos são acetoacetato, β-hidroxibutirato e acetona. O acetoacetato é o corpo cetónico primário formado na cetogénese hepática e pode ser usado como combustível pelos tecidos extra-hepáticos.",
+      "source": "Desgravada Bioquímica — Metabolismo Lipídico — Cetogénese",
+      "logic": "1. Corpos cetónicos: acetoacetato, β-hidroxibutirato, acetona.\n2. Acetil-CoA: substrato da cetogénese, não corpo cetónico final.\n3. Acil-CoA: intermediário da beta-oxidação.\n4. Acetato: não classificado como corpo cetónico no metabolismo hepático.\n5. HMG-CoA: intermediário da cetogénese e síntese de colesterol, não produto final.\n6. Acetoacetato → único corpo cetónico das opções.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O acetil-CoA é o substrato da cetogénese, não o produto; não circula como corpo cetónico.",
+          "source": "Desgravada Bioquímica — Metabolismo Lipídico — Cetogénese"
+        },
+        {
+          "letter": "B",
+          "text": "O acil-CoA é um intermediário da beta-oxidação; não é um corpo cetónico.",
+          "source": "Desgravada Bioquímica — Metabolismo Lipídico — Cetogénese"
+        },
+        {
+          "letter": "C",
+          "text": "O acetato não é classificado como corpo cetónico no contexto do metabolismo hepático.",
+          "source": "Desgravada Bioquímica — Metabolismo Lipídico — Cetogénese"
+        },
+        {
+          "letter": "D",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Metabolismo Lipídico — Cetogénese"
+        },
+        {
+          "letter": "E",
+          "text": "O HMG-CoA é um intermediário da cetogénese e da síntese de colesterol, não um corpo cetónico final.",
+          "source": "Desgravada Bioquímica — Metabolismo Lipídico — Cetogénese"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Glicólise / Regulação Enzimática",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações descreve corretamente o mecanismo de controlo da hexocinase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "É alostericamente ativada pela glicagina"
+        },
+        {
+          "letter": "B",
+          "text": "É alostericamente inibida pela insulina"
+        },
+        {
+          "letter": "C",
+          "text": "É controlada pela frutose-1,6-bisfosfato"
+        },
+        {
+          "letter": "D",
+          "text": "É inibida pelo seu produto, a glicose-6-fosfato"
+        },
+        {
+          "letter": "E",
+          "text": "Está ligada covalentemente ao magnésio"
+        }
+      ],
+      "correct": "D",
+      "explanation": "A hexocinase é inibida alostericamente pelo seu produto, a glicose-6-fosfato (retroinibição). Este mecanismo impede a acumulação excessiva de G6P quando o fluxo glicolítico ou a síntese de glicogénio estão saturados. A glucocinase não é inibida por G6P.",
+      "source": "Desgravada Bioquímica — Glicólise — Regulação da Hexocinase",
+      "logic": "1. Hexocinase: regulada alostericamente pelo produto G6P (retroinibição).\n2. A: glicagina não ativa diretamente a hexocinase.\n3. B: insulina promove glicólise, não inibe hexocinase.\n4. C: frutose-1,6-bisfosfato regula a piruvato cinase, não a hexocinase.\n5. E: Mg²⁺ é cofator iónico, não covalente.\n6. D: retroinibição por G6P → correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A glicagina não ativa diretamente a hexocinase; promove glicogenólise e gluconeogénese.",
+          "source": "Desgravada Bioquímica — Glicólise — Regulação da Hexocinase"
+        },
+        {
+          "letter": "B",
+          "text": "A insulina promove a glicólise; não inibe a hexocinase.",
+          "source": "Desgravada Bioquímica — Glicólise — Regulação da Hexocinase"
+        },
+        {
+          "letter": "C",
+          "text": "A frutose-1,6-bisfosfato ativa a piruvato cinase; não é o regulador primário da hexocinase.",
+          "source": "Desgravada Bioquímica — Glicólise — Regulação da Hexocinase"
+        },
+        {
+          "letter": "D",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Glicólise — Regulação da Hexocinase"
+        },
+        {
+          "letter": "E",
+          "text": "O Mg²⁺ é um cofator iónico (não covalente) que estabiliza o substrato ATP.",
+          "source": "Desgravada Bioquímica — Glicólise — Regulação da Hexocinase"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Lipoproteínas",
+      "labTable": null,
+      "question": "Qual a subfração de HDL diretamente responsável pela transferência de colesterol dos tecidos extra-hepáticos para o fígado?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "HDL discóide"
+        },
+        {
+          "letter": "B",
+          "text": "HDL 2"
+        },
+        {
+          "letter": "C",
+          "text": "HDL 3"
+        },
+        {
+          "letter": "D",
+          "text": "Pré-β HDL"
+        },
+        {
+          "letter": "E",
+          "text": "IDL"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A HDL 2 é a subfração madura e enriquecida em colesterol esterificado, resultante da ação da LCAT sobre a HDL nascente. É a principal responsável pelo transporte reverso de colesterol ao fígado, via recetor SR-BI ou transferência mediada pela CETP.",
+      "source": "Desgravada Bioquímica — Lipoproteínas — Transporte Reverso de Colesterol",
+      "logic": "1. Transporte reverso: tecidos extra-hepáticos → fígado.\n2. Pré-β HDL / HDL discóide: formas nascentes que captam colesterol dos tecidos → não são a forma final.\n3. HDL 3: subfração menor, precede a HDL 2 na maturação.\n4. HDL 2: forma madura, enriquecida em colesterol esterificado → entrega ao fígado.\n5. IDL: remanescentes de VLDL, não HDL.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A HDL discóide é a forma imatura que ainda capta colesterol; não a transporta ao fígado.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Transporte Reverso de Colesterol"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Transporte Reverso de Colesterol"
+        },
+        {
+          "letter": "C",
+          "text": "A HDL 3 é menos enriquecida em colesterol esterificado; precede a HDL 2 na maturação.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Transporte Reverso de Colesterol"
+        },
+        {
+          "letter": "D",
+          "text": "A pré-β HDL é a forma nascente que inicia a captação de colesterol; não é responsável pelo transporte final.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Transporte Reverso de Colesterol"
+        },
+        {
+          "letter": "E",
+          "text": "As IDL são remanescentes de VLDL; não são HDL e não participam no transporte reverso.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Transporte Reverso de Colesterol"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Ciclo da Ureia",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações sobre o ciclo da ureia é verdadeira?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ocorre exclusivamente na matriz mitocondrial"
+        },
+        {
+          "letter": "B",
+          "text": "Todas as reações ocorrem no citosol celular"
+        },
+        {
+          "letter": "C",
+          "text": "O passo que controla a taxa do ciclo é catalisado por uma enzima mitocondrial, a sintétase I da carbamil-fosfato"
+        },
+        {
+          "letter": "D",
+          "text": "O consumo total de ATP é de 8 ATP"
+        },
+        {
+          "letter": "E",
+          "text": "A ureia formada é insolúvel e tem de ser convertida em ácido úrico para ser excretada"
+        }
+      ],
+      "correct": "C",
+      "explanation": "A carbamil-fosfato sintetase I (CPS-I), enzima mitocondrial ativada pelo N-acetilglutamato, catalisa o primeiro passo comprometido e é o principal ponto de regulação do ciclo. O ciclo consome 3 ATP (4 equivalentes de alta energia) por molécula de ureia produzida.",
+      "source": "Desgravada Bioquímica — Ciclo da Ureia — Regulação",
+      "logic": "1. Ciclo bicompartimental: CPS-I e OTC na mitocôndria; restante no citosol → eliminar A e B.\n2. Enzima reguladora = CPS-I (mitocondrial), ativada por NAG → C correta.\n3. ATP consumido: 3 (não 8) → eliminar D.\n4. Ureia é solúvel e excretada na urina; ácido úrico é produto do catabolismo de purinas → eliminar E.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O ciclo é bicompartimental; argininosuccinato sintetase, arginino-succinase e arginase são citosólicas.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Regulação"
+        },
+        {
+          "letter": "B",
+          "text": "CPS-I e ornitina transcarbamilase ocorrem na mitocôndria.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Regulação"
+        },
+        {
+          "letter": "C",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Regulação"
+        },
+        {
+          "letter": "D",
+          "text": "O ciclo consome 3 ATP (4 equivalentes de alta energia) por ciclo, não 8.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Regulação"
+        },
+        {
+          "letter": "E",
+          "text": "A ureia é solúvel e excretada diretamente na urina; conversão em ácido úrico é característica de aves e répteis.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Regulação"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Lipoproteínas / Aterosclerose",
+      "labTable": null,
+      "question": "Qual dos seguintes parâmetros plasmáticos está mais associado ao desenvolvimento de aterosclerose?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aumento da concentração de quilomicra"
+        },
+        {
+          "letter": "B",
+          "text": "Aumento da razão LDL:HDL"
+        },
+        {
+          "letter": "C",
+          "text": "Baixa razão VLDL:HDL"
+        },
+        {
+          "letter": "D",
+          "text": "Baixa razão LDL:HDL"
+        },
+        {
+          "letter": "E",
+          "text": "Aumento da concentração de VLDL"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A razão LDL:HDL elevada é o parâmetro mais associado ao risco aterosclerótico: as LDL (especialmente oxidadas) depositam colesterol na íntima arterial, enquanto as HDL promovem o transporte reverso. Uma razão elevada reflete simultaneamente excesso de lipoproteínas aterogénicas e défice de proteção.",
+      "source": "Desgravada Bioquímica — Lipoproteínas — Aterosclerose",
+      "logic": "1. LDL elevadas → depósito de colesterol na parede arterial → aterogénicas.\n2. HDL elevadas → transporte reverso → protetoras.\n3. Razão LDL:HDL alta = mais aterogénicas + menos proteção → maior risco.\n4. Quilomicra: grandes, não penetram facilmente a íntima → menos aterogénicas.\n5. Baixa LDL:HDL e baixa VLDL:HDL → protetoras → eliminar C e D.\n6. VLDL elevadas: risco indireto, não o parâmetro mais diretamente associado.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "As quilomicra são grandes e não penetram facilmente a íntima arterial; não são o principal fator aterogénico.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Aterosclerose"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Aterosclerose"
+        },
+        {
+          "letter": "C",
+          "text": "Uma baixa razão VLDL:HDL é protetora, não aterogénica.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Aterosclerose"
+        },
+        {
+          "letter": "D",
+          "text": "Uma razão LDL:HDL baixa é favorável e associada a menor risco cardiovascular.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Aterosclerose"
+        },
+        {
+          "letter": "E",
+          "text": "VLDL elevadas contribuem para hipertrigliceridemia e indiretamente para o risco, mas não são o parâmetro mais diretamente associado à aterosclerose.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Aterosclerose"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Lipoproteínas",
+      "labTable": null,
+      "question": "Qual das seguintes proteínas é uma apolipoproteína integral (estrutural) dos quilomicra?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Apolipoproteína B-48"
+        },
+        {
+          "letter": "B",
+          "text": "Apolipoproteína C-III"
+        },
+        {
+          "letter": "C",
+          "text": "Apolipoproteína B-100"
+        },
+        {
+          "letter": "D",
+          "text": "Apolipoproteína E"
+        },
+        {
+          "letter": "E",
+          "text": "Apolipoproteína A-IV"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A ApoB-48 é sintetizada exclusivamente nos enterócitos por edição de mRNA do gene ApoB, é a apolipoproteína estrutural dos quilomicra e permanece associada à partícula durante toda a sua vida circulante.",
+      "source": "Desgravada Bioquímica — Lipoproteínas — Quilomicra",
+      "logic": "1. Apolipoproteína integral = não trocada em circulação, sintetizada na mesma célula que a lipoproteína.\n2. ApoB-48: sintetizada no enterócito, permanece no quilomicra → correta.\n3. ApoC-III e ApoE: adquiridas das HDL em circulação → não integrais.\n4. ApoB-100: estrutural de VLDL/LDL hepáticas, não dos quilomicra.\n5. ApoA-IV: secretada com quilomicra mas transfere-se para HDL em circulação.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Quilomicra"
+        },
+        {
+          "letter": "B",
+          "text": "A ApoC-III é adquirida das HDL em circulação; não é estrutural dos quilomicra.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Quilomicra"
+        },
+        {
+          "letter": "C",
+          "text": "A ApoB-100 é estrutural das VLDL e LDL hepáticas, não dos quilomicra.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Quilomicra"
+        },
+        {
+          "letter": "D",
+          "text": "A ApoE é adquirida pelos quilomicra em circulação; não é integral.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Quilomicra"
+        },
+        {
+          "letter": "E",
+          "text": "A ApoA-IV é secretada com os quilomicra mas transfere-se para as HDL em circulação.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Quilomicra"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Cadeia Respiratória",
+      "labTable": null,
+      "question": "Quantas moléculas de ATP são produzidas pela oxidação de uma molécula de FADH2 via cadeia respiratória?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Formação de 2,5 ATP"
+        },
+        {
+          "letter": "B",
+          "text": "Formação de 1,5 ATP"
+        },
+        {
+          "letter": "C",
+          "text": "Atividade de UCP1 e complexos I, II e IV da cadeia respiratória"
+        },
+        {
+          "letter": "D",
+          "text": "Formação de 3 ATP"
+        },
+        {
+          "letter": "E",
+          "text": "Formação de 1 GTP e 1,5 ATP"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O FADH2 doa eletrões ao complexo II, que não bombeia protões. Os eletrões passam para os complexos III e IV. Como não há contribuição do complexo I, o gradiente é menor, resultando em 1,5 ATP (estequiometria atual aceite), vs. 2,5 ATP do NADH.",
+      "source": "Desgravada Bioquímica — Cadeia Respiratória — Rendimento Energético",
+      "logic": "1. FADH2 entra pelo complexo II (não bombeia H⁺) → menos gradiente gerado.\n2. NADH entra pelo complexo I (bombeia 4 H⁺) → 2,5 ATP.\n3. FADH2 gera menos gradiente → 1,5 ATP (estequiometria moderna).\n4. A: 2,5 ATP é o rendimento do NADH → eliminar.\n5. C: não é uma resposta quantitativa → eliminar. D: valor antigo → eliminar. E: GTP é do ciclo de Krebs.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "2,5 ATP é o rendimento do NADH, não do FADH2.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Rendimento Energético"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Rendimento Energético"
+        },
+        {
+          "letter": "C",
+          "text": "Não é uma resposta quantitativa; mistura componentes não relacionados com o rendimento do FADH2.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Rendimento Energético"
+        },
+        {
+          "letter": "D",
+          "text": "Valor da contagem antiga (pré-quimiosmótica); ultrapassado pela estequiometria moderna.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Rendimento Energético"
+        },
+        {
+          "letter": "E",
+          "text": "O GTP é produzido no ciclo de Krebs pela succinil-CoA sintetase, não na oxidação do FADH2.",
+          "source": "Desgravada Bioquímica — Cadeia Respiratória — Rendimento Energético"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Hidratos de Carbono",
+      "labTable": null,
+      "question": "Qual a relação estereoquímica correta entre a glicose e a galactose?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "São aldo-hexose e ceto-hexose, respetivamente"
+        },
+        {
+          "letter": "B",
+          "text": "São ambas ceto-hexoses"
+        },
+        {
+          "letter": "C",
+          "text": "Encontram-se na natureza maioritariamente na forma L"
+        },
+        {
+          "letter": "D",
+          "text": "São epímeros em C4"
+        },
+        {
+          "letter": "E",
+          "text": "Ambas têm 6 centros quirais"
+        }
+      ],
+      "correct": "D",
+      "explanation": "A glicose e a galactose diferem apenas na configuração do grupo hidroxilo no C4 (axial na galactose, equatorial na glicose). São portanto epímeros em C4. Ambas são aldo-hexoses e têm 4 centros quirais na forma de cadeia aberta.",
+      "source": "Desgravada Bioquímica — Hidratos de Carbono — Estereoquímica",
+      "logic": "1. Epímero = diferem na configuração de apenas um centro quiral.\n2. Glicose e galactose diferem no C4 → epímeros em C4.\n3. A: ambas são aldoses (não cetose) → eliminar.\n4. B: nenhuma é cetose → eliminar.\n5. C: monossacáridos biológicos são maioritariamente forma D → eliminar.\n6. E: aldo-hexoses têm 4 centros quirais (C2–C5) na forma aberta → eliminar.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Tanto a glicose como a galactose são aldo-hexoses; a frutose é a ceto-hexose.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Estereoquímica"
+        },
+        {
+          "letter": "B",
+          "text": "Nenhuma das duas é cetose; ambas são aldoses.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Estereoquímica"
+        },
+        {
+          "letter": "C",
+          "text": "Os monossacáridos biologicamente ativos existem predominantemente na forma D.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Estereoquímica"
+        },
+        {
+          "letter": "D",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Estereoquímica"
+        },
+        {
+          "letter": "E",
+          "text": "Na forma de cadeia aberta, as aldo-hexoses têm 4 centros quirais (C2–C5), não 6.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Estereoquímica"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Via das Pentoses Fosfato",
+      "labTable": null,
+      "question": "Qual a atividade enzimática comprometida no favismo?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A atividade da hexocinase"
+        },
+        {
+          "letter": "B",
+          "text": "A oxidação da glutationa"
+        },
+        {
+          "letter": "C",
+          "text": "A atividade da fosfatase da glicose-6P"
+        },
+        {
+          "letter": "D",
+          "text": "A atividade da fosfofrutocinase tipo 2 (PFK-2)"
+        },
+        {
+          "letter": "E",
+          "text": "A atividade da desidrogenase da glicose-6P"
+        }
+      ],
+      "correct": "E",
+      "explanation": "O favismo resulta de deficiência de glucose-6-fosfato desidrogenase (G6PD), que produz NADPH na via das pentoses fosfato. O NADPH é essencial para regenerar glutationa reduzida (GSH), que protege os eritrócitos do stress oxidativo. Sem G6PD, os eritrócitos sofrem hemólise oxidativa.",
+      "source": "Desgravada Bioquímica — Via das Pentoses Fosfato — Deficiência de G6PD",
+      "logic": "1. Favismo = hemólise por stress oxidativo nos eritrócitos.\n2. Defesa antioxidante eritrocitária depende de GSH reduzida.\n3. GSH regenerada pelo NADPH (via G6PD na via das pentoses fosfato).\n4. Défice de G6PD → sem NADPH → sem GSH → hemólise.\n5. G6PD = desidrogenase da glicose-6-fosfato → E correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Défice de hexocinase causa anemia hemolítica diferente do favismo.",
+          "source": "Desgravada Bioquímica — Via das Pentoses Fosfato — Deficiência de G6PD"
+        },
+        {
+          "letter": "B",
+          "text": "No favismo, a redução da glutationa está comprometida (falta NADPH); a oxidação ocorre excessivamente.",
+          "source": "Desgravada Bioquímica — Via das Pentoses Fosfato — Deficiência de G6PD"
+        },
+        {
+          "letter": "C",
+          "text": "A fosfatase da glicose-6P participa na gluconeogénese hepática (défice → doença de von Gierke).",
+          "source": "Desgravada Bioquímica — Via das Pentoses Fosfato — Deficiência de G6PD"
+        },
+        {
+          "letter": "D",
+          "text": "A PFK-2 regula a frutose-2,6-bisfosfato; não está implicada no favismo.",
+          "source": "Desgravada Bioquímica — Via das Pentoses Fosfato — Deficiência de G6PD"
+        },
+        {
+          "letter": "E",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Via das Pentoses Fosfato — Deficiência de G6PD"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Beta-Oxidação",
+      "labTable": null,
+      "question": "Qual a enzima que catalisa a etapa limitante da beta-oxidação de ácidos gordos saturados de cadeia longa?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Acil-CoA sintetase"
+        },
+        {
+          "letter": "B",
+          "text": "Carnitina palmitoil transferase II"
+        },
+        {
+          "letter": "C",
+          "text": "Translocase da carnitina acilcarnitina"
+        },
+        {
+          "letter": "D",
+          "text": "Carnitina palmitoil transferase I"
+        },
+        {
+          "letter": "E",
+          "text": "Desidrogenase de acil-CoA"
+        }
+      ],
+      "correct": "D",
+      "explanation": "A CPT-I, na face externa da membrana mitocondrial interna, catalisa a transferência do grupo acilo do acil-CoA citoplasmático para a carnitina. É inibida pelo malonil-CoA (produto da síntese de ácidos gordos), coordenando síntese e oxidação. É a etapa limitante e regulada da beta-oxidação.",
+      "source": "Desgravada Bioquímica — Beta-Oxidação — Transporte Mitocondrial de Ácidos Gordos",
+      "logic": "1. Etapa limitante = etapa regulada que controla o fluxo para a beta-oxidação.\n2. CPT-I: primeiro passo comprometido do transporte mitocondrial, inibida por malonil-CoA.\n3. Acil-CoA sintetase: ativa o ácido gordo no citosol, não é o passo limitante da oxidação.\n4. CPT-II: regenera acil-CoA dentro da mitocôndria; não é regulada da mesma forma.\n5. Translocase: transporta acilcarnitina; necessária mas não o passo regulador.\n6. Desidrogenase acil-CoA: primeiro passo intra-mitocondrial; não é o regulador do fluxo de entrada.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A acil-CoA sintetase ativa ácidos gordos no citosol, mas não é a etapa limitante da beta-oxidação.",
+          "source": "Desgravada Bioquímica — Beta-Oxidação — Transporte Mitocondrial de Ácidos Gordos"
+        },
+        {
+          "letter": "B",
+          "text": "A CPT-II regenera acil-CoA dentro da mitocôndria; não é o passo regulador principal.",
+          "source": "Desgravada Bioquímica — Beta-Oxidação — Transporte Mitocondrial de Ácidos Gordos"
+        },
+        {
+          "letter": "C",
+          "text": "A translocase é necessária mas não é o passo limitante regulado.",
+          "source": "Desgravada Bioquímica — Beta-Oxidação — Transporte Mitocondrial de Ácidos Gordos"
+        },
+        {
+          "letter": "D",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Beta-Oxidação — Transporte Mitocondrial de Ácidos Gordos"
+        },
+        {
+          "letter": "E",
+          "text": "Catalisa o primeiro passo intra-mitocondrial da beta-oxidação, mas não é o regulador do fluxo de entrada de ácidos gordos.",
+          "source": "Desgravada Bioquímica — Beta-Oxidação — Transporte Mitocondrial de Ácidos Gordos"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Aminoacidopatias",
+      "labTable": null,
+      "question": "Em relação ao metabolismo da fenilalanina, qual das seguintes afirmações é FALSA?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A fenilalanina é um aminoácido essencial"
+        },
+        {
+          "letter": "B",
+          "text": "A sua degradação origina tirosina"
+        },
+        {
+          "letter": "C",
+          "text": "Na fenilcetonúria deve-se usar como suplemento o aspartame"
+        },
+        {
+          "letter": "D",
+          "text": "A dopamina e a melanina são alguns dos produtos resultantes da degradação da fenilalanina"
+        },
+        {
+          "letter": "E",
+          "text": "O excesso de fenilalanina interfere com a síntese de neurotransmissores"
+        }
+      ],
+      "correct": "C",
+      "explanation": "O aspartame contém fenilalanina e está absolutamente contraindicado na PKU. Os doentes necessitam de restringir fenilalanina e suplementar tirosina (que se torna condicionalmente essencial).",
+      "source": "Desgravada Bioquímica — Aminoácidos — Fenilcetonúria",
+      "logic": "1. PKU = défice de fenilalanina hidroxilase → acumulação de fenilalanina.\n2. Tratamento: restrição de fenilalanina + suplementação de tirosina.\n3. Aspartame (adoçante) contém fenilalanina → contraindicado, não recomendado → C é FALSA.\n4. A: fenilalanina é essencial → verdade. B: hidroxilação origina tirosina → verdade.\n5. D: tirosina → dopamina, melanina → verdade. E: excesso Phe compete com outros AA no SNC → verdade.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Verdadeira: a fenilalanina não pode ser sintetizada pelo organismo humano.",
+          "source": "Desgravada Bioquímica — Aminoácidos — Fenilcetonúria"
+        },
+        {
+          "letter": "B",
+          "text": "Verdadeira: a fenilalanina hidroxilase converte fenilalanina em tirosina.",
+          "source": "Desgravada Bioquímica — Aminoácidos — Fenilcetonúria"
+        },
+        {
+          "letter": "C",
+          "text": "Opção correta (a afirmação é FALSA): o aspartame contém fenilalanina e está contraindicado na PKU.",
+          "source": "Desgravada Bioquímica — Aminoácidos — Fenilcetonúria"
+        },
+        {
+          "letter": "D",
+          "text": "Verdadeira: a tirosina (proveniente da fenilalanina) é precursora de dopamina, adrenalina e melanina.",
+          "source": "Desgravada Bioquímica — Aminoácidos — Fenilcetonúria"
+        },
+        {
+          "letter": "E",
+          "text": "Verdadeira: o excesso de fenilalanina compete com outros aminoácidos aromáticos no transporte para o SNC.",
+          "source": "Desgravada Bioquímica — Aminoácidos — Fenilcetonúria"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Vitaminas / Metabolismo Energético",
+      "labTable": null,
+      "question": "Qual a vitamina cujo derivado cofator é estritamente necessário para a atividade da desidrogenase do piruvato?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Vitamina B2 (riboflavina) — FAD"
+        },
+        {
+          "letter": "B",
+          "text": "Vitamina B1 (tiamina) — TPP"
+        },
+        {
+          "letter": "C",
+          "text": "Vitamina B3 (niacina) — NAD⁺"
+        },
+        {
+          "letter": "D",
+          "text": "Vitamina B5 (ácido pantoténico) — CoA"
+        },
+        {
+          "letter": "E",
+          "text": "Vitamina B6 (piridoxina) — PLP"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O pirofosfato de tiamina (TPP), derivado da vitamina B1, é o cofator da componente E1 (piruvato descarboxilase) do complexo PDH. É essencial para a descarboxilação oxidativa do piruvato. A deficiência de tiamina causa síndrome de Wernicke-Korsakoff e acumulação de piruvato e lactato.",
+      "source": "Desgravada Bioquímica — Vitaminas — Tiamina / Complexo PDH",
+      "logic": "1. PDH = complexo multienzimático com E1 (piruvato descarboxilase), E2 (dihidrolipoamida acetiltransferase), E3 (dihidrolipoamida desidrogenase).\n2. E1 requer TPP (pirofosfato de tiamina = vitamina B1) para descarboxilação oxidativa.\n3. FAD (B2): cofator de E3, não E1.\n4. NAD⁺ (B3): aceptor final de eletrões, não cofator do passo de descarboxilação.\n5. CoA (B5): aceita o grupo acetilo em E2. PLP (B6): transaminases, não PDH.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O FAD é cofator da componente E3 do PDH, não do passo de descarboxilação E1.",
+          "source": "Desgravada Bioquímica — Vitaminas — Tiamina / Complexo PDH"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Vitaminas — Tiamina / Complexo PDH"
+        },
+        {
+          "letter": "C",
+          "text": "O NAD⁺ é o aceptor final de eletrões no complexo PDH, não o cofator do passo de descarboxilação.",
+          "source": "Desgravada Bioquímica — Vitaminas — Tiamina / Complexo PDH"
+        },
+        {
+          "letter": "D",
+          "text": "O CoA é necessário para a formação de acetil-CoA em E2, mas não é o cofator do passo limitante E1.",
+          "source": "Desgravada Bioquímica — Vitaminas — Tiamina / Complexo PDH"
+        },
+        {
+          "letter": "E",
+          "text": "O PLP é cofator de transaminases; não participa no complexo PDH.",
+          "source": "Desgravada Bioquímica — Vitaminas — Tiamina / Complexo PDH"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Regulação Metabólica Hormonal",
+      "labTable": null,
+      "question": "O aumento da razão glucagina/insulina estimula qual das seguintes enzimas?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Carboxilase da acetil-CoA"
+        },
+        {
+          "letter": "B",
+          "text": "Fosforilase do glicogénio"
+        },
+        {
+          "letter": "C",
+          "text": "Hexocinase"
+        },
+        {
+          "letter": "D",
+          "text": "Fosfofrutocinase 1"
+        },
+        {
+          "letter": "E",
+          "text": "Fosfofrutocinase 2"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A glucagina ativa adenilato ciclase → ↑AMPc → ativa PKA → fosforila e ativa a fosforilase cinase → ativa a fosforilase do glicogénio → glicogenólise hepática e libertação de glicose.",
+      "source": "Desgravada Bioquímica — Regulação do Metabolismo do Glicogénio — Glucagina",
+      "logic": "1. Glucagina → AMPc → PKA ativada.\n2. PKA fosforila fosforilase cinase → ativa fosforilase do glicogénio → glicogenólise.\n3. A: ACC é inibida pela PKA (fosforilação) → eliminar.\n4. C: hexocinase não é diretamente regulada pela glucagina.\n5. D: PFK-1 inibida no jejum (menos F-2,6-BP).\n6. E: PFK-2 inativada pela PKA → menos F-2,6-BP → inibe glicólise.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A ACC é inibida quando a razão glucagina/insulina aumenta (PKA fosforila e inativa).",
+          "source": "Desgravada Bioquímica — Regulação do Metabolismo do Glicogénio — Glucagina"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Regulação do Metabolismo do Glicogénio — Glucagina"
+        },
+        {
+          "letter": "C",
+          "text": "A hexocinase não é diretamente regulada pela glucagina.",
+          "source": "Desgravada Bioquímica — Regulação do Metabolismo do Glicogénio — Glucagina"
+        },
+        {
+          "letter": "D",
+          "text": "A PFK-1 é inibida no jejum pela queda de frutose-2,6-bisfosfato.",
+          "source": "Desgravada Bioquímica — Regulação do Metabolismo do Glicogénio — Glucagina"
+        },
+        {
+          "letter": "E",
+          "text": "A PFK-2 é inativada pela PKA quando a glucagina sobe, reduzindo F-2,6-BP e inibindo a glicólise.",
+          "source": "Desgravada Bioquímica — Regulação do Metabolismo do Glicogénio — Glucagina"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — HMOs",
+      "labTable": null,
+      "question": "Qual o perfil de HMOs produzido por uma mulher não secretora?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Possui HMOs fucosilados, não fucosilados e acídicos"
+        },
+        {
+          "letter": "B",
+          "text": "Uma mulher secretora não produz FUT3"
+        },
+        {
+          "letter": "C",
+          "text": "Uma mulher Lewis+ produz FUT2"
+        },
+        {
+          "letter": "D",
+          "text": "Uma mulher não secretora e Lewis- não produz HMOs fucosilados"
+        },
+        {
+          "letter": "E",
+          "text": "Uma mulher não secretora não produz qualquer tipo de HMO"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Uma mulher não secretora (FUT2 inativo) não produz HMOs fucosilados α-1,2, mas pode produzir fucosilados α-1,3/4 via FUT3 (se Lewis+), além de HMOs não fucosilados e acídicos (sialilados). Possui portanto os três grandes grupos, embora com perfil quantitativo diferente.",
+      "source": "Desgravada Bioquímica — HMOs — Genótipo Secretor e Lewis",
+      "logic": "1. FUT2 (secretor) → fucosilação α-1,2. FUT3 (Lewis) → fucosilação α-1,3/4.\n2. Mulher não secretora (FUT2 inativo) mas Lewis+ → mantém FUT3 → alguns fucosilados.\n3. HMOs não fucosilados e acídicos não dependem de FUT2 ou FUT3 → presentes em qualquer mãe.\n4. Logo: mulher não secretora (Lewis+) tem fucosilados + não fucosilados + acídicos → A correta.\n5. D é verdadeiro apenas para não secretora E Lewis-.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — HMOs — Genótipo Secretor e Lewis"
+        },
+        {
+          "letter": "B",
+          "text": "FUT2 e FUT3 são genes independentes; uma mulher secretora pode também ter FUT3 (Lewis+).",
+          "source": "Desgravada Bioquímica — HMOs — Genótipo Secretor e Lewis"
+        },
+        {
+          "letter": "C",
+          "text": "Lewis+ corresponde à FUT3, não à FUT2; são genes e enzimas distintos.",
+          "source": "Desgravada Bioquímica — HMOs — Genótipo Secretor e Lewis"
+        },
+        {
+          "letter": "D",
+          "text": "Verdadeiro apenas para não secretora E Lewis-; a opção A é mais abrangente e correta para a pergunta formulada.",
+          "source": "Desgravada Bioquímica — HMOs — Genótipo Secretor e Lewis"
+        },
+        {
+          "letter": "E",
+          "text": "Mulheres não secretoras produzem HMOs não fucosilados e acídicos; apenas os fucosilados α-1,2 estão ausentes.",
+          "source": "Desgravada Bioquímica — HMOs — Genótipo Secretor e Lewis"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Digestão dos Lípidos",
+      "labTable": null,
+      "question": "Qual das seguintes enzimas NÃO participa na hidrólise dos lípidos no lúmen intestinal?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Co-lipase"
+        },
+        {
+          "letter": "B",
+          "text": "Fosfolipase A2"
+        },
+        {
+          "letter": "C",
+          "text": "Esterase do colesterol"
+        },
+        {
+          "letter": "D",
+          "text": "Lipase pancreática"
+        },
+        {
+          "letter": "E",
+          "text": "Acil-CoA sintetase"
+        }
+      ],
+      "correct": "E",
+      "explanation": "A acil-CoA sintetase atua no interior dos enterócitos, ativando os ácidos gordos absorvidos em acil-CoA para síntese de triglicéridos e formação de quilomicra. Não é uma enzima luminal.",
+      "source": "Desgravada Bioquímica — Digestão e Absorção de Lípidos",
+      "logic": "1. Identificar qual das enzimas não atua no lúmen intestinal.\n2. Co-lipase: ancoragem da lipase pancreática → luminal.\n3. Fosfolipase A2: hidrolisa fosfolípidos no lúmen → luminal.\n4. Esterase do colesterol: hidrolisa ésteres de colesterol no lúmen → luminal.\n5. Lipase pancreática: principal enzima de hidrólise de TG no lúmen → luminal.\n6. Acil-CoA sintetase: atua dentro dos enterócitos → NÃO luminal.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A co-lipase ancora a lipase pancreática às gotículas lipídicas; participa no processo luminal.",
+          "source": "Desgravada Bioquímica — Digestão e Absorção de Lípidos"
+        },
+        {
+          "letter": "B",
+          "text": "A fosfolipase A2 pancreática hidrolisa fosfolípidos no lúmen, removendo o ácido gordo da posição sn-2.",
+          "source": "Desgravada Bioquímica — Digestão e Absorção de Lípidos"
+        },
+        {
+          "letter": "C",
+          "text": "A esterase de colesterol pancreática hidrolisa ésteres de colesterol no lúmen.",
+          "source": "Desgravada Bioquímica — Digestão e Absorção de Lípidos"
+        },
+        {
+          "letter": "D",
+          "text": "A lipase pancreática é a principal enzima de hidrólise de triglicéridos no lúmen intestinal.",
+          "source": "Desgravada Bioquímica — Digestão e Absorção de Lípidos"
+        },
+        {
+          "letter": "E",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Digestão e Absorção de Lípidos"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "level": "Exame 22/23",
+      "domain": "Bioquímica — Síntese de Colesterol",
+      "labTable": null,
+      "question": "Qual dos seguintes compostos NÃO faz parte da via de síntese de colesterol nos mamíferos?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Formação de unidades isoprenóides"
+        },
+        {
+          "letter": "B",
+          "text": "Formação de esqualeno"
+        },
+        {
+          "letter": "C",
+          "text": "Formação de mevalonato"
+        },
+        {
+          "letter": "D",
+          "text": "Formação de lanosterol"
+        },
+        {
+          "letter": "E",
+          "text": "Formação de ergosterol"
+        }
+      ],
+      "correct": "E",
+      "explanation": "O ergosterol é o precursor de vitamina D em fungos e leveduras, não nos mamíferos. Na via humana, o lanosterol (derivado do esqualeno) é convertido diretamente em colesterol.",
+      "source": "Desgravada Bioquímica — Síntese de Colesterol — Via do Mevalonato",
+      "logic": "1. Via do mevalonato: acetil-CoA → HMG-CoA → mevalonato → unidades isoprenóides (IPP/DMAPP) → esqualeno → lanosterol → colesterol.\n2. Mevalonato (C): intermediário essencial → na via.\n3. Isoprenóides (A): blocos de construção → na via.\n4. Esqualeno (B): precursor de lanosterol → na via.\n5. Lanosterol (D): precursor direto do colesterol nos mamíferos → na via.\n6. Ergosterol (E): intermediário fúngico, não mamífero → NÃO na via.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "As unidades IPP e DMAPP são os blocos de construção do esqualeno; fazem parte da via.",
+          "source": "Desgravada Bioquímica — Síntese de Colesterol — Via do Mevalonato"
+        },
+        {
+          "letter": "B",
+          "text": "O esqualeno é condensado a partir de unidades isoprenóides e ciclizado em lanosterol; intermediário central.",
+          "source": "Desgravada Bioquímica — Síntese de Colesterol — Via do Mevalonato"
+        },
+        {
+          "letter": "C",
+          "text": "O mevalonato é o produto da HMG-CoA redutase (alvo das estatinas); intermediário essencial.",
+          "source": "Desgravada Bioquímica — Síntese de Colesterol — Via do Mevalonato"
+        },
+        {
+          "letter": "D",
+          "text": "O lanosterol resulta da ciclização do esqualeno e é o precursor esteroídico imediato do colesterol.",
+          "source": "Desgravada Bioquímica — Síntese de Colesterol — Via do Mevalonato"
+        },
+        {
+          "letter": "E",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Síntese de Colesterol — Via do Mevalonato"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Metabolismo de Aminoácidos",
+      "labTable": null,
+      "question": "A degradação da L-valina dá origem a qual dos seguintes compostos?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Oxaloacetato"
+        },
+        {
+          "letter": "B",
+          "text": "Acetil-CoA"
+        },
+        {
+          "letter": "C",
+          "text": "Succinil-CoA"
+        },
+        {
+          "letter": "D",
+          "text": "Glutamina"
+        },
+        {
+          "letter": "E",
+          "text": "Piruvato"
+        }
+      ],
+      "correct": "C",
+      "explanation": "O catabolismo da valina gera propionil-CoA, convertido em succinil-CoA pela propionil-CoA carboxilase (dependente de biotina) e metilmalonil-CoA mutase (dependente de vitamina B12). O succinil-CoA entra diretamente no ciclo de Krebs.",
+      "source": "Desgravada Bioquímica — Metabolismo de Aminoácidos — BCAAs",
+      "logic": "1. Valina = BCAA glucogénico.\n2. Catabolismo: transaminação → descarboxilação oxidativa → propionil-CoA.\n3. Propionil-CoA → metilmalonil-CoA (biotina) → succinil-CoA (B12).\n4. Succinil-CoA = intermediário do ciclo de Krebs → C correta.\n5. Acetil-CoA: aminoácidos cetogénicos (leucina, lisina). Oxaloacetato: aspartato. Piruvato: alanina.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O oxaloacetato provém do aspartato ou do malato; não é produto direto da valina.",
+          "source": "Desgravada Bioquímica — Metabolismo de Aminoácidos — BCAAs"
+        },
+        {
+          "letter": "B",
+          "text": "O acetil-CoA é o produto de aminoácidos cetogénicos (leucina, lisina); a valina é glucogénica.",
+          "source": "Desgravada Bioquímica — Metabolismo de Aminoácidos — BCAAs"
+        },
+        {
+          "letter": "C",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Metabolismo de Aminoácidos — BCAAs"
+        },
+        {
+          "letter": "D",
+          "text": "A glutamina deriva do glutamato; não é produto do catabolismo da valina.",
+          "source": "Desgravada Bioquímica — Metabolismo de Aminoácidos — BCAAs"
+        },
+        {
+          "letter": "E",
+          "text": "O piruvato resulta da degradação de alanina, serina e cisteína; não da valina.",
+          "source": "Desgravada Bioquímica — Metabolismo de Aminoácidos — BCAAs"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Aminoacidopatias",
+      "labTable": null,
+      "question": "Em caso de tirosinemia, que aminoácido é recomendado suplementar?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Fenilalanina"
+        },
+        {
+          "letter": "B",
+          "text": "Leucina"
+        },
+        {
+          "letter": "C",
+          "text": "Tirosina"
+        },
+        {
+          "letter": "D",
+          "text": "Valina e isoleucina"
+        },
+        {
+          "letter": "E",
+          "text": "Metionina"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Na tirosinemia tipo I, a degradação da tirosina está bloqueada e esta é restrita na dieta. Como a tirosina é normalmente sintetizada a partir da fenilalanina, e esta conversão está comprometida, a fenilalanina pode requerer suplementação monitorizada para garantir síntese proteica sem agravar a acumulação de tirosina.",
+      "source": "Desgravada Bioquímica — Aminoacidopatias — Tirosinemia",
+      "logic": "1. Tirosinemia: bloqueio na via de degradação da tirosina.\n2. Tratamento: restrição de tirosina (e fenilalanina, seu precursor).\n3. A conversão fenilalanina → tirosina está comprometida → fenilalanina pode tornar-se condicionalmente essencial.\n4. Suplementação cuidadosa de fenilalanina pode ser necessária → A correta.\n5. Tirosina (C): acumula-se em excesso → contraindicada. Leucina, valina, metionina: sem relação direta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Aminoacidopatias — Tirosinemia"
+        },
+        {
+          "letter": "B",
+          "text": "A leucina não tem relação metabólica direta com a via da tirosina.",
+          "source": "Desgravada Bioquímica — Aminoacidopatias — Tirosinemia"
+        },
+        {
+          "letter": "C",
+          "text": "Na tirosinemia, a tirosina acumula-se em excesso; suplementar agravaria a patologia.",
+          "source": "Desgravada Bioquímica — Aminoacidopatias — Tirosinemia"
+        },
+        {
+          "letter": "D",
+          "text": "São BCAAs sem relação com a via da fenilalanina/tirosina.",
+          "source": "Desgravada Bioquímica — Aminoacidopatias — Tirosinemia"
+        },
+        {
+          "letter": "E",
+          "text": "A metionina não é o aminoácido a suplementar na tirosinemia.",
+          "source": "Desgravada Bioquímica — Aminoacidopatias — Tirosinemia"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Microbiota / Saúde Cardiovascular",
+      "labTable": null,
+      "question": "Qual dos seguintes metabolitos da microbiota está associado ao desenvolvimento de doença coronária?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Óxido de trimetilamina (TMAO)"
+        },
+        {
+          "letter": "B",
+          "text": "Indole"
+        },
+        {
+          "letter": "C",
+          "text": "Acetato"
+        },
+        {
+          "letter": "D",
+          "text": "Butirato"
+        },
+        {
+          "letter": "E",
+          "text": "Propionato"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O TMAO é produzido pelo fígado a partir da trimetilamina (TMA) gerada pela microbiota a partir de colina, lecitina e carnitina da dieta. Níveis elevados de TMAO associam-se a risco aumentado de aterosclerose e eventos cardiovasculares.",
+      "source": "Desgravada Bioquímica — Microbiota — Metabolitos e Saúde Cardiovascular",
+      "logic": "1. Metabolitos microbiota: TMAO, indole, AGCC (acetato, propionato, butirato).\n2. TMAO: produzido da TMA (de colina/carnitina) → pró-aterogénico, inibe transporte reverso de colesterol.\n3. Indole: do triptofano → modulação imunitária e intestinal.\n4. Acetato, butirato, propionato: AGCC geralmente protetores.\n5. TMAO → associado a doença coronária → A correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Microbiota — Metabolitos e Saúde Cardiovascular"
+        },
+        {
+          "letter": "B",
+          "text": "O indole é produzido a partir do triptofano; tem funções de sinalização intestinal e modulação imunitária.",
+          "source": "Desgravada Bioquímica — Microbiota — Metabolitos e Saúde Cardiovascular"
+        },
+        {
+          "letter": "C",
+          "text": "O acetato é um AGCC com efeitos geralmente protetores.",
+          "source": "Desgravada Bioquímica — Microbiota — Metabolitos e Saúde Cardiovascular"
+        },
+        {
+          "letter": "D",
+          "text": "O butirato é anti-inflamatório e protetor do epitélio intestinal.",
+          "source": "Desgravada Bioquímica — Microbiota — Metabolitos e Saúde Cardiovascular"
+        },
+        {
+          "letter": "E",
+          "text": "O propionato participa na gluconeogénese hepática; tem efeitos metabólicos neutros a favoráveis.",
+          "source": "Desgravada Bioquímica — Microbiota — Metabolitos e Saúde Cardiovascular"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Glicogenoses",
+      "labTable": null,
+      "question": "O que seria mais adequado aconselhar a este doente para a prática de exercício físico?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Realizar exercícios de baixa intensidade e ajustar a monitorização aos níveis de CK"
+        },
+        {
+          "letter": "B",
+          "text": "Regular a glicemia e o lactato"
+        },
+        {
+          "letter": "C",
+          "text": "Fazer uma dieta com glícidos complexos"
+        },
+        {
+          "letter": "D",
+          "text": "Aumentar o aporte proteico"
+        },
+        {
+          "letter": "E",
+          "text": "Controlar apenas a glicemia em jejum"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Na doença de McArdle, o músculo não usa glicogénio local. Exercício de baixa intensidade é tolerado (usa ácidos gordos e glicose circulante). A CK sérica é o marcador de lesão muscular; a sua monitorização permite ajustar a intensidade e prevenir rabdomiólise.",
+      "source": "Desgravada Bioquímica — Glicogenoses — Tipo V (McArdle)",
+      "logic": "1. McArdle: sem miofosforilase → sem mobilização de glicogénio muscular.\n2. Exercício intenso → rabdomiólise (CK elevada).\n3. Exercício de baixa intensidade → usa gorduras e glicose circulante → tolerado.\n4. Monitorizar CK → ajustar intensidade → A correta.\n5. Lactato não sobe (sinal diagnóstico); glícidos complexos e proteína não resolvem o defeito enzimático.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Glicogenoses — Tipo V (McArdle)"
+        },
+        {
+          "letter": "B",
+          "text": "Na McArdle, o lactato não sobe com o exercício (útil no diagnóstico, não na gestão crónica).",
+          "source": "Desgravada Bioquímica — Glicogenoses — Tipo V (McArdle)"
+        },
+        {
+          "letter": "C",
+          "text": "A ingestão de glícidos complexos não resolve o defeito enzimático intramuscular.",
+          "source": "Desgravada Bioquímica — Glicogenoses — Tipo V (McArdle)"
+        },
+        {
+          "letter": "D",
+          "text": "O aporte proteico não é a intervenção primária para o exercício nesta doença.",
+          "source": "Desgravada Bioquímica — Glicogenoses — Tipo V (McArdle)"
+        },
+        {
+          "letter": "E",
+          "text": "A glicemia em jejum não reflete o risco de lesão muscular durante o exercício.",
+          "source": "Desgravada Bioquímica — Glicogenoses — Tipo V (McArdle)"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Hemostase",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações sobre a hemostase é INCORRETA?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A via comum tem apenas o fator X"
+        },
+        {
+          "letter": "B",
+          "text": "A via comum tem o fator V e o fator X"
+        },
+        {
+          "letter": "C",
+          "text": "A via extrínseca inicia-se com a lesão vascular e exposição do fator tecidual"
+        },
+        {
+          "letter": "D",
+          "text": "A via intrínseca é ativada por contacto com superfícies da lesão vascular"
+        },
+        {
+          "letter": "E",
+          "text": "A trombina converte o fibrinogénio em fibrina na via comum"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A via comum inclui os fatores X, V, II (protrombina), I (fibrinogénio) e XIII. Afirmar que contém apenas o fator X é incorreto; o fator Xa forma o complexo protrombinase com o fator Va, que converte protrombina em trombina.",
+      "source": "Desgravada Bioquímica — Hemostase — Cascata de Coagulação",
+      "logic": "1. Via comum: fator X ativado (Xa) + fator Va → complexo protrombinase → protrombina → trombina → fibrina.\n2. Inclui fatores X, V, II, I, XIII → afirmar 'apenas fator X' é INCORRETO → A é a resposta.\n3. B: parcialmente correto (inclui V e X) → verdadeiro.\n4. C: via extrínseca inicia com fator tecidual (III) após lesão → verdadeiro.\n5. D: via intrínseca ativada por fator XII em contacto com superfície → verdadeiro.\n6. E: trombina converte fibrinogénio em fibrina → verdadeiro.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta (afirmação INCORRETA): a via comum inclui fatores X, V, II, I e XIII, não apenas o fator X.",
+          "source": "Desgravada Bioquímica — Hemostase — Cascata de Coagulação"
+        },
+        {
+          "letter": "B",
+          "text": "Verdadeiro: a via comum inclui de facto os fatores V e X (entre outros).",
+          "source": "Desgravada Bioquímica — Hemostase — Cascata de Coagulação"
+        },
+        {
+          "letter": "C",
+          "text": "Verdadeiro: a via extrínseca inicia-se com a exposição do fator tecidual (fator III) após lesão vascular.",
+          "source": "Desgravada Bioquímica — Hemostase — Cascata de Coagulação"
+        },
+        {
+          "letter": "D",
+          "text": "Verdadeiro: a via intrínseca é ativada pelo contacto do fator XII com superfícies carregadas negativamente.",
+          "source": "Desgravada Bioquímica — Hemostase — Cascata de Coagulação"
+        },
+        {
+          "letter": "E",
+          "text": "Verdadeiro: é uma das funções centrais da trombina na via comum.",
+          "source": "Desgravada Bioquímica — Hemostase — Cascata de Coagulação"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Metabolismo Proteico",
+      "labTable": null,
+      "question": "Que percentagem dos aminoácidos libertados pelo músculo é reutilizada para síntese proteica?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "100%"
+        },
+        {
+          "letter": "B",
+          "text": "75%"
+        },
+        {
+          "letter": "C",
+          "text": "50%"
+        },
+        {
+          "letter": "D",
+          "text": "25%"
+        },
+        {
+          "letter": "E",
+          "text": "10%"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Cerca de 75% dos aminoácidos libertados pelo músculo durante o catabolismo são reutilizados para síntese proteica noutros tecidos. Os restantes 25% são catabolizados e o azoto excretado como ureia.",
+      "source": "Desgravada Bioquímica — Metabolismo Proteico — Turnover Muscular",
+      "logic": "1. Turnover proteico muscular: não é 100% eficiente.\n2. Fração reutilizada para síntese proteica ≈ 75%.\n3. Fração catabolizada (→ ureia) ≈ 25%.\n4. A (100%): impossível, há perdas inevitáveis. C, D, E: subestimam ou invertem a fração.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Uma fração significativa dos aminoácidos é catabolizada; não há reutilização total.",
+          "source": "Desgravada Bioquímica — Metabolismo Proteico — Turnover Muscular"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Metabolismo Proteico — Turnover Muscular"
+        },
+        {
+          "letter": "C",
+          "text": "Subestima a eficiência de reutilização dos aminoácidos musculares.",
+          "source": "Desgravada Bioquímica — Metabolismo Proteico — Turnover Muscular"
+        },
+        {
+          "letter": "D",
+          "text": "25% corresponde à fração que não é reutilizada, não à que é reutilizada.",
+          "source": "Desgravada Bioquímica — Metabolismo Proteico — Turnover Muscular"
+        },
+        {
+          "letter": "E",
+          "text": "Subestima muito a capacidade de reutilização aminoacídica.",
+          "source": "Desgravada Bioquímica — Metabolismo Proteico — Turnover Muscular"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Metabolismo Muscular",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações sobre a contração muscular é CORRETA?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "As fibras de contração rápida (tipo II) têm grande capacidade glicolítica"
+        },
+        {
+          "letter": "B",
+          "text": "As fibras de contração lenta (tipo I) têm poucas mitocôndrias"
+        },
+        {
+          "letter": "C",
+          "text": "No relaxamento muscular, o cálcio liga-se à troponina"
+        },
+        {
+          "letter": "D",
+          "text": "O músculo liso possui um complexo troponina semelhante ao do músculo estriado"
+        },
+        {
+          "letter": "E",
+          "text": "As fibras de contração rápida dependem principalmente da fosforilação oxidativa"
+        }
+      ],
+      "correct": "A",
+      "explanation": "As fibras tipo II (rápidas, explosivas) são ricas em enzimas glicolíticas e dependem da glicólise anaeróbia. São pobres em mitocôndrias e mioglobina, fatigando rapidamente.",
+      "source": "Desgravada Bioquímica — Metabolismo Muscular — Tipos de Fibras",
+      "logic": "1. Fibras tipo I (lentas): ricas em mitocôndrias, dependem de fosforilação oxidativa → B e E erradas.\n2. Fibras tipo II (rápidas): ricas em enzimas glicolíticas, pobres em mitocôndrias → A correta.\n3. No relaxamento: Ca²⁺ é bombeado de volta ao RS (dissocia-se da troponina) → C errada.\n4. Músculo liso: regulação por calmodulina, não troponina → D errada.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Metabolismo Muscular — Tipos de Fibras"
+        },
+        {
+          "letter": "B",
+          "text": "As fibras tipo I são ricas em mitocôndrias; dependem da fosforilação oxidativa.",
+          "source": "Desgravada Bioquímica — Metabolismo Muscular — Tipos de Fibras"
+        },
+        {
+          "letter": "C",
+          "text": "No relaxamento, o Ca²⁺ é bombeado de volta ao retículo sarcoplasmático, dissociando-se da troponina; é a ligação ao Ca²⁺ que inicia a contração.",
+          "source": "Desgravada Bioquímica — Metabolismo Muscular — Tipos de Fibras"
+        },
+        {
+          "letter": "D",
+          "text": "O músculo liso é regulado pela calmodulina e cinase da cadeia leve da miosina, não por troponina.",
+          "source": "Desgravada Bioquímica — Metabolismo Muscular — Tipos de Fibras"
+        },
+        {
+          "letter": "E",
+          "text": "São as fibras lentas (tipo I) que dependem principalmente da fosforilação oxidativa.",
+          "source": "Desgravada Bioquímica — Metabolismo Muscular — Tipos de Fibras"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Glicólise / Regulação",
+      "labTable": null,
+      "question": "Qual o principal efeito regulador da frutose-2,6-bisfosfato?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ativa alostericamente a fosfofrutocinase 1 (PFK-1), estimulando a glicólise"
+        },
+        {
+          "letter": "B",
+          "text": "É um produto da oxidação da glicose pela PFK-1"
+        },
+        {
+          "letter": "C",
+          "text": "Inibe a PFK-1 em condições de jejum"
+        },
+        {
+          "letter": "D",
+          "text": "Estimula a gluconeogénese por ativação da frutose-1,6-bisfosfatase"
+        },
+        {
+          "letter": "E",
+          "text": "É sintetizada exclusivamente no músculo esquelético"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A frutose-2,6-bisfosfato é o mais potente ativador alostérico da PFK-1, estimulando a glicólise. Simultaneamente, inibe a frutose-1,6-bisfosfatase, suprimindo a gluconeogénese. Os seus níveis são controlados pela insulina (aumenta) e glucagina (diminui).",
+      "source": "Desgravada Bioquímica — Glicólise — Regulação pela Frutose-2,6-bisfosfato",
+      "logic": "1. F-2,6-BP: produzida pela PFK-2 (não pela PFK-1) → B errada.\n2. F-2,6-BP ativa alostericamente a PFK-1 → estimula glicólise → A correta.\n3. No jejum: glucagina → PKA → fosforila PFK-2 → menos F-2,6-BP → inibe glicólise → C errada.\n4. F-2,6-BP inibe FBPase (não a ativa) → D errada.\n5. Presente em múltiplos tecidos, especialmente fígado → E errada.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Glicólise — Regulação pela Frutose-2,6-bisfosfato"
+        },
+        {
+          "letter": "B",
+          "text": "A F-2,6-BP é produzida pela PFK-2 (domínio cinase), não pela PFK-1; é um regulador, não um produto da glicólise.",
+          "source": "Desgravada Bioquímica — Glicólise — Regulação pela Frutose-2,6-bisfosfato"
+        },
+        {
+          "letter": "C",
+          "text": "No jejum, a glucagina reduz os níveis de F-2,6-BP via PKA; a PFK-1 é desinibida da gluconeogénese, não inibida pela F-2,6-BP.",
+          "source": "Desgravada Bioquímica — Glicólise — Regulação pela Frutose-2,6-bisfosfato"
+        },
+        {
+          "letter": "D",
+          "text": "A F-2,6-BP inibe a frutose-1,6-bisfosfatase, suprimindo a gluconeogénese; não a estimula.",
+          "source": "Desgravada Bioquímica — Glicólise — Regulação pela Frutose-2,6-bisfosfato"
+        },
+        {
+          "letter": "E",
+          "text": "A F-2,6-BP está presente em múltiplos tecidos, sendo particularmente importante no fígado.",
+          "source": "Desgravada Bioquímica — Glicólise — Regulação pela Frutose-2,6-bisfosfato"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Metabolismo de Purinas",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações sobre o ácido úrico é CORRETA?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "É um metabolito da hipoxantina e xantina pela ação da xantina oxidase"
+        },
+        {
+          "letter": "B",
+          "text": "Em grandes quantidades é um potente antioxidante sem efeitos adversos"
+        },
+        {
+          "letter": "C",
+          "text": "É formado a partir da degradação de purinas e pirimidinas"
+        },
+        {
+          "letter": "D",
+          "text": "É facilmente excretado pelo rim sem reabsorção"
+        },
+        {
+          "letter": "E",
+          "text": "A sua acumulação não tem consequências clínicas relevantes"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A xantina oxidase converte hipoxantina em xantina e xantina em ácido úrico, sendo o passo final do catabolismo das purinas. Humanos carecem de uricase, pelo que não conseguem degradar o ácido úrico em alantoína.",
+      "source": "Desgravada Bioquímica — Metabolismo de Purinas — Catabolismo",
+      "logic": "1. Catabolismo purinas: adenina → hipoxantina; guanina → xantina.\n2. Xantina oxidase: hipoxantina → xantina → ácido úrico → A correta.\n3. B: em excesso precipita → gota, nefropatia → não é inócuo.\n4. C: pirimidinas degradam-se por vias distintas (β-alanina, etc.) → errado.\n5. D: ácido úrico sofre reabsorção tubular extensa (~90%) → errado.\n6. E: gota, nefrolitíase → relevância clínica major.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Metabolismo de Purinas — Catabolismo"
+        },
+        {
+          "letter": "B",
+          "text": "Em concentrações elevadas, o ácido úrico precipita nos tecidos, causando gota e nefropatia úrica.",
+          "source": "Desgravada Bioquímica — Metabolismo de Purinas — Catabolismo"
+        },
+        {
+          "letter": "C",
+          "text": "O ácido úrico provém exclusivamente do catabolismo das purinas; as pirimidinas degradam-se por vias distintas.",
+          "source": "Desgravada Bioquímica — Metabolismo de Purinas — Catabolismo"
+        },
+        {
+          "letter": "D",
+          "text": "O ácido úrico sofre reabsorção tubular extensa (~90%); a sua excreção renal é limitada.",
+          "source": "Desgravada Bioquímica — Metabolismo de Purinas — Catabolismo"
+        },
+        {
+          "letter": "E",
+          "text": "A acumulação de ácido úrico causa gota, nefrolitíase úrica e nefropatia; tem relevância clínica major.",
+          "source": "Desgravada Bioquímica — Metabolismo de Purinas — Catabolismo"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "level": "Exame 24",
+      "domain": "Bioquímica — HMOs",
+      "labTable": null,
+      "question": "Qual o perfil de HMOs de uma mãe não secretora e Lewis negativa?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Não produz HMOs fucosilados"
+        },
+        {
+          "letter": "B",
+          "text": "Possui HMOs fucosilados, não fucosilados, acídicos e não acídicos"
+        },
+        {
+          "letter": "C",
+          "text": "Produz HMOs fucosilados via FUT3"
+        },
+        {
+          "letter": "D",
+          "text": "Não produz qualquer tipo de HMO"
+        },
+        {
+          "letter": "E",
+          "text": "Produz apenas HMOs acídicos (sialilados)"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Uma mãe não secretora (FUT2 inativo) e Lewis negativa (FUT3 inativo) não possui nenhuma das fucosiltransferases. Não produz HMOs fucosilados de qualquer tipo (nem α-1,2 nem α-1,3/4). Produz HMOs não fucosilados e acídicos (sialilados).",
+      "source": "Desgravada Bioquímica — HMOs — Genótipo Secretor e Lewis",
+      "logic": "1. Não secretora: FUT2 inativo → sem fucosilação α-1,2.\n2. Lewis negativa: FUT3 inativo → sem fucosilação α-1,3/4.\n3. Sem FUT2 e sem FUT3 → sem HMOs fucosilados de qualquer tipo → A correta.\n4. HMOs não fucosilados e acídicos não dependem dessas enzimas → mantêm-se.\n5. D errada: ainda produz não fucosilados e acídicos. E errada: produz também não fucosilados neutros.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — HMOs — Genótipo Secretor e Lewis"
+        },
+        {
+          "letter": "B",
+          "text": "Este perfil corresponderia a uma mãe não secretora mas Lewis positiva, que mantém FUT3.",
+          "source": "Desgravada Bioquímica — HMOs — Genótipo Secretor e Lewis"
+        },
+        {
+          "letter": "C",
+          "text": "Lewis negativa implica FUT3 inativo; não há produção de fucosilados α-1,3/4.",
+          "source": "Desgravada Bioquímica — HMOs — Genótipo Secretor e Lewis"
+        },
+        {
+          "letter": "D",
+          "text": "Ainda produz HMOs não fucosilados e acídicos (sialilados); não é verdade que não produz qualquer tipo.",
+          "source": "Desgravada Bioquímica — HMOs — Genótipo Secretor e Lewis"
+        },
+        {
+          "letter": "E",
+          "text": "Produz também HMOs neutros não fucosilados; não apenas acídicos.",
+          "source": "Desgravada Bioquímica — HMOs — Genótipo Secretor e Lewis"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Vitamina A",
+      "labTable": null,
+      "question": "Qual a vitamina cujo derivado é indispensável para a formação de rodopsina?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Vitamina A"
+        },
+        {
+          "letter": "B",
+          "text": "Vitamina D"
+        },
+        {
+          "letter": "C",
+          "text": "Vitamina E"
+        },
+        {
+          "letter": "D",
+          "text": "Vitamina K"
+        },
+        {
+          "letter": "E",
+          "text": "Vitamina C"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A rodopsina é composta pela opsina ligada ao 11-cis-retinal, um aldeído derivado da vitamina A (retinol). A deficiência de vitamina A compromete a regeneração do 11-cis-retinal, causando nictalopia (cegueira noturna).",
+      "source": "Desgravada Bioquímica — Vitamina A — Função Visual",
+      "logic": "1. Rodopsina = opsina + 11-cis-retinal.\n2. 11-cis-retinal = derivado do retinol (vitamina A).\n3. Défice de vitamina A → nictalopia → vitamina A essencial para a visão.\n4. D, E, K, C: sem função no ciclo visual → eliminar.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Vitamina A — Função Visual"
+        },
+        {
+          "letter": "B",
+          "text": "A vitamina D atua como hormona esteróide regulando o metabolismo do cálcio; sem função no ciclo visual.",
+          "source": "Desgravada Bioquímica — Vitamina A — Função Visual"
+        },
+        {
+          "letter": "C",
+          "text": "A vitamina E é antioxidante lipossolúvel; não participa na síntese de rodopsina.",
+          "source": "Desgravada Bioquímica — Vitamina A — Função Visual"
+        },
+        {
+          "letter": "D",
+          "text": "A vitamina K é cofator da γ-carboxilase envolvida na coagulação; sem relação com a visão.",
+          "source": "Desgravada Bioquímica — Vitamina A — Função Visual"
+        },
+        {
+          "letter": "E",
+          "text": "A vitamina C é antioxidante hidrossolúvel e cofator da prolil hidroxilase; não intervém no ciclo visual.",
+          "source": "Desgravada Bioquímica — Vitamina A — Função Visual"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Minerais / Absorção",
+      "labTable": null,
+      "question": "Qual a vitamina que facilita a absorção de ferro não-heme?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Vitamina C"
+        },
+        {
+          "letter": "B",
+          "text": "Vitamina A"
+        },
+        {
+          "letter": "C",
+          "text": "Vitamina E"
+        },
+        {
+          "letter": "D",
+          "text": "Vitamina K"
+        },
+        {
+          "letter": "E",
+          "text": "Vitamina D"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A vitamina C (ácido ascórbico) reduz o Fe³⁺ a Fe²⁺ no lúmen intestinal, a forma solúvel transportada pelos enterócitos via DMT1. Adicionalmente, forma quelatos com o ferro que mantêm a sua solubilidade em pH mais alcalino.",
+      "source": "Desgravada Bioquímica — Minerais — Absorção de Ferro",
+      "logic": "1. Ferro não-heme = Fe³⁺ → necessita redução a Fe²⁺ para ser absorvido via DMT1.\n2. Vitamina C reduz Fe³⁺ → Fe²⁺ + forma quelatos → aumenta absorção.\n3. Vitamina A: mobiliza reservas de ferro mas não é o facilitador primário da absorção intestinal.\n4. D, E, K: sem relação com a absorção de ferro não-heme.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Minerais — Absorção de Ferro"
+        },
+        {
+          "letter": "B",
+          "text": "A vitamina A tem algum papel na mobilização de reservas de ferro, mas não é o facilitador primário da absorção intestinal.",
+          "source": "Desgravada Bioquímica — Minerais — Absorção de Ferro"
+        },
+        {
+          "letter": "C",
+          "text": "A vitamina E não tem relação com a absorção intestinal de ferro.",
+          "source": "Desgravada Bioquímica — Minerais — Absorção de Ferro"
+        },
+        {
+          "letter": "D",
+          "text": "A vitamina K regula proteínas da coagulação e mineralização; não intervém na absorção de ferro.",
+          "source": "Desgravada Bioquímica — Minerais — Absorção de Ferro"
+        },
+        {
+          "letter": "E",
+          "text": "A vitamina D regula a absorção de cálcio e fósforo; não de ferro não-heme.",
+          "source": "Desgravada Bioquímica — Minerais — Absorção de Ferro"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Nutrição Materno-Fetal",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações sobre o sinciciotrofoblasto é FALSA?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Possui transportadores de aniões e catiões para excreção de xenobióticos"
+        },
+        {
+          "letter": "B",
+          "text": "O fator de necrose tumoral e o lactogénio placentário aumentam a atividade da lipase das lipoproteínas"
+        },
+        {
+          "letter": "C",
+          "text": "O fator de necrose tumoral e o lactogénio placentário diminuem a sensibilidade à insulina"
+        },
+        {
+          "letter": "D",
+          "text": "A transferência de glicose ocorre a favor do gradiente de concentração"
+        },
+        {
+          "letter": "E",
+          "text": "Expressa transportadores GLUT facilitadores para passagem de glicose ao feto"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O TNF-α inibe (não aumenta) a lipase das lipoproteínas no tecido adiposo durante a gravidez, favorecendo a acumulação de triglicéridos para uso fetal. O que TNF-α e lactogénio placentário aumentam é a resistência à insulina materna.",
+      "source": "Desgravada Bioquímica — Nutrição na Gravidez — Sinciciotrofoblasto",
+      "logic": "1. TNF-α e lactogénio placentário: aumentam resistência à insulina materna (C verdadeiro).\n2. TNF-α inibe LPL no tecido adiposo → favorece hipertrigliceridemia materna para o feto (B falso).\n3. A: transportadores ABC protegem o feto de xenobióticos → verdadeiro.\n4. D: glicose passa por difusão facilitada a favor do gradiente → verdadeiro.\n5. E: GLUT1 na face materna e fetal do sinciciotrofoblasto → verdadeiro.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Verdadeiro: o sinciciotrofoblasto expressa transportadores ABC (ex: P-gp) que protegem o feto.",
+          "source": "Desgravada Bioquímica — Nutrição na Gravidez — Sinciciotrofoblasto"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta (afirmação FALSA): o TNF-α inibe a LPL; o que aumenta é a resistência à insulina materna.",
+          "source": "Desgravada Bioquímica — Nutrição na Gravidez — Sinciciotrofoblasto"
+        },
+        {
+          "letter": "C",
+          "text": "Verdadeiro: TNF-α e lactogénio placentário contribuem para a resistência à insulina materna.",
+          "source": "Desgravada Bioquímica — Nutrição na Gravidez — Sinciciotrofoblasto"
+        },
+        {
+          "letter": "D",
+          "text": "Verdadeiro: a glicose passa por difusão facilitada a favor do gradiente de concentração via GLUT1.",
+          "source": "Desgravada Bioquímica — Nutrição na Gravidez — Sinciciotrofoblasto"
+        },
+        {
+          "letter": "E",
+          "text": "Verdadeiro: o sinciciotrofoblasto expressa GLUT1 na face materna e fetal.",
+          "source": "Desgravada Bioquímica — Nutrição na Gravidez — Sinciciotrofoblasto"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Microbiota / Fermentação",
+      "labTable": null,
+      "question": "Qual dos seguintes metabolitos NÃO provém da fermentação de hidratos de carbono pela microbiota intestinal?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Acetato"
+        },
+        {
+          "letter": "B",
+          "text": "Propionato"
+        },
+        {
+          "letter": "C",
+          "text": "Butirato"
+        },
+        {
+          "letter": "D",
+          "text": "Indole"
+        },
+        {
+          "letter": "E",
+          "text": "Succinato"
+        }
+      ],
+      "correct": "D",
+      "explanation": "O indole é produzido pela microbiota a partir do triptofano (aminoácido), não de hidratos de carbono. O acetato, propionato, butirato e succinato são produzidos pela fermentação anaeróbia de polissacáridos e fibra.",
+      "source": "Desgravada Bioquímica — Microbiota — Fermentação e Metabolitos",
+      "logic": "1. Fermentação de HC: produz AGCC (acetato, propionato, butirato) e intermediários (succinato).\n2. Indole: produzido a partir do triptofano (aminoácido) → não deriva de HC → D correta.\n3. A, B, C, E: todos derivam da fermentação de HC → eliminar.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O acetato é o principal produto da fermentação de hidratos de carbono pela microbiota.",
+          "source": "Desgravada Bioquímica — Microbiota — Fermentação e Metabolitos"
+        },
+        {
+          "letter": "B",
+          "text": "O propionato resulta da fermentação de HC e participa na gluconeogénese hepática.",
+          "source": "Desgravada Bioquímica — Microbiota — Fermentação e Metabolitos"
+        },
+        {
+          "letter": "C",
+          "text": "O butirato é a principal fonte de energia para os colonócitos e deriva da fermentação de amido resistente.",
+          "source": "Desgravada Bioquímica — Microbiota — Fermentação e Metabolitos"
+        },
+        {
+          "letter": "D",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Microbiota — Fermentação e Metabolitos"
+        },
+        {
+          "letter": "E",
+          "text": "O succinato é um intermediário da fermentação de HC, precursor do propionato em algumas bactérias.",
+          "source": "Desgravada Bioquímica — Microbiota — Fermentação e Metabolitos"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Stress Oxidativo",
+      "labTable": null,
+      "question": "Qual das seguintes situações leva à acumulação de H₂O₂ intracelular?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aumento da atividade da superóxido dismutase"
+        },
+        {
+          "letter": "B",
+          "text": "Défice de catalase"
+        },
+        {
+          "letter": "C",
+          "text": "Aumento da glutationa redutase"
+        },
+        {
+          "letter": "D",
+          "text": "Aumento da glutationa peroxidase"
+        },
+        {
+          "letter": "E",
+          "text": "Aumento da tiorredoxina redutase"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A catalase converte H₂O₂ em água e O₂. O seu défice impede esta eliminação, levando à acumulação de H₂O₂. A glutationa peroxidase também elimina H₂O₂, mas a catalase é a via principal em condições de elevada produção.",
+      "source": "Desgravada Bioquímica — Stress Oxidativo — Enzimas Antioxidantes",
+      "logic": "1. H₂O₂ é eliminado por: catalase (→ H₂O + O₂) e glutationa peroxidase (usando GSH).\n2. Défice de catalase → H₂O₂ acumula → B correta.\n3. A: SOD produz H₂O₂ a partir de O₂•⁻; aumento pode paradoxalmente aumentar H₂O₂ se catalase for insuficiente (mas a causa primária de acumulação seria défice de catalase).\n4. C: glutationa redutase regenera GSH → favorece eliminação → não acumula.\n5. D: glutationa peroxidase elimina H₂O₂ → não acumula. E: tiorredoxina redutase → protetora.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A SOD converte O₂•⁻ em H₂O₂; o seu aumento produz mais H₂O₂, mas não causa acumulação se a catalase estiver funcional.",
+          "source": "Desgravada Bioquímica — Stress Oxidativo — Enzimas Antioxidantes"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Stress Oxidativo — Enzimas Antioxidantes"
+        },
+        {
+          "letter": "C",
+          "text": "A glutationa redutase regenera GSH (GSSG → 2GSH), favorecendo a eliminação de H₂O₂ pela glutationa peroxidase.",
+          "source": "Desgravada Bioquímica — Stress Oxidativo — Enzimas Antioxidantes"
+        },
+        {
+          "letter": "D",
+          "text": "A glutationa peroxidase elimina H₂O₂; o seu aumento reduz a acumulação.",
+          "source": "Desgravada Bioquímica — Stress Oxidativo — Enzimas Antioxidantes"
+        },
+        {
+          "letter": "E",
+          "text": "A tiorredoxina redutase contribui para a defesa antioxidante; o seu aumento é protetor.",
+          "source": "Desgravada Bioquímica — Stress Oxidativo — Enzimas Antioxidantes"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Hidratos de Carbono",
+      "labTable": null,
+      "question": "Qual a relação estrutural correta entre a glicose e a frutose?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A glicose é um aldeído e a frutose é uma cetona; são isómeros funcionais"
+        },
+        {
+          "letter": "B",
+          "text": "A glicose é uma cetona e a frutose é um aldeído; são isómeros funcionais"
+        },
+        {
+          "letter": "C",
+          "text": "Ambas são aldeídos e são epímeros"
+        },
+        {
+          "letter": "D",
+          "text": "Ambas são cetonas e são enantiómeros"
+        },
+        {
+          "letter": "E",
+          "text": "São isómeros de posição mas não isómeros funcionais"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A glicose é uma aldo-hexose (aldeído no C1) e a frutose é uma ceto-hexose (cetona no C2). Como partilham a mesma fórmula molecular mas diferem no grupo funcional, são isómeros funcionais.",
+      "source": "Desgravada Bioquímica — Hidratos de Carbono — Isomeria",
+      "logic": "1. Glicose: grupo aldeído no C1 → aldose.\n2. Frutose: grupo cetona no C2 → cetose.\n3. Mesma fórmula molecular, diferente grupo funcional → isómeros funcionais.\n4. B inverte os grupos. C: frutose não é aldeído. D: nenhuma é cetose e aldeído simultaneamente. E: a diferença é de grupo funcional, não apenas posição.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Isomeria"
+        },
+        {
+          "letter": "B",
+          "text": "Inverte as características: é a glicose que tem o aldeído (C1) e a frutose a cetona (C2).",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Isomeria"
+        },
+        {
+          "letter": "C",
+          "text": "A frutose é uma cetose, não uma aldose.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Isomeria"
+        },
+        {
+          "letter": "D",
+          "text": "A glicose é uma aldose, não uma cetose.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Isomeria"
+        },
+        {
+          "letter": "E",
+          "text": "A diferença entre aldeído e cetona é de grupo funcional; são isómeros funcionais.",
+          "source": "Desgravada Bioquímica — Hidratos de Carbono — Isomeria"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Ciclo da Ureia",
+      "labTable": null,
+      "question": "Qual a enzima que catalisa a formação direta de arginina no ciclo da ureia?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Liase do ácido argininosuccinato (argininosuccinase)"
+        },
+        {
+          "letter": "B",
+          "text": "Sintetase do ácido argininosuccinato"
+        },
+        {
+          "letter": "C",
+          "text": "Arginase"
+        },
+        {
+          "letter": "D",
+          "text": "Ornitina transcarbamilase"
+        },
+        {
+          "letter": "E",
+          "text": "Carbamil-fosfato sintetase I"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A argininosuccinato liase (arginino-succinase) é citosólica e cliva o argininosuccinato em arginina e fumarato. A arginina resultante é depois hidrolisada pela arginase em ureia e ornitina.",
+      "source": "Desgravada Bioquímica — Ciclo da Ureia — Reações Citosólicas",
+      "logic": "1. Argininosuccinato → enzima que o cliva → arginino-succinase (liase).\n2. Sintetase (B): catalisa a condensação de citrulina + aspartato → argininosuccinato (passo anterior).\n3. Arginase (C): cliva arginina → ureia + ornitina (passo seguinte, não forma arginina).\n4. OTC (D): mitocondrial, forma citrulina.\n5. CPS-I (E): primeiro passo, forma carbamil-fosfato.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Reações Citosólicas"
+        },
+        {
+          "letter": "B",
+          "text": "A argininosuccinato sintetase condensa citrulina com aspartato para formar argininosuccinato (passo anterior).",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Reações Citosólicas"
+        },
+        {
+          "letter": "C",
+          "text": "A arginase cliva a arginina em ureia e ornitina; não produz arginina.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Reações Citosólicas"
+        },
+        {
+          "letter": "D",
+          "text": "A OTC é mitocondrial e condensa ornitina com carbamil-fosfato para formar citrulina.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Reações Citosólicas"
+        },
+        {
+          "letter": "E",
+          "text": "A CPS-I catalisa o primeiro passo (formação de carbamil-fosfato); não está envolvida na formação de arginina.",
+          "source": "Desgravada Bioquímica — Ciclo da Ureia — Reações Citosólicas"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Glicólise / Eritrócito",
+      "labTable": null,
+      "question": "Quantas moléculas de ATP são produzidas no passo da glicólise que origina 2,3-bisfosfoglicerato?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "0 ATP"
+        },
+        {
+          "letter": "B",
+          "text": "1 ATP"
+        },
+        {
+          "letter": "C",
+          "text": "2 ATP"
+        },
+        {
+          "letter": "D",
+          "text": "1 GTP"
+        },
+        {
+          "letter": "E",
+          "text": "1 NADH"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A conversão de 1,3-BPG em 2,3-BPG pela bifosfoglicerato mutase não produz ATP. Na via normal, a fosfoglicerato cinase converte 1,3-BPG em 3-fosfoglicerato com produção de 1 ATP. Este desvio é o custo energético da produção de 2,3-BPG, modulador da afinidade da hemoglobina para o O₂.",
+      "source": "Desgravada Bioquímica — Glicólise — Via de Rapoport-Luebering",
+      "logic": "1. Via normal: 1,3-BPG + ADP → 3-PG + ATP (fosfoglicerato cinase) → 1 ATP.\n2. Via Rapoport-Luebering: 1,3-BPG → 2,3-BPG (bifosfoglicerato mutase) → 0 ATP.\n3. O desvio para 2,3-BPG sacrifica a produção de ATP em troca de regulação da Hb.\n4. B: 1 ATP seria na via normal → eliminar. C: sobrestima. D: GTP é do ciclo de Krebs. E: NADH é do passo anterior.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Glicólise — Via de Rapoport-Luebering"
+        },
+        {
+          "letter": "B",
+          "text": "1 ATP é produzido na via normal (fosfoglicerato cinase), mas não quando 1,3-BPG é desviado para 2,3-BPG.",
+          "source": "Desgravada Bioquímica — Glicólise — Via de Rapoport-Luebering"
+        },
+        {
+          "letter": "C",
+          "text": "Sobrestima; mesmo na glicólise normal, este passo gera apenas 1 ATP por molécula.",
+          "source": "Desgravada Bioquímica — Glicólise — Via de Rapoport-Luebering"
+        },
+        {
+          "letter": "D",
+          "text": "O GTP é produzido pelo ciclo de Krebs (succinil-CoA sintetase), não neste passo da glicólise.",
+          "source": "Desgravada Bioquímica — Glicólise — Via de Rapoport-Luebering"
+        },
+        {
+          "letter": "E",
+          "text": "O NADH é produzido na reação anterior (gliceraldeído-3-fosfato desidrogenase); não nesta reação.",
+          "source": "Desgravada Bioquímica — Glicólise — Via de Rapoport-Luebering"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Beta-Oxidação",
+      "labTable": null,
+      "question": "Qual o papel da carnitina no metabolismo dos ácidos gordos?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Facilita o transporte dos ácidos gordos ativados para o interior da matriz mitocondrial"
+        },
+        {
+          "letter": "B",
+          "text": "Atua como enzima na beta-oxidação dos ácidos gordos"
+        },
+        {
+          "letter": "C",
+          "text": "É um transportador de ácidos gordos na membrana plasmática"
+        },
+        {
+          "letter": "D",
+          "text": "Ativa os ácidos gordos formando acil-CoA no citosol"
+        },
+        {
+          "letter": "E",
+          "text": "Inibe a síntese de ácidos gordos por feedback negativo"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A carnitina aceita o grupo acilo do acil-CoA citoplasmático (via CPT-I), formando acilcarnitina, que atravessa a membrana mitocondrial interna pelo transportador de carnitina/acilcarnitina. No interior, o grupo acilo é transferido de volta ao CoA (via CPT-II) para a beta-oxidação.",
+      "source": "Desgravada Bioquímica — Beta-Oxidação — Sistema Carnitina",
+      "logic": "1. Ácidos gordos ativados (acil-CoA) não atravessam a membrana mitocondrial interna.\n2. CPT-I: transfere grupo acilo do acil-CoA para carnitina → acilcarnitina.\n3. Translocase: acilcarnitina entra na mitocôndria.\n4. CPT-II: regenera acil-CoA dentro da mitocôndria.\n5. Carnitina = transportador, não enzima de beta-oxidação nem ativador → A correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Beta-Oxidação — Sistema Carnitina"
+        },
+        {
+          "letter": "B",
+          "text": "A carnitina é um transportador/cofator, não uma enzima catalítica das reações de beta-oxidação.",
+          "source": "Desgravada Bioquímica — Beta-Oxidação — Sistema Carnitina"
+        },
+        {
+          "letter": "C",
+          "text": "A carnitina atua na membrana mitocondrial interna, não na membrana plasmática.",
+          "source": "Desgravada Bioquímica — Beta-Oxidação — Sistema Carnitina"
+        },
+        {
+          "letter": "D",
+          "text": "A ativação dos ácidos gordos (formação de acil-CoA) é catalisada pela acil-CoA sintetase no citosol, antes da intervenção da carnitina.",
+          "source": "Desgravada Bioquímica — Beta-Oxidação — Sistema Carnitina"
+        },
+        {
+          "letter": "E",
+          "text": "A inibição da síntese de ácidos gordos é mediada pelo malonil-CoA que inibe a CPT-I; não é uma função da carnitina diretamente.",
+          "source": "Desgravada Bioquímica — Beta-Oxidação — Sistema Carnitina"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Glicogenoses",
+      "labTable": null,
+      "question": "Qual das seguintes glicogenoses beneficia de monitorização contínua da glicose?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glicogenose Ia (doença de von Gierke)"
+        },
+        {
+          "letter": "B",
+          "text": "Glicogenose V (doença de McArdle)"
+        },
+        {
+          "letter": "C",
+          "text": "Doença de Pompe (glicogenose II)"
+        },
+        {
+          "letter": "D",
+          "text": "Glicogenose IV (doença de Andersen)"
+        },
+        {
+          "letter": "E",
+          "text": "Glicogenose X"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A glicogenose tipo Ia resulta da deficiência de glicose-6-fosfatase hepática, impedindo a libertação de glicose livre tanto pela glicogenólise como pela gluconeogénese. Estes doentes desenvolvem hipoglicemia grave em jejuns muito curtos, tornando a monitorização contínua da glicose essencial.",
+      "source": "Desgravada Bioquímica — Glicogenoses — Tipo Ia (Von Gierke)",
+      "logic": "1. Von Gierke (Ia): défice de G6Pase → sem libertação de glicose livre → hipoglicemia grave em jejuns curtos → monitorização contínua necessária.\n2. McArdle (V): afeta apenas músculo; glicemia normal → sem indicação primária.\n3. Pompe: miopatia e cardiomiopatia; hipoglicemia não é o problema central.\n4. Andersen (IV): doença hepática progressiva; hipoglicemia não é manifestação dominante.\n5. Glicogenose X: afeta músculo; não indicação primária para monitorização contínua.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Glicogenoses — Tipo Ia (Von Gierke)"
+        },
+        {
+          "letter": "B",
+          "text": "A McArdle afeta apenas o músculo; a glicemia não está comprometida pois a produção hepática de glicose é normal.",
+          "source": "Desgravada Bioquímica — Glicogenoses — Tipo Ia (Von Gierke)"
+        },
+        {
+          "letter": "C",
+          "text": "A doença de Pompe manifesta-se principalmente por miopatia e cardiomiopatia; hipoglicemia não é o problema central.",
+          "source": "Desgravada Bioquímica — Glicogenoses — Tipo Ia (Von Gierke)"
+        },
+        {
+          "letter": "D",
+          "text": "A glicogenose tipo IV causa doença hepática progressiva; a hipoglicemia não é a manifestação dominante.",
+          "source": "Desgravada Bioquímica — Glicogenoses — Tipo Ia (Von Gierke)"
+        },
+        {
+          "letter": "E",
+          "text": "A glicogenose X afeta principalmente o músculo; não é a principal indicação para monitorização contínua de glicose.",
+          "source": "Desgravada Bioquímica — Glicogenoses — Tipo Ia (Von Gierke)"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Metabolismo de Nucleótidos",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações sobre a síntese de pirimidinas é VERDADEIRA?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A síntese das pirimidinas é mais complexa que a das purinas"
+        },
+        {
+          "letter": "B",
+          "text": "A via salvage das pirimidinas tem maior significado clínico que a das purinas"
+        },
+        {
+          "letter": "C",
+          "text": "Os produtos do catabolismo são lipossolúveis"
+        },
+        {
+          "letter": "D",
+          "text": "São formadas como derivados dos nucleótidos"
+        },
+        {
+          "letter": "E",
+          "text": "O anel pirimidínico já está formado antes de se ligar à ribose-5-fosfato"
+        }
+      ],
+      "correct": "E",
+      "explanation": "Na síntese de pirimidinas, o anel é construído primeiro no citosol (a partir de carbamil-fosfato e aspartato) e só depois se liga ao PRPP para originar o nucleótido. Nas purinas, o anel é construído diretamente sobre o PRPP.",
+      "source": "Desgravada Bioquímica — Metabolismo de Nucleótidos — Síntese de Pirimidinas",
+      "logic": "1. Pirimidinas: anel construído primeiro (UMP sintase, depois liga a PRPP) → E correta.\n2. Purinas: anel construído diretamente sobre o PRPP (10 passos) → mais complexa → A errada.\n3. Via salvage de purinas: maior significado clínico (Lesch-Nyhan) → B errada.\n4. Catabolismo de pirimidinas: β-alanina, CO₂, NH₃ → hidrossolúveis → C errada.\n5. D: pirimidinas sintetizadas como bases livres, não derivadas de nucleótidos pré-existentes.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A síntese de purinas é mais complexa (10 passos); as pirimidinas têm via mais simples.",
+          "source": "Desgravada Bioquímica — Metabolismo de Nucleótidos — Síntese de Pirimidinas"
+        },
+        {
+          "letter": "B",
+          "text": "A via salvage das purinas tem maior significado clínico (ex: défice de HGPRT → síndrome de Lesch-Nyhan).",
+          "source": "Desgravada Bioquímica — Metabolismo de Nucleótidos — Síntese de Pirimidinas"
+        },
+        {
+          "letter": "C",
+          "text": "Os produtos do catabolismo das pirimidinas (β-alanina, CO₂, NH₃) são hidrossolúveis.",
+          "source": "Desgravada Bioquímica — Metabolismo de Nucleótidos — Síntese de Pirimidinas"
+        },
+        {
+          "letter": "D",
+          "text": "As pirimidinas são sintetizadas como bases livres que depois se ligam à ribose; não são derivadas de nucleótidos pré-existentes.",
+          "source": "Desgravada Bioquímica — Metabolismo de Nucleótidos — Síntese de Pirimidinas"
+        },
+        {
+          "letter": "E",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Metabolismo de Nucleótidos — Síntese de Pirimidinas"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Avaliação Nutricional",
+      "labTable": null,
+      "question": "Qual o método que permite quantificar a digestibilidade e qualidade das proteínas alimentares?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Razão aminoácidos não essenciais/essenciais"
+        },
+        {
+          "letter": "B",
+          "text": "Comparação da carga glicémica com a absorção proteica"
+        },
+        {
+          "letter": "C",
+          "text": "Saturação do transportador PEP1"
+        },
+        {
+          "letter": "D",
+          "text": "DIAAS (Digestible Indispensable Amino Acid Score)"
+        },
+        {
+          "letter": "E",
+          "text": "Balanço azotado simples"
+        }
+      ],
+      "correct": "D",
+      "explanation": "O DIAAS, recomendado pela FAO/OMS, calcula a razão entre a quantidade de cada aminoácido indispensável digestível da proteína em teste e a quantidade de referência, sendo o aminoácido limitante o score final. Considera a digestibilidade ileal verdadeira de cada aminoácido.",
+      "source": "Desgravada Bioquímica — Proteínas — Avaliação da Qualidade Proteica",
+      "logic": "1. Qualidade proteica: deve considerar perfil aminoacídico E digestibilidade.\n2. DIAAS: FAO/OMS recomenda; considera digestibilidade ileal verdadeira de cada aminoácido indispensável.\n3. A: razão NEAA/EAA não avalia digestibilidade. B: mistura conceitos distintos.\n4. C: PepT1 não é método padronizado de avaliação. E: balanço azotado avalia estado global, não qualidade de proteína específica.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Esta razão pode ter utilidade clínica, mas não quantifica a digestibilidade proteica.",
+          "source": "Desgravada Bioquímica — Proteínas — Avaliação da Qualidade Proteica"
+        },
+        {
+          "letter": "B",
+          "text": "A carga glicémica avalia hidratos de carbono, não proteínas; mistura dois conceitos distintos.",
+          "source": "Desgravada Bioquímica — Proteínas — Avaliação da Qualidade Proteica"
+        },
+        {
+          "letter": "C",
+          "text": "O PepT1 é o principal transportador de di e tripeptídeos; a sua saturação não é método padronizado de avaliação.",
+          "source": "Desgravada Bioquímica — Proteínas — Avaliação da Qualidade Proteica"
+        },
+        {
+          "letter": "D",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Proteínas — Avaliação da Qualidade Proteica"
+        },
+        {
+          "letter": "E",
+          "text": "O balanço azotado avalia o estado proteico global do organismo, não a digestibilidade de uma proteína específica.",
+          "source": "Desgravada Bioquímica — Proteínas — Avaliação da Qualidade Proteica"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Lipoproteínas",
+      "labTable": null,
+      "question": "Qual das seguintes lipoproteínas possui maior concentração de triacilgliceróis?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "VLDL"
+        },
+        {
+          "letter": "B",
+          "text": "HDL"
+        },
+        {
+          "letter": "C",
+          "text": "IDL"
+        },
+        {
+          "letter": "D",
+          "text": "LDL"
+        },
+        {
+          "letter": "E",
+          "text": "Quilomicra remanescentes"
+        }
+      ],
+      "correct": "A",
+      "explanation": "As VLDL têm a maior proporção de triacilgliceróis (~50–65%) entre as lipoproteínas em circulação no estado de jejum. Os quilomicra têm proporção ainda maior (~85–90%) no estado pós-prandial, mas em jejum as VLDL são as mais ricas.",
+      "source": "Desgravada Bioquímica — Lipoproteínas — Composição e Funções",
+      "logic": "1. Comparar composição lipídica: quilomicra (85–90% TG, pós-prandial) > VLDL (50–65% TG, jejum) > IDL > LDL (45% colesterol) > HDL (50% proteína).\n2. Em jejum: VLDL mais ricas em TG das opções disponíveis → A correta.\n3. Quilomicra remanescentes: já perderam grande parte dos TG pela LPL → menos que VLDL.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Composição e Funções"
+        },
+        {
+          "letter": "B",
+          "text": "As HDL são ricas em proteínas e fosfolípidos; têm muito pouco triacilglicerol (~5%).",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Composição e Funções"
+        },
+        {
+          "letter": "C",
+          "text": "As IDL são partículas intermediárias com composição intermédia; menos TG que as VLDL.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Composição e Funções"
+        },
+        {
+          "letter": "D",
+          "text": "As LDL são ricas em colesterol esterificado (~45%); têm baixa proporção de TG (~10%).",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Composição e Funções"
+        },
+        {
+          "letter": "E",
+          "text": "As quilomicra remanescentes já perderam grande parte dos TG por ação da LPL; têm menos TG que as VLDL em jejum.",
+          "source": "Desgravada Bioquímica — Lipoproteínas — Composição e Funções"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Vitaminas / Via das Pentoses Fosfato",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações sobre o coeficiente de ativação da transcetolase é CORRETA?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Um coeficiente elevado significa menor défice de tiamina"
+        },
+        {
+          "letter": "B",
+          "text": "Um coeficiente baixo indica níveis normais de tiamina"
+        },
+        {
+          "letter": "C",
+          "text": "Um coeficiente elevado indica défice de niacina"
+        },
+        {
+          "letter": "D",
+          "text": "O coeficiente não se altera com o estado nutricional de tiamina"
+        },
+        {
+          "letter": "E",
+          "text": "Um coeficiente elevado confirma níveis adequados de tiamina"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O ETKA mede a atividade da transcetolase eritrocitária antes e após adição de TPP exógeno. Coeficiente baixo (≈1,0): adição de TPP não aumenta a atividade → enzima já saturada → tiamina normal. Coeficiente elevado (>1,25): enzima responde muito ao TPP exógeno → estava carente → défice de tiamina.",
+      "source": "Desgravada Bioquímica — Vitamina B1 — Avaliação do Estado de Tiamina",
+      "logic": "1. ETKA = atividade após TPP / atividade antes TPP.\n2. Coeficiente baixo (~1,0): sem resposta ao TPP adicionado → enzima já saturada → tiamina adequada → B correta.\n3. Coeficiente elevado (>1,25): grande resposta ao TPP → enzima não estava saturada → défice de tiamina.\n4. A e E: invertem a interpretação. C: ETKA específico para tiamina, não niacina. D: o ETKA altera-se com o estado de tiamina.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É o inverso; coeficiente elevado indica maior défice de tiamina.",
+          "source": "Desgravada Bioquímica — Vitamina B1 — Avaliação do Estado de Tiamina"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Vitamina B1 — Avaliação do Estado de Tiamina"
+        },
+        {
+          "letter": "C",
+          "text": "O ETKA é específico para tiamina (B1); o estado de niacina (B3) avalia-se por outros métodos.",
+          "source": "Desgravada Bioquímica — Vitamina B1 — Avaliação do Estado de Tiamina"
+        },
+        {
+          "letter": "D",
+          "text": "O ETKA é um biomarcador funcional que reflete o estado de tiamina; altera-se com a deficiência.",
+          "source": "Desgravada Bioquímica — Vitamina B1 — Avaliação do Estado de Tiamina"
+        },
+        {
+          "letter": "E",
+          "text": "Coeficiente elevado indica deficiência de tiamina, não níveis adequados.",
+          "source": "Desgravada Bioquímica — Vitamina B1 — Avaliação do Estado de Tiamina"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Lípidos",
+      "labTable": null,
+      "question": "O que é uma gordura trans?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Um ácido gordo insaturado na conformação trans"
+        },
+        {
+          "letter": "B",
+          "text": "Um ácido gordo sintetizado endogenamente pelo organismo"
+        },
+        {
+          "letter": "C",
+          "text": "Um ácido gordo da família dos ómega-3 e ómega-6"
+        },
+        {
+          "letter": "D",
+          "text": "Um ácido gordo saturado sem duplas ligações"
+        },
+        {
+          "letter": "E",
+          "text": "Um ácido gordo exclusivamente de origem animal"
+        }
+      ],
+      "correct": "A",
+      "explanation": "As gorduras trans são ácidos gordos insaturados nos quais a dupla ligação C-C se encontra na configuração trans (hidrogénios em lados opostos), em oposição à configuração cis predominante nos ácidos gordos naturais. Têm efeitos cardiovasculares adversos (aumentam LDL, diminuem HDL).",
+      "source": "Desgravada Bioquímica — Lípidos — Ácidos Gordos Trans",
+      "logic": "1. Trans refere-se à configuração geométrica da dupla ligação C=C.\n2. Para existir isomeria cis/trans é necessária uma dupla ligação → o ácido gordo é insaturado.\n3. A: insaturado + conformação trans → correta.\n4. B: organismo não sintetiza trans de forma significativa.\n5. C: ómega-3 e ómega-6 são cis, não trans.\n6. D: saturado não tem duplas ligações → sem isomeria cis/trans.\n7. E: também existem industrialmente (óleos hidrogenados).",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Lípidos — Ácidos Gordos Trans"
+        },
+        {
+          "letter": "B",
+          "text": "O organismo humano não sintetiza gorduras trans de forma significativa; são maioritariamente de origem industrial ou ruminante.",
+          "source": "Desgravada Bioquímica — Lípidos — Ácidos Gordos Trans"
+        },
+        {
+          "letter": "C",
+          "text": "Os ácidos gordos ómega-3 e ómega-6 são insaturados na configuração cis; trans refere-se à geometria da dupla ligação.",
+          "source": "Desgravada Bioquímica — Lípidos — Ácidos Gordos Trans"
+        },
+        {
+          "letter": "D",
+          "text": "Os ácidos gordos saturados não têm duplas ligações e portanto não têm isomeria cis/trans.",
+          "source": "Desgravada Bioquímica — Lípidos — Ácidos Gordos Trans"
+        },
+        {
+          "letter": "E",
+          "text": "As gorduras trans existem em alimentos de origem animal (ruminantes) mas também em óleos vegetais parcialmente hidrogenados; não são exclusivas de origem animal.",
+          "source": "Desgravada Bioquímica — Lípidos — Ácidos Gordos Trans"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Eicosanóides",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações sobre os eicosanóides é CORRETA?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A via da COX-2 permite que o DHA forme resolvinas do tipo D"
+        },
+        {
+          "letter": "B",
+          "text": "Os AINEs inibem seletivamente apenas a via da COX-2"
+        },
+        {
+          "letter": "C",
+          "text": "O EPA e o ácido araquidónico têm funções biológicas sinérgicas"
+        },
+        {
+          "letter": "D",
+          "text": "As prostaglandinas são sintetizadas exclusivamente pela via da LOX"
+        },
+        {
+          "letter": "E",
+          "text": "Os leucotrienos são produzidos pela via da COX"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A COX-2 pode aceitar o DHA (ω-3) como substrato alternativo, produzindo intermediários convertidos em resolvinas da série D (ex: resolvinD1), com potentes efeitos anti-inflamatórios e pró-resolução. Isto explica parte dos benefícios cardiovasculares dos ácidos gordos ω-3.",
+      "source": "Desgravada Bioquímica — Eicosanóides — Resolvinas e DHA",
+      "logic": "1. COX-2 + DHA → resolvinas série D (anti-inflamatórias) → A correta.\n2. AINEs clássicos (ibuprofeno, aspirina) inibem COX-1 E COX-2; só os coxibes são seletivos para COX-2 → B errada.\n3. EPA (ω-3) e araquidónico (ω-6) são frequentemente antagonistas; EPA produz eicosanóides menos pró-inflamatórios → C errada.\n4. Prostaglandinas: via da COX, não LOX → D errada.\n5. Leucotrienos: via da 5-LOX, não COX → E errada.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Eicosanóides — Resolvinas e DHA"
+        },
+        {
+          "letter": "B",
+          "text": "Os AINEs clássicos inibem tanto COX-1 como COX-2; apenas os coxibes são seletivos para COX-2.",
+          "source": "Desgravada Bioquímica — Eicosanóides — Resolvinas e DHA"
+        },
+        {
+          "letter": "C",
+          "text": "O EPA (ω-3) e o ácido araquidónico (ω-6) são frequentemente antagonistas; o EPA produz eicosanóides menos pró-inflamatórios.",
+          "source": "Desgravada Bioquímica — Eicosanóides — Resolvinas e DHA"
+        },
+        {
+          "letter": "D",
+          "text": "As prostaglandinas são sintetizadas pela via da COX (ciclooxigenase); a LOX produz leucotrienos e lipoxinas.",
+          "source": "Desgravada Bioquímica — Eicosanóides — Resolvinas e DHA"
+        },
+        {
+          "letter": "E",
+          "text": "Os leucotrienos são produzidos pela via da 5-lipoxigenase (5-LOX); a COX produz prostaglandinas e tromboxanos.",
+          "source": "Desgravada Bioquímica — Eicosanóides — Resolvinas e DHA"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Lipogénese",
+      "labTable": null,
+      "question": "Qual é o equivalente redutor utilizado na síntese de ácidos gordos?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "NADPH"
+        },
+        {
+          "letter": "B",
+          "text": "ATP"
+        },
+        {
+          "letter": "C",
+          "text": "FADH2"
+        },
+        {
+          "letter": "D",
+          "text": "NADH"
+        },
+        {
+          "letter": "E",
+          "text": "GTP"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A síntese de ácidos gordos requer NADPH como agente redutor em duas reações da FAS: a 3-cetoacil-ACP redutase e a enoil-ACP redutase. O NADPH provém principalmente da via das pentoses fosfato e da enzima málica. São necessários 14 NADPH por molécula de palmitato sintetizada.",
+      "source": "Desgravada Bioquímica — Lipogénese — Síntese de Ácidos Gordos",
+      "logic": "1. FAS catalisa ciclos de condensação e redução.\n2. Redução requer um dador de hidrogénio (equivalente redutor).\n3. Na lipogénese citosólica: NADPH é o agente redutor (não NADH, que é mitocondrial).\n4. ATP: necessário para ativação (malonil-CoA) mas não é redutor.\n5. FADH2 e GTP: mitocondriais, não usados na lipogénese citosólica.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Lipogénese — Síntese de Ácidos Gordos"
+        },
+        {
+          "letter": "B",
+          "text": "O ATP é necessário para a carboxilação do acetil-CoA a malonil-CoA, mas não é o equivalente redutor.",
+          "source": "Desgravada Bioquímica — Lipogénese — Síntese de Ácidos Gordos"
+        },
+        {
+          "letter": "C",
+          "text": "O FADH2 é um transportador de eletrões mitocondrial; não é usado na síntese citosólica de ácidos gordos.",
+          "source": "Desgravada Bioquímica — Lipogénese — Síntese de Ácidos Gordos"
+        },
+        {
+          "letter": "D",
+          "text": "O NADH é o principal redutor na glicólise e ciclo de Krebs; na lipogénese é o NADPH o agente redutor.",
+          "source": "Desgravada Bioquímica — Lipogénese — Síntese de Ácidos Gordos"
+        },
+        {
+          "letter": "E",
+          "text": "O GTP é produzido no ciclo de Krebs e usado em sinalização; não é redutor na lipogénese.",
+          "source": "Desgravada Bioquímica — Lipogénese — Síntese de Ácidos Gordos"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Vitaminas / CYP450",
+      "labTable": null,
+      "question": "Qual a vitamina cujo derivado cofator é necessário para a atividade da NADPH-citocromo P450 redutase?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Riboflavina (vitamina B2)"
+        },
+        {
+          "letter": "B",
+          "text": "Niacina (vitamina B3)"
+        },
+        {
+          "letter": "C",
+          "text": "Vitamina D"
+        },
+        {
+          "letter": "D",
+          "text": "Vitamina E"
+        },
+        {
+          "letter": "E",
+          "text": "Tiamina (vitamina B1)"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A NADPH-citocromo P450 redutase contém FAD e FMN como grupos prostéticos, ambos derivados da riboflavina (vitamina B2). Esta redutase transfere eletrões do NADPH para o CYP450, sendo essencial para as reações de fase I.",
+      "source": "Desgravada Bioquímica — Vitaminas — Riboflavina / CYP450",
+      "logic": "1. NADPH-CYP450 redutase: transfere eletrões do NADPH para o CYP450.\n2. Grupos prostéticos da redutase: FAD + FMN → ambos derivados de riboflavina (B2).\n3. B: NADPH é dador (derivado de niacina), mas o cofator estrutural da redutase é FAD/FMN (riboflavina).\n4. C, D, E: sem função como cofator da NADPH-CYP450 redutase.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Vitaminas — Riboflavina / CYP450"
+        },
+        {
+          "letter": "B",
+          "text": "O NADPH (derivado da niacina) é o dador de eletrões, mas o cofator estrutural da redutase (FAD/FMN) deriva da riboflavina.",
+          "source": "Desgravada Bioquímica — Vitaminas — Riboflavina / CYP450"
+        },
+        {
+          "letter": "C",
+          "text": "A vitamina D é metabolizada pelo CYP450 mas não é o cofator da atividade enzimática do sistema.",
+          "source": "Desgravada Bioquímica — Vitaminas — Riboflavina / CYP450"
+        },
+        {
+          "letter": "D",
+          "text": "A vitamina E é antioxidante lipossolúvel; sem função de cofator no CYP450.",
+          "source": "Desgravada Bioquímica — Vitaminas — Riboflavina / CYP450"
+        },
+        {
+          "letter": "E",
+          "text": "A tiamina (TPP) é cofator de desidrogenases (PDH, α-cetoglutarato DH); não participa no CYP450.",
+          "source": "Desgravada Bioquímica — Vitaminas — Riboflavina / CYP450"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Lipogénese / Regulação",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações sobre a regulação da carboxilase do acetil-CoA é CORRETA?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A sua atividade é estimulada por elevados níveis de citrato"
+        },
+        {
+          "letter": "B",
+          "text": "É ativada pela glucagina via AMPc/PKA"
+        },
+        {
+          "letter": "C",
+          "text": "É inibida pela insulina"
+        },
+        {
+          "letter": "D",
+          "text": "O malonil-CoA não tem efeito sobre a sua atividade"
+        },
+        {
+          "letter": "E",
+          "text": "É ativada pelo palmitoil-CoA"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O citrato, que sai da mitocôndria em condições de abundância energética pós-prandial, ativa alostericamente a ACC no citosol e fornece o acetil-CoA para a síntese de ácidos gordos (via citrato liase). A ACC é também ativada pela insulina e inibida pelo palmitoil-CoA e glucagão (via PKA).",
+      "source": "Desgravada Bioquímica — Lipogénese — Regulação da ACC",
+      "logic": "1. ACC regulação: ativada por citrato (alostérica) e insulina (desfosforilação); inibida por palmitoil-CoA e glucagina (PKA fosforila e inativa).\n2. Citrato elevado (pós-prandial) → ativa ACC → A correta.\n3. B: glucagina inativa a ACC via PKA → errada.\n4. C: insulina ativa (não inibe) a ACC → errada.\n5. D: malonil-CoA inibe CPT-I (coordena lipogénese e oxidação) → errada no contexto.\n6. E: palmitoil-CoA inibe ACC por feedback negativo → errada.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Lipogénese — Regulação da ACC"
+        },
+        {
+          "letter": "B",
+          "text": "A glucagina ativa a PKA, que fosforila e inativa a ACC; é a insulina que a ativa.",
+          "source": "Desgravada Bioquímica — Lipogénese — Regulação da ACC"
+        },
+        {
+          "letter": "C",
+          "text": "A insulina ativa a ACC (via desfosforilação pela proteína fosfatase 2A); estimula a lipogénese.",
+          "source": "Desgravada Bioquímica — Lipogénese — Regulação da ACC"
+        },
+        {
+          "letter": "D",
+          "text": "O malonil-CoA, produto da ACC, inibe a CPT-I, coordenando síntese e oxidação de ácidos gordos.",
+          "source": "Desgravada Bioquímica — Lipogénese — Regulação da ACC"
+        },
+        {
+          "letter": "E",
+          "text": "O palmitoil-CoA inibe a ACC por feedback negativo (produto final da síntese de ácidos gordos).",
+          "source": "Desgravada Bioquímica — Lipogénese — Regulação da ACC"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Regulação Metabólica Pós-Prandial",
+      "labTable": null,
+      "question": "Qual das seguintes enzimas é inibida após a ingestão alimentar?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Carnitina palmitoil transferase I (CPT-I)"
+        },
+        {
+          "letter": "B",
+          "text": "Desidrogenase do piruvato"
+        },
+        {
+          "letter": "C",
+          "text": "Fosfofrutocinase 1"
+        },
+        {
+          "letter": "D",
+          "text": "Glucocinase"
+        },
+        {
+          "letter": "E",
+          "text": "Glicogénio sintetase"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Após a ingestão, a insulina ativa a ACC, gerando malonil-CoA que inibe alostericamente a CPT-I. Este mecanismo suprime a beta-oxidação no estado pós-prandial, coordenando-a com a lipogénese ativa.",
+      "source": "Desgravada Bioquímica — Regulação Metabólica — Estado Pós-Prandial",
+      "logic": "1. Pós-prandial: insulina ↑ → ACC ativa → malonil-CoA ↑ → CPT-I inibida → beta-oxidação suprimida.\n2. B: PDH ativada pela insulina (desfosforilação) → não inibida.\n3. C: PFK-1 ativada pela F-2,6-BP (↑ com insulina) → não inibida.\n4. D: glucocinase ativada pela glicose e insulina no estado pós-prandial.\n5. E: glicogénio sintetase ativada pela insulina (desfosforilação) → não inibida.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Regulação Metabólica — Estado Pós-Prandial"
+        },
+        {
+          "letter": "B",
+          "text": "A PDH é ativada após a ingestão alimentar; não é inibida.",
+          "source": "Desgravada Bioquímica — Regulação Metabólica — Estado Pós-Prandial"
+        },
+        {
+          "letter": "C",
+          "text": "A PFK-1 é ativada no estado pós-prandial pela frutose-2,6-bisfosfato; não é inibida.",
+          "source": "Desgravada Bioquímica — Regulação Metabólica — Estado Pós-Prandial"
+        },
+        {
+          "letter": "D",
+          "text": "A glucocinase hepática é ativada pela glicose e insulina no estado pós-prandial.",
+          "source": "Desgravada Bioquímica — Regulação Metabólica — Estado Pós-Prandial"
+        },
+        {
+          "letter": "E",
+          "text": "A glicogénio sintetase é ativada pela insulina (desfosforilação) no estado pós-prandial.",
+          "source": "Desgravada Bioquímica — Regulação Metabólica — Estado Pós-Prandial"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Metabolismo da Frutose",
+      "labTable": null,
+      "question": "O que ocorre quando há excesso de frutose que chega ao cólon?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "É fermentada pela microbiota intestinal, originando principalmente acetato"
+        },
+        {
+          "letter": "B",
+          "text": "É absorvida integralmente por transportadores GLUT5 no cólon"
+        },
+        {
+          "letter": "C",
+          "text": "É convertida em glicose pela mucosa colónica"
+        },
+        {
+          "letter": "D",
+          "text": "É excretada diretamente nas fezes sem metabolização"
+        },
+        {
+          "letter": "E",
+          "text": "Estimula a síntese de glicogénio pelos colonócitos"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O excesso de frutose que não é absorvido no intestino delgado chega ao cólon, onde é fermentado pela microbiota produzindo principalmente ácidos gordos de cadeia curta (acetato, propionato, butirato), H₂ e CO₂.",
+      "source": "Desgravada Bioquímica — Metabolismo da Frutose — Destino Colónico",
+      "logic": "1. Absorção de frutose: via GLUT5 no intestino delgado (limitada e saturável).\n2. Excesso não absorvido → cólon → fermentação pela microbiota.\n3. Produtos da fermentação: AGCC (acetato principalmente), H₂, CO₂.\n4. B: GLUT5 está no intestino delgado, não cólon. C: conversão em glicose ocorre no fígado. D: frutose é fermentável. E: colonócitos não sintetizam glicogénio da frutose luminal.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Metabolismo da Frutose — Destino Colónico"
+        },
+        {
+          "letter": "B",
+          "text": "O GLUT5 está presente no intestino delgado, não no cólon; a absorção de frutose ocorre no jejuno.",
+          "source": "Desgravada Bioquímica — Metabolismo da Frutose — Destino Colónico"
+        },
+        {
+          "letter": "C",
+          "text": "A conversão de frutose em glicose ocorre no fígado, não na mucosa colónica.",
+          "source": "Desgravada Bioquímica — Metabolismo da Frutose — Destino Colónico"
+        },
+        {
+          "letter": "D",
+          "text": "A frutose é um substrato facilmente fermentável; não é excretada intacta em quantidades significativas.",
+          "source": "Desgravada Bioquímica — Metabolismo da Frutose — Destino Colónico"
+        },
+        {
+          "letter": "E",
+          "text": "Os colonócitos não sintetizam glicogénio a partir de frutose luminal; usam principalmente butirato como energia.",
+          "source": "Desgravada Bioquímica — Metabolismo da Frutose — Destino Colónico"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Química Orgânica",
+      "labTable": null,
+      "question": "Quais os grupos funcionais presentes no ácido pirúvico?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Um grupo amida e um grupo hidroxilo"
+        },
+        {
+          "letter": "B",
+          "text": "Um grupo carbonilo e um grupo ácido carboxílico"
+        },
+        {
+          "letter": "C",
+          "text": "Dois grupos ácido carboxílico"
+        },
+        {
+          "letter": "D",
+          "text": "Dois grupos carbonilo e um grupo hidroxilo"
+        },
+        {
+          "letter": "E",
+          "text": "Um grupo aldeído e um grupo amina"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O ácido pirúvico (CH₃-CO-COOH) possui um grupo carbonilo (cetona, C=O no C2) e um grupo ácido carboxílico (-COOH no C3). É portanto um α-cetoácido.",
+      "source": "Desgravada Bioquímica — Química Orgânica — Grupos Funcionais",
+      "logic": "1. CH₃-CO-COOH: ler da esquerda para a direita.\n2. CH₃-CO-: grupo metil + grupo carbonilo (cetona, C=O no meio da cadeia).\n3. -COOH: grupo ácido carboxílico no terminal.\n4. Logo: 1 carbonilo + 1 ácido carboxílico → B correta.\n5. A: sem amida nem hidroxilo livre. C: só há um -COOH. D: há apenas um carbonilo. E: sem aldeído nem amina.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O ácido pirúvico não possui grupos amida nem hidroxilo livre.",
+          "source": "Desgravada Bioquímica — Química Orgânica — Grupos Funcionais"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Química Orgânica — Grupos Funcionais"
+        },
+        {
+          "letter": "C",
+          "text": "Apenas o C3 tem grupo carboxílico; o C2 tem um grupo carbonilo (cetona).",
+          "source": "Desgravada Bioquímica — Química Orgânica — Grupos Funcionais"
+        },
+        {
+          "letter": "D",
+          "text": "Existe apenas um carbonilo (C2); o C3 tem um carboxílico, não um segundo carbonilo isolado.",
+          "source": "Desgravada Bioquímica — Química Orgânica — Grupos Funcionais"
+        },
+        {
+          "letter": "E",
+          "text": "O ácido pirúvico não possui grupo aldeído (que exigiria -CHO terminal) nem grupo amina.",
+          "source": "Desgravada Bioquímica — Química Orgânica — Grupos Funcionais"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Digestão de Proteínas",
+      "labTable": null,
+      "question": "O que origina a ação da aminopeptidase no metabolismo das proteínas?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aminoácidos livres e di e tripeptídeos"
+        },
+        {
+          "letter": "B",
+          "text": "Peptídeos com mais de 10 aminoácidos"
+        },
+        {
+          "letter": "C",
+          "text": "Grandes péptidos não absorvíveis"
+        },
+        {
+          "letter": "D",
+          "text": "Exclusivamente aminoácidos livres"
+        },
+        {
+          "letter": "E",
+          "text": "Dipeptídeos e tripeptídeos apenas, sem aminoácidos livres"
+        }
+      ],
+      "correct": "A",
+      "explanation": "As aminopeptidases clivam o aminoácido N-terminal de peptídeos curtos, libertando aminoácidos livres. Contudo, a digestão não é sempre completa e di e tripeptídeos também são absorvidos diretamente via PepT1. O resultado é uma mistura de aminoácidos livres e pequenos peptídeos.",
+      "source": "Desgravada Bioquímica — Digestão de Proteínas — Bordadura em Escova",
+      "logic": "1. Aminopeptidase: exopeptidase que remove aminoácido N-terminal de oligopeptídeos.\n2. Produto: aminoácidos livres (hidrólise completa) + di/tripeptídeos residuais (absorvidos via PepT1).\n3. B: mais de 10 AA → substrato de endopeptidases, não aminopeptidases.\n4. C: grandes péptidos → produtos de endopeptidases luminais, não da bordadura.\n5. D e E: excluem componentes que de facto existem.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Digestão de Proteínas — Bordadura em Escova"
+        },
+        {
+          "letter": "B",
+          "text": "Aminopeptidases atuam sobre oligopeptídeos curtos; peptídeos com mais de 10 AA são substrato de endopeptidases.",
+          "source": "Desgravada Bioquímica — Digestão de Proteínas — Bordadura em Escova"
+        },
+        {
+          "letter": "C",
+          "text": "Grandes péptidos são produtos das endopeptidases (pepsina, tripsina); as aminopeptidases agem sobre produtos já reduzidos.",
+          "source": "Desgravada Bioquímica — Digestão de Proteínas — Bordadura em Escova"
+        },
+        {
+          "letter": "D",
+          "text": "Alguns di e tripeptídeos resistem à hidrólise completa e são absorvidos intactos via PepT1.",
+          "source": "Desgravada Bioquímica — Digestão de Proteínas — Bordadura em Escova"
+        },
+        {
+          "letter": "E",
+          "text": "As aminopeptidases libertam também aminoácidos livres; ambos coexistem como produtos.",
+          "source": "Desgravada Bioquímica — Digestão de Proteínas — Bordadura em Escova"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Sinalização Nutricional",
+      "labTable": null,
+      "question": "Qual das seguintes localizações dos recetores do sabor doce está CORRETAMENTE associada à sua função?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "No intestino, onde estão associados à libertação de GLP-1"
+        },
+        {
+          "letter": "B",
+          "text": "No hipotálamo, onde regulam a síntese de insulina"
+        },
+        {
+          "letter": "C",
+          "text": "No tecido adiposo, onde promovem a lipólise"
+        },
+        {
+          "letter": "D",
+          "text": "No pâncreas exócrino, onde regulam a secreção de amilase"
+        },
+        {
+          "letter": "E",
+          "text": "No músculo esquelético, onde estimulam a captação de glicose"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Os recetores do sabor doce nas células enteroendócrinas L do intestino delgado são ativados por açúcares e adoçantes, promovendo a libertação de GLP-1 e GIP, que estimulam a secreção de insulina, inibem o glucagão, retardam o esvaziamento gástrico e promovem saciedade.",
+      "source": "Desgravada Bioquímica — Sinalização Nutricional — Recetores do Sabor Doce Intestinal",
+      "logic": "1. Recetores T1R2/T1R3 presentes nas células L enteroendócrinas do intestino.\n2. Ativação por açúcares/adoçantes → libertação de GLP-1 e GIP → estimula insulina, inibe glucagão → A correta.\n3. B: síntese de insulina ocorre nas células β pancreáticas, não no hipotálamo.\n4. C: lipólise regulada por catecolaminas e glucagão; sem evidência estabelecida para recetores de sabor doce.\n5. D: secreção de amilase pancreática regulada por CCK; não por recetores de sabor doce.\n6. E: captação de glicose pelo músculo via GLUT4 estimulada por insulina e exercício.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Sinalização Nutricional — Recetores do Sabor Doce Intestinal"
+        },
+        {
+          "letter": "B",
+          "text": "A síntese de insulina ocorre nas células β pancreáticas; os recetores do sabor doce hipotalâmicos regulam o apetite, não a síntese de insulina.",
+          "source": "Desgravada Bioquímica — Sinalização Nutricional — Recetores do Sabor Doce Intestinal"
+        },
+        {
+          "letter": "C",
+          "text": "A lipólise é regulada principalmente por catecolaminas e glucagão; sem evidência estabelecida de regulação pelos recetores do sabor doce no tecido adiposo.",
+          "source": "Desgravada Bioquímica — Sinalização Nutricional — Recetores do Sabor Doce Intestinal"
+        },
+        {
+          "letter": "D",
+          "text": "A secreção de amilase pancreática é regulada pela CCK e sistema nervoso; não pelos recetores do sabor doce.",
+          "source": "Desgravada Bioquímica — Sinalização Nutricional — Recetores do Sabor Doce Intestinal"
+        },
+        {
+          "letter": "E",
+          "text": "A captação de glicose pelo músculo é estimulada pela insulina e pelo exercício via GLUT4; sem evidência estabelecida de regulação pelos recetores do sabor doce.",
+          "source": "Desgravada Bioquímica — Sinalização Nutricional — Recetores do Sabor Doce Intestinal"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Modificações Proteicas",
+      "labTable": null,
+      "question": "Qual das seguintes afirmações sobre a glicação é CORRETA?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "É enzimática e leva a mudanças na função da proteína"
+        },
+        {
+          "letter": "B",
+          "text": "É não enzimática, irreversível, e leva a alterações na atividade e função das proteínas"
+        },
+        {
+          "letter": "C",
+          "text": "É não enzimática, reversível, e ativa ou inibe vias de sinalização via recetores RAGE"
+        },
+        {
+          "letter": "D",
+          "text": "É equivalente à glicosilação em termos de mecanismo"
+        },
+        {
+          "letter": "E",
+          "text": "Ocorre exclusivamente em condições de hipoglicemia"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A glicação é uma modificação não enzimática (reação de Maillard) em que grupos amino livres das proteínas reagem espontaneamente com açúcares redutores, progredindo irreversivelmente para produtos de glicação avançada (AGEs), que alteram a estrutura e função das proteínas e ativam os recetores RAGE.",
+      "source": "Desgravada Bioquímica — Proteínas — Glicação e AGEs",
+      "logic": "1. Glicação: espontânea (não enzimática) + irreversível (progride para AGEs).\n2. AGEs ativam recetores RAGE → inflamação e dano tecidual.\n3. A: enzimática descreve a glicosilação → errada.\n4. C: reversível descreve a glicosilação O-GlcNAc; a glicação é irreversível.\n5. D: são processos distintos (enzimático vs não enzimático).\n6. E: glicação ocorre em hiperglicemia, não hipoglicemia.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A glicação é não enzimática (espontânea); a glicosilação é que é enzimática.",
+          "source": "Desgravada Bioquímica — Proteínas — Glicação e AGEs"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Proteínas — Glicação e AGEs"
+        },
+        {
+          "letter": "C",
+          "text": "A glicação é irreversível (especialmente após formação de AGEs); a glicosilação O-GlcNAc é que é reversível.",
+          "source": "Desgravada Bioquímica — Proteínas — Glicação e AGEs"
+        },
+        {
+          "letter": "D",
+          "text": "São processos distintos: glicação é não enzimática; glicosilação é enzimática e tem funções fisiológicas regulatórias.",
+          "source": "Desgravada Bioquímica — Proteínas — Glicação e AGEs"
+        },
+        {
+          "letter": "E",
+          "text": "A glicação ocorre em condições de hiperglicemia (excesso de glicose); é um marcador de controlo glicémico deficiente (ex: HbA1c).",
+          "source": "Desgravada Bioquímica — Proteínas — Glicação e AGEs"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Metabolismo de Xenobióticos",
+      "labTable": null,
+      "question": "Qual o equivalente redutor utilizado pelo sistema CYP450?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Glutationa"
+        },
+        {
+          "letter": "B",
+          "text": "NADPH"
+        },
+        {
+          "letter": "C",
+          "text": "FADH2"
+        },
+        {
+          "letter": "D",
+          "text": "NADH"
+        },
+        {
+          "letter": "E",
+          "text": "Vitamina C"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O NADPH é o dador de eletrões para a NADPH-citocromo P450 redutase, que transfere eletrões via FAD e FMN para o CYP450. Reação: RH + O₂ + NADPH + H⁺ → ROH + H₂O + NADP⁺.",
+      "source": "Desgravada Bioquímica — Xenobióticos — Sistema CYP450",
+      "logic": "1. CYP450 catalisa mono-oxigenação: incorpora 1 átomo de O₂ no substrato.\n2. Requer 2 eletrões → fornecidos pelo NADPH via NADPH-CYP450 redutase.\n3. A: glutationa = cofator de fase II (conjugação), não de fase I.\n4. C: FAD/FMN são grupos prostéticos da redutase, mas o dador direto ao sistema é o NADPH.\n5. D: NADH pode participar em CYP450 mitocondriais mas o principal microssomal é NADPH.\n6. E: vitamina C tem alguma atividade antioxidante mas não é o redutor direto.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A glutationa é o cofator das reações de fase II (conjugação), não o redutor do CYP450 nas reações de fase I.",
+          "source": "Desgravada Bioquímica — Xenobióticos — Sistema CYP450"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Xenobióticos — Sistema CYP450"
+        },
+        {
+          "letter": "C",
+          "text": "O FAD/FMN são grupos prostéticos da NADPH-CYP450 redutase; o dador direto ao sistema é o NADPH.",
+          "source": "Desgravada Bioquímica — Xenobióticos — Sistema CYP450"
+        },
+        {
+          "letter": "D",
+          "text": "O NADH pode participar em alguns sistemas mitocondriais de CYP450, mas o principal dador de eletrões microssomal é o NADPH.",
+          "source": "Desgravada Bioquímica — Xenobióticos — Sistema CYP450"
+        },
+        {
+          "letter": "E",
+          "text": "A vitamina C tem propriedades antioxidantes mas não é o equivalente redutor direto da reação do CYP450.",
+          "source": "Desgravada Bioquímica — Xenobióticos — Sistema CYP450"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Vitaminas Lipossolúveis / Coagulação",
+      "labTable": null,
+      "question": "Qual o mecanismo de ação da vitamina K na coagulação?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "É cofator da enzima que catalisa a γ-carboxilação dos resíduos de glutamato das proteínas de coagulação"
+        },
+        {
+          "letter": "B",
+          "text": "Estimula diretamente a síntese de trombina no fígado"
+        },
+        {
+          "letter": "C",
+          "text": "Inibe a degradação dos fatores de coagulação"
+        },
+        {
+          "letter": "D",
+          "text": "Atua como antioxidante protegendo os fatores de coagulação"
+        },
+        {
+          "letter": "E",
+          "text": "Facilita a absorção intestinal de cálcio necessário à coagulação"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A vitamina K (forma KH₂) é cofator da γ-glutamil carboxilase, que carboxila resíduos de glutamato em γ-carboxiglutamato (Gla) nos fatores II, VII, IX, X e nas proteínas C e S. Os resíduos Gla permitem a ligação dependente de Ca²⁺ às membranas fosfolipídicas, essencial para a ativação dos fatores. A varfarina inibe o ciclo da vitamina K.",
+      "source": "Desgravada Bioquímica — Vitamina K — Mecanismo de Ação",
+      "logic": "1. Vitamina K → cofator da γ-glutamil carboxilase → γ-carboxilação de glutamato → Gla.\n2. Resíduos Gla: ligam Ca²⁺ → ancoragem a membranas fosfolipídicas → ativação dos fatores.\n3. Fatores afetados: II, VII, IX, X, proteínas C e S.\n4. B: trombina gerada por clivagem proteolítica, não síntese direta estimulada pela vitamina K.\n5. C, D: não são mecanismos da vitamina K. E: absorção de Ca²⁺ = vitamina D.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Vitamina K — Mecanismo de Ação"
+        },
+        {
+          "letter": "B",
+          "text": "A trombina é gerada por clivagem proteolítica da protrombina; a vitamina K não estimula diretamente a sua síntese.",
+          "source": "Desgravada Bioquímica — Vitamina K — Mecanismo de Ação"
+        },
+        {
+          "letter": "C",
+          "text": "A vitamina K não atua na degradação dos fatores; atua na sua ativação pós-traducional.",
+          "source": "Desgravada Bioquímica — Vitamina K — Mecanismo de Ação"
+        },
+        {
+          "letter": "D",
+          "text": "Embora com alguma atividade antioxidante, a função principal da vitamina K na coagulação é como cofator da γ-carboxilase.",
+          "source": "Desgravada Bioquímica — Vitamina K — Mecanismo de Ação"
+        },
+        {
+          "letter": "E",
+          "text": "A absorção intestinal de cálcio é regulada pela vitamina D, não pela vitamina K.",
+          "source": "Desgravada Bioquímica — Vitamina K — Mecanismo de Ação"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Minerais",
+      "labTable": null,
+      "question": "Qual o mineral que forma complexos com o ATP, sendo necessário para a sua função enzimática?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cálcio"
+        },
+        {
+          "letter": "B",
+          "text": "Magnésio"
+        },
+        {
+          "letter": "C",
+          "text": "Zinco"
+        },
+        {
+          "letter": "D",
+          "text": "Ferro"
+        },
+        {
+          "letter": "E",
+          "text": "Sódio"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O magnésio (Mg²⁺) forma um complexo estável com o ATP (Mg²⁺-ATP), a forma biologicamente ativa reconhecida pelas cinases. O Mg²⁺ coordena os grupos fosfato do ATP, neutralizando as cargas negativas e facilitando a transferência do grupo fosfato.",
+      "source": "Desgravada Bioquímica — Minerais — Magnésio e ATP",
+      "logic": "1. ATP tem 4 cargas negativas nos grupos fosfato → inibem acesso à cinase.\n2. Mg²⁺ coordena os grupos fosfato → neutraliza cargas → Mg²⁺-ATP é o substrato ativo das cinases.\n3. Ca²⁺: sinalização e contração; pode inibir algumas ATPases.\n4. Zn²⁺: metaloenzimas; não forma complexos com ATP.\n5. Fe²⁺/Fe³⁺: centros heme e ferro-enxofre; não forma complexos com ATP.\n6. Na⁺: monovalente; não forma complexos estáveis com ATP.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O Ca²⁺ tem funções de sinalização mas não é o catião que forma o complexo funcional com o ATP nas cinases.",
+          "source": "Desgravada Bioquímica — Minerais — Magnésio e ATP"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Minerais — Magnésio e ATP"
+        },
+        {
+          "letter": "C",
+          "text": "O zinco é cofator de metaloenzimas (anidrase carbónica, zinco-dedos de DNA) mas não do complexo ATP.",
+          "source": "Desgravada Bioquímica — Minerais — Magnésio e ATP"
+        },
+        {
+          "letter": "D",
+          "text": "O ferro é cofator de heme e centros ferro-enxofre; não forma complexos com o ATP.",
+          "source": "Desgravada Bioquímica — Minerais — Magnésio e ATP"
+        },
+        {
+          "letter": "E",
+          "text": "O sódio é um catião monovalente; não forma complexos estáveis com o ATP.",
+          "source": "Desgravada Bioquímica — Minerais — Magnésio e ATP"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Caquexia",
+      "labTable": null,
+      "question": "O que leva à fraqueza muscular na caquexia oncológica?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aumento da apoptose e proteólise muscular"
+        },
+        {
+          "letter": "B",
+          "text": "Diminuição do aporte proteico isolada"
+        },
+        {
+          "letter": "C",
+          "text": "Diminuição do metabolismo basal em repouso"
+        },
+        {
+          "letter": "D",
+          "text": "Aumento da síntese de glicogénio muscular"
+        },
+        {
+          "letter": "E",
+          "text": "Redução da atividade das citocinas inflamatórias"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Na caquexia oncológica, as citocinas inflamatórias (TNF-α, IL-1, IL-6) e o fator indutor de proteólise (PIF) ativam o sistema ubiquitina-proteassoma no músculo, aumentando a degradação proteica. Simultaneamente, ocorre aumento da apoptose dos miócitos, levando a atrofia muscular e fraqueza progressiva.",
+      "source": "Desgravada Bioquímica — Caquexia — Mecanismos Moleculares",
+      "logic": "1. Caquexia oncológica: citocinas inflamatórias + PIF → sistema ubiquitina-proteassoma ativado → proteólise muscular.\n2. Apoptose de miócitos aumentada.\n3. Combinação: proteólise ↑ + síntese ↓ → atrofia muscular → fraqueza.\n4. B: défice proteico não é a causa primária; mecanismos independentes do aporte.\n5. C: metabolismo basal aumenta (hipermetabolismo) → errado.\n6. D: catabolismo predomina, não síntese de glicogénio.\n7. E: citocinas estão aumentadas, não reduzidas.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Caquexia — Mecanismos Moleculares"
+        },
+        {
+          "letter": "B",
+          "text": "A fraqueza não é simplesmente por défice de ingestão proteica; a proteólise ativa mediada por citocinas é independente do aporte nutricional.",
+          "source": "Desgravada Bioquímica — Caquexia — Mecanismos Moleculares"
+        },
+        {
+          "letter": "C",
+          "text": "O metabolismo basal tipicamente aumenta na caquexia oncológica (hipermetabolismo); não diminui.",
+          "source": "Desgravada Bioquímica — Caquexia — Mecanismos Moleculares"
+        },
+        {
+          "letter": "D",
+          "text": "A síntese de glicogénio não está aumentada na caquexia; o catabolismo proteico e lipídico predomina.",
+          "source": "Desgravada Bioquímica — Caquexia — Mecanismos Moleculares"
+        },
+        {
+          "letter": "E",
+          "text": "Na caquexia oncológica, as citocinas inflamatórias estão aumentadas; são os principais mediadores da proteólise muscular.",
+          "source": "Desgravada Bioquímica — Caquexia — Mecanismos Moleculares"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "level": "Exame 24",
+      "domain": "Bioquímica — Caquexia / Termogénese",
+      "labTable": null,
+      "question": "Qual o efeito das citocinas inflamatórias sobre o tecido adiposo na caquexia oncológica?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Diminuem a expressão de UCP-1, reduzindo a termogénese"
+        },
+        {
+          "letter": "B",
+          "text": "Aumentam a expressão de UCP-1, promovendo a termogénese no tecido adiposo"
+        },
+        {
+          "letter": "C",
+          "text": "Estimulam a lipogénese no tecido adiposo branco"
+        },
+        {
+          "letter": "D",
+          "text": "Inibem a lipólise, preservando as reservas lipídicas"
+        },
+        {
+          "letter": "E",
+          "text": "Promovem a diferenciação de adipócitos brancos em castanhos de forma benéfica"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As citocinas inflamatórias (TNF-α, IL-6) promovem o brunificação (browning) do tecido adiposo branco, aumentando a expressão de UCP-1. Este fenómeno aumenta a termogénese e o gasto energético em repouso, contribuindo para o hipermetabolismo da caquexia.",
+      "source": "Desgravada Bioquímica — Caquexia — Alterações no Tecido Adiposo",
+      "logic": "1. Caquexia oncológica: citocinas (TNF-α, IL-6) → browning do tecido adiposo branco.\n2. Browning → ↑ UCP-1 → ↑ termogénese → ↑ gasto energético → agrava perda de reservas.\n3. A: é o oposto; citocinas aumentam UCP-1.\n4. C: lipólise predomina, não lipogénese.\n5. D: citocinas estimulam lipólise, não a inibem.\n6. E: o browning na caquexia agrava o hipermetabolismo; não é benéfico neste contexto.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É o oposto; as citocinas inflamatórias aumentam a expressão de UCP-1 na caquexia.",
+          "source": "Desgravada Bioquímica — Caquexia — Alterações no Tecido Adiposo"
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": "Desgravada Bioquímica — Caquexia — Alterações no Tecido Adiposo"
+        },
+        {
+          "letter": "C",
+          "text": "Na caquexia, a lipólise é predominante; a lipogénese está suprimida.",
+          "source": "Desgravada Bioquímica — Caquexia — Alterações no Tecido Adiposo"
+        },
+        {
+          "letter": "D",
+          "text": "As citocinas inflamatórias e o TNF-α estimulam a lipólise, contribuindo para a perda de massa gorda.",
+          "source": "Desgravada Bioquímica — Caquexia — Alterações no Tecido Adiposo"
+        },
+        {
+          "letter": "E",
+          "text": "Embora o browning possa ser benéfico em contextos de obesidade, na caquexia agrava o hipermetabolismo e a perda energética.",
+          "source": "Desgravada Bioquímica — Caquexia — Alterações no Tecido Adiposo"
+        }
+      ]
+    }
+  ]
+}

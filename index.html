@@ -6,123 +6,32 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Compilações de Exercícios</title>
   <link rel="stylesheet" href="assets/style.css">
-  <style>
-    .import-section { margin-top: 40px; }
-    .import-section .section-title { margin-bottom: 14px; }
- 
-    .import-zone {
-      border: 2.5px dashed var(--slate-mid); border-radius: 16px;
-      background: #fff; padding: 40px 24px; text-align: center;
-      transition: border-color .2s, background .2s; cursor: pointer;
-    }
-    .import-zone.drag-over { border-color: #3b82f6; background: #eff6ff; }
-    .import-zone .iz-icon { font-size: 2.2rem; margin-bottom: 12px; }
-    .import-zone h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-    .import-zone p  { font-size: .83rem; color: var(--sub); line-height: 1.55; margin-bottom: 18px; }
-    .btn-import {
-      display: inline-block; background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #fff; border: none; border-radius: 9px; padding: 10px 24px;
-      font-size: .88rem; font-weight: 700; cursor: pointer;
-      box-shadow: 0 2px 8px rgba(29,78,216,.25); transition: opacity .15s;
-    }
-    .btn-import:hover { opacity: .88; }
-    #fileInput { display: none; }
- 
-    /* ── Unified quiz card (fresh + resume + imported) ── */
-    .res-card {
-      background: #fff; border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(0,0,0,.07);
-      overflow: hidden; border: 2px solid var(--slate-mid);
-    }
-    .res-card-banner { height: 7px; }
-    .res-card-body   { padding: 16px 20px 18px; }
-    .res-card-label  {
-      font-size: .65rem; font-weight: 800; text-transform: uppercase;
-      letter-spacing: .1em; margin-bottom: 8px;
-    }
-    .res-card-icon  { font-size: 1.6rem; margin-bottom: 6px; }
-    .res-card-title { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-    .res-card-sub   { font-size: .78rem; color: var(--sub); margin-bottom: 12px; }
- 
-    /* Bottom row: stats above, then action row */
-    .res-card-bottom {
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    .res-card-stats {
-      display: flex; gap: 8px; align-items: center;
-      font-size: .76rem; font-weight: 600; flex-wrap: wrap;
-    }
-    .res-stat-done  { color: var(--sub); }
-    .res-stat-right { color: #15803d; }
-    .res-stat-wrong { color: #b91c1c; }
- 
-    /* Action row: primary button left, reset icon right */
-    .res-card-btns {
-      display: flex; align-items: center; justify-content: space-between; gap: 8px;
-    }
-    .res-card-btns-left  { display: flex; gap: 7px; }
-    .res-card-btns-right { display: flex; gap: 5px; margin-left: auto; }
- 
-    .btn-continue {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #fff; border: none; border-radius: 9px; padding: 9px 18px;
-      font-size: .85rem; font-weight: 700; cursor: pointer;
-      box-shadow: 0 2px 8px rgba(29,78,216,.2); transition: opacity .15s; white-space: nowrap;
-    }
-    .btn-continue:hover { opacity: .88; }
-    .btn-start-fresh {
-      background: #fff; color: var(--sub); border: 2px solid var(--slate-mid);
-      border-radius: 9px; padding: 9px 14px; font-size: .8rem; font-weight: 600;
-      cursor: pointer; transition: border-color .15s, color .15s; white-space: nowrap;
-    }
-    .btn-start-fresh:hover { border-color: #94a3b8; color: var(--text); }
- 
-    /* Icon-only restart button */
-    .btn-icon-reset {
-      background: none; border: 1.5px solid var(--slate-mid); border-radius: 8px;
-      width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; cursor: pointer; color: var(--sub);
-      transition: border-color .15s, color .15s; flex-shrink: 0;
-    }
-    .btn-icon-reset:hover { border-color: #94a3b8; color: #ef4444; }
- 
-    /* Toast */
-    .toast {
-      position: fixed; bottom: 24px; left: 50%;
-      transform: translateX(-50%) translateY(80px);
-      background: #1e293b; color: #fff; padding: 11px 22px; border-radius: 99px;
-      font-size: .85rem; font-weight: 600; box-shadow: 0 4px 16px rgba(0,0,0,.2);
-      transition: transform .3s ease, opacity .3s ease;
-      opacity: 0; pointer-events: none; z-index: 999; white-space: nowrap;
-    }
-    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-    .toast.error { background: #991b1b; }
-  </style>
 </head>
 <body>
- 
+
 <nav class="topbar">
   <div class="topbar-logo">
     🥼
-    <span style="color:#ffffff;font-weight:900;font-size:1.1rem;">Compilações de Exercícios</span>
-    <span style="color:rgba(255,255,255,0.7);">Medicina</span>
+    Compilações de Exercícios
+    <span class="sub">Medicina</span>
   </div>
 </nav>
- 
+
 <div class="page">
   <div class="hero">
     <h2>Banco de Questões</h2>
     <p>Escolhe um quiz abaixo, ou importa o teu próprio ficheiro JSON.</p>
     <div class="stat-row" id="statRow"></div>
   </div>
- 
+
   <div class="section-title" id="permanentLabel">Quizzes Disponíveis</div>
   <div class="quiz-grid" id="quizGrid">
-    <div class="empty-state" style="grid-column:1/-1">
-      <div class="icon">⏳</div><p>A carregar…</p>
+    <div class="empty-state">
+      <div class="icon">⏳</div>
+      <p>A carregar…</p>
     </div>
   </div>
- 
+
   <div class="import-section">
     <div class="section-title">Importar Quiz</div>
     <div id="dropZone" class="import-zone">
@@ -135,18 +44,18 @@
     <div id="importedCard" style="display:none"></div>
   </div>
 </div>
- 
+
 <div class="toast" id="toast"></div>
- 
+
 <script>
 const LOCAL_KEY       = 'mq_imported_bank';
 const PROGRESS_PREFIX = 'mq_progress_';
- 
+
 const TYPE_LABELS = {
   clinical: { label: 'Casos Clínicos', cls: 'tag-cc' },
   general:  { label: 'Banco Geral',    cls: 'tag-gen' }
 };
- 
+
 /* ── Colour helper ──────────────────────────────── */
 function shadeColor(hex, pct) {
   const n = parseInt(hex.replace('#',''), 16);
@@ -155,7 +64,7 @@ function shadeColor(hex, pct) {
   const b = Math.min(255, Math.max(0, (n & 0xff) + pct));
   return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
 }
- 
+
 /* ── Toast ──────────────────────────────────────── */
 let toastTimer;
 function showToast(msg, isError = false) {
@@ -167,7 +76,7 @@ function showToast(msg, isError = false) {
   t.classList.add('show');
   toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
 }
- 
+
 /* ── Progress helpers ───────────────────────────── */
 function getProgress(bankId) {
   try {
@@ -175,19 +84,17 @@ function getProgress(bankId) {
     return raw ? JSON.parse(raw) : null;
   } catch (_) { return null; }
 }
- 
+
 function clearProgress(bankId) {
   localStorage.removeItem(PROGRESS_PREFIX + bankId);
 }
- 
+
 /* ── Shared card builder ────────────────────────── */
-// Renders the unified card HTML for both permanent and imported quizzes.
-// onContinue / onFresh / onReplace are JS expression strings for onclick.
-function buildResCard({ color, dark, label, labelColor, icon, title, subtitle,
+function buildResCard({ color, label, labelColor, icon, title, subtitle,
                         progress, totalQ, onContinue, btnContinueText,
                         onFresh, onReplace }) {
   const hasProgress = progress && progress.cur > 0;
- 
+
   let statsHtml = '';
   if (hasProgress) {
     const done     = progress.cur;
@@ -203,20 +110,18 @@ function buildResCard({ color, dark, label, labelColor, icon, title, subtitle,
   } else {
     statsHtml = `<div class="res-card-stats"></div>`;
   }
- 
-  // Left side: primary action + optional replace button
+
   const replaceBtn = onReplace
     ? `<button class="btn-start-fresh" onclick="${onReplace}">↩ Importar outro</button>`
     : '';
- 
-  // Right side: icon-only reset (only if onFresh provided)
+
   const resetBtn = onFresh
     ? `<button class="btn-icon-reset" onclick="${onFresh}" title="Recomeçar">↺</button>`
     : '';
- 
+
   return `
-    <div class="res-card" style="border-color:${color}50">
-      <div class="res-card-banner" style="background:linear-gradient(90deg,${dark},${color})"></div>
+    <div class="res-card" style="border-left-color:${color}">
+      <div class="res-card-banner"></div>
       <div class="res-card-body">
         <div class="res-card-label" style="color:${labelColor || color}">${label}</div>
         <div class="res-card-icon">${icon}</div>
@@ -227,7 +132,7 @@ function buildResCard({ color, dark, label, labelColor, icon, title, subtitle,
           <div class="res-card-btns">
             <div class="res-card-btns-left">
               <button class="btn-continue"
-                style="background:linear-gradient(135deg,${dark},${color})"
+                style="background:${color}"
                 onclick="${onContinue}">${btnContinueText}</button>
               ${replaceBtn}
             </div>
@@ -239,32 +144,31 @@ function buildResCard({ color, dark, label, labelColor, icon, title, subtitle,
       </div>
     </div>`;
 }
- 
+
 /* ── Permanent quizzes ──────────────────────────── */
-// Keep a reference to bank metadata for in-place resets
 const _permBanks = [];
- 
+
 async function loadPermanent() {
   const grid = document.getElementById('quizGrid');
   const stat = document.getElementById('statRow');
- 
+
   let banks = [];
   try {
     const res = await fetch('data/index.json');
     if (res.ok) banks = await res.json();
   } catch (_) {}
- 
+
   if (!banks.length) {
-    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+    grid.innerHTML = `<div class="empty-state">
       <div class="icon">📭</div><p>Nenhum quiz permanente encontrado.</p>
     </div>`;
     document.getElementById('permanentLabel').style.display = 'none';
     return;
   }
- 
+
   _permBanks.length = 0;
   banks.forEach(b => _permBanks.push(b));
- 
+
   grid.innerHTML = '';
   banks.forEach(b => {
     const wrapper = document.createElement('div');
@@ -272,47 +176,50 @@ async function loadPermanent() {
     wrapper.appendChild(makePermCard(b));
     grid.appendChild(wrapper);
   });
- 
+
   const totalQ = banks.reduce((s, b) => s + (b.questionCount || 0), 0);
   stat.innerHTML = `
     <div class="stat-pill"><span>${banks.length}</span> quiz${banks.length !== 1 ? 'zes' : ''}</div>
     <div class="stat-pill"><span>${totalQ}</span> questões no total</div>`;
 }
- 
+
 function makePermCard(bank) {
-  const ti       = TYPE_LABELS[bank.type] || { label: bank.type, cls: 'tag-gen' };
-  const lvl      = (bank.levels || []).map(l => `<span class="tag tag-l">${l}</span>`).join('');
-  const color    = bank.color || '#1d4ed8';
-  const dark     = shadeColor(color, -35);
-  const progress = getProgress(bank.file);
+  const ti          = TYPE_LABELS[bank.type] || { label: bank.type, cls: 'tag-gen' };
+  const lvl         = (bank.levels || []).map(l => `<span class="tag tag-l">${l}</span>`).join('');
+  const color       = bank.color || '#2461d8';
+  const progress    = getProgress(bank.file);
   const hasProgress = progress && progress.cur > 0 && progress.cur < (bank.questionCount || 999);
- 
-  // Escape the file string for safe inline onclick use
+
   const fileEsc = bank.file.replace(/'/g, "\\'");
- 
+
   const el = document.createElement('div');
- 
+
   if (hasProgress) {
     el.innerHTML = buildResCard({
-      color, dark,
-      label: '📖 Em progresso', icon: bank.icon || '📋',
-      title: bank.title, subtitle: bank.subtitle || '',
-      progress, totalQ: bank.questionCount || progress.cur,
+      color,
+      label:          '📖 Em progresso',
+      icon:           bank.icon || '📋',
+      title:          bank.title,
+      subtitle:       bank.subtitle || '',
+      progress,
+      totalQ:         bank.questionCount || progress.cur,
       onContinue:     `goToQuiz('${fileEsc}')`,
       btnContinueText:'▶ Continuar',
       onFresh:        `freshStart(event,'${fileEsc}')`
     });
   } else {
     el.innerHTML = buildResCard({
-      color, dark,
-      label: '📋 Quiz disponível', icon: bank.icon || '📋',
-      title: bank.title, subtitle: bank.subtitle || '',
-      progress: null, totalQ: bank.questionCount || 0,
+      color,
+      label:          '📋 Disponível',
+      icon:           bank.icon || '📋',
+      title:          bank.title,
+      subtitle:       bank.subtitle || '',
+      progress:       null,
+      totalQ:         bank.questionCount || 0,
       onContinue:     `goToQuiz('${fileEsc}')`,
       btnContinueText:'▶ Iniciar quiz',
-      onFresh: null
+      onFresh:        null
     });
-    // Extra tags appended inside subtitle slot
     el.querySelector('.res-card-sub').insertAdjacentHTML('afterend',
       `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
         <span class="tag ${ti.cls}">${ti.label}</span>
@@ -320,18 +227,17 @@ function makePermCard(bank) {
         ${lvl}
        </div>`);
   }
- 
+
   return el;
 }
- 
+
 function goToQuiz(file) {
   window.location.href = `quiz.html?bank=${encodeURIComponent(file)}`;
 }
- 
+
 function freshStart(event, file) {
   event.stopPropagation();
   clearProgress(file);
-  // Re-render card in place — no navigation
   const bank = _permBanks.find(b => b.file === file);
   if (!bank) return;
   const wrapperId = `card_${CSS.escape(file)}`;
@@ -340,62 +246,61 @@ function freshStart(event, file) {
   wrapper.innerHTML = '';
   wrapper.appendChild(makePermCard(bank));
 }
- 
+
 /* ── Imported bank UI ───────────────────────────── */
 function checkImported() {
   const raw = localStorage.getItem(LOCAL_KEY);
   if (!raw) { showDropZone(); return; }
- 
+
   let bank;
   try { bank = JSON.parse(raw); } catch (_) { showDropZone(); return; }
- 
+
   const meta     = bank.meta || {};
-  const color    = meta.color || '#1d4ed8';
-  const dark     = shadeColor(color, -35);
+  const color    = meta.color || '#2461d8';
   const progress = getProgress('local');
   const total    = bank.questions?.length || 0;
   const hasProgress = progress && progress.cur > 0 && progress.cur < total;
- 
-  const label    = hasProgress ? '📖 Em progresso' : '📥 Quiz importado';
-  const btnText  = hasProgress ? '▶ Continuar'     : '▶ Iniciar quiz';
- 
+
+  const label   = hasProgress ? '📖 Em progresso' : '📥 Importado';
+  const btnText = hasProgress ? '▶ Continuar'     : '▶ Iniciar quiz';
+
   document.getElementById('importedCard').innerHTML = buildResCard({
-    color, dark,
-    label, icon: meta.icon || '📋',
-    title: meta.title || 'Quiz importado',
-    subtitle: meta.subtitle || '',
-    progress: hasProgress ? progress : null,
-    totalQ: total,
+    color,
+    label,
+    icon:           meta.icon || '📋',
+    title:          meta.title || 'Quiz importado',
+    subtitle:       meta.subtitle || '',
+    progress:       hasProgress ? progress : null,
+    totalQ:         total,
     onContinue:     'launchImported()',
     btnContinueText: btnText,
-    onFresh:    hasProgress ? 'freshStartImported(event)' : null,
-    onReplace:  'replaceImported()'
+    onFresh:        hasProgress ? 'freshStartImported(event)' : null,
+    onReplace:      'replaceImported()'
   });
- 
-  document.getElementById('dropZone').style.display    = 'none';
+
+  document.getElementById('dropZone').style.display     = 'none';
   document.getElementById('importedCard').style.display = 'block';
 }
- 
+
 function showDropZone() {
-  document.getElementById('dropZone').style.display    = 'block';
+  document.getElementById('dropZone').style.display     = 'block';
   document.getElementById('importedCard').style.display = 'none';
 }
- 
+
 function launchImported() {
   window.location.href = 'quiz.html?bank=local';
 }
- 
+
 function replaceImported() {
   document.getElementById('fileInput').click();
 }
- 
+
 function freshStartImported(event) {
   if (event) event.stopPropagation();
   clearProgress('local');
-  // Re-render imported card in place — no navigation
   checkImported();
 }
- 
+
 /* ── File handling ──────────────────────────────── */
 function handleFile(file) {
   if (!file || !file.name.endsWith('.json')) {
@@ -417,20 +322,21 @@ function handleFile(file) {
   };
   reader.readAsText(file);
 }
- 
+
 /* ── Drag and drop ──────────────────────────────── */
 const dropZone = document.getElementById('dropZone');
 dropZone.addEventListener('dragover',  e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
 dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
 dropZone.addEventListener('drop', e => {
-  e.preventDefault(); dropZone.classList.remove('drag-over');
+  e.preventDefault();
+  dropZone.classList.remove('drag-over');
   handleFile(e.dataTransfer.files[0]);
 });
 document.getElementById('fileInput').addEventListener('change', e => {
   handleFile(e.target.files[0]);
   e.target.value = '';
 });
- 
+
 /* ── Boot ───────────────────────────────────────── */
 loadPermanent();
 checkImported();

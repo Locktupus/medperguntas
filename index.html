@@ -4,27 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="favicon.png">
-  <title>Compilações de Exercícios</title>
+  <title>Compilações de Exercícios — Medicina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <nav class="topbar">
   <div class="topbar-logo">
-    🥼
-    Compilações de Exercícios
+    🥼 Compilações de Exercícios
+    <span class="sep">|</span>
     <span class="sub">Medicina</span>
   </div>
 </nav>
 
 <div class="page">
-  <div class="hero">
-    <h2>Banco de Questões</h2>
-    <p>Escolhe um quiz abaixo, ou importa o teu próprio ficheiro JSON.</p>
-    <div class="stat-row" id="statRow"></div>
+
+  <div class="page-header">
+    <div class="page-header-left">
+      <h1>Banco de Questões</h1>
+      <p>Compilações organizadas para o estudo e preparação para exame.</p>
+    </div>
+    <div class="page-header-stats" id="pageStats"></div>
   </div>
 
-  <div class="section-title" id="permanentLabel">Quizzes Disponíveis</div>
+  <div class="section-label" id="permanentLabel">Quizzes Disponíveis</div>
   <div class="quiz-grid" id="quizGrid">
     <div class="empty-state">
       <div class="icon">⏳</div>
@@ -33,16 +39,19 @@
   </div>
 
   <div class="import-section">
-    <div class="section-title">Importar Quiz</div>
+    <div class="section-label">Importar Quiz</div>
     <div id="dropZone" class="import-zone">
       <div class="iz-icon">📂</div>
       <h3>Importar ficheiro JSON</h3>
       <p>Arrasta um ficheiro <strong>.json</strong> para aqui,<br>ou clica para escolher do dispositivo.</p>
-      <button class="btn-import" onclick="document.getElementById('fileInput').click()">Escolher ficheiro</button>
+      <button class="btn-import" onclick="document.getElementById('fileInput').click()">
+        Escolher ficheiro
+      </button>
       <input type="file" id="fileInput" accept=".json,application/json">
     </div>
     <div id="importedCard" style="display:none"></div>
   </div>
+
 </div>
 
 <div class="toast" id="toast"></div>
@@ -56,7 +65,7 @@ const TYPE_LABELS = {
   general:  { label: 'Banco Geral',    cls: 'tag-gen' }
 };
 
-/* ── Colour helper ──────────────────────────────── */
+/* ── Colour helper ─────────────────────────── */
 function shadeColor(hex, pct) {
   const n = parseInt(hex.replace('#',''), 16);
   const r = Math.min(255, Math.max(0, (n >> 16) + pct));
@@ -65,7 +74,7 @@ function shadeColor(hex, pct) {
   return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
 }
 
-/* ── Toast ──────────────────────────────────────── */
+/* ── Toast ─────────────────────────────────── */
 let toastTimer;
 function showToast(msg, isError = false) {
   const t = document.getElementById('toast');
@@ -77,24 +86,20 @@ function showToast(msg, isError = false) {
   toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
 }
 
-/* ── Progress helpers ───────────────────────────── */
+/* ── Progress helpers ──────────────────────── */
 function getProgress(bankId) {
-  try {
-    const raw = localStorage.getItem(PROGRESS_PREFIX + bankId);
-    return raw ? JSON.parse(raw) : null;
-  } catch (_) { return null; }
+  try { const r = localStorage.getItem(PROGRESS_PREFIX + bankId); return r ? JSON.parse(r) : null; }
+  catch (_) { return null; }
 }
+function clearProgress(bankId) { localStorage.removeItem(PROGRESS_PREFIX + bankId); }
 
-function clearProgress(bankId) {
-  localStorage.removeItem(PROGRESS_PREFIX + bankId);
-}
-
-/* ── Shared card builder ────────────────────────── */
+/* ── Card builder ──────────────────────────── */
 function buildResCard({ color, label, labelColor, icon, title, subtitle,
                         progress, totalQ, onContinue, btnContinueText,
                         onFresh, onReplace }) {
   const hasProgress = progress && progress.cur > 0;
 
+  // Progress stats row
   let statsHtml = '';
   if (hasProgress) {
     const done     = progress.cur;
@@ -102,26 +107,24 @@ function buildResCard({ color, label, labelColor, icon, title, subtitle,
     const pctRight = done > 0 ? Math.round((progress.score / done) * 100) : 0;
     statsHtml = `
       <div class="res-card-stats">
-        <span class="res-stat-done">📊 ${done}/${totalQ} (${pctDone}%)</span>
+        <span>${done} / ${totalQ} questões</span>
         <span class="res-stat-right">✓ ${progress.score}</span>
         <span class="res-stat-wrong">✗ ${progress.wrong}</span>
-        <span class="res-stat-done">· ${pctRight}% certas</span>
+        <span>${pctRight}% certas</span>
+      </div>
+      <div class="res-card-prog-wrap">
+        <div class="res-card-prog-fill" style="width:${pctDone}%;background:${color}"></div>
       </div>`;
-  } else {
-    statsHtml = `<div class="res-card-stats"></div>`;
   }
 
   const replaceBtn = onReplace
-    ? `<button class="btn-start-fresh" onclick="${onReplace}">↩ Importar outro</button>`
-    : '';
-
+    ? `<button class="btn-start-fresh" onclick="${onReplace}">↩ Importar outro</button>` : '';
   const resetBtn = onFresh
-    ? `<button class="btn-icon-reset" onclick="${onFresh}" title="Recomeçar">↺</button>`
-    : '';
+    ? `<button class="btn-icon-reset" onclick="${onFresh}" title="Recomeçar do início">↺</button>` : '';
 
   return `
-    <div class="res-card" style="border-left-color:${color}">
-      <div class="res-card-banner"></div>
+    <div class="res-card">
+      <div class="res-card-banner" style="background:${color}"></div>
       <div class="res-card-body">
         <div class="res-card-label" style="color:${labelColor || color}">${label}</div>
         <div class="res-card-icon">${icon}</div>
@@ -131,26 +134,22 @@ function buildResCard({ color, label, labelColor, icon, title, subtitle,
           ${statsHtml}
           <div class="res-card-btns">
             <div class="res-card-btns-left">
-              <button class="btn-continue"
-                style="background:${color}"
+              <button class="btn-continue" style="background:${color}"
                 onclick="${onContinue}">${btnContinueText}</button>
               ${replaceBtn}
             </div>
-            <div class="res-card-btns-right">
-              ${resetBtn}
-            </div>
+            <div class="res-card-btns-right">${resetBtn}</div>
           </div>
         </div>
       </div>
     </div>`;
 }
 
-/* ── Permanent quizzes ──────────────────────────── */
+/* ── Permanent quizzes ─────────────────────── */
 const _permBanks = [];
 
 async function loadPermanent() {
   const grid = document.getElementById('quizGrid');
-  const stat = document.getElementById('statRow');
 
   let banks = [];
   try {
@@ -160,7 +159,7 @@ async function loadPermanent() {
 
   if (!banks.length) {
     grid.innerHTML = `<div class="empty-state">
-      <div class="icon">📭</div><p>Nenhum quiz permanente encontrado.</p>
+      <div class="icon">📭</div><p>Nenhum quiz encontrado.</p>
     </div>`;
     document.getElementById('permanentLabel').style.display = 'none';
     return;
@@ -168,7 +167,6 @@ async function loadPermanent() {
 
   _permBanks.length = 0;
   banks.forEach(b => _permBanks.push(b));
-
   grid.innerHTML = '';
   banks.forEach(b => {
     const wrapper = document.createElement('div');
@@ -177,57 +175,63 @@ async function loadPermanent() {
     grid.appendChild(wrapper);
   });
 
+  // Stats in page header
   const totalQ = banks.reduce((s, b) => s + (b.questionCount || 0), 0);
-  stat.innerHTML = `
-    <div class="stat-pill"><span>${banks.length}</span> quiz${banks.length !== 1 ? 'zes' : ''}</div>
-    <div class="stat-pill"><span>${totalQ}</span> questões no total</div>`;
+  document.getElementById('pageStats').innerHTML = `
+    <div class="stat-block">
+      <span class="num">${banks.length}</span>
+      <span class="label">Quizzes</span>
+    </div>
+    <div class="stat-block">
+      <span class="num">${totalQ}</span>
+      <span class="label">Questões</span>
+    </div>`;
 }
 
 function makePermCard(bank) {
   const ti          = TYPE_LABELS[bank.type] || { label: bank.type, cls: 'tag-gen' };
   const lvl         = (bank.levels || []).map(l => `<span class="tag tag-l">${l}</span>`).join('');
-  const color       = bank.color || '#2461d8';
+  const color       = bank.color || '#1955D6';
   const progress    = getProgress(bank.file);
   const hasProgress = progress && progress.cur > 0 && progress.cur < (bank.questionCount || 999);
-
-  const fileEsc = bank.file.replace(/'/g, "\\'");
-
-  const el = document.createElement('div');
+  const fileEsc     = bank.file.replace(/'/g, "\\'");
+  const el          = document.createElement('div');
 
   if (hasProgress) {
     el.innerHTML = buildResCard({
       color,
-      label:          '📖 Em progresso',
-      icon:           bank.icon || '📋',
-      title:          bank.title,
-      subtitle:       bank.subtitle || '',
+      label: '● Em progresso',
+      labelColor: color,
+      icon:  bank.icon || '📋',
+      title: bank.title,
+      subtitle: bank.subtitle || '',
       progress,
-      totalQ:         bank.questionCount || progress.cur,
-      onContinue:     `goToQuiz('${fileEsc}')`,
-      btnContinueText:'▶ Continuar',
-      onFresh:        `freshStart(event,'${fileEsc}')`
+      totalQ: bank.questionCount || progress.cur,
+      onContinue:      `goToQuiz('${fileEsc}')`,
+      btnContinueText: '▶ Continuar',
+      onFresh:         `freshStart(event,'${fileEsc}')`
     });
   } else {
     el.innerHTML = buildResCard({
       color,
-      label:          '📋 Disponível',
-      icon:           bank.icon || '📋',
-      title:          bank.title,
-      subtitle:       bank.subtitle || '',
-      progress:       null,
-      totalQ:         bank.questionCount || 0,
-      onContinue:     `goToQuiz('${fileEsc}')`,
-      btnContinueText:'▶ Iniciar quiz',
-      onFresh:        null
+      label: 'Disponível',
+      icon:  bank.icon || '📋',
+      title: bank.title,
+      subtitle: bank.subtitle || '',
+      progress: null,
+      totalQ: bank.questionCount || 0,
+      onContinue:      `goToQuiz('${fileEsc}')`,
+      btnContinueText: '▶ Iniciar quiz',
+      onFresh: null
     });
+    // Inject tags after subtitle
     el.querySelector('.res-card-sub').insertAdjacentHTML('afterend',
-      `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+      `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
         <span class="tag ${ti.cls}">${ti.label}</span>
         <span class="tag tag-q">${bank.questionCount} questões</span>
         ${lvl}
        </div>`);
   }
-
   return el;
 }
 
@@ -240,44 +244,39 @@ function freshStart(event, file) {
   clearProgress(file);
   const bank = _permBanks.find(b => b.file === file);
   if (!bank) return;
-  const wrapperId = `card_${CSS.escape(file)}`;
-  const wrapper   = document.getElementById(wrapperId);
+  const wrapper = document.getElementById(`card_${CSS.escape(file)}`);
   if (!wrapper) return;
   wrapper.innerHTML = '';
   wrapper.appendChild(makePermCard(bank));
 }
 
-/* ── Imported bank UI ───────────────────────────── */
+/* ── Imported bank ─────────────────────────── */
 function checkImported() {
   const raw = localStorage.getItem(LOCAL_KEY);
   if (!raw) { showDropZone(); return; }
-
   let bank;
   try { bank = JSON.parse(raw); } catch (_) { showDropZone(); return; }
 
-  const meta     = bank.meta || {};
-  const color    = meta.color || '#2461d8';
-  const progress = getProgress('local');
-  const total    = bank.questions?.length || 0;
+  const meta        = bank.meta || {};
+  const color       = meta.color || '#1955D6';
+  const progress    = getProgress('local');
+  const total       = bank.questions?.length || 0;
   const hasProgress = progress && progress.cur > 0 && progress.cur < total;
-
-  const label   = hasProgress ? '📖 Em progresso' : '📥 Importado';
-  const btnText = hasProgress ? '▶ Continuar'     : '▶ Iniciar quiz';
 
   document.getElementById('importedCard').innerHTML = buildResCard({
     color,
-    label,
-    icon:           meta.icon || '📋',
-    title:          meta.title || 'Quiz importado',
-    subtitle:       meta.subtitle || '',
-    progress:       hasProgress ? progress : null,
-    totalQ:         total,
-    onContinue:     'launchImported()',
-    btnContinueText: btnText,
-    onFresh:        hasProgress ? 'freshStartImported(event)' : null,
-    onReplace:      'replaceImported()'
+    label:           hasProgress ? '● Em progresso' : '● Importado',
+    labelColor:      color,
+    icon:            meta.icon || '📋',
+    title:           meta.title || 'Quiz importado',
+    subtitle:        meta.subtitle || '',
+    progress:        hasProgress ? progress : null,
+    totalQ:          total,
+    onContinue:      'launchImported()',
+    btnContinueText: hasProgress ? '▶ Continuar' : '▶ Iniciar quiz',
+    onFresh:         hasProgress ? 'freshStartImported(event)' : null,
+    onReplace:       'replaceImported()'
   });
-
   document.getElementById('dropZone').style.display     = 'none';
   document.getElementById('importedCard').style.display = 'block';
 }
@@ -286,26 +285,14 @@ function showDropZone() {
   document.getElementById('dropZone').style.display     = 'block';
   document.getElementById('importedCard').style.display = 'none';
 }
+function launchImported()     { window.location.href = 'quiz.html?bank=local'; }
+function replaceImported()    { document.getElementById('fileInput').click(); }
+function freshStartImported(e){ if (e) e.stopPropagation(); clearProgress('local'); checkImported(); }
 
-function launchImported() {
-  window.location.href = 'quiz.html?bank=local';
-}
-
-function replaceImported() {
-  document.getElementById('fileInput').click();
-}
-
-function freshStartImported(event) {
-  if (event) event.stopPropagation();
-  clearProgress('local');
-  checkImported();
-}
-
-/* ── File handling ──────────────────────────────── */
+/* ── File handling ─────────────────────────── */
 function handleFile(file) {
   if (!file || !file.name.endsWith('.json')) {
-    showToast('❌ Ficheiro inválido — precisa de ser um .json', true);
-    return;
+    showToast('❌ Ficheiro inválido — precisa de ser .json', true); return;
   }
   const reader = new FileReader();
   reader.onload = e => {
@@ -313,7 +300,7 @@ function handleFile(file) {
     try { bank = JSON.parse(e.target.result); }
     catch (_) { showToast('❌ JSON inválido — verifica o ficheiro', true); return; }
     if (!bank.questions || !Array.isArray(bank.questions) || !bank.questions.length) {
-      showToast('❌ O ficheiro não contém questões válidas', true); return;
+      showToast('❌ Ficheiro sem questões válidas', true); return;
     }
     clearProgress('local');
     localStorage.setItem(LOCAL_KEY, e.target.result);
@@ -323,21 +310,17 @@ function handleFile(file) {
   reader.readAsText(file);
 }
 
-/* ── Drag and drop ──────────────────────────────── */
+/* ── Drag & drop ───────────────────────────── */
 const dropZone = document.getElementById('dropZone');
 dropZone.addEventListener('dragover',  e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
 dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
 dropZone.addEventListener('drop', e => {
-  e.preventDefault();
-  dropZone.classList.remove('drag-over');
-  handleFile(e.dataTransfer.files[0]);
+  e.preventDefault(); dropZone.classList.remove('drag-over'); handleFile(e.dataTransfer.files[0]);
 });
 document.getElementById('fileInput').addEventListener('change', e => {
-  handleFile(e.target.files[0]);
-  e.target.value = '';
+  handleFile(e.target.files[0]); e.target.value = '';
 });
 
-/* ── Boot ───────────────────────────────────────── */
 loadPermanent();
 checkImported();
 </script>

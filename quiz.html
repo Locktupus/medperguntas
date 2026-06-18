@@ -5,40 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Compilações de Exercícios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
-  <style>
-    /* Quiz-colour overrides */
-    .prog-fill            { background: var(--quiz-color, var(--blue)); }
-    .btn-next             { background: var(--quiz-color, var(--blue)); }
-    .section-label-inline::before { background: var(--quiz-color, var(--blue)); }
-    .finish-score         { color: var(--quiz-color, var(--blue)); }
-    .btn-primary          { background: var(--quiz-color, var(--blue)); }
-
-    /* Toast */
-    .toast {
-      position: fixed; bottom: 20px; left: 50%;
-      transform: translateX(-50%) translateY(50px);
-      background: #1c2b3a; color: #fff; padding: 9px 20px;
-      border-radius: 99px; font-size: .82rem; font-weight: 600;
-      box-shadow: 0 4px 16px rgba(0,0,0,.2);
-      transition: transform .22s ease, opacity .22s ease;
-      opacity: 0; pointer-events: none; z-index: 999;
-    }
-    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-  </style>
 </head>
 <body>
 
 <nav class="topbar">
   <div class="topbar-logo">
-    🥼
-    Compilações de Exercícios
+    🥼 Compilações de Exercícios
+    <span class="sep">|</span>
     <span class="sub">Medicina</span>
   </div>
   <a class="topbar-back" href="index.html">← Início</a>
 </nav>
 
-<!-- Progress bar -->
 <div class="prog-wrap">
   <div class="prog-top">
     <span id="progLabel">A carregar…</span>
@@ -49,7 +31,6 @@
   </div>
 </div>
 
-<!-- Seed sync -->
 <div class="seed-wrap" id="seedWrap" style="display:none">
   <button class="btn-seed-toggle" id="seedToggle" onclick="toggleSeedPanel()">
     <i class="arrow">▾</i> Sincronizar com outra sessão
@@ -95,20 +76,17 @@
     <div class="options" id="optionsContainer"></div>
 
     <div class="exp-panel" id="expPanel">
-      <!-- Correct answer -->
       <div class="exp-correct">
         <div class="exp-tag">✓ Resposta Correcta</div>
         <p id="expText"></p>
         <p class="exp-source" id="expSource"></p>
       </div>
-      <!-- Logic — hidden when empty -->
       <div class="logic-box" id="logicBox">
         <div class="logic-tag">Raciocínio</div>
         <p id="logicText"></p>
       </div>
-      <!-- Distractors — hidden when none -->
       <div id="distSection">
-        <div class="dist-header">Por que não as outras?</div>
+        <div class="dist-header">Por que não as outras opções?</div>
         <div class="dist-list" id="distList"></div>
       </div>
     </div>
@@ -163,10 +141,8 @@ let userAnswers           = [];
 
 const PROGRESS_PREFIX = 'mq_progress_';
 
-/* ─── Helpers ───────────────────────────────────────── */
-function hasVal(v) {
-  return v != null && String(v).trim() !== '';
-}
+/* ─── Helpers ─────────────────────────────── */
+function hasVal(v) { return v != null && String(v).trim() !== ''; }
 
 function escHtml(str) {
   return String(str)
@@ -185,29 +161,24 @@ function buildLabTable(rows) {
 
 function showError(html) {
   document.getElementById('qcard').innerHTML = `
-    <div style="padding:44px 24px;text-align:center;color:var(--muted)">
-      <div style="font-size:2rem;margin-bottom:12px">⚠️</div>
-      <p style="font-size:.92rem;line-height:1.7;color:var(--text-2)">${html}</p>
+    <div style="padding:48px 24px;text-align:center;color:var(--muted)">
+      <div style="font-size:2rem;margin-bottom:14px">⚠️</div>
+      <p style="font-size:.9rem;line-height:1.7;color:var(--text-2)">${html}</p>
     </div>`;
   document.getElementById('progLabel').textContent = 'Erro ao carregar';
 }
 
-/* ─── localStorage ──────────────────────────────────── */
+/* ─── localStorage ────────────────────────── */
 function saveProgress() {
-  const data = { seed: sessionSeed, cur, score, wrong };
-  localStorage.setItem(PROGRESS_PREFIX + bankId, JSON.stringify(data));
+  localStorage.setItem(PROGRESS_PREFIX + bankId, JSON.stringify({ seed: sessionSeed, cur, score, wrong }));
 }
 function loadProgress() {
-  try {
-    const raw = localStorage.getItem(PROGRESS_PREFIX + bankId);
-    return raw ? JSON.parse(raw) : null;
-  } catch (_) { return null; }
+  try { const r = localStorage.getItem(PROGRESS_PREFIX + bankId); return r ? JSON.parse(r) : null; }
+  catch (_) { return null; }
 }
-function clearProgress() {
-  localStorage.removeItem(PROGRESS_PREFIX + bankId);
-}
+function clearProgress() { localStorage.removeItem(PROGRESS_PREFIX + bankId); }
 
-/* ─── Toast ─────────────────────────────────────────── */
+/* ─── Toast ───────────────────────────────── */
 let _toastTimer;
 function showToast(msg) {
   const t = document.getElementById('toast');
@@ -218,7 +189,7 @@ function showToast(msg) {
   _toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
 }
 
-/* ─── Colour helper ─────────────────────────────────── */
+/* ─── Colour helper ───────────────────────── */
 function shadeColor(hex, pct) {
   const n = parseInt(hex.replace('#',''), 16);
   const r = Math.min(255, Math.max(0, (n >> 16) + pct));
@@ -227,43 +198,40 @@ function shadeColor(hex, pct) {
   return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
 }
 function applyThemeColor(hex) {
-  const color     = hex || '#2461d8';
-  const colorDark = shadeColor(color, -35);
-  document.documentElement.style.setProperty('--quiz-color',      color);
-  document.documentElement.style.setProperty('--quiz-color-dark', colorDark);
+  const c = hex || '#1955D6';
+  document.documentElement.style.setProperty('--quiz-color',      c);
+  document.documentElement.style.setProperty('--quiz-color-dark', shadeColor(c, -35));
 }
 
-/* ─── Counters ──────────────────────────────────────── */
+/* ─── Counters ────────────────────────────── */
 function updateCounters() {
   document.getElementById('cntRight').textContent = `✓ ${score}`;
   document.getElementById('cntWrong').textContent = `✗ ${wrong}`;
 }
 
-/* ─── Seed bar ──────────────────────────────────────── */
+/* ─── Seed bar ────────────────────────────── */
 function updateSeedBar() {
   document.getElementById('seedWrap').style.display = 'block';
   document.getElementById('seedDisplay').textContent = `${sessionSeed}:${cur}`;
   const params = new URLSearchParams(window.location.search);
-  params.set('seed', sessionSeed);
-  params.set('pos',  cur);
+  params.set('seed', sessionSeed); params.set('pos', cur);
   history.replaceState(null, '', '?' + params.toString());
 }
 function toggleSeedPanel() {
-  const panel  = document.getElementById('seedPanel');
+  const panel = document.getElementById('seedPanel');
   const toggle = document.getElementById('seedToggle');
-  const open   = panel.classList.toggle('open');
+  const open = panel.classList.toggle('open');
   toggle.classList.toggle('open', open);
 }
 function copyLink() {
   const params = new URLSearchParams(window.location.search);
-  params.set('seed', sessionSeed);
-  params.set('pos',  cur);
+  params.set('seed', sessionSeed); params.set('pos', cur);
   const url = window.location.origin + window.location.pathname + '?' + params.toString();
   if (navigator.clipboard) {
     navigator.clipboard.writeText(url).then(() => showToast('✓ Link copiado!'));
   } else {
     const ta = document.createElement('textarea');
-    ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    ta.value = url; ta.style.cssText = 'position:fixed;opacity:0';
     document.body.appendChild(ta); ta.select();
     document.execCommand('copy'); document.body.removeChild(ta);
     showToast('✓ Link copiado!');
@@ -277,15 +245,11 @@ function joinSeed() {
   const pos   = parts.length > 1 ? Math.max(0, parseInt(parts[1], 10)) : 0;
   if (!val || isNaN(num) || num < 0) {
     input.classList.add('error');
-    setTimeout(() => input.classList.remove('error'), 1200);
-    return;
+    setTimeout(() => input.classList.remove('error'), 1200); return;
   }
   input.value = '';
   initSession(num, isNaN(pos) ? 0 : pos);
-  const msg = pos > 0
-    ? `🔗 Sessão sincronizada — a começar na questão ${pos + 1}`
-    : '🔗 Sessão sincronizada!';
-  showToast(msg);
+  showToast(pos > 0 ? `🔗 A começar na questão ${pos + 1}` : '🔗 Sessão sincronizada!');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 document.addEventListener('DOMContentLoaded', () => {
@@ -294,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/* ─── PRNG + shuffle ────────────────────────────────── */
+/* ─── PRNG + shuffle ──────────────────────── */
 function makePRNG(seed) {
   let s = seed >>> 0;
   return function() {
@@ -313,26 +277,20 @@ function shuffle(arr, rng) {
   return a;
 }
 
-/* ─── Bootstrap ─────────────────────────────────────── */
+/* ─── Bootstrap ───────────────────────────── */
 async function boot() {
   const params   = new URLSearchParams(window.location.search);
   const bankFile = params.get('bank');
   if (!bankFile) {
-    showError('Nenhum ficheiro de quiz especificado na URL.<br>Volta à <a href="index.html">página inicial</a>.');
+    showError('Nenhum ficheiro de quiz especificado.<br>Volta à <a href="index.html">página inicial</a>.');
     return;
   }
   bankId = bankFile;
   if (bankFile === 'local') {
     const raw = localStorage.getItem('mq_imported_bank');
-    if (!raw) {
-      showError('Nenhum quiz importado encontrado.<br>Volta à <a href="index.html">página inicial</a> e importa um ficheiro JSON.');
-      return;
-    }
+    if (!raw) { showError('Nenhum quiz importado.<br>Volta à <a href="index.html">página inicial</a>.'); return; }
     try { bank = JSON.parse(raw); }
-    catch (_) {
-      showError('Erro ao ler o quiz importado.<br>Volta à <a href="index.html">página inicial</a> e importa novamente.');
-      return;
-    }
+    catch (_) { showError('Erro ao ler o quiz importado.<br>Volta à <a href="index.html">página inicial</a>.'); return; }
   } else {
     try {
       const res = await fetch(`data/${bankFile}`);
@@ -344,20 +302,16 @@ async function boot() {
     }
   }
   if (!bank.questions || !Array.isArray(bank.questions) || !bank.questions.length) {
-    showError('O ficheiro JSON não contém questões válidas.');
-    return;
+    showError('O ficheiro JSON não contém questões válidas.'); return;
   }
-  document.title = `Compilações de Exercícios — ${bank.meta?.title || 'Quiz'}`;
+  document.title = `Compilações — ${bank.meta?.title || 'Quiz'}`;
   applyThemeColor(bank.meta?.color);
 
   const urlSeed = parseInt(params.get('seed'), 10);
   const urlPos  = parseInt(params.get('pos'),  10);
-  const hasSeedInURL = !isNaN(urlSeed);
-  const hasPosInURL  = !isNaN(urlPos) && urlPos > 0;
-
-  if (hasSeedInURL) {
-    initSession(urlSeed, hasPosInURL ? urlPos : 0);
-    if (hasPosInURL) showToast(`🔗 A começar na questão ${urlPos + 1}`);
+  if (!isNaN(urlSeed)) {
+    initSession(urlSeed, !isNaN(urlPos) && urlPos > 0 ? urlPos : 0);
+    if (!isNaN(urlPos) && urlPos > 0) showToast(`🔗 A começar na questão ${urlPos + 1}`);
   } else {
     const saved = loadProgress();
     if (saved && saved.cur > 0 && saved.cur < bank.questions.length) {
@@ -368,27 +322,31 @@ async function boot() {
   }
 }
 
-/* ─── Resume prompt ─────────────────────────────────── */
+/* ─── Resume prompt ───────────────────────── */
 function initSessionWithResume(saved) {
-  const rng     = makePRNG(saved.seed >>> 0);
-  const indices = bank.questions.map((_, i) => i);
-  shuffle(indices, rng);
+  const rng  = makePRNG(saved.seed >>> 0);
+  shuffle(bank.questions.map((_, i) => i), rng); // consume rng
   const total    = bank.questions.length;
   const done     = saved.cur;
   const pctDone  = Math.round((done / total) * 100);
   const pctRight = done > 0 ? Math.round((saved.score / done) * 100) : 0;
 
   document.getElementById('qcard').innerHTML = `
-    <div style="padding:36px 24px;text-align:center;">
-      <div style="font-size:2rem;margin-bottom:12px">📖</div>
-      <div style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px">
+    <div class="qcard-header" style="background:var(--quiz-color, var(--blue))">
+      <span class="q-num" style="color:rgba(255,255,255,.75)">Sessão guardada</span>
+    </div>
+    <div style="padding:32px 24px;text-align:center;">
+      <p style="font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:8px">
         Tens uma sessão em curso
-      </div>
-      <div style="font-size:.86rem;color:var(--muted);margin-bottom:22px;line-height:1.6">
+      </p>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:6px;line-height:1.6">
         Questão <strong style="color:var(--text-2)">${done + 1} de ${total}</strong> &nbsp;·&nbsp;
-        <span style="color:var(--green);font-weight:700">✓ ${saved.score}</span> &nbsp;
-        <span style="color:var(--red);font-weight:700">✗ ${saved.wrong}</span> &nbsp;·&nbsp;
+        <span style="color:var(--green);font-weight:600">✓ ${saved.score}</span>&nbsp;
+        <span style="color:var(--red);font-weight:600">✗ ${saved.wrong}</span>&nbsp;·&nbsp;
         ${pctRight}% certas
+      </p>
+      <div style="margin:0 0 22px;height:4px;background:var(--blue-100);border-radius:99px;overflow:hidden">
+        <div style="height:4px;width:${pctDone}%;background:var(--quiz-color,var(--blue));border-radius:99px"></div>
       </div>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
         <button class="btn-primary" onclick="resumeSession(${JSON.stringify(saved).replace(/"/g,'&quot;')})">
@@ -397,43 +355,37 @@ function initSessionWithResume(saved) {
         <button class="btn-secondary" onclick="initSession(null,0)">↩ Recomeçar</button>
       </div>
     </div>`;
+
   document.getElementById('progFill').style.width  = pctDone + '%';
   document.getElementById('progLabel').textContent = `Questão ${done + 1} de ${total}`;
   document.getElementById('progPct').textContent   = pctDone + '%';
 }
-function resumeSession(saved) {
-  initSession(saved.seed, saved.cur, saved.score, saved.wrong);
-}
+function resumeSession(saved) { initSession(saved.seed, saved.cur, saved.score, saved.wrong); }
 
-/* ─── Init session ──────────────────────────────────── */
+/* ─── Init session ────────────────────────── */
 function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
   sessionSeed = (forceSeed != null) ? (forceSeed >>> 0) : Math.floor(Math.random() * 2 ** 32);
   const rng   = makePRNG(sessionSeed);
 
-  const indices         = bank.questions.map((_, i) => i);
-  const shuffledIndices = shuffle(indices, rng);
-  questions             = shuffledIndices.map(i => bank.questions[i]);
+  const shuffledIdx = shuffle(bank.questions.map((_, i) => i), rng);
+  questions         = shuffledIdx.map(i => bank.questions[i]);
 
-  const displayLetters  = ['A','B','C','D','E'];
+  const letters = ['A','B','C','D','E'];
   optionMaps            = [];
   correctDisplayLetters = [];
   userAnswers           = new Array(questions.length).fill(null);
 
   questions.forEach(q => {
-    const shuffledOpts = shuffle(q.options, rng);
-    optionMaps.push(shuffledOpts);
-    const correctIdx = shuffledOpts.findIndex(o => o.letter === q.correct);
-    correctDisplayLetters.push(displayLetters[correctIdx] ?? q.correct);
+    const sh = shuffle(q.options, rng);
+    optionMaps.push(sh);
+    const ci = sh.findIndex(o => o.letter === q.correct);
+    correctDisplayLetters.push(letters[ci] ?? q.correct);
   });
 
   cur   = Math.min(Math.max(0, startCur), questions.length - 1);
   score = startScore;
   wrong = startWrong;
-
-  if (startCur > 0 && startScore === 0 && startWrong === 0) {
-    score = startCur;
-  }
-
+  if (startCur > 0 && startScore === 0 && startWrong === 0) score = startCur;
   answered = false;
 
   document.getElementById('reviewScreen').style.display  = 'none';
@@ -441,7 +393,6 @@ function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
   const qcard = document.getElementById('qcard');
   qcard.style.display = 'block';
 
-  // Rebuild card structure if it was replaced (e.g. resume prompt)
   if (!qcard.querySelector('.qcard-header')) {
     qcard.innerHTML = `
       <div class="qcard-header">
@@ -456,9 +407,7 @@ function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
         <div class="vignette-text" id="vignetteText"></div>
         <div id="labTableWrap"></div>
       </div>
-      <div class="question-box">
-        <p id="questionText"></p>
-      </div>
+      <div class="question-box"><p id="questionText"></p></div>
       <div class="options" id="optionsContainer"></div>
       <div class="exp-panel" id="expPanel">
         <div class="exp-correct">
@@ -471,7 +420,7 @@ function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
           <p id="logicText"></p>
         </div>
         <div id="distSection">
-          <div class="dist-header">Por que não as outras?</div>
+          <div class="dist-header">Por que não as outras opções?</div>
           <div class="dist-list" id="distList"></div>
         </div>
       </div>`;
@@ -484,11 +433,11 @@ function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
   render();
 }
 
-/* ─── Render ────────────────────────────────────────── */
+/* ─── Render ──────────────────────────────── */
 function render() {
-  const q           = questions[cur];
-  const displayOpts = optionMaps[cur];
-  const letters     = ['A','B','C','D','E'];
+  const q       = questions[cur];
+  const dispOpts = optionMaps[cur];
+  const letters  = ['A','B','C','D','E'];
   answered = false;
 
   const pct = Math.round((cur / questions.length) * 100);
@@ -499,22 +448,21 @@ function render() {
   document.getElementById('qNum').textContent = `Q${cur + 1} / ${questions.length}`;
 
   // Domain — hide if empty
-  const domainEl = document.getElementById('qDomain');
-  const domVal   = q.domain && String(q.domain).trim() ? q.domain : '';
-  domainEl.textContent = domVal;
-  domainEl.style.display = domVal ? '' : 'none';
+  const domEl = document.getElementById('qDomain');
+  const domV  = hasVal(q.domain) ? q.domain : '';
+  domEl.textContent    = domV;
+  domEl.style.display  = domV ? '' : 'none';
 
-  // Level badge — hide if empty
-  const levelEl = document.getElementById('qLevel');
-  const lvlVal  = q.level && String(q.level).trim() ? q.level : '';
-  levelEl.textContent = lvlVal;
-  levelEl.style.display = lvlVal ? '' : 'none';
+  // Level — hide if empty
+  const lvlEl = document.getElementById('qLevel');
+  const lvlV  = hasVal(q.level) ? q.level : '';
+  lvlEl.textContent   = lvlV;
+  lvlEl.style.display = lvlV ? '' : 'none';
 
   // Vignette
   const vigWrap = document.getElementById('vignetteWrap');
   const qcard   = document.getElementById('qcard');
-  const hasVig  = hasVal(q.vignette);
-  if (hasVig) {
+  if (hasVal(q.vignette)) {
     vigWrap.style.display = 'block';
     qcard.classList.add('has-vignette');
     document.getElementById('vignetteText').textContent = q.vignette;
@@ -529,7 +477,7 @@ function render() {
 
   const container = document.getElementById('optionsContainer');
   container.innerHTML = '';
-  displayOpts.forEach((opt, idx) => {
+  dispOpts.forEach((opt, idx) => {
     const dl  = letters[idx];
     const div = document.createElement('div');
     div.className = 'opt';
@@ -545,7 +493,7 @@ function render() {
   updateSeedBar();
 }
 
-/* ─── Answer selection ──────────────────────────────── */
+/* ─── Answer selection ────────────────────── */
 function selectAnswer(chosenDisp) {
   if (answered) return;
   answered = true;
@@ -553,7 +501,6 @@ function selectAnswer(chosenDisp) {
   const correctDisp = correctDisplayLetters[cur];
   const ok          = chosenDisp === correctDisp;
   if (ok) score++; else wrong++;
-
   userAnswers[cur] = chosenDisp;
   updateCounters();
   saveProgress();
@@ -566,24 +513,24 @@ function selectAnswer(chosenDisp) {
     else                        el.classList.add('neutral');
   });
 
-  const q           = questions[cur];
-  const displayOpts = optionMaps[cur];
-  const letters     = ['A','B','C','D','E'];
+  const q        = questions[cur];
+  const dispOpts = optionMaps[cur];
+  const letters  = ['A','B','C','D','E'];
 
-  // Explanation text
+  // Explanation
   document.getElementById('expText').textContent = q.explanation ?? '';
 
-  // Source — show/hide
+  // Source
   const srcEl = document.getElementById('expSource');
   if (hasVal(q.source)) {
-    srcEl.textContent = `📚 Fonte: ${q.source}`;
+    srcEl.textContent   = `📚 Fonte: ${q.source}`;
     srcEl.style.display = '';
   } else {
-    srcEl.textContent = '';
+    srcEl.textContent   = '';
     srcEl.style.display = 'none';
   }
 
-  // Logic box — show/hide
+  // Logic box
   const logicBox = document.getElementById('logicBox');
   if (hasVal(q.logic)) {
     document.getElementById('logicText').textContent = q.logic;
@@ -593,47 +540,41 @@ function selectAnswer(chosenDisp) {
   }
 
   // Distractors
-  const origToDisp = {};
-  displayOpts.forEach((opt, idx) => { origToDisp[opt.letter] = letters[idx]; });
+  const origToDisp  = {};
+  dispOpts.forEach((opt, idx) => { origToDisp[opt.letter] = letters[idx]; });
   const displayOrder = ['A','B','C','D','E'];
 
-  const distList = document.getElementById('distList');
+  const distList  = document.getElementById('distList');
   distList.innerHTML = '';
 
   const validDist = (q.distractors ?? [])
     .filter(d => d.letter !== q.correct && hasVal(d.text))
     .sort((a, b) =>
       displayOrder.indexOf(origToDisp[a.letter]) -
-      displayOrder.indexOf(origToDisp[b.letter])
-    );
+      displayOrder.indexOf(origToDisp[b.letter]));
 
   validDist.forEach(d => {
-    const mappedDisp = origToDisp[d.letter] ?? d.letter;
+    const ml  = origToDisp[d.letter] ?? d.letter;
     const div = document.createElement('div');
     div.className = 'dist-item';
     div.innerHTML = `
-      <span class="dist-tag">${mappedDisp}) Incorrecta</span>
+      <span class="dist-tag">${ml}) Incorrecta</span>
       <p>${escHtml(d.text)}</p>
       ${hasVal(d.source) ? `<p class="dist-source">📚 ${escHtml(d.source)}</p>` : ''}`;
     distList.appendChild(div);
   });
 
-  // Hide distractor section if nothing to show
-  const distSection = document.getElementById('distSection');
-  distSection.style.display = validDist.length ? '' : 'none';
-
+  document.getElementById('distSection').style.display = validDist.length ? '' : 'none';
   document.getElementById('expPanel').classList.add('show');
 
   const btn = document.getElementById('btnNext');
   btn.style.display = 'block';
   btn.textContent   = cur < questions.length - 1 ? 'Próxima →' : 'Ver Resultado';
 
-  setTimeout(() => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-  }, 120);
+  setTimeout(() => { window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }, 120);
 }
 
-/* ─── Next / finish ─────────────────────────────────── */
+/* ─── Next / finish ───────────────────────── */
 function nextQuestion() {
   cur++;
   if (cur >= questions.length) { showFinish(); return; }
@@ -653,17 +594,17 @@ function showFinish() {
   document.getElementById('progLabel').textContent      = `${questions.length} de ${questions.length} questões`;
 
   const pct = Math.round((score / questions.length) * 100);
-  let msg = '';
-  if      (pct >= 85) msg = '🏆 Excelente! Domínio sólido do tema. Estás pronto para o exame.';
-  else if (pct >= 65) msg = '👍 Bom resultado! Revê os casos onde erraste, focando nos distratores.';
-  else                msg = '📖 Continua a estudar — volta ao material e refaz os casos.';
+  let msg = pct >= 85
+    ? '🏆 Excelente! Domínio sólido do tema. Estás pronto para o exame.'
+    : pct >= 65
+      ? '👍 Bom resultado! Revê os casos onde erraste, focando nos distratores.'
+      : '📖 Continua a estudar — volta ao material e refaz os casos.';
 
   document.getElementById('finTitle').textContent    = bank.meta?.title ?? 'Quiz Concluído';
   document.getElementById('finSubtitle').textContent = bank.meta?.subtitle ?? '';
   document.getElementById('finScore').textContent    = `${score} / ${questions.length}`;
   document.getElementById('finPct').textContent      = `${pct}% de respostas correctas`;
   document.getElementById('finMsg').textContent      = msg;
-
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -676,20 +617,20 @@ function restart() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* ─── Review mode ───────────────────────────────────── */
+/* ─── Review mode ─────────────────────────── */
 function showReview() {
   document.getElementById('finishScreen').style.display = 'none';
   document.getElementById('qcard').style.display        = 'none';
   document.getElementById('btnNext').style.display      = 'none';
 
-  const letters  = ['A','B','C','D','E'];
-  const pct = Math.round((score / questions.length) * 100);
+  const letters = ['A','B','C','D','E'];
+  const pct     = Math.round((score / questions.length) * 100);
 
   let html = `
     <div class="review-topbar">
       <div>
         <div class="review-title">🔍 Revisão de respostas</div>
-        <div class="review-subtitle">${bank.meta?.title ?? ''}</div>
+        <div class="review-subtitle">${escHtml(bank.meta?.title ?? '')}</div>
       </div>
       <button class="btn-review-back" onclick="backToFinish()">← Resultado</button>
     </div>
@@ -701,7 +642,7 @@ function showReview() {
     </div>`;
 
   questions.forEach((q, i) => {
-    const displayOpts = optionMaps[i];
+    const dispOpts    = optionMaps[i];
     const correctDisp = correctDisplayLetters[i];
     const chosenDisp  = userAnswers[i];
     const wasCorrect  = chosenDisp === correctDisp;
@@ -712,35 +653,27 @@ function showReview() {
     const badgeText  = wasSkipped ? '— Não respondida' : wasCorrect ? '✓ Correcta' : '✗ Errada';
 
     const origToDisp = {};
-    displayOpts.forEach((opt, idx) => { origToDisp[opt.letter] = letters[idx]; });
+    dispOpts.forEach((opt, idx) => { origToDisp[opt.letter] = letters[idx]; });
 
-    // Vignette
     const vigHtml = hasVal(q.vignette)
       ? `<div class="review-vignette">${escHtml(q.vignette)}</div>
          ${(q.labTable && q.labTable.length) ? buildLabTable(q.labTable) : ''}`
       : '';
 
-    // Options
-    const optsHtml = displayOpts.map((opt, idx) => {
+    const optsHtml = dispOpts.map((opt, idx) => {
       const dl = letters[idx];
       let cls = 'review-opt';
       if      (dl === correctDisp) cls += ' opt-correct';
       else if (dl === chosenDisp)  cls += ' opt-wrong-chosen';
       else                         cls += ' opt-neutral';
-      return `<div class="${cls}">
-        <span class="letter">${dl}</span>
-        <span>${escHtml(opt.text)}</span>
-      </div>`;
+      return `<div class="${cls}"><span class="letter">${dl}</span><span>${escHtml(opt.text)}</span></div>`;
     }).join('');
 
-    // Distractors
     const displayOrder = ['A','B','C','D','E'];
-    const validDist = (q.distractors ?? [])
+    const validDist    = (q.distractors ?? [])
       .filter(d => d.letter !== q.correct && hasVal(d.text))
       .sort((a, b) =>
-        displayOrder.indexOf(origToDisp[a.letter]) -
-        displayOrder.indexOf(origToDisp[b.letter])
-      );
+        displayOrder.indexOf(origToDisp[a.letter]) - displayOrder.indexOf(origToDisp[b.letter]));
 
     const distsHtml = validDist.map(d => {
       const ml = origToDisp[d.letter] ?? d.letter;
@@ -751,14 +684,13 @@ function showReview() {
       </div>`;
     }).join('');
 
-    // Header meta — only show non-empty values
     const metaParts = [q.level, q.domain].filter(v => hasVal(v));
     const metaStr   = metaParts.length ? ' · ' + metaParts.join(' · ') : '';
 
     html += `
       <div class="review-card ${cardClass}">
         <div class="review-card-header">
-          <span class="review-card-num">Questão ${i + 1} de ${questions.length}${metaStr}</span>
+          <span class="review-card-num">Questão ${i + 1} de ${questions.length}${escHtml(metaStr)}</span>
           <span class="review-result-badge ${badgeClass}">${badgeText}</span>
         </div>
         <div class="review-card-body">
@@ -781,14 +713,13 @@ function showReview() {
       </div>`;
   });
 
-  html += `
-    <div style="text-align:center;padding:8px 0 20px;">
-      <button class="btn-review-back" onclick="backToFinish()">← Voltar ao resultado</button>
-    </div>`;
+  html += `<div style="text-align:center;padding:8px 0 24px">
+    <button class="btn-review-back" onclick="backToFinish()">← Voltar ao resultado</button>
+  </div>`;
 
-  const reviewScreen = document.getElementById('reviewScreen');
-  reviewScreen.innerHTML = html;
-  reviewScreen.style.display = 'block';
+  const rs = document.getElementById('reviewScreen');
+  rs.innerHTML = html;
+  rs.style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 

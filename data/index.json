@@ -14,11 +14,22 @@
     "id": "bn_exame23_24_exame25",
     "file": "BioqNutricional_QuizBank.json",
     "title": "Bioquímica Nutricional — Exames 1ª Fase",
-    "subtitle": "Compilação 2022/2023 e 2023/2024 - Adaptados e da Drive Principal",
+    "subtitle": "Compilação 2022/2023 e 2023/2024 - Adaptados e da Drive Principal (Pode Conter Erros!)",
     "icon": "🧪",
     "type": "general",
     "questionCount": 66,
     "levels": ["L1", "L2", "L3"],
     "color": "#4a8f3f"
+  },
+  {
+    "id": "examehisto",
+    "file": "perguntasexamehisto.json",
+    "title": "Histologia e Embriologia - Exames Compilados",
+    "subtitle": "1ª Fase 2022/2023 | 2ª Fase 2022/2023 | 1ª Fase 2023/2024 - Adaptados e da Drive Principal (Pode Conter Erros!)",
+    "icon": "🧫",
+    "type": "general",
+    "questionCount": 96,
+    "levels": ["L1", "L2", "L3"],
+    "color": "#910d39"
   }
 ]

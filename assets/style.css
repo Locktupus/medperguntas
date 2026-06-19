@@ -221,11 +221,11 @@ a { color: inherit; text-decoration: none; }
 }
 .res-card:hover .res-card-tint { opacity: .1; }
 
-/* Large background watermark emoji */
+/* Background watermark emoji — constrained to the tint zone */
 .res-card-motif {
   position: absolute;
-  top: 2px; right: 6px;
-  font-size: 5.8rem;
+  top: 10px; right: 10px;
+  font-size: 4rem;
   line-height: 1;
   opacity: .07;
   pointer-events: none;
@@ -235,7 +235,7 @@ a { color: inherit; text-decoration: none; }
 }
 .res-card:hover .res-card-motif {
   opacity: .12;
-  transform: scale(1.07) rotate(5deg);
+  transform: scale(1.06) rotate(4deg);
 }
 
 /* Thin colour banner strip */

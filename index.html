@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="favicon.png">
-  <title>Compilações de Exercícios — NOVA Medical School</title>
+  <title>VésperaQUIZ — NOVA Medical School</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 
 <nav class="topbar">
   <div class="topbar-logo">
-    🥼 Compilações de Exercícios
+    <span class="logo-v">Véspera</span><span class="logo-q">QUIZ</span>
     <span class="sep">|</span>
     <span class="sub">NOVA Medical School</span>
   </div>
@@ -24,8 +24,8 @@
 
   <div class="page-header">
     <div class="page-header-left">
-      <h1>Banco de Questões</h1>
-      <p>Compilações organizadas para o estudo e preparação para exame.</p>
+      <h1><span class="logo-v" style="color:var(--text)">Véspera</span><span class="logo-q" style="color:var(--cobalt)">QUIZ</span></h1>
+      <p>Banco de questões para a NOVA Medical School.</p>
     </div>
     <div class="page-header-stats" id="pageStats"></div>
   </div>
@@ -61,8 +61,14 @@ const LOCAL_KEY       = 'mq_imported_bank';
 const PROGRESS_PREFIX = 'mq_progress_';
 
 const TYPE_LABELS = {
-  clinical: { label: 'Casos Clínicos', cls: 'tag-cc' },
-  general:  { label: 'Banco Geral',    cls: 'tag-gen' }
+  clinical:   { label: 'Casos Clínicos',   cls: 'tag-clinical'  },
+  questions:  { label: 'Questões',          cls: 'tag-questions' },
+  exam:       { label: 'Exames',            cls: 'tag-exam'      },
+  test:       { label: 'Testes',            cls: 'tag-test'      },
+  mcq:        { label: 'Escolha Múltipla',  cls: 'tag-mcq'       },
+  practical:  { label: 'Casos Práticos',    cls: 'tag-practical' },
+  mixed:      { label: 'Banco Misto',       cls: 'tag-mixed'     },
+  general:    { label: 'Banco Geral',       cls: 'tag-gen'       }  /* legacy */
 };
 
 function shadeColor(hex, pct) {
@@ -156,7 +162,10 @@ async function loadPermanent() {
   let banks = [];
   try {
     const res = await fetch('data/index.json');
-    if (res.ok) banks = await res.json();
+    if (res.ok) {
+      const data = await res.json();
+      banks = data.quizzes || data;   /* new object format or legacy flat array */
+    }
   } catch (_) {}
 
   if (!banks.length) {

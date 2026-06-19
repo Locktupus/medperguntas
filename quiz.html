@@ -21,18 +21,21 @@
   <a class="topbar-back" href="index.html">← Início</a>
 </nav>
 
-<!-- Progress bar with inline score counters -->
+<!-- Progress bar — single line with inline scores on the right -->
 <div class="prog-wrap">
   <div class="prog-top">
     <span id="progLabel">A carregar…</span>
+    <div class="prog-bar-wrap">
+      <div class="prog-bg"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+    </div>
+    <span id="progPct">0%</span>
+    <span class="prog-vdiv"></span>
     <div class="prog-inline-scores">
       <span class="prog-score right" id="cntRight">✓ 0</span>
       <span class="prog-score-sep"></span>
       <span class="prog-score wrong" id="cntWrong">✗ 0</span>
     </div>
-    <span id="progPct">0%</span>
   </div>
-  <div class="prog-bg"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
 </div>
 
 <!-- Seed sync -->
@@ -93,41 +96,28 @@
     </div>
   </div>
 
-  <!-- Navigation area — below quiz card, integrated with action buttons -->
+  <!-- Navigation bar — single line below quiz card -->
   <div class="qnav-area" id="qnavArea">
-    <div class="qnav-panel">
-
-      <!-- Row 1: Nav cells centred -->
-      <div class="qnav-cells-row">
-        <div class="qnav-strip" id="qnavStrip"></div>
-      </div>
-
-      <!-- Row 2: ← Pergunta Prévia   |   Saltar / Próxima → -->
-      <div class="qnav-btn-row">
-        <button class="qnav-prev-btn" id="qnavPrev" onclick="navPrev()">← Pergunta Prévia</button>
-        <div class="qnav-right-btns">
-          <button class="btn-skip" id="btnSkip" onclick="navSkip()">Saltar →</button>
-          <button class="btn-next" id="btnNext" onclick="nextQuestion()">Próxima →</button>
-        </div>
-      </div>
-
-      <!-- Row 3: Expand map   |   Terminar Quiz -->
-      <div class="qnav-meta-row">
-        <button class="qnav-expand-btn" id="qnavExpandBtn" onclick="toggleNavMap()">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="0"   y="0"   width="5.5" height="5.5" rx="1"/>
-            <rect x="7.5" y="0"   width="5.5" height="5.5" rx="1"/>
-            <rect x="0"   y="7.5" width="5.5" height="5.5" rx="1"/>
-            <rect x="7.5" y="7.5" width="5.5" height="5.5" rx="1"/>
-          </svg>
-          Ver mapa
-          <span class="qnav-chev" id="qnavChev">▾</span>
-        </button>
-        <button class="qnav-end-btn" onclick="showFinishConfirm()">🏁 Terminar Quiz</button>
-      </div>
+    <div class="qnav-bar" id="qnavBar">
+      <button class="qnav-arrow-btn" id="qnavPrev" onclick="navPrev()" aria-label="Questão anterior">←</button>
+      <div class="qnav-strip" id="qnavStrip"></div>
+      <button class="qnav-arrow-btn" id="qnavNext" onclick="navNext()" aria-label="Próxima questão">→</button>
+      <span class="qnav-vdiv"></span>
+      <button class="qnav-expand-btn" id="qnavExpandBtn" onclick="toggleNavMap()">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="0" y="0" width="5" height="5" rx="1"/>
+          <rect x="7" y="0" width="5" height="5" rx="1"/>
+          <rect x="0" y="7" width="5" height="5" rx="1"/>
+          <rect x="7" y="7" width="5" height="5" rx="1"/>
+        </svg>
+        Mapa<span class="qnav-chev" id="qnavChev">▾</span>
+      </button>
+      <span class="qnav-vdiv"></span>
+      <button class="btn-skip" id="btnSkip" onclick="navSkip()">Saltar</button>
+      <button class="btn-next" id="btnNext" onclick="nextQuestion()">Próxima →</button>
+      <span class="qnav-vdiv"></span>
+      <button class="qnav-end-btn" onclick="showFinishConfirm()" title="Terminar Quiz">🏁</button>
     </div>
-
-    <!-- Full map — expands below the panel -->
     <div class="qnav-full" id="qnavFull">
       <div class="qnav-full-grid" id="qnavFullGrid"></div>
     </div>
@@ -271,7 +261,6 @@ function updateNavStrip(){
   const strip=document.getElementById('qnavStrip');
   strip.innerHTML='';
 
-  // Window of 5 (2 before + current + 2 after), clamped
   const half=2;
   let start=Math.max(0,cur-half);
   let end=Math.min(total-1,cur+half);
@@ -285,13 +274,10 @@ function updateNavStrip(){
     strip.appendChild(buildCell(idx,()=>navigateTo(idx)));
   }
 
-  // Prev arrow
-  const prevBtn=document.getElementById('qnavPrev');
-  prevBtn.disabled=(cur===0);
+  document.getElementById('qnavPrev').disabled=(cur===0);
+  document.getElementById('qnavNext').disabled=(cur===total-1);
 
-  // Full map refresh if open
   if(document.getElementById('qnavFull').classList.contains('open')) updateFullMap();
-
   updateBottomBar();
 }
 
@@ -308,9 +294,13 @@ function toggleNavMap(){
   const full=document.getElementById('qnavFull');
   const btn=document.getElementById('qnavExpandBtn');
   const chev=document.getElementById('qnavChev');
+  const bar=document.getElementById('qnavBar');
   const isOpen=full.classList.toggle('open');
   btn.classList.toggle('active',isOpen);
   chev.style.transform=isOpen?'rotate(180deg)':'';
+  // Bar gets square bottom corners when map is visible
+  bar.style.borderRadius=isOpen?'10px 10px 0 0':'10px';
+  bar.style.borderBottom=isOpen?'none':'1px solid var(--border)';
   if(isOpen) updateFullMap();
 }
 
@@ -318,9 +308,12 @@ function closeNavMap(){
   const full=document.getElementById('qnavFull');
   const btn=document.getElementById('qnavExpandBtn');
   const chev=document.getElementById('qnavChev');
+  const bar=document.getElementById('qnavBar');
   full.classList.remove('open');
   btn.classList.remove('active');
   chev.style.transform='';
+  bar.style.borderRadius='10px';
+  bar.style.borderBottom='1px solid var(--border)';
 }
 
 function updateBottomBar(){

@@ -21,14 +21,9 @@
   <a class="topbar-back" href="index.html">← Início</a>
 </nav>
 
-<!-- Progress bar with inline score counters -->
 <div class="prog-wrap">
   <div class="prog-top">
     <span id="progLabel">A carregar…</span>
-    <div class="prog-scores">
-      <span class="prog-score right" id="cntRight">✓ 0</span>
-      <span class="prog-score wrong"  id="cntWrong">✗ 0</span>
-    </div>
     <span id="progPct">0%</span>
   </div>
   <div class="prog-bg">
@@ -36,7 +31,6 @@
   </div>
 </div>
 
-<!-- Seed sync -->
 <div class="seed-wrap" id="seedWrap" style="display:none">
   <button class="btn-seed-toggle" id="seedToggle" onclick="toggleSeedPanel()">
     <i class="arrow">▾</i> Sincronizar com outra sessão
@@ -58,7 +52,6 @@
 
 <div class="page" style="padding-top:14px;padding-bottom:20px;">
 
-  <!-- Quiz card -->
   <div class="qcard" id="qcard">
     <div class="qcard-header">
       <span class="q-num" id="qNum">–</span>
@@ -67,20 +60,16 @@
         <span class="level-badge" id="qLevel"></span>
       </div>
     </div>
-
     <div class="vignette-wrap" id="vignetteWrap" style="display:none">
       <div class="section-label-inline">Vinheta Clínica</div>
       <div class="vignette-text" id="vignetteText"></div>
       <div id="labTableWrap"></div>
     </div>
-
     <div class="question-box">
       <div class="q-label">Questão</div>
       <p id="questionText"></p>
     </div>
-
     <div class="options" id="optionsContainer"></div>
-
     <div class="exp-panel" id="expPanel">
       <div class="exp-correct">
         <div class="exp-tag">✓ Resposta Correcta</div>
@@ -98,12 +87,16 @@
     </div>
   </div>
 
-  <!-- Bottom bar — next button only -->
+  <!-- Score pill restored to bottom bar + next button -->
   <div class="bottom-bar">
+    <div class="score-pill">
+      <span class="score-cnt right" id="cntRight">✓ 0</span>
+      <span class="score-sep"></span>
+      <span class="score-cnt wrong"  id="cntWrong">✗ 0</span>
+    </div>
     <button class="btn-next" id="btnNext" onclick="nextQuestion()">Próxima →</button>
   </div>
 
-  <!-- Finish screen -->
   <div class="finish" id="finishScreen">
     <div class="finish-header">
       <span class="fin-medal" id="finMedal">🥇</span>
@@ -135,46 +128,32 @@
     </div>
   </div>
 
-  <!-- Review screen -->
   <div id="reviewScreen"></div>
-
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-let bank      = null;
-let bankId    = '';
-let questions = [];
-let cur       = 0;
-let score     = 0;
-let wrong     = 0;
-let answered  = false;
-let sessionSeed = 0;
-let optionMaps            = [];
-let correctDisplayLetters = [];
-let userAnswers           = [];
+let bank = null, bankId = '', questions = [];
+let cur = 0, score = 0, wrong = 0, answered = false, sessionSeed = 0;
+let optionMaps = [], correctDisplayLetters = [], userAnswers = [];
 
 const PROGRESS_PREFIX = 'mq_progress_';
 
 /* ─── Helpers ─────────────────────────────── */
 function hasVal(v) { return v != null && String(v).trim() !== ''; }
-
 function escHtml(str) {
-  return String(str)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
     .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
-
 function buildLabTable(rows) {
   if (!rows || !rows.length) return '';
   const thead = `<thead><tr><th>Parâmetro</th><th>Valor</th><th>Referência</th></tr></thead>`;
   const tbody = rows.map(r =>
-    `<tr><td>${escHtml(r.param)}</td><td>${escHtml(r.value)}</td><td>${escHtml(r.ref ?? '')}</td></tr>`
+    `<tr><td>${escHtml(r.param)}</td><td>${escHtml(r.value)}</td><td>${escHtml(r.ref??'')}</td></tr>`
   ).join('');
   return `<table class="lab-table">${thead}<tbody>${tbody}</tbody></table>`;
 }
-
 function showError(html) {
   document.getElementById('qcard').innerHTML = `
     <div style="padding:48px 24px;text-align:center;color:var(--muted)">
@@ -185,104 +164,92 @@ function showError(html) {
 }
 
 /* ─── localStorage ────────────────────────── */
-function saveProgress() {
-  localStorage.setItem(PROGRESS_PREFIX + bankId, JSON.stringify({ seed: sessionSeed, cur, score, wrong }));
-}
-function loadProgress() {
-  try { const r = localStorage.getItem(PROGRESS_PREFIX + bankId); return r ? JSON.parse(r) : null; }
-  catch (_) { return null; }
-}
+function saveProgress()  { localStorage.setItem(PROGRESS_PREFIX + bankId, JSON.stringify({ seed: sessionSeed, cur, score, wrong })); }
+function loadProgress()  { try { const r = localStorage.getItem(PROGRESS_PREFIX + bankId); return r ? JSON.parse(r) : null; } catch(_){ return null; } }
 function clearProgress() { localStorage.removeItem(PROGRESS_PREFIX + bankId); }
 
 /* ─── Toast ───────────────────────────────── */
 let _toastTimer;
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  clearTimeout(_toastTimer);
-  void t.offsetWidth;
-  t.classList.add('show');
-  _toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+  t.textContent = msg; clearTimeout(_toastTimer); void t.offsetWidth;
+  t.classList.add('show'); _toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
 }
 
 /* ─── Colour helpers ──────────────────────── */
 function shadeColor(hex, pct) {
   const n = parseInt(hex.replace('#',''), 16);
-  const r = Math.min(255, Math.max(0, (n >> 16) + pct));
-  const g = Math.min(255, Math.max(0, ((n >> 8) & 0xff) + pct));
-  const b = Math.min(255, Math.max(0, (n & 0xff) + pct));
-  return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
+  const r = Math.min(255, Math.max(0, (n>>16) + pct));
+  const g = Math.min(255, Math.max(0, ((n>>8)&0xff) + pct));
+  const b = Math.min(255, Math.max(0, (n&0xff) + pct));
+  return '#' + ((1<<24)|(r<<16)|(g<<8)|b).toString(16).slice(1);
 }
 function hexToRgba(hex, alpha) {
   const n = parseInt(hex.replace('#',''), 16);
   return `rgba(${(n>>16)&0xff},${(n>>8)&0xff},${n&0xff},${alpha})`;
 }
 function applyThemeColor(hex) {
-  const c = hex || '#2361D4';
+  const c = hex || '#1548E8';
   document.documentElement.style.setProperty('--quiz-color',      c);
   document.documentElement.style.setProperty('--quiz-color-dark', shadeColor(c, -35));
   document.documentElement.style.setProperty('--quiz-glow',       hexToRgba(c, 0.28));
 }
 
-/* ─── Counters ────────────────────────────── */
+/* ─── Counters with flip animation ───────── */
+function animateCounter(id, newText) {
+  const el = document.getElementById(id);
+  if (!el || el.textContent === newText) return;
+  el.textContent = newText;
+  el.classList.remove('cnt-flip');
+  void el.offsetWidth;
+  el.classList.add('cnt-flip');
+}
 function updateCounters() {
-  document.getElementById('cntRight').textContent = `✓ ${score}`;
-  document.getElementById('cntWrong').textContent = `✗ ${wrong}`;
+  animateCounter('cntRight', `✓ ${score}`);
+  animateCounter('cntWrong', `✗ ${wrong}`);
 }
 
 /* ─── Seed bar ────────────────────────────── */
 function updateSeedBar() {
   document.getElementById('seedWrap').style.display = 'block';
   document.getElementById('seedDisplay').textContent = `${sessionSeed}:${cur}`;
-  const params = new URLSearchParams(window.location.search);
-  params.set('seed', sessionSeed); params.set('pos', cur);
-  history.replaceState(null, '', '?' + params.toString());
+  const p = new URLSearchParams(window.location.search);
+  p.set('seed', sessionSeed); p.set('pos', cur);
+  history.replaceState(null, '', '?' + p.toString());
 }
 function toggleSeedPanel() {
-  const panel  = document.getElementById('seedPanel');
-  const toggle = document.getElementById('seedToggle');
-  const open   = panel.classList.toggle('open');
-  toggle.classList.toggle('open', open);
+  const panel = document.getElementById('seedPanel'), toggle = document.getElementById('seedToggle');
+  toggle.classList.toggle('open', panel.classList.toggle('open'));
 }
 function copyLink() {
-  const params = new URLSearchParams(window.location.search);
-  params.set('seed', sessionSeed); params.set('pos', cur);
-  const url = window.location.origin + window.location.pathname + '?' + params.toString();
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(url).then(() => showToast('✓ Link copiado!'));
-  } else {
+  const p = new URLSearchParams(window.location.search);
+  p.set('seed', sessionSeed); p.set('pos', cur);
+  const url = window.location.origin + window.location.pathname + '?' + p.toString();
+  if (navigator.clipboard) { navigator.clipboard.writeText(url).then(() => showToast('✓ Link copiado!')); }
+  else {
     const ta = document.createElement('textarea');
     ta.value = url; ta.style.cssText = 'position:fixed;opacity:0';
-    document.body.appendChild(ta); ta.select();
-    document.execCommand('copy'); document.body.removeChild(ta);
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
     showToast('✓ Link copiado!');
   }
 }
 function joinSeed() {
-  const input = document.getElementById('seedInput');
-  const val   = input.value.trim();
-  const parts = val.split(':');
-  const num   = parseInt(parts[0], 10);
-  const pos   = parts.length > 1 ? Math.max(0, parseInt(parts[1], 10)) : 0;
-  if (!val || isNaN(num) || num < 0) {
-    input.classList.add('error');
-    setTimeout(() => input.classList.remove('error'), 1200); return;
-  }
+  const input = document.getElementById('seedInput'), val = input.value.trim();
+  const parts = val.split(':'), num = parseInt(parts[0], 10), pos = parts.length > 1 ? Math.max(0, parseInt(parts[1], 10)) : 0;
+  if (!val || isNaN(num) || num < 0) { input.classList.add('error'); setTimeout(() => input.classList.remove('error'), 1200); return; }
   input.value = '';
   initSession(num, isNaN(pos) ? 0 : pos);
   showToast(pos > 0 ? `🔗 A começar na questão ${pos + 1}` : '🔗 Sessão sincronizada!');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('seedInput').addEventListener('keydown', e => {
-    if (e.key === 'Enter') joinSeed();
-  });
+  document.getElementById('seedInput').addEventListener('keydown', e => { if (e.key === 'Enter') joinSeed(); });
 });
 
 /* ─── PRNG + shuffle ──────────────────────── */
 function makePRNG(seed) {
   let s = seed >>> 0;
-  return function() {
+  return () => {
     s += 0x6D2B79F5;
     let t = Math.imul(s ^ (s >>> 15), 1 | s);
     t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) >>> 0;
@@ -291,10 +258,7 @@ function makePRNG(seed) {
 }
 function shuffle(arr, rng) {
   const a = arr.slice();
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(rng() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
   return a;
 }
 
@@ -302,59 +266,41 @@ function shuffle(arr, rng) {
 async function boot() {
   const params   = new URLSearchParams(window.location.search);
   const bankFile = params.get('bank');
-  if (!bankFile) {
-    showError('Nenhum ficheiro de quiz especificado.<br>Volta à <a href="index.html">página inicial</a>.');
-    return;
-  }
+  if (!bankFile) { showError('Nenhum ficheiro de quiz especificado.<br>Volta à <a href="index.html">página inicial</a>.'); return; }
   bankId = bankFile;
   if (bankFile === 'local') {
     const raw = localStorage.getItem('mq_imported_bank');
     if (!raw) { showError('Nenhum quiz importado.<br>Volta à <a href="index.html">página inicial</a>.'); return; }
-    try { bank = JSON.parse(raw); }
-    catch (_) { showError('Erro ao ler o quiz importado.<br>Volta à <a href="index.html">página inicial</a>.'); return; }
+    try { bank = JSON.parse(raw); } catch(_) { showError('Erro ao ler quiz importado.<br>Volta à <a href="index.html">página inicial</a>.'); return; }
   } else {
-    try {
-      const res = await fetch(`data/${bankFile}`);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      bank = await res.json();
-    } catch (e) {
-      showError(`Não foi possível carregar <strong>${bankFile}</strong>.<br>${e.message}<br>Volta à <a href="index.html">página inicial</a>.`);
-      return;
-    }
+    try { const res = await fetch(`data/${bankFile}`); if (!res.ok) throw new Error(`HTTP ${res.status}`); bank = await res.json(); }
+    catch(e) { showError(`Não foi possível carregar <strong>${bankFile}</strong>.<br>${e.message}`); return; }
   }
-  if (!bank.questions || !Array.isArray(bank.questions) || !bank.questions.length) {
-    showError('O ficheiro JSON não contém questões válidas.'); return;
-  }
+  if (!bank.questions || !Array.isArray(bank.questions) || !bank.questions.length) { showError('O ficheiro JSON não contém questões válidas.'); return; }
   document.title = `${bank.meta?.title || 'Quiz'} — Compilações`;
   applyThemeColor(bank.meta?.color);
-
-  const urlSeed = parseInt(params.get('seed'), 10);
-  const urlPos  = parseInt(params.get('pos'),  10);
+  const urlSeed = parseInt(params.get('seed'), 10), urlPos = parseInt(params.get('pos'), 10);
   if (!isNaN(urlSeed)) {
     initSession(urlSeed, !isNaN(urlPos) && urlPos > 0 ? urlPos : 0);
     if (!isNaN(urlPos) && urlPos > 0) showToast(`🔗 A começar na questão ${urlPos + 1}`);
   } else {
     const saved = loadProgress();
-    if (saved && saved.cur > 0 && saved.cur < bank.questions.length) {
-      initSessionWithResume(saved);
-    } else {
-      initSession(null, 0);
-    }
+    if (saved && saved.cur > 0 && saved.cur < bank.questions.length) initSessionWithResume(saved);
+    else initSession(null, 0);
   }
 }
 
 /* ─── Resume prompt ───────────────────────── */
 function initSessionWithResume(saved) {
-  const rng  = makePRNG(saved.seed >>> 0);
-  shuffle(bank.questions.map((_, i) => i), rng); // consume rng state
-  const total    = bank.questions.length;
-  const done     = saved.cur;
+  const rng = makePRNG(saved.seed >>> 0);
+  shuffle(bank.questions.map((_,i) => i), rng);
+  const total = bank.questions.length, done = saved.cur;
   const pctDone  = Math.round((done / total) * 100);
   const pctRight = done > 0 ? Math.round((saved.score / done) * 100) : 0;
 
-  // Note: NO .qcard-header here — initSession uses #qNum to detect need to rebuild
+  /* No .qcard-header here — initSession detects by #qNum absence */
   document.getElementById('qcard').innerHTML = `
-    <div style="background:var(--quiz-color,#2361D4);padding:15px 22px;">
+    <div style="background:var(--quiz-color,#1548E8);padding:15px 22px;">
       <span style="font-size:.7rem;font-weight:600;color:rgba(255,255,255,.6)">Sessão guardada</span>
     </div>
     <div style="padding:32px 24px 28px;text-align:center;">
@@ -367,8 +313,8 @@ function initSessionWithResume(saved) {
         <span style="color:var(--red);font-weight:700">✗ ${saved.wrong}</span>&nbsp;·&nbsp;
         ${pctRight}% certas
       </p>
-      <div style="height:5px;background:var(--blue-100);border-radius:99px;overflow:hidden;margin:14px 0 22px">
-        <div style="height:5px;width:${pctDone}%;background:var(--quiz-color,#2361D4);border-radius:99px"></div>
+      <div style="height:5px;background:var(--cerulean-light);border-radius:99px;overflow:hidden;margin:14px 0 22px">
+        <div style="height:5px;width:${pctDone}%;background:var(--quiz-color,#1548E8);border-radius:99px"></div>
       </div>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
         <button class="btn-primary" onclick="resumeSession(${JSON.stringify(saved).replace(/"/g,'&quot;')})">
@@ -377,14 +323,13 @@ function initSessionWithResume(saved) {
         <button class="btn-secondary" onclick="initSession(null,0)">↩ Recomeçar</button>
       </div>
     </div>`;
-
   document.getElementById('progFill').style.width  = pctDone + '%';
   document.getElementById('progLabel').textContent = `Questão ${done + 1} de ${total}`;
   document.getElementById('progPct').textContent   = pctDone + '%';
 }
 function resumeSession(saved) { initSession(saved.seed, saved.cur, saved.score, saved.wrong); }
 
-/* ─── The full qcard template ─────────────── */
+/* ─── Full qcard template ─────────────────── */
 function qcardTemplate() {
   return `
     <div class="qcard-header">
@@ -422,84 +367,63 @@ function qcardTemplate() {
 }
 
 /* ─── Init session ────────────────────────── */
-function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
-  sessionSeed = (forceSeed != null) ? (forceSeed >>> 0) : Math.floor(Math.random() * 2 ** 32);
+function initSession(forceSeed, startCur=0, startScore=0, startWrong=0) {
+  sessionSeed = forceSeed != null ? (forceSeed >>> 0) : Math.floor(Math.random() * 2**32);
   const rng   = makePRNG(sessionSeed);
-
-  const shuffledIdx = shuffle(bank.questions.map((_, i) => i), rng);
-  questions         = shuffledIdx.map(i => bank.questions[i]);
+  const idx   = shuffle(bank.questions.map((_,i) => i), rng);
+  questions   = idx.map(i => bank.questions[i]);
 
   const letters = ['A','B','C','D','E'];
-  optionMaps            = [];
-  correctDisplayLetters = [];
-  userAnswers           = new Array(questions.length).fill(null);
-
+  optionMaps = []; correctDisplayLetters = []; userAnswers = new Array(questions.length).fill(null);
   questions.forEach(q => {
-    const sh = shuffle(q.options, rng);
-    optionMaps.push(sh);
+    const sh = shuffle(q.options, rng); optionMaps.push(sh);
     const ci = sh.findIndex(o => o.letter === q.correct);
     correctDisplayLetters.push(letters[ci] ?? q.correct);
   });
 
-  cur   = Math.min(Math.max(0, startCur), questions.length - 1);
-  score = startScore;
-  wrong = startWrong;
+  cur = Math.min(Math.max(0, startCur), questions.length - 1);
+  score = startScore; wrong = startWrong;
   if (startCur > 0 && startScore === 0 && startWrong === 0) score = startCur;
   answered = false;
 
-  document.getElementById('reviewScreen').style.display  = 'none';
-  document.getElementById('finishScreen').style.display  = 'none';
+  document.getElementById('reviewScreen').style.display = 'none';
+  document.getElementById('finishScreen').style.display = 'none';
   const qcard = document.getElementById('qcard');
   qcard.style.display = 'block';
 
-  // BUG FIX: check for #qNum (not .qcard-header) — resume prompt lacks #qNum
-  if (!qcard.querySelector('#qNum')) {
-    qcard.innerHTML = qcardTemplate();
-  }
+  /* BUG FIX: check #qNum, not .qcard-header — resume prompt lacks #qNum */
+  if (!qcard.querySelector('#qNum')) qcard.innerHTML = qcardTemplate();
 
   document.getElementById('btnNext').style.display = 'none';
-  updateCounters();
-  updateSeedBar();
-  saveProgress();
-  render();
+  updateCounters(); updateSeedBar(); saveProgress(); render();
 }
 
 /* ─── Render ──────────────────────────────── */
 function render() {
-  const q        = questions[cur];
-  const dispOpts = optionMaps[cur];
-  const letters  = ['A','B','C','D','E'];
+  const q = questions[cur], dispOpts = optionMaps[cur], letters = ['A','B','C','D','E'];
   answered = false;
 
   const pct = Math.round((cur / questions.length) * 100);
   document.getElementById('progFill').style.width  = pct + '%';
   document.getElementById('progLabel').textContent = `Questão ${cur + 1} de ${questions.length}`;
   document.getElementById('progPct').textContent   = pct + '%';
-
   document.getElementById('qNum').textContent = `Q${cur + 1} / ${questions.length}`;
 
   const domEl = document.getElementById('qDomain');
   const domV  = hasVal(q.domain) ? q.domain : '';
-  domEl.textContent   = domV;
-  domEl.style.display = domV ? '' : 'none';
+  domEl.textContent = domV; domEl.style.display = domV ? '' : 'none';
 
   const lvlEl = document.getElementById('qLevel');
   const lvlV  = hasVal(q.level) ? q.level : '';
-  lvlEl.textContent   = lvlV;
-  lvlEl.style.display = lvlV ? '' : 'none';
+  lvlEl.textContent = lvlV; lvlEl.style.display = lvlV ? '' : 'none';
 
-  // Vignette
-  const vigWrap = document.getElementById('vignetteWrap');
-  const qcard   = document.getElementById('qcard');
+  const vigWrap = document.getElementById('vignetteWrap'), qcard = document.getElementById('qcard');
   if (hasVal(q.vignette)) {
-    vigWrap.style.display = 'block';
-    qcard.classList.add('has-vignette');
+    vigWrap.style.display = 'block'; qcard.classList.add('has-vignette');
     document.getElementById('vignetteText').textContent = q.vignette;
-    document.getElementById('labTableWrap').innerHTML   =
-      (q.labTable && q.labTable.length) ? buildLabTable(q.labTable) : '';
+    document.getElementById('labTableWrap').innerHTML = (q.labTable && q.labTable.length) ? buildLabTable(q.labTable) : '';
   } else {
-    vigWrap.style.display = 'none';
-    qcard.classList.remove('has-vignette');
+    vigWrap.style.display = 'none'; qcard.classList.remove('has-vignette');
   }
 
   document.getElementById('questionText').textContent = q.question;
@@ -507,11 +431,10 @@ function render() {
   const container = document.getElementById('optionsContainer');
   container.innerHTML = '';
   dispOpts.forEach((opt, idx) => {
-    const dl  = letters[idx];
-    const div = document.createElement('div');
+    const dl = letters[idx], div = document.createElement('div');
     div.className = 'opt';
-    div.dataset.dispLetter = dl;
-    div.dataset.origLetter = opt.letter;
+    div.style.setProperty('--oi', idx);   /* stagger delay */
+    div.dataset.dispLetter = dl; div.dataset.origLetter = opt.letter;
     div.innerHTML = `<span class="letter">${dl}</span><span>${escHtml(opt.text)}</span>`;
     div.addEventListener('click', () => selectAnswer(dl));
     container.appendChild(div);
@@ -519,6 +442,12 @@ function render() {
 
   document.getElementById('expPanel').classList.remove('show');
   document.getElementById('btnNext').style.display = 'none';
+
+  /* q-entering animation on card */
+  qcard.classList.remove('q-entering');
+  void qcard.offsetWidth;
+  qcard.classList.add('q-entering');
+
   updateSeedBar();
 }
 
@@ -526,13 +455,10 @@ function render() {
 function selectAnswer(chosenDisp) {
   if (answered) return;
   answered = true;
-
-  const correctDisp = correctDisplayLetters[cur];
-  const ok          = chosenDisp === correctDisp;
+  const correctDisp = correctDisplayLetters[cur], ok = chosenDisp === correctDisp;
   if (ok) score++; else wrong++;
   userAnswers[cur] = chosenDisp;
-  updateCounters();
-  saveProgress();
+  updateCounters(); saveProgress();
 
   document.querySelectorAll('.opt').forEach(el => {
     el.classList.add('disabled');
@@ -542,41 +468,31 @@ function selectAnswer(chosenDisp) {
     else                        el.classList.add('neutral');
   });
 
-  const q        = questions[cur];
-  const dispOpts = optionMaps[cur];
-  const letters  = ['A','B','C','D','E'];
-
+  const q = questions[cur], dispOpts = optionMaps[cur], letters = ['A','B','C','D','E'];
   document.getElementById('expText').textContent = q.explanation ?? '';
 
   const srcEl = document.getElementById('expSource');
-  if (hasVal(q.source)) {
-    srcEl.textContent = `📚 Fonte: ${q.source}`; srcEl.style.display = '';
-  } else { srcEl.textContent = ''; srcEl.style.display = 'none'; }
+  if (hasVal(q.source)) { srcEl.textContent = `📚 Fonte: ${q.source}`; srcEl.style.display = ''; }
+  else                  { srcEl.textContent = ''; srcEl.style.display = 'none'; }
 
   const logicBox = document.getElementById('logicBox');
-  if (hasVal(q.logic)) {
-    document.getElementById('logicText').textContent = q.logic; logicBox.style.display = '';
-  } else { logicBox.style.display = 'none'; }
+  if (hasVal(q.logic)) { document.getElementById('logicText').textContent = q.logic; logicBox.style.display = ''; }
+  else                 { logicBox.style.display = 'none'; }
 
-  const origToDisp   = {};
+  const origToDisp = {};
   dispOpts.forEach((opt, idx) => { origToDisp[opt.letter] = letters[idx]; });
   const displayOrder = ['A','B','C','D','E'];
 
-  const distList = document.getElementById('distList');
+  const distList  = document.getElementById('distList');
   distList.innerHTML = '';
-
   const validDist = (q.distractors ?? [])
     .filter(d => d.letter !== q.correct && hasVal(d.text))
-    .sort((a, b) =>
-      displayOrder.indexOf(origToDisp[a.letter]) - displayOrder.indexOf(origToDisp[b.letter]));
+    .sort((a,b) => displayOrder.indexOf(origToDisp[a.letter]) - displayOrder.indexOf(origToDisp[b.letter]));
 
   validDist.forEach(d => {
-    const ml  = origToDisp[d.letter] ?? d.letter;
-    const div = document.createElement('div');
+    const ml = origToDisp[d.letter] ?? d.letter, div = document.createElement('div');
     div.className = 'dist-item';
-    div.innerHTML = `
-      <span class="dist-tag">${ml}) Incorrecta</span>
-      <p>${escHtml(d.text)}</p>
+    div.innerHTML = `<span class="dist-tag">${ml}) Incorrecta</span><p>${escHtml(d.text)}</p>
       ${hasVal(d.source) ? `<p class="dist-source">📚 ${escHtml(d.source)}</p>` : ''}`;
     distList.appendChild(div);
   });
@@ -587,8 +503,7 @@ function selectAnswer(chosenDisp) {
   const btn = document.getElementById('btnNext');
   btn.style.display = 'block';
   btn.textContent   = cur < questions.length - 1 ? 'Próxima →' : 'Ver Resultado';
-
-  setTimeout(() => { window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }, 120);
+  setTimeout(() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }), 120);
 }
 
 /* ─── Next / finish ───────────────────────── */
@@ -629,11 +544,9 @@ function showFinish() {
   document.getElementById('finWrongN').textContent   = wrong;
   document.getElementById('finMsg').textContent      = msgs[medal];
 
-  // Animate bar after paint
   const fill = document.getElementById('finBarFill');
   fill.style.width = '0%';
   setTimeout(() => { fill.style.width = pct + '%'; }, 150);
-
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -655,10 +568,8 @@ function showReview() {
   const letters = ['A','B','C','D','E'];
   const pct     = Math.round((score / questions.length) * 100);
 
-  // Build question map cells
   const mapCells = questions.map((q, i) => {
-    const chosen    = userAnswers[i];
-    const correctD  = correctDisplayLetters[i];
+    const chosen = userAnswers[i], correctD = correctDisplayLetters[i];
     const cls = chosen === null ? 'skipped' : chosen === correctD ? 'correct' : 'wrong';
     return `<button class="qmap-cell ${cls}"
       onclick="document.getElementById('rev-q-${i}').scrollIntoView({behavior:'smooth',block:'start'})"
@@ -694,12 +605,8 @@ function showReview() {
     </div>`;
 
   questions.forEach((q, i) => {
-    const dispOpts    = optionMaps[i];
-    const correctDisp = correctDisplayLetters[i];
-    const chosenDisp  = userAnswers[i];
-    const wasCorrect  = chosenDisp === correctDisp;
-    const wasSkipped  = chosenDisp === null;
-
+    const dispOpts = optionMaps[i], correctDisp = correctDisplayLetters[i], chosenDisp = userAnswers[i];
+    const wasCorrect = chosenDisp === correctDisp, wasSkipped = chosenDisp === null;
     const cardClass  = wasSkipped ? '' : wasCorrect ? 'was-correct' : 'was-wrong';
     const badgeClass = wasSkipped ? 'skipped' : wasCorrect ? 'correct' : 'wrong';
     const badgeText  = wasSkipped ? '— N/R' : wasCorrect ? '✓ Correcta' : '✗ Errada';
@@ -708,8 +615,7 @@ function showReview() {
     dispOpts.forEach((opt, idx) => { origToDisp[opt.letter] = letters[idx]; });
 
     const vigHtml = hasVal(q.vignette)
-      ? `<div class="review-vignette">${escHtml(q.vignette)}</div>
-         ${(q.labTable && q.labTable.length) ? buildLabTable(q.labTable) : ''}`
+      ? `<div class="review-vignette">${escHtml(q.vignette)}</div>${(q.labTable&&q.labTable.length)?buildLabTable(q.labTable):''}`
       : '';
 
     const optsHtml = dispOpts.map((opt, idx) => {
@@ -724,26 +630,22 @@ function showReview() {
     const displayOrder = ['A','B','C','D','E'];
     const validDist = (q.distractors ?? [])
       .filter(d => d.letter !== q.correct && hasVal(d.text))
-      .sort((a, b) => displayOrder.indexOf(origToDisp[a.letter]) - displayOrder.indexOf(origToDisp[b.letter]));
-
+      .sort((a,b) => displayOrder.indexOf(origToDisp[a.letter]) - displayOrder.indexOf(origToDisp[b.letter]));
     const distsHtml = validDist.map(d => {
       const ml = origToDisp[d.letter] ?? d.letter;
-      return `<div class="review-dist-item">
-        <span class="tag">${ml}) Incorrecta</span>
+      return `<div class="review-dist-item"><span class="tag">${ml}) Incorrecta</span>
         <p>${escHtml(d.text)}</p>
-        ${hasVal(d.source) ? `<p class="review-dist-source">📚 ${escHtml(d.source)}</p>` : ''}
+        ${hasVal(d.source)?`<p class="review-dist-source">📚 ${escHtml(d.source)}</p>`:''}
       </div>`;
     }).join('');
 
     const metaParts = [q.level, q.domain].filter(v => hasVal(v));
-    const metaStr   = metaParts.join(' · ');
-
     html += `
       <div class="review-card ${cardClass}" id="rev-q-${i}">
         <div class="review-card-header">
           <div class="review-card-num-wrap">
             <span class="review-q-idx">${String(i+1).padStart(2,'0')}</span>
-            ${metaStr ? `<span class="review-card-meta-text">${escHtml(metaStr)}</span>` : ''}
+            ${metaParts.length ? `<span class="review-card-meta-text">${escHtml(metaParts.join(' · '))}</span>` : ''}
           </div>
           <span class="review-result-badge ${badgeClass}">${badgeText}</span>
         </div>
@@ -756,25 +658,19 @@ function showReview() {
           <div class="review-exp-correct">
             <span class="tag">✓ Resposta Correcta</span>
             <p>${escHtml(q.explanation ?? '')}</p>
-            ${hasVal(q.source) ? `<p class="review-exp-source">📚 Fonte: ${escHtml(q.source)}</p>` : ''}
+            ${hasVal(q.source)?`<p class="review-exp-source">📚 Fonte: ${escHtml(q.source)}</p>`:''}
           </div>
-          ${hasVal(q.logic) ? `<div class="review-logic">
-            <span class="tag">Raciocínio</span>
-            <p>${escHtml(q.logic)}</p>
-          </div>` : ''}
-          ${distsHtml ? `<div class="review-dist-header">Por que não as outras?</div>
-            <div class="dist-list">${distsHtml}</div>` : ''}
+          ${hasVal(q.logic)?`<div class="review-logic"><span class="tag">Raciocínio</span><p>${escHtml(q.logic)}</p></div>`:''}
+          ${distsHtml?`<div class="review-dist-header">Por que não as outras?</div><div class="dist-list">${distsHtml}</div>`:''}
         </div>
       </div>`;
   });
 
   html += `<div style="text-align:center;padding:8px 0 24px">
-    <button class="btn-review-back" onclick="backToFinish()">← Voltar ao resultado</button>
-  </div>`;
+    <button class="btn-review-back" onclick="backToFinish()">← Voltar ao resultado</button></div>`;
 
   const rs = document.getElementById('reviewScreen');
-  rs.innerHTML = html;
-  rs.style.display = 'block';
+  rs.innerHTML = html; rs.style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 

@@ -209,17 +209,28 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 10px 32px rgba(21,72,232,.12), 0 2px 8px rgba(0,0,0,.05);
 }
 
-/* Subtle colour wash — defines the identity zone at the top */
+/* Diagonal colour gradient — identity zone at card top */
 .res-card-tint {
   position: absolute;
   top: 0; left: 0; right: 0; height: 90px;
-  background: var(--card-color, #1548E8);
-  opacity: .055;
+  background: linear-gradient(135deg, var(--card-color, #1548E8) 0%, transparent 100%);
+  opacity: .08;
   transition: opacity .2s;
   pointer-events: none;
   z-index: 0;
 }
-.res-card:hover .res-card-tint { opacity: .1; }
+.res-card:hover .res-card-tint { opacity: .13; }
+
+/* Dot-grid texture on the identity zone — same treatment as topbar */
+.res-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 90px;
+  background-image: radial-gradient(circle, rgba(255,255,255,.22) 1px, transparent 1px);
+  background-size: 14px 14px;
+  pointer-events: none;
+  z-index: 1;
+}
 
 /* Background watermark emoji — constrained to the tint zone */
 .res-card-motif {
@@ -379,9 +390,13 @@ a { color: inherit; text-decoration: none; }
 .prog-top  { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
 #progLabel { font-size: .72rem; color: var(--muted); font-weight: 500; white-space: nowrap; }
 #progPct   { font-size: .72rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
-.prog-bg   { background: var(--cerulean-light); border-radius: 99px; height: 5px; }
+.prog-bg   {
+  background: #B8D0EC;
+  border-radius: 99px; height: 7px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.09);
+}
 .prog-fill {
-  height: 5px; border-radius: 99px;
+  height: 7px; border-radius: 99px;
   background: var(--quiz-color, var(--cobalt));
   transition: width .45s cubic-bezier(.22,.68,0,1.2);
 }
@@ -484,7 +499,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .opt {
-  display: flex; align-items: flex-start; gap: 12px;
+  display: flex; align-items: center; gap: 12px;
   padding: 12px 15px; border: 1.5px solid var(--border); border-radius: 8px;
   cursor: pointer; font-size: .9rem; line-height: 1.52;
   background: var(--white); user-select: none; touch-action: manipulation; min-height: 48px;
@@ -511,7 +526,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--bg); border: 1.5px solid var(--border);
   color: var(--muted); font-weight: 700; font-size: .74rem;
   display: flex; align-items: center; justify-content: center;
-  margin-top: 1px; transition: background .14s, color .14s, border-color .14s;
+  transition: background .14s, color .14s, border-color .14s;
 }
 
 @keyframes pop-correct {
@@ -654,11 +669,27 @@ a { color: inherit; text-decoration: none; }
   display: none; max-width: 880px; margin: 0 auto;
   background: var(--white); border-radius: 12px 12px 10px 10px;
   border: 1px solid var(--border); overflow: hidden;
+  /* Outer glow — card floats in its quiz colour light */
+  box-shadow: 0 4px 60px var(--quiz-glow, rgba(21,72,232,.12));
 }
 
+/* White header with 3px top accent + radial spotlight glow */
 .finish-header {
-  background: var(--quiz-color, var(--cobalt));
-  padding: 36px 28px 32px; text-align: center;
+  background: var(--white);
+  border-top: 3px solid var(--quiz-color, var(--cobalt));
+  padding: 32px 28px 26px; text-align: center;
+  position: relative; overflow: hidden;
+}
+/* Radial glow from top-centre — the "faint glow" behind the medal */
+.finish-header::before {
+  content: '';
+  position: absolute;
+  top: -40px; left: 50%;
+  transform: translateX(-50%);
+  width: 340px; height: 240px;
+  background: radial-gradient(ellipse at center top, var(--quiz-color, var(--cobalt)) 0%, transparent 68%);
+  opacity: .08;
+  pointer-events: none;
 }
 
 @keyframes medal-drop {
@@ -670,27 +701,79 @@ a { color: inherit; text-decoration: none; }
   50%       { filter: drop-shadow(0 0 14px rgba(255,210,0,.45)); }
 }
 .fin-medal {
-  font-size: 3.4rem; line-height: 1; margin-bottom: 16px; display: block;
+  font-size: 3.2rem; line-height: 1; margin-bottom: 14px; display: block;
+  position: relative; z-index: 1;
   animation: medal-drop .5s cubic-bezier(.34,1.56,.64,1) .15s both,
              medal-glow 2.5s ease-in-out 1.5s infinite;
 }
+/* Score and title now on white — use quiz colour for emphasis */
+.finish-score   { font-size: 2.4rem; font-weight: 800; color: var(--quiz-color, var(--cobalt)); letter-spacing: -.04em; line-height: 1; margin-bottom: 6px; position: relative; z-index: 1; }
+.fin-title-text { font-size: .8rem; color: var(--muted); font-weight: 500; position: relative; z-index: 1; }
 
-.finish-score    { font-size: 2.8rem; font-weight: 800; color: rgba(255,255,255,.95); letter-spacing: -.04em; line-height: 1; margin-bottom: 8px; }
-.finish-pct      { font-size: .86rem; color: rgba(255,255,255,.65); font-weight: 500; margin-bottom: 10px; }
-.fin-title-text  { font-size: .82rem; color: rgba(255,255,255,.5); font-weight: 500; }
+.finish-body { padding: 24px 28px 32px; }
 
-.finish-body     { padding: 28px 28px 32px; }
+/* ── Ring graph ── */
+.fin-ring-wrap {
+  position: relative;
+  width: 156px; height: 156px;
+  margin: 0 auto 22px;
+}
+.fin-ring {
+  width: 100%; height: 100%;
+  transform: rotate(-90deg); /* start fill from 12-o'clock */
+}
+.fin-ring-bg {
+  fill: none;
+  stroke: var(--blue-100);
+  stroke-width: 10;
+}
+.fin-ring-fill {
+  fill: none;
+  stroke: var(--quiz-color, var(--cobalt));
+  stroke-width: 10;
+  stroke-linecap: round;
+  /* stroke-dasharray set by JS */
+  transition: stroke-dashoffset 1s cubic-bezier(.22,.68,0,1.2);
+}
+.fin-ring-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.fin-ring-pct {
+  font-size: 1.7rem; font-weight: 800;
+  color: var(--quiz-color, var(--cobalt));
+  line-height: 1; letter-spacing: -.03em;
+}
+.fin-ring-sub {
+  font-size: .6rem; color: var(--muted);
+  font-weight: 600; text-transform: uppercase;
+  letter-spacing: .07em; margin-top: 4px;
+}
+
 .fin-breakdown   { display: grid; grid-template-columns: 1fr 1px 1fr; background: var(--bg); border-radius: 10px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 16px; }
-.fin-bd-item     { padding: 22px 20px; display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center; }
+.fin-bd-item     { padding: 20px 20px; display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center; }
 .fin-bd-divider  { background: var(--border); }
-.fin-bd-num      { font-size: 2.6rem; font-weight: 800; line-height: 1; letter-spacing: -.04em; }
+.fin-bd-num      { font-size: 2.4rem; font-weight: 800; line-height: 1; letter-spacing: -.04em; }
 .fin-bd-num.green{ color: var(--green); }
 .fin-bd-num.red  { color: var(--red); }
 .fin-bd-label    { font-size: .65rem; text-transform: uppercase; letter-spacing: .09em; color: var(--muted); font-weight: 600; }
-.fin-bar-wrap    { height: 6px; background: var(--cerulean-light); border-radius: 99px; margin-bottom: 20px; overflow: hidden; }
-.fin-bar-fill    { height: 6px; border-radius: 99px; background: var(--quiz-color, var(--cobalt)); transition: width .9s cubic-bezier(.22,.68,0,1.2); }
 .finish-msg      { font-size: .88rem; color: var(--text-2); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; line-height: 1.65; }
 .finish-btns     { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+/* ── Quiz type tag classes ── */
+.tag-clinical  { background: #FFF0E8; color: #9A3412; }
+.tag-questions { background: #E4EDFF; color: var(--cobalt); }
+.tag-exam      { background: #F3E8FF; color: #6D28D9; }
+.tag-test      { background: #DCFCE7; color: #166534; }
+.tag-mcq       { background: #E0F2FE; color: #0369A1; }
+.tag-practical { background: #FEF3C7; color: #92400E; }
+.tag-mixed     { background: #F1F5F9; color: #374151; border: 1px solid var(--border); }
+
+/* ── Topbar wordmark ── */
+.logo-v { color: rgba(255,255,255,.72); font-weight: 500; }
+.logo-q { color: #fff; font-weight: 800; letter-spacing: -.02em; }
 
 .btn-primary {
   background: var(--quiz-color, var(--cobalt)); color: #fff; border: none;

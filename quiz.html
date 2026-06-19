@@ -14,7 +14,7 @@
 
 <nav class="topbar">
   <div class="topbar-logo">
-    🥼 Compilações de Exercícios
+    <span class="logo-v">Véspera</span><span class="logo-q">QUIZ</span>
     <span class="sep">|</span>
     <span class="sub">NOVA Medical School</span>
   </div>
@@ -101,10 +101,21 @@
     <div class="finish-header">
       <span class="fin-medal" id="finMedal">🥇</span>
       <div class="finish-score" id="finScore"></div>
-      <div class="finish-pct"   id="finPct"></div>
       <p class="fin-title-text" id="finTitle"></p>
     </div>
     <div class="finish-body">
+      <!-- Circular ring graph -->
+      <div class="fin-ring-wrap">
+        <svg class="fin-ring" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle class="fin-ring-bg"   cx="60" cy="60" r="46"/>
+          <circle class="fin-ring-fill" cx="60" cy="60" r="46" id="finRingFill"/>
+        </svg>
+        <div class="fin-ring-center">
+          <span class="fin-ring-pct" id="finPct">—</span>
+          <span class="fin-ring-sub">correctas</span>
+        </div>
+      </div>
+      <!-- Correct / Wrong breakdown -->
       <div class="fin-breakdown">
         <div class="fin-bd-item">
           <span class="fin-bd-num green" id="finCorrectN">0</span>
@@ -115,9 +126,6 @@
           <span class="fin-bd-num red" id="finWrongN">0</span>
           <span class="fin-bd-label">Erradas</span>
         </div>
-      </div>
-      <div class="fin-bar-wrap">
-        <div class="fin-bar-fill" id="finBarFill"></div>
       </div>
       <div class="finish-msg" id="finMsg"></div>
       <div class="finish-btns">
@@ -539,14 +547,19 @@ function showFinish() {
   document.getElementById('finMedal').textContent    = medal;
   document.getElementById('finTitle').textContent    = bank.meta?.title ?? 'Quiz Concluído';
   document.getElementById('finScore').textContent    = `${score} / ${questions.length}`;
-  document.getElementById('finPct').textContent      = `${pct}% de respostas correctas`;
   document.getElementById('finCorrectN').textContent = score;
   document.getElementById('finWrongN').textContent   = wrong;
   document.getElementById('finMsg').textContent      = msgs[medal];
 
-  const fill = document.getElementById('finBarFill');
-  fill.style.width = '0%';
-  setTimeout(() => { fill.style.width = pct + '%'; }, 150);
+  // Ring animation — circumference of r=46 circle
+  const C = 2 * Math.PI * 46; // ≈ 289
+  const ringFill = document.getElementById('finRingFill');
+  ringFill.style.strokeDasharray  = C;
+  ringFill.style.strokeDashoffset = C; // start empty
+  document.getElementById('finPct').textContent = `${pct}%`;
+  // Animate fill after paint
+  setTimeout(() => { ringFill.style.strokeDashoffset = C * (1 - pct / 100); }, 150);
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 

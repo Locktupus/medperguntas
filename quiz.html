@@ -7,7 +7,7 @@
   <title>Compilações de Exercícios</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -16,14 +16,19 @@
   <div class="topbar-logo">
     🥼 Compilações de Exercícios
     <span class="sep">|</span>
-    <span class="sub">Medicina</span>
+    <span class="sub">NOVA Medical School</span>
   </div>
   <a class="topbar-back" href="index.html">← Início</a>
 </nav>
 
+<!-- Progress bar with inline score counters -->
 <div class="prog-wrap">
   <div class="prog-top">
     <span id="progLabel">A carregar…</span>
+    <div class="prog-scores">
+      <span class="prog-score right" id="cntRight">✓ 0</span>
+      <span class="prog-score wrong"  id="cntWrong">✗ 0</span>
+    </div>
     <span id="progPct">0%</span>
   </div>
   <div class="prog-bg">
@@ -31,6 +36,7 @@
   </div>
 </div>
 
+<!-- Seed sync -->
 <div class="seed-wrap" id="seedWrap" style="display:none">
   <button class="btn-seed-toggle" id="seedToggle" onclick="toggleSeedPanel()">
     <i class="arrow">▾</i> Sincronizar com outra sessão
@@ -44,14 +50,13 @@
     <div class="seed-divider"></div>
     <div class="seed-group">
       <span class="seed-label">Entrar com seed:</span>
-      <input class="seed-input" id="seedInput" type="text"
-             placeholder="seed ou seed:questão" maxlength="25">
+      <input class="seed-input" id="seedInput" type="text" placeholder="seed ou seed:questão" maxlength="25">
       <button class="btn-seed-join" onclick="joinSeed()">Ir</button>
     </div>
   </div>
 </div>
 
-<div class="page" style="padding-top:14px; padding-bottom:20px;">
+<div class="page" style="padding-top:14px;padding-bottom:20px;">
 
   <!-- Quiz card -->
   <div class="qcard" id="qcard">
@@ -70,6 +75,7 @@
     </div>
 
     <div class="question-box">
+      <div class="q-label">Questão</div>
       <p id="questionText"></p>
     </div>
 
@@ -92,25 +98,35 @@
     </div>
   </div>
 
-  <!-- Bottom bar -->
+  <!-- Bottom bar — next button only -->
   <div class="bottom-bar">
-    <div class="score-counters">
-      <div class="score-counter right" id="cntRight">✓ 0</div>
-      <div class="score-counter wrong"  id="cntWrong">✗ 0</div>
-    </div>
     <button class="btn-next" id="btnNext" onclick="nextQuestion()">Próxima →</button>
   </div>
 
   <!-- Finish screen -->
   <div class="finish" id="finishScreen">
     <div class="finish-header">
-      <h2 id="finTitle">Quiz Concluído</h2>
-      <p id="finSubtitle"></p>
-    </div>
-    <div class="finish-body">
+      <span class="fin-medal" id="finMedal">🥇</span>
       <div class="finish-score" id="finScore"></div>
       <div class="finish-pct"   id="finPct"></div>
-      <div class="finish-msg"   id="finMsg"></div>
+      <p class="fin-title-text" id="finTitle"></p>
+    </div>
+    <div class="finish-body">
+      <div class="fin-breakdown">
+        <div class="fin-bd-item">
+          <span class="fin-bd-num green" id="finCorrectN">0</span>
+          <span class="fin-bd-label">Correctas</span>
+        </div>
+        <div class="fin-bd-divider"></div>
+        <div class="fin-bd-item">
+          <span class="fin-bd-num red" id="finWrongN">0</span>
+          <span class="fin-bd-label">Erradas</span>
+        </div>
+      </div>
+      <div class="fin-bar-wrap">
+        <div class="fin-bar-fill" id="finBarFill"></div>
+      </div>
+      <div class="finish-msg" id="finMsg"></div>
       <div class="finish-btns">
         <button class="btn-primary"   onclick="showReview()">🔍 Rever respostas</button>
         <button class="btn-secondary" onclick="restart()">↩ Recomeçar</button>
@@ -189,7 +205,7 @@ function showToast(msg) {
   _toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
 }
 
-/* ─── Colour helper ───────────────────────── */
+/* ─── Colour helpers ──────────────────────── */
 function shadeColor(hex, pct) {
   const n = parseInt(hex.replace('#',''), 16);
   const r = Math.min(255, Math.max(0, (n >> 16) + pct));
@@ -197,10 +213,15 @@ function shadeColor(hex, pct) {
   const b = Math.min(255, Math.max(0, (n & 0xff) + pct));
   return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
 }
+function hexToRgba(hex, alpha) {
+  const n = parseInt(hex.replace('#',''), 16);
+  return `rgba(${(n>>16)&0xff},${(n>>8)&0xff},${n&0xff},${alpha})`;
+}
 function applyThemeColor(hex) {
-  const c = hex || '#1955D6';
+  const c = hex || '#2361D4';
   document.documentElement.style.setProperty('--quiz-color',      c);
   document.documentElement.style.setProperty('--quiz-color-dark', shadeColor(c, -35));
+  document.documentElement.style.setProperty('--quiz-glow',       hexToRgba(c, 0.28));
 }
 
 /* ─── Counters ────────────────────────────── */
@@ -218,9 +239,9 @@ function updateSeedBar() {
   history.replaceState(null, '', '?' + params.toString());
 }
 function toggleSeedPanel() {
-  const panel = document.getElementById('seedPanel');
+  const panel  = document.getElementById('seedPanel');
   const toggle = document.getElementById('seedToggle');
-  const open = panel.classList.toggle('open');
+  const open   = panel.classList.toggle('open');
   toggle.classList.toggle('open', open);
 }
 function copyLink() {
@@ -304,7 +325,7 @@ async function boot() {
   if (!bank.questions || !Array.isArray(bank.questions) || !bank.questions.length) {
     showError('O ficheiro JSON não contém questões válidas.'); return;
   }
-  document.title = `Compilações — ${bank.meta?.title || 'Quiz'}`;
+  document.title = `${bank.meta?.title || 'Quiz'} — Compilações`;
   applyThemeColor(bank.meta?.color);
 
   const urlSeed = parseInt(params.get('seed'), 10);
@@ -325,28 +346,29 @@ async function boot() {
 /* ─── Resume prompt ───────────────────────── */
 function initSessionWithResume(saved) {
   const rng  = makePRNG(saved.seed >>> 0);
-  shuffle(bank.questions.map((_, i) => i), rng); // consume rng
+  shuffle(bank.questions.map((_, i) => i), rng); // consume rng state
   const total    = bank.questions.length;
   const done     = saved.cur;
   const pctDone  = Math.round((done / total) * 100);
   const pctRight = done > 0 ? Math.round((saved.score / done) * 100) : 0;
 
+  // Note: NO .qcard-header here — initSession uses #qNum to detect need to rebuild
   document.getElementById('qcard').innerHTML = `
-    <div class="qcard-header" style="background:var(--quiz-color, var(--blue))">
-      <span class="q-num" style="color:rgba(255,255,255,.75)">Sessão guardada</span>
+    <div style="background:var(--quiz-color,#2361D4);padding:15px 22px;">
+      <span style="font-size:.7rem;font-weight:600;color:rgba(255,255,255,.6)">Sessão guardada</span>
     </div>
-    <div style="padding:32px 24px;text-align:center;">
-      <p style="font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:8px">
+    <div style="padding:32px 24px 28px;text-align:center;">
+      <p style="font-size:.98rem;font-weight:700;color:var(--text);margin-bottom:8px;letter-spacing:-.01em">
         Tens uma sessão em curso
       </p>
-      <p style="font-size:.85rem;color:var(--muted);margin-bottom:6px;line-height:1.6">
+      <p style="font-size:.84rem;color:var(--muted);margin-bottom:6px;line-height:1.6">
         Questão <strong style="color:var(--text-2)">${done + 1} de ${total}</strong> &nbsp;·&nbsp;
-        <span style="color:var(--green);font-weight:600">✓ ${saved.score}</span>&nbsp;
-        <span style="color:var(--red);font-weight:600">✗ ${saved.wrong}</span>&nbsp;·&nbsp;
+        <span style="color:var(--green);font-weight:700">✓ ${saved.score}</span>&nbsp;
+        <span style="color:var(--red);font-weight:700">✗ ${saved.wrong}</span>&nbsp;·&nbsp;
         ${pctRight}% certas
       </p>
-      <div style="margin:0 0 22px;height:4px;background:var(--blue-100);border-radius:99px;overflow:hidden">
-        <div style="height:4px;width:${pctDone}%;background:var(--quiz-color,var(--blue));border-radius:99px"></div>
+      <div style="height:5px;background:var(--blue-100);border-radius:99px;overflow:hidden;margin:14px 0 22px">
+        <div style="height:5px;width:${pctDone}%;background:var(--quiz-color,#2361D4);border-radius:99px"></div>
       </div>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
         <button class="btn-primary" onclick="resumeSession(${JSON.stringify(saved).replace(/"/g,'&quot;')})">
@@ -361,6 +383,43 @@ function initSessionWithResume(saved) {
   document.getElementById('progPct').textContent   = pctDone + '%';
 }
 function resumeSession(saved) { initSession(saved.seed, saved.cur, saved.score, saved.wrong); }
+
+/* ─── The full qcard template ─────────────── */
+function qcardTemplate() {
+  return `
+    <div class="qcard-header">
+      <span class="q-num" id="qNum">–</span>
+      <div class="qcard-meta">
+        <span class="domain" id="qDomain"></span>
+        <span class="level-badge" id="qLevel"></span>
+      </div>
+    </div>
+    <div class="vignette-wrap" id="vignetteWrap" style="display:none">
+      <div class="section-label-inline">Vinheta Clínica</div>
+      <div class="vignette-text" id="vignetteText"></div>
+      <div id="labTableWrap"></div>
+    </div>
+    <div class="question-box">
+      <div class="q-label">Questão</div>
+      <p id="questionText"></p>
+    </div>
+    <div class="options" id="optionsContainer"></div>
+    <div class="exp-panel" id="expPanel">
+      <div class="exp-correct">
+        <div class="exp-tag">✓ Resposta Correcta</div>
+        <p id="expText"></p>
+        <p class="exp-source" id="expSource"></p>
+      </div>
+      <div class="logic-box" id="logicBox">
+        <div class="logic-tag">Raciocínio</div>
+        <p id="logicText"></p>
+      </div>
+      <div id="distSection">
+        <div class="dist-header">Por que não as outras opções?</div>
+        <div class="dist-list" id="distList"></div>
+      </div>
+    </div>`;
+}
 
 /* ─── Init session ────────────────────────── */
 function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
@@ -393,37 +452,9 @@ function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
   const qcard = document.getElementById('qcard');
   qcard.style.display = 'block';
 
-  if (!qcard.querySelector('.qcard-header')) {
-    qcard.innerHTML = `
-      <div class="qcard-header">
-        <span class="q-num" id="qNum">–</span>
-        <div class="qcard-meta">
-          <span class="domain" id="qDomain"></span>
-          <span class="level-badge" id="qLevel"></span>
-        </div>
-      </div>
-      <div class="vignette-wrap" id="vignetteWrap" style="display:none">
-        <div class="section-label-inline">Vinheta Clínica</div>
-        <div class="vignette-text" id="vignetteText"></div>
-        <div id="labTableWrap"></div>
-      </div>
-      <div class="question-box"><p id="questionText"></p></div>
-      <div class="options" id="optionsContainer"></div>
-      <div class="exp-panel" id="expPanel">
-        <div class="exp-correct">
-          <div class="exp-tag">✓ Resposta Correcta</div>
-          <p id="expText"></p>
-          <p class="exp-source" id="expSource"></p>
-        </div>
-        <div class="logic-box" id="logicBox">
-          <div class="logic-tag">Raciocínio</div>
-          <p id="logicText"></p>
-        </div>
-        <div id="distSection">
-          <div class="dist-header">Por que não as outras opções?</div>
-          <div class="dist-list" id="distList"></div>
-        </div>
-      </div>`;
+  // BUG FIX: check for #qNum (not .qcard-header) — resume prompt lacks #qNum
+  if (!qcard.querySelector('#qNum')) {
+    qcard.innerHTML = qcardTemplate();
   }
 
   document.getElementById('btnNext').style.display = 'none';
@@ -435,7 +466,7 @@ function initSession(forceSeed, startCur = 0, startScore = 0, startWrong = 0) {
 
 /* ─── Render ──────────────────────────────── */
 function render() {
-  const q       = questions[cur];
+  const q        = questions[cur];
   const dispOpts = optionMaps[cur];
   const letters  = ['A','B','C','D','E'];
   answered = false;
@@ -447,13 +478,11 @@ function render() {
 
   document.getElementById('qNum').textContent = `Q${cur + 1} / ${questions.length}`;
 
-  // Domain — hide if empty
   const domEl = document.getElementById('qDomain');
   const domV  = hasVal(q.domain) ? q.domain : '';
-  domEl.textContent    = domV;
-  domEl.style.display  = domV ? '' : 'none';
+  domEl.textContent   = domV;
+  domEl.style.display = domV ? '' : 'none';
 
-  // Level — hide if empty
   const lvlEl = document.getElementById('qLevel');
   const lvlV  = hasVal(q.level) ? q.level : '';
   lvlEl.textContent   = lvlV;
@@ -517,41 +546,29 @@ function selectAnswer(chosenDisp) {
   const dispOpts = optionMaps[cur];
   const letters  = ['A','B','C','D','E'];
 
-  // Explanation
   document.getElementById('expText').textContent = q.explanation ?? '';
 
-  // Source
   const srcEl = document.getElementById('expSource');
   if (hasVal(q.source)) {
-    srcEl.textContent   = `📚 Fonte: ${q.source}`;
-    srcEl.style.display = '';
-  } else {
-    srcEl.textContent   = '';
-    srcEl.style.display = 'none';
-  }
+    srcEl.textContent = `📚 Fonte: ${q.source}`; srcEl.style.display = '';
+  } else { srcEl.textContent = ''; srcEl.style.display = 'none'; }
 
-  // Logic box
   const logicBox = document.getElementById('logicBox');
   if (hasVal(q.logic)) {
-    document.getElementById('logicText').textContent = q.logic;
-    logicBox.style.display = '';
-  } else {
-    logicBox.style.display = 'none';
-  }
+    document.getElementById('logicText').textContent = q.logic; logicBox.style.display = '';
+  } else { logicBox.style.display = 'none'; }
 
-  // Distractors
-  const origToDisp  = {};
+  const origToDisp   = {};
   dispOpts.forEach((opt, idx) => { origToDisp[opt.letter] = letters[idx]; });
   const displayOrder = ['A','B','C','D','E'];
 
-  const distList  = document.getElementById('distList');
+  const distList = document.getElementById('distList');
   distList.innerHTML = '';
 
   const validDist = (q.distractors ?? [])
     .filter(d => d.letter !== q.correct && hasVal(d.text))
     .sort((a, b) =>
-      displayOrder.indexOf(origToDisp[a.letter]) -
-      displayOrder.indexOf(origToDisp[b.letter]));
+      displayOrder.indexOf(origToDisp[a.letter]) - displayOrder.indexOf(origToDisp[b.letter]));
 
   validDist.forEach(d => {
     const ml  = origToDisp[d.letter] ?? d.letter;
@@ -592,19 +609,31 @@ function showFinish() {
   document.getElementById('progFill').style.width       = '100%';
   document.getElementById('progPct').textContent        = '100%';
   document.getElementById('progLabel').textContent      = `${questions.length} de ${questions.length} questões`;
+  updateCounters();
 
-  const pct = Math.round((score / questions.length) * 100);
-  let msg = pct >= 85
-    ? '🏆 Excelente! Domínio sólido do tema. Estás pronto para o exame.'
-    : pct >= 65
-      ? '👍 Bom resultado! Revê os casos onde erraste, focando nos distratores.'
-      : '📖 Continua a estudar — volta ao material e refaz os casos.';
+  const pct   = Math.round((score / questions.length) * 100);
+  const medal = pct === 100 ? '🏆' : pct >= 85 ? '🥇' : pct >= 70 ? '🥈' : pct >= 55 ? '🥉' : '📖';
+  const msgs  = {
+    '🏆': 'Perfeição absoluta! Domínio total do tema.',
+    '🥇': 'Excelente! Estás muito bem preparado para o exame.',
+    '🥈': 'Muito bom! Revê os erros para consolidar o conhecimento.',
+    '🥉': 'Razoável. Foca-te nos pontos mais fracos antes do exame.',
+    '📖': 'Há trabalho pela frente. Revê o material e tenta novamente.'
+  };
 
+  document.getElementById('finMedal').textContent    = medal;
   document.getElementById('finTitle').textContent    = bank.meta?.title ?? 'Quiz Concluído';
-  document.getElementById('finSubtitle').textContent = bank.meta?.subtitle ?? '';
   document.getElementById('finScore').textContent    = `${score} / ${questions.length}`;
   document.getElementById('finPct').textContent      = `${pct}% de respostas correctas`;
-  document.getElementById('finMsg').textContent      = msg;
+  document.getElementById('finCorrectN').textContent = score;
+  document.getElementById('finWrongN').textContent   = wrong;
+  document.getElementById('finMsg').textContent      = msgs[medal];
+
+  // Animate bar after paint
+  const fill = document.getElementById('finBarFill');
+  fill.style.width = '0%';
+  setTimeout(() => { fill.style.width = pct + '%'; }, 150);
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -626,13 +655,36 @@ function showReview() {
   const letters = ['A','B','C','D','E'];
   const pct     = Math.round((score / questions.length) * 100);
 
+  // Build question map cells
+  const mapCells = questions.map((q, i) => {
+    const chosen    = userAnswers[i];
+    const correctD  = correctDisplayLetters[i];
+    const cls = chosen === null ? 'skipped' : chosen === correctD ? 'correct' : 'wrong';
+    return `<button class="qmap-cell ${cls}"
+      onclick="document.getElementById('rev-q-${i}').scrollIntoView({behavior:'smooth',block:'start'})"
+      title="Questão ${i+1}">${i+1}</button>`;
+  }).join('');
+
   let html = `
     <div class="review-topbar">
       <div>
-        <div class="review-title">🔍 Revisão de respostas</div>
+        <div class="review-title">Revisão de Respostas</div>
         <div class="review-subtitle">${escHtml(bank.meta?.title ?? '')}</div>
       </div>
       <button class="btn-review-back" onclick="backToFinish()">← Resultado</button>
+    </div>
+    <div class="qmap-outer">
+      <div class="qmap-inner">
+        <div class="qmap-header">
+          <span class="qmap-title">Mapa de questões</span>
+          <div class="qmap-legend">
+            <span class="qmap-dot green">Correcta</span>
+            <span class="qmap-dot red">Errada</span>
+            <span class="qmap-dot gray">N/R</span>
+          </div>
+        </div>
+        <div class="qmap-grid">${mapCells}</div>
+      </div>
     </div>
     <div class="review-summary">
       <div class="review-summary-pill">${questions.length} questões</div>
@@ -650,7 +702,7 @@ function showReview() {
 
     const cardClass  = wasSkipped ? '' : wasCorrect ? 'was-correct' : 'was-wrong';
     const badgeClass = wasSkipped ? 'skipped' : wasCorrect ? 'correct' : 'wrong';
-    const badgeText  = wasSkipped ? '— Não respondida' : wasCorrect ? '✓ Correcta' : '✗ Errada';
+    const badgeText  = wasSkipped ? '— N/R' : wasCorrect ? '✓ Correcta' : '✗ Errada';
 
     const origToDisp = {};
     dispOpts.forEach((opt, idx) => { origToDisp[opt.letter] = letters[idx]; });
@@ -670,10 +722,9 @@ function showReview() {
     }).join('');
 
     const displayOrder = ['A','B','C','D','E'];
-    const validDist    = (q.distractors ?? [])
+    const validDist = (q.distractors ?? [])
       .filter(d => d.letter !== q.correct && hasVal(d.text))
-      .sort((a, b) =>
-        displayOrder.indexOf(origToDisp[a.letter]) - displayOrder.indexOf(origToDisp[b.letter]));
+      .sort((a, b) => displayOrder.indexOf(origToDisp[a.letter]) - displayOrder.indexOf(origToDisp[b.letter]));
 
     const distsHtml = validDist.map(d => {
       const ml = origToDisp[d.letter] ?? d.letter;
@@ -685,12 +736,15 @@ function showReview() {
     }).join('');
 
     const metaParts = [q.level, q.domain].filter(v => hasVal(v));
-    const metaStr   = metaParts.length ? ' · ' + metaParts.join(' · ') : '';
+    const metaStr   = metaParts.join(' · ');
 
     html += `
-      <div class="review-card ${cardClass}">
+      <div class="review-card ${cardClass}" id="rev-q-${i}">
         <div class="review-card-header">
-          <span class="review-card-num">Questão ${i + 1} de ${questions.length}${escHtml(metaStr)}</span>
+          <div class="review-card-num-wrap">
+            <span class="review-q-idx">${String(i+1).padStart(2,'0')}</span>
+            ${metaStr ? `<span class="review-card-meta-text">${escHtml(metaStr)}</span>` : ''}
+          </div>
           <span class="review-result-badge ${badgeClass}">${badgeText}</span>
         </div>
         <div class="review-card-body">
@@ -708,7 +762,8 @@ function showReview() {
             <span class="tag">Raciocínio</span>
             <p>${escHtml(q.logic)}</p>
           </div>` : ''}
-          ${distsHtml ? `<div class="review-dist-header">Por que não as outras?</div>${distsHtml}` : ''}
+          ${distsHtml ? `<div class="review-dist-header">Por que não as outras?</div>
+            <div class="dist-list">${distsHtml}</div>` : ''}
         </div>
       </div>`;
   });

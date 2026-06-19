@@ -126,8 +126,10 @@ function buildResCard({ color, label, labelColor, icon, title, subtitle,
       <span class="res-card-motif" aria-hidden="true">${icon}</span>
       <div class="res-card-banner" style="background:${color}"></div>
       <div class="res-card-body">
-        <div class="res-card-label" style="color:${labelColor || color}">${label}</div>
-        <div class="res-card-icon">${icon}</div>
+        <div class="res-card-label">
+          <span class="res-card-icon">${icon}</span>
+          <span style="color:${labelColor || color}">${label}</span>
+        </div>
         <div class="res-card-title">${title}</div>
         <div class="res-card-sub">${subtitle}</div>
         <div class="res-card-bottom">

@@ -1,35 +1,50 @@
-[
-  {
-    "id": "renal_casos_clinicos",
-    "file": "renal_casos_clinicos.json",
-    "title": "Fisiologia Renal — Casos Clínicos",
-    "subtitle": "Costanzo Fisiologia, Cap. 6 · 20 questões",
-    "icon": "🫘",
-    "type": "clinical",
-    "questionCount": 20,
-    "levels": ["L1", "L2", "L3"],
-    "color": "#780000"
+{
+  "_comment": "VésperaQUIZ — ficheiro de índice. Edita 'quizzes' para adicionar/remover quizzes. Os tipos disponíveis estão documentados em '_types'.",
+
+  "_types": {
+    "clinical":   { "label": "Casos Clínicos",  "color": "#9A3412", "description": "Casos clínicos com vinheta, análise laboratorial e raciocínio diagnóstico." },
+    "questions":  { "label": "Questões",          "color": "#1548E8", "description": "Banco de questões teóricas gerais de uma disciplina." },
+    "exam":       { "label": "Exames",            "color": "#6D28D9", "description": "Questões retiradas de exames de anos anteriores." },
+    "test":       { "label": "Testes",            "color": "#166534", "description": "Questões de testes de avaliação contínua." },
+    "mcq":        { "label": "Escolha Múltipla",  "color": "#0369A1", "description": "Questões de escolha múltipla sem vinheta clínica." },
+    "practical":  { "label": "Casos Práticos",    "color": "#92400E", "description": "Casos práticos de aplicação clínica ou laboratorial." },
+    "mixed":      { "label": "Banco Misto",       "color": "#374151", "description": "Mistura de diferentes tipos de questões de uma ou mais disciplinas." },
+    "general":    { "label": "Banco Geral",       "color": "#475569", "description": "(Legado) Banco geral de questões." }
   },
-  {
-    "id": "bn_exame23_24_exame25",
-    "file": "BioqNutricional_QuizBank.json",
-    "title": "Bioquímica Nutricional — Exames 1ª Fase",
-    "subtitle": "Compilação 2022/2023 e 2023/2024 - Adaptados e da Drive Principal (Pode Conter Erros!)",
-    "icon": "🧪",
-    "type": "general",
-    "questionCount": 66,
-    "levels": ["L1", "L2", "L3"],
-    "color": "#4a8f3f"
-  },
-  {
-    "id": "examehisto",
-    "file": "perguntasexamehisto.json",
-    "title": "Histologia e Embriologia - Exames Compilados",
-    "subtitle": "1ª Fase 2022/2023 | 2ª Fase 2022/2023 | 1ª Fase 2023/2024 - Adaptados e da Drive Principal (Pode Conter Erros!)",
-    "icon": "🧫",
-    "type": "general",
-    "questionCount": 96,
-    "levels": ["L1", "L2", "L3"],
-    "color": "#910d39"
-  }
-]
+
+  "quizzes": [
+    {
+      "id": "renal_casos_clinicos",
+      "file": "renal_casos_clinicos.json",
+      "title": "Fisiologia Renal — Casos Clínicos",
+      "subtitle": "Costanzo Fisiologia, Cap. 6 · 20 questões",
+      "icon": "🫘",
+      "type": "clinical",
+      "questionCount": 20,
+      "levels": ["L1", "L2", "L3"],
+      "color": "#780000"
+    },
+    {
+      "id": "bn_exame23_24_exame25",
+      "file": "BioqNutricional_QuizBank.json",
+      "title": "Bioquímica Nutricional — Exames 1ª Fase",
+      "subtitle": "Compilação 2022/2023 e 2023/2024 — Adaptados e da Drive Principal",
+      "icon": "🧪",
+      "type": "exam",
+      "questionCount": 66,
+      "levels": ["L1", "L2", "L3"],
+      "color": "#4a8f3f"
+    },
+    {
+      "id": "examehisto",
+      "file": "perguntasexamehisto.json",
+      "title": "Histologia e Embriologia — Exames Compilados",
+      "subtitle": "1ª Fase 22/23 · 2ª Fase 22/23 · 1ª Fase 23/24 — Adaptados e da Drive Principal",
+      "icon": "🧫",
+      "type": "exam",
+      "questionCount": 96,
+      "levels": ["L1", "L2", "L3"],
+      "color": "#910d39"
+    }
+  ]
+}

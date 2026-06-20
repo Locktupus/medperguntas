@@ -621,15 +621,15 @@ a { color: inherit; text-decoration: none; }
 
 /* ── Action buttons (in right island) ── */
 .btn-next {
-  display: none; height: 50px; min-width: 90px;
+  display: none; width: 100%; height: 100%; min-width: 90px;
   background: var(--quiz-color, var(--cobalt));
-  color: #fff; border: none; border-radius: 8px;
-  padding: 0 18px; font-size: .82rem; font-weight: 700;
+  color: #fff; border: none; border-radius: 10px;
+  padding: 0 20px; font-size: .86rem; font-weight: 700;
   font-family: inherit; cursor: pointer; white-space: nowrap;
   transition: filter .13s, box-shadow .14s;
   touch-action: manipulation;
 }
-.btn-next:hover { filter: brightness(1.1); box-shadow: 0 3px 10px var(--quiz-glow, rgba(21,72,232,.28)); }
+.btn-next:hover { filter: brightness(1.1); box-shadow: 0 3px 12px var(--quiz-glow, rgba(21,72,232,.3)); }
 .btn-next:active { filter: brightness(.95); }
 
 /* ══════════════════════════════════════
@@ -946,40 +946,39 @@ a { color: inherit; text-decoration: none; }
   display: flex; gap: 8px; align-items: stretch;
 }
 
-/* ── Left island: mini map + expand ── */
+/* ── Left island: single row — arrows + strip + expand all in one line ── */
 .qnav-left-island {
   flex: 1; min-width: 0;
   background: var(--white); border: 1px solid var(--border);
-  border-radius: 10px; padding: 8px 10px 8px;
-  display: flex; flex-direction: column; gap: 6px;
+  border-radius: 10px; padding: 7px 10px;
+  display: flex; align-items: center; gap: 6px;
 }
 
-.qnav-map-row {
-  display: flex; align-items: center; gap: 5px;
-}
-
-/* Gradient fade on the edges of the strip */
+/* Gradient fade — opacity-controlled so they only show when there are more cells */
 .qnav-strip-wrap {
   flex: 1; min-width: 0; position: relative; overflow: hidden;
 }
 .qnav-strip-wrap::before,
 .qnav-strip-wrap::after {
   content: ''; position: absolute; top: 0; bottom: 0;
-  width: 22px; z-index: 2; pointer-events: none;
+  width: 24px; z-index: 2; pointer-events: none;
+  opacity: 0; transition: opacity .2s ease;
 }
-.qnav-strip-wrap::before { left:  0; background: linear-gradient(to right, var(--white) 0%, transparent 100%); }
-.qnav-strip-wrap::after  { right: 0; background: linear-gradient(to left,  var(--white) 0%, transparent 100%); }
+.qnav-strip-wrap::before { left:  0; background: linear-gradient(to right, var(--white) 10%, transparent 100%); }
+.qnav-strip-wrap::after  { right: 0; background: linear-gradient(to left,  var(--white) 10%, transparent 100%); }
+/* JS adds these classes when there are cells beyond the visible window */
+.qnav-strip-wrap.fade-left::before  { opacity: 1; }
+.qnav-strip-wrap.fade-right::after  { opacity: 1; }
 
 .qnav-strip {
   display: flex; align-items: center; justify-content: center; gap: 4px;
 }
 
-/* Expand button — full width inside left island */
+/* Expand button — compact inline pill, no full width */
 .qnav-expand-btn {
-  display: flex; align-items: center; justify-content: center; gap: 5px;
-  width: 100%;
-  background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
-  height: 26px; padding: 0;
+  display: flex; align-items: center; gap: 5px; flex-shrink: 0;
+  background: none; border: 1px solid var(--border); border-radius: 6px;
+  padding: 4px 9px; height: 28px;
   font-size: .68rem; font-weight: 600; font-family: inherit;
   color: var(--muted); cursor: pointer; white-space: nowrap;
   transition: color .13s, border-color .13s, background .13s; touch-action: manipulation;
@@ -993,12 +992,10 @@ a { color: inherit; text-decoration: none; }
 .qnav-chev { display: inline-block; transition: transform .2s ease; font-size: .6rem; line-height: 1; }
 .qnav-expand-btn.active .qnav-chev { transform: rotate(180deg); }
 
-/* ── Right island: action button ── */
+/* ── Right island: transparent — just the button, no box ── */
 .qnav-right-island {
-  flex-shrink: 0;
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 10px; padding: 8px 10px;
-  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; align-self: stretch;
+  display: flex; align-items: stretch;
 }
 
 /* ── Arrows — use quiz accent color ── */
@@ -1062,25 +1059,32 @@ a { color: inherit; text-decoration: none; }
 }
 .qnav-cell.qnav-correct        { background: var(--green);   border-color: var(--green);   color: #fff; }
 .qnav-cell.qnav-wrong          { background: var(--red);     border-color: var(--red);     color: #fff; }
-.qnav-cell.qnav-skipped        { background: #EDF0F7; border-color: #BCC4D8; color: #8898BE; }
-.qnav-cell.qnav-untouched      { background: var(--bg); border-color: var(--border); color: var(--muted-light); }
+/* Skipped (visited, not answered) — now uses the subtle neutral style */
+.qnav-cell.qnav-skipped        { background: var(--bg); border-color: var(--border); color: var(--muted-light); }
+/* Untouched (never visited) — slight blue dashed to suggest "available ahead" */
+.qnav-cell.qnav-untouched      { background: var(--blue-50); border: 1.5px dashed var(--cerulean-mid); color: var(--cerulean); }
 /* Unclassifiable — light rose, clearly different from wrong red */
 .qnav-cell.qnav-unclassifiable { background: #FFF0F0; border-color: #FFB5B5; color: #E57373; }
 
-/* ── Action buttons (in right island) ── */
+/* ── Action buttons — fill right island height, quiz-color hover ── */
 .btn-skip {
-  display: none; height: 50px; min-width: 80px;
+  display: none; width: 100%; height: 100%;
   background: var(--white); color: var(--muted);
-  border: 1.5px solid var(--border); border-radius: 8px;
-  padding: 0 16px; font-size: .82rem; font-weight: 600;
-  font-family: inherit; cursor: pointer; white-space: nowrap;
-  transition: border-color .13s, color .13s, filter .13s; touch-action: manipulation;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 0 20px; font-size: .86rem; font-weight: 600;
+  font-family: inherit; cursor: pointer; white-space: nowrap; min-width: 90px;
+  transition: border-color .13s, color .13s, box-shadow .14s, filter .13s;
+  touch-action: manipulation;
 }
-.btn-skip:hover { border-color: var(--cerulean); color: var(--cerulean); }
+.btn-skip:hover {
+  border-color: var(--quiz-color, var(--cobalt));
+  color: var(--quiz-color, var(--cobalt));
+  box-shadow: 0 2px 10px var(--quiz-glow, rgba(21,72,232,.18));
+}
 .btn-skip.btn-skip-last {
   background: var(--quiz-color, var(--cobalt)); color: #fff; border-color: transparent;
 }
-.btn-skip.btn-skip-last:hover { filter: brightness(1.1); }
+.btn-skip.btn-skip-last:hover { filter: brightness(1.1); box-shadow: 0 3px 12px var(--quiz-glow, rgba(21,72,232,.3)); }
 
 /* ══════════════════════════════════════
    FINISH CONFIRM DIALOG

@@ -99,13 +99,22 @@
   <!-- Navigation — two islands below quiz card -->
   <div class="qnav-area" id="qnavArea">
     <div class="qnav-islands">
-      <!-- Left island: single row — ← strip → expand -->
+      <!-- Left island: single row — ← strip → | Expandir -->
       <div class="qnav-left-island">
-        <button class="qnav-arrow-btn" id="qnavPrev" onclick="navPrev()" aria-label="Questão anterior">←</button>
+        <button class="qnav-arrow-btn" id="qnavPrev" onclick="navPrev()" aria-label="Questão anterior">
+          <svg width="7" height="13" viewBox="0 0 7 13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 1L1 6.5L6 12"/>
+          </svg>
+        </button>
         <div class="qnav-strip-wrap" id="qnavStripWrap">
           <div class="qnav-strip" id="qnavStrip"></div>
         </div>
-        <button class="qnav-arrow-btn" id="qnavNext" onclick="navNext()" aria-label="Próxima questão">→</button>
+        <button class="qnav-arrow-btn" id="qnavNext" onclick="navNext()" aria-label="Próxima questão">
+          <svg width="7" height="13" viewBox="0 0 7 13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 1l5 5.5-5 5.5"/>
+          </svg>
+        </button>
+        <span class="qnav-island-sep"></span>
         <button class="qnav-expand-btn" id="qnavExpandBtn" onclick="toggleNavMap()">
           <svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="0" y="0" width="5" height="5" rx="1"/>

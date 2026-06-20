@@ -99,15 +99,13 @@
   <!-- Navigation — two islands below quiz card -->
   <div class="qnav-area" id="qnavArea">
     <div class="qnav-islands">
-      <!-- Left island: mini map + expand -->
+      <!-- Left island: single row — ← strip → expand -->
       <div class="qnav-left-island">
-        <div class="qnav-map-row">
-          <button class="qnav-arrow-btn" id="qnavPrev" onclick="navPrev()" aria-label="Questão anterior">←</button>
-          <div class="qnav-strip-wrap">
-            <div class="qnav-strip" id="qnavStrip"></div>
-          </div>
-          <button class="qnav-arrow-btn" id="qnavNext" onclick="navNext()" aria-label="Próxima questão">→</button>
+        <button class="qnav-arrow-btn" id="qnavPrev" onclick="navPrev()" aria-label="Questão anterior">←</button>
+        <div class="qnav-strip-wrap" id="qnavStripWrap">
+          <div class="qnav-strip" id="qnavStrip"></div>
         </div>
+        <button class="qnav-arrow-btn" id="qnavNext" onclick="navNext()" aria-label="Próxima questão">→</button>
         <button class="qnav-expand-btn" id="qnavExpandBtn" onclick="toggleNavMap()">
           <svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="0" y="0" width="5" height="5" rx="1"/>
@@ -115,7 +113,7 @@
             <rect x="0" y="7" width="5" height="5" rx="1"/>
             <rect x="7" y="7" width="5" height="5" rx="1"/>
           </svg>
-          Mapa <span class="qnav-chev" id="qnavChev">▾</span>
+          Expandir Questões <span class="qnav-chev" id="qnavChev">▾</span>
         </button>
       </div>
       <!-- Right island: action button -->
@@ -300,6 +298,8 @@ function updateNavStrip(){
   for(let i=start;i<=end;i++){const idx=i;strip.appendChild(buildCell(idx,()=>navigateTo(idx)));}
   document.getElementById('qnavPrev').disabled=(cur===0);
   document.getElementById('qnavNext').disabled=(cur===total-1);
+  const wrap=document.getElementById('qnavStripWrap');
+  if(wrap){wrap.classList.toggle('fade-left',start>0);wrap.classList.toggle('fade-right',end<total-1);}
   if(document.getElementById('qnavFull').classList.contains('open')) updateFullMap();
   updateBottomBar();
 }
@@ -313,7 +313,10 @@ function toggleNavMap(){
   const full=document.getElementById('qnavFull'), btn=document.getElementById('qnavExpandBtn'), chev=document.getElementById('qnavChev');
   const isOpen=full.classList.toggle('open');
   btn.classList.toggle('active',isOpen); chev.style.transform=isOpen?'rotate(180deg)':'';
-  if(isOpen) updateFullMap();
+  if(isOpen){
+    updateFullMap();
+    setTimeout(()=>full.scrollIntoView({behavior:'smooth',block:'nearest'}),180);
+  }
 }
 
 function closeNavMap(){

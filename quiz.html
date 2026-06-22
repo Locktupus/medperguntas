@@ -298,33 +298,46 @@ function buildCell(i,clickFn){
 }
 
 function updateNavStrip(){
-  const total=questions.length;
-  const strip=document.getElementById('qnavStrip');
-  const wrap=document.getElementById('qnavStripWrap');
-  strip.innerHTML='';
+  const total = questions.length;
+  const strip = document.getElementById('qnavStrip');
+  const wrap  = document.getElementById('qnavStripWrap');
+  strip.innerHTML = '';
 
-  // Dynamically fill the strip — compute how many 32px cells fit
-  const wrapW = wrap ? (wrap.offsetWidth || 200) : 200;
-  const cellW  = 32; // 28px cell + 4px gap ≈ 32px each
-  const maxCells = Math.max(3, Math.floor(wrapW / cellW));
-  const half     = Math.floor(maxCells / 2);
+  // How many real cells to show on each side of the current question
+  const wrapW     = wrap ? (wrap.offsetWidth || 200) : 200;
+  const cellW     = 32;  // 28px cell + 4px gap
+  const sideCount = Math.max(2, Math.floor((wrapW / cellW - 1) / 2));
 
-  let start = Math.max(0, cur - half);
-  let end   = Math.min(total - 1, start + maxCells - 1);
-  // Shift start back if we hit the right boundary
-  if (end === total - 1) start = Math.max(0, total - maxCells);
+  const leftCells  = Math.min(cur, sideCount);
+  const rightCells = Math.min(total - 1 - cur, sideCount);
+  const start = cur - leftCells;
+  const end   = cur + rightCells;
 
-  for(let i=start;i<=end;i++){const idx=i;strip.appendChild(buildCell(idx,()=>navigateTo(idx)));}
-  document.getElementById('qnavPrev').disabled=(cur===0);
-  document.getElementById('qnavNext').disabled=(cur===total-1);
+  // Invisible spacers keep the current cell anchored to the centre at all times,
+  // including when there aren't enough questions on one side (first / last question).
+  const spacer = () => {
+    const sp = document.createElement('div');
+    sp.style.cssText = 'width:28px;height:28px;flex-shrink:0;visibility:hidden;pointer-events:none';
+    strip.appendChild(sp);
+  };
 
-  // Show gradient fades only when there are cells hidden beyond the window
-  if(wrap){
+  for (let s = 0; s < sideCount - leftCells; s++) spacer();   // pad left
+  for (let i = start; i <= end; i++) {
+    const idx = i;
+    strip.appendChild(buildCell(idx, () => navigateTo(idx)));
+  }
+  for (let s = 0; s < sideCount - rightCells; s++) spacer();  // pad right
+
+  document.getElementById('qnavPrev').disabled = (cur === 0);
+  document.getElementById('qnavNext').disabled = (cur === total - 1);
+
+  // Gradient fades only when real cells are hidden beyond the visible window
+  if (wrap) {
     wrap.classList.toggle('fade-left',  start > 0);
     wrap.classList.toggle('fade-right', end   < total - 1);
   }
 
-  if(document.getElementById('qnavFull').classList.contains('open')) updateFullMap();
+  if (document.getElementById('qnavFull').classList.contains('open')) updateFullMap();
   updateBottomBar();
 }
 

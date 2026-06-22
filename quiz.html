@@ -122,10 +122,10 @@
             <rect x="0" y="7" width="5" height="5" rx="1"/>
             <rect x="7" y="7" width="5" height="5" rx="1"/>
           </svg>
-          Expandir Questões <span class="qnav-chev" id="qnavChev">▾</span>
+          <span class="qnav-expand-text">Expandir Questões</span> <span class="qnav-chev" id="qnavChev">▾</span>
         </button>
       </div>
-      <!-- Right island: action button -->
+      <!-- Right island: action button — no box, just button -->
       <div class="qnav-right-island">
         <button class="btn-skip" id="btnSkip" onclick="navSkip()">Saltar</button>
         <button class="btn-next" id="btnNext" onclick="nextQuestion()">Próxima →</button>
@@ -300,18 +300,40 @@ function buildCell(i,clickFn){
 function updateNavStrip(){
   const total=questions.length;
   const strip=document.getElementById('qnavStrip');
+  const wrap=document.getElementById('qnavStripWrap');
   strip.innerHTML='';
-  const half=2;
-  let start=Math.max(0,cur-half), end=Math.min(total-1,cur+half);
-  if(end-start<Math.min(4,total-1)){if(start===0)end=Math.min(total-1,4);else start=Math.max(0,end-4);}
+
+  // Dynamically fill the strip — compute how many 32px cells fit
+  const wrapW = wrap ? (wrap.offsetWidth || 200) : 200;
+  const cellW  = 32; // 28px cell + 4px gap ≈ 32px each
+  const maxCells = Math.max(3, Math.floor(wrapW / cellW));
+  const half     = Math.floor(maxCells / 2);
+
+  let start = Math.max(0, cur - half);
+  let end   = Math.min(total - 1, start + maxCells - 1);
+  // Shift start back if we hit the right boundary
+  if (end === total - 1) start = Math.max(0, total - maxCells);
+
   for(let i=start;i<=end;i++){const idx=i;strip.appendChild(buildCell(idx,()=>navigateTo(idx)));}
   document.getElementById('qnavPrev').disabled=(cur===0);
   document.getElementById('qnavNext').disabled=(cur===total-1);
-  const wrap=document.getElementById('qnavStripWrap');
-  if(wrap){wrap.classList.toggle('fade-left',start>0);wrap.classList.toggle('fade-right',end<total-1);}
+
+  // Show gradient fades only when there are cells hidden beyond the window
+  if(wrap){
+    wrap.classList.toggle('fade-left',  start > 0);
+    wrap.classList.toggle('fade-right', end   < total - 1);
+  }
+
   if(document.getElementById('qnavFull').classList.contains('open')) updateFullMap();
   updateBottomBar();
 }
+
+// Recompute strip on resize so it always fills available width
+let _resizeTimer;
+window.addEventListener('resize', ()=>{
+  clearTimeout(_resizeTimer);
+  _resizeTimer = setTimeout(()=>{ if(questions.length) updateNavStrip(); }, 120);
+});
 
 function updateFullMap(){
   const grid=document.getElementById('qnavFullGrid'); grid.innerHTML='';

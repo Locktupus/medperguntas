@@ -26,12 +26,12 @@
     },
     {
       "id": "bn_exame23_24_exame25",
-      "file": "BioqNutricional_QuizBank.json",
-      "title": "Bioquímica Nutricional — Exames 1ª Fase",
-      "subtitle": "Compilação 2022/2023 e 2023/2024 — Adaptados e da Drive Principal",
-      "icon": "🧪",
-      "type": "exam",
-      "questionCount": 66,
+      "file": "compilacaobnluisapinto2.json",
+      "title": "Bioquímica Nutricional — Compilação Luisa Pinto",
+      "subtitle": "Compilação criada por Luisa Pinto, Adaptada",
+      "icon": "🍉",
+      "type": "test",
+      "questionCount": 146,
       "levels": ["L1", "L2", "L3"],
       "color": "#4a8f3f"
     },

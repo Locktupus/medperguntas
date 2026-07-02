@@ -1,0 +1,3673 @@
+{
+  "meta": {
+    "id": "embriologia_geral_todos_sistemas",
+    "title": "Embriologia — Revisão Transversal a Todos os Sistemas",
+    "subtitle": "Baseado em: Muito convenientemente H&E — capítulo geral de Embriologia e todas as secções de embriologia específica ao longo do manual",
+    "icon": "🧫",
+    "type": "quiz",
+    "source": "",
+    "color": "#7a5ea8"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "level": "Gametogénese",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "As células germinativas primordiais (PGCs), que têm origem no epiblasto durante a 2ª semana, migram para as gónadas em desenvolvimento através de:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Do mesentério dorsal, durante a 4ª semana"
+        },
+        {
+          "letter": "B",
+          "text": "Diretamente pela corrente sanguínea materna"
+        },
+        {
+          "letter": "C",
+          "text": "Através do alantoide"
+        },
+        {
+          "letter": "D",
+          "text": "Pela membrana cloacal"
+        },
+        {
+          "letter": "E",
+          "text": "Pelo ducto vitelino exclusivamente"
+        }
+      ],
+      "correct": "A",
+      "explanation": "As PGCs originam-se no epiblasto na 2ª semana, movem-se pela linha primitiva até à parede do saco vitelino, e durante a 4ª semana migram até às gónadas através do mesentério dorsal.",
+      "source": "",
+      "logic": "1. Rever o trajeto de migração das PGCs descrito no texto. 2. B, C, D e E não correspondem à via de migração descrita - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A migração das PGCs não ocorre diretamente pela corrente sanguínea materna, mas sim através de estruturas embrionárias.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O alantoide não é a via de migração das PGCs descrita no texto.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A membrana cloacal não é a via de migração das PGCs.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O ducto vitelino não é a via de migração final das PGCs até às gónadas; a migração final ocorre pelo mesentério dorsal.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "level": "Gametogénese",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na oogénese, a maturação antes do nascimento culmina na formação do folículo primordial, no qual o oócito primário fica retido em que fase da meiose?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Metáfase II"
+        },
+        {
+          "letter": "B",
+          "text": "Profase I (estado diplopeno)"
+        },
+        {
+          "letter": "C",
+          "text": "Anáfase I"
+        },
+        {
+          "letter": "D",
+          "text": "Telófase II"
+        },
+        {
+          "letter": "E",
+          "text": "Interfase, antes de iniciar a meiose"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O oócito primário, no folículo primordial, fica retido na profase I (estado diplopeno), sendo esta pausa causada pelo inibidor da maturação oocitária (OMI).",
+      "source": "",
+      "logic": "1. Rever a fase meiótica específica em que fica retido o oócito primário. 2. A corresponde à pausa que ocorre próximo da ovulação (3h antes), não na fase de folículo primordial - eliminar. 3. C, D e E não correspondem à fase descrita - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A retenção em metáfase II ocorre numa fase muito mais tardia, próximo da ovulação, não no folículo primordial.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A anáfase I não é a fase de retenção descrita para o oócito primário.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A telófase II não é a fase de retenção descrita para o oócito primário.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O oócito primário já entrou na primeira meiose antes de ficar retido, não estando em interfase pré-meiótica.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "level": "Gametogénese",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à espermatogénese, a fase espermatocítica corresponde a:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Divisão mitótica das espermatogónias"
+        },
+        {
+          "letter": "B",
+          "text": "Meiose, com formação de espermatócitos primários (2n) → secundários (n) → espermatídio"
+        },
+        {
+          "letter": "C",
+          "text": "Formação do acrossoma e condensação nuclear"
+        },
+        {
+          "letter": "D",
+          "text": "Diferenciação das células de Sertoli"
+        },
+        {
+          "letter": "E",
+          "text": "Produção de testosterona pelas células de Leydig"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A fase espermatocítica corresponde à meiose, com a sequência: espermatócitos primários (2n) → espermatócitos secundários (n) → espermatídio.",
+      "source": "",
+      "logic": "1. Distinguir as três fases da espermatogénese: espermatogónica, espermatocítica e espermatídica. 2. A descreve a fase espermatogónica - eliminar. 3. C descreve a fase espermatídica (espermiogénese) - eliminar. 4. D e E não são fases da espermatogénese - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A divisão mitótica das espermatogónias corresponde à fase espermatogónica, não à espermatocítica.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A formação do acrossoma e condensação nuclear correspondem à fase espermatídica (espermiogénese).",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A diferenciação das células de Sertoli não é uma fase da espermatogénese propriamente dita.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A produção de testosterona pelas células de Leydig é um processo endócrino de suporte, não uma fase da espermatogénese.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "level": "1ª Semana",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "A ovulação, além do pico de LH, requer a ação de que substâncias para permitir a saída do oócito envolto pelo cumulus oophorus?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Prostaglandinas (contrações) e colagenases (degradação do colagénio do estroma)"
+        },
+        {
+          "letter": "B",
+          "text": "Apenas estrogénios"
+        },
+        {
+          "letter": "C",
+          "text": "Insulina e glucagon"
+        },
+        {
+          "letter": "D",
+          "text": "Apenas FSH"
+        },
+        {
+          "letter": "E",
+          "text": "Testosterona"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Para que ocorra efetivamente a ovulação, é necessária a ação das prostaglandinas, que permitem contrações ao redor do folículo, e de colagenases que degradam o colagénio no estroma, permitindo a saída do oócito.",
+      "source": "",
+      "logic": "1. Rever os mecanismos adicionais necessários para a ovulação, além do pico de LH. 2. B, C, D e E não correspondem às substâncias especificamente descritas para este processo - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Os estrogénios têm outras funções no ciclo (proliferação endometrial), não sendo as substâncias diretamente responsáveis pela rutura folicular.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A insulina e o glucagon não são referidos como necessários para a ovulação.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O FSH atua principalmente no crescimento folicular, não sendo a substância diretamente responsável pela rutura folicular nesta fase final.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A testosterona não é referida como necessária para o processo de ovulação.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "level": "1ª Semana",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "A fertilização ocorre em três fases sequenciais. Qual a correta ordenação?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Fusão das membranas, capacitação, reação acrossomal"
+        },
+        {
+          "letter": "B",
+          "text": "Capacitação, reação acrossomal, fusão das membranas celulares"
+        },
+        {
+          "letter": "C",
+          "text": "Reação acrossomal, fusão das membranas, capacitação"
+        },
+        {
+          "letter": "D",
+          "text": "Capacitação, fusão das membranas, reação acrossomal"
+        },
+        {
+          "letter": "E",
+          "text": "Todas ocorrem simultaneamente, sem sequência definida"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A fertilização ocorre em três fases: capacitação (penetração na corona radiata), reação acrossomal (penetração na zona pelúcida), e fusão das membranas celulares.",
+      "source": "",
+      "logic": "1. Rever a sequência cronológica das três fases da fertilização. 2. A, C e D apresentam ordens incorretas - eliminar. 3. E contraria a existência de uma sequência definida claramente descrita - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Esta ordem está incorreta; a fusão das membranas é a última fase, não a primeira.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Esta ordem está incorreta; a capacitação é a primeira fase, não a última.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Esta ordem está incorreta; a reação acrossomal ocorre antes da fusão das membranas, não depois.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Existe, sim, uma sequência definida e cronológica claramente descrita para estas três fases.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "level": "1ª Semana",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "A prevenção da poliespermia, após a entrada do espermatozoide no oócito, é mediada por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Libertação de grânulos corticais que tornam a zona pelúcida impermeável a outros espermatozoides"
+        },
+        {
+          "letter": "B",
+          "text": "Degradação completa da zona pelúcida"
+        },
+        {
+          "letter": "C",
+          "text": "Ação exclusiva da progesterona"
+        },
+        {
+          "letter": "D",
+          "text": "Formação imediata do blastocisto"
+        },
+        {
+          "letter": "E",
+          "text": "Inativação do cromossoma X"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A reação cortical e zonal, com libertação de grânulos corticais que atuam na zona pelúcida tornando-a impermeável à entrada de outros espermatozoides, previne a poliespermia.",
+      "source": "",
+      "logic": "1. Rever o mecanismo específico de prevenção da poliespermia. 2. B contraria o mecanismo descrito (a zona pelúcida torna-se impermeável, não degradada) - eliminar. 3. C, D e E não correspondem a este mecanismo específico - eliminar. 4. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "É o oposto: a zona pelúcida torna-se impermeável, não é degradada completamente, para prevenir a poliespermia.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A progesterona não é o mecanismo direto de prevenção da poliespermia descrito.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A formação do blastocisto ocorre numa fase muito posterior, após várias divisões mitóticas, não sendo o mecanismo de prevenção da poliespermia.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A inativação do cromossoma X ocorre numa fase posterior (clivagem), sem relação com a prevenção da poliespermia.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "level": "1ª Semana",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "A implantação do blastocisto na parede uterina ocorre em três fases. Qual a sequência correta?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Invasão, aposição, adesão"
+        },
+        {
+          "letter": "B",
+          "text": "Aposição (L-selectinas), adesão (lamininas e fibronectinas), invasão"
+        },
+        {
+          "letter": "C",
+          "text": "Adesão, invasão, aposição"
+        },
+        {
+          "letter": "D",
+          "text": "Apenas duas fases: aposição e invasão"
+        },
+        {
+          "letter": "E",
+          "text": "Compactação, polarização, invasão"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A implantação ocorre em três fases: aposição (mediada por L-selectinas), adesão (mediada por lamininas e fibronectinas) e invasão.",
+      "source": "",
+      "logic": "1. Rever a sequência e os mediadores moleculares de cada fase da implantação. 2. A e C apresentam ordens incorretas - eliminar. 3. D subestima o número de fases - eliminar. 4. E descreve fases da clivagem, não da implantação - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Esta ordem está incorreta; a invasão é a última fase, não a primeira.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Esta ordem está incorreta; a aposição é a primeira fase, não a adesão.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A implantação ocorre em três fases distintas, não apenas duas.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Compactação e polarização são processos da fase de clivagem, não da implantação propriamente dita.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "level": "2ª Semana",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na 2ª semana de desenvolvimento, o trofoblasto e o embrioblasto dividem-se, cada um, em duas camadas. Relativamente ao embrioblasto, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Divide-se em citotrofoblasto e sinciciotrofoblasto"
+        },
+        {
+          "letter": "B",
+          "text": "Divide-se em hipoblasto (ventral) e epiblasto (dorsal, adjacente à cavidade amniótica)"
+        },
+        {
+          "letter": "C",
+          "text": "Divide-se em mesoderme somática e esplâncnica"
+        },
+        {
+          "letter": "D",
+          "text": "Não sofre qualquer divisão nesta fase"
+        },
+        {
+          "letter": "E",
+          "text": "Divide-se em endoderme e ectoderme extraembrionárias exclusivamente"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O embrioblasto divide-se em hipoblasto (ventral, adjacente à cavidade do blastocisto) e epiblasto (dorsal, adjacente à cavidade amniótica).",
+      "source": "",
+      "logic": "1. Distinguir a divisão do trofoblasto da divisão do embrioblasto na 2ª semana. 2. A descreve a divisão do trofoblasto, não do embrioblasto - eliminar. 3. C descreve uma divisão posterior da mesoderme (3ª semana) - eliminar. 4. D contraria diretamente a divisão descrita - eliminar. 5. E não corresponde à nomenclatura usada para esta divisão específica - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Esta é a divisão do trofoblasto (citotrofoblasto e sinciciotrofoblasto), não do embrioblasto.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Esta divisão da mesoderme em camadas somática e esplâncnica ocorre também na 2ª semana, mas refere-se à mesoderme, não ao embrioblasto diretamente.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O embrioblasto divide-se, sim, em duas camadas distintas nesta fase.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A nomenclatura correta para esta divisão é hipoblasto e epiblasto, não endoderme/ectoderme extraembrionárias.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "level": "2ª Semana",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "A membrana exocelómica de Heuser, formada a partir das células do hipoblasto entre os dias 9 e 10, tem como função:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Revestir o citotrofoblasto e delimitar a cavidade exocelómica (saco vitelino primitivo)"
+        },
+        {
+          "letter": "B",
+          "text": "Formar a placa neural"
+        },
+        {
+          "letter": "C",
+          "text": "Originar a notocorda"
+        },
+        {
+          "letter": "D",
+          "text": "Formar o âmnio definitivo"
+        },
+        {
+          "letter": "E",
+          "text": "Estabelecer diretamente a circulação útero-placentária"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A membrana exocelómica de Heuser, a partir das células do hipoblasto, reveste o citotrofoblasto e a cavidade exocelómica (saco vitelino primitivo).",
+      "source": "",
+      "logic": "1. Rever a função específica da membrana de Heuser. 2. B e C descrevem processos da 3ª semana, não da membrana de Heuser - eliminar. 3. D não corresponde à sua função (o âmnio deriva do epiblasto/ectoderme) - eliminar. 4. E é atribuído a um evento posterior (11º-12º dias, sinciciotrofoblasto) - eliminar. 5. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A formação da placa neural ocorre na 3ª semana, por ação da notocorda, sem relação direta com a membrana de Heuser.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A notocorda forma-se a partir das células pré-cordais na 3ª semana, não da membrana de Heuser.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O âmnio deriva do epiblasto/ectoderme, não da membrana exocelómica de Heuser.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O estabelecimento da circulação útero-placentária ocorre pela ação do sinciciotrofoblasto nos dias 11-12, um processo distinto.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "level": "3ª-8ª Semana",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "A gastrulação, processo que estabelece as três camadas germinativas a partir do epiblasto, é iniciada por estímulos celulares de:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Nodal e Wnt"
+        },
+        {
+          "letter": "B",
+          "text": "BMP4 exclusivamente"
+        },
+        {
+          "letter": "C",
+          "text": "Shh exclusivamente"
+        },
+        {
+          "letter": "D",
+          "text": "FGF-4 exclusivamente"
+        },
+        {
+          "letter": "E",
+          "text": "Notch e Delta"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A gastrulação, que estabelece as três camadas germinativas (ectoderme, mesoderme e endoderme) a partir do epiblasto, é iniciada pelos estímulos celulares Nodal e Wnt.",
+      "source": "",
+      "logic": "1. Identificar os estímulos celulares específicos que iniciam a gastrulação. 2. B, C, D e E não correspondem aos estímulos iniciais descritos para a gastrulação - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O BMP4 está envolvido na ventralização da mesoderme numa fase posterior, não é o estímulo inicial da gastrulação.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O Shh é secretado pela notocorda numa fase posterior à gastrulação, não é o estímulo inicial desta.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O FGF-4 está associado à padronização posterior do intestino, não ao início da gastrulação.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A via Notch/Delta não é referida como o estímulo inicial da gastrulação no texto.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "level": "3ª-8ª Semana",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "A extremidade cefálica da linha primitiva, ponto de convergência das células migratórias durante a gastrulação, corresponde a:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A fosseta primitiva"
+        },
+        {
+          "letter": "B",
+          "text": "O nó primitivo de Hensen"
+        },
+        {
+          "letter": "C",
+          "text": "A placa pré-cordal"
+        },
+        {
+          "letter": "D",
+          "text": "O prato coriónico"
+        },
+        {
+          "letter": "E",
+          "text": "A membrana cloacal"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A extremidade cefálica da linha primitiva corresponde ao nó primitivo de Hensen, ponto para onde migram as células que aumentam ao longo da linha primitiva.",
+      "source": "",
+      "logic": "1. Rever a estrutura correspondente à extremidade cefálica da linha primitiva. 2. A é o sulco contínuo com o nó primitivo, uma estrutura relacionada mas distinta - eliminar. 3. C é o destino da migração das células pré-cordais, não a extremidade da linha primitiva em si - eliminar. 4. D e E não correspondem a esta estrutura - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A fosseta primitiva é o sulco contínuo com o nó primitivo, uma estrutura relacionada mas distinta da extremidade cefálica em si.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A placa pré-cordal é o destino da migração das células pré-cordais a partir do nó primitivo, não a própria extremidade da linha primitiva.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O prato coriónico deriva da mesoderme extraembrionária, sem relação com a extremidade da linha primitiva.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A membrana cloacal é uma estrutura distinta, formada pela junção de ectoderme e endoderme sem mesoderme interposta.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "level": "3ª-8ª Semana",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "Consoante a região da linha primitiva por onde as células gastrulam, de posterior/caudal para anterior/cefálico, a mesoderme dá origem sucessivamente a:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Mesoderme extraembrionária, lateral, intermédia, paraxial e estruturas da linha média"
+        },
+        {
+          "letter": "B",
+          "text": "Estruturas da linha média, paraxial, intermédia, lateral e extraembrionária"
+        },
+        {
+          "letter": "C",
+          "text": "Apenas mesoderme paraxial em toda a extensão da linha primitiva"
+        },
+        {
+          "letter": "D",
+          "text": "Mesoderme lateral seguida diretamente de estruturas da linha média, sem outras regiões"
+        },
+        {
+          "letter": "E",
+          "text": "Ordem aleatória, sem relação com a posição na linha primitiva"
+        }
+      ],
+      "correct": "A",
+      "explanation": "De posterior/caudal para anterior/cefálico: mesoderme extraembrionária (córion), mesoderme lateral (paredes corporais), mesoderme intermédia (sistema urogenital), mesoderme paraxial (sómitos) e estruturas da linha média (notocorda, nó primitivo).",
+      "source": "",
+      "logic": "1. Rever a ordem espacial descrita na linha primitiva e os respetivos destinos da mesoderme. 2. B inverte completamente a ordem correta - eliminar. 3. C, D e E contrariam a organização espacial detalhada descrita - eliminar. 4. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Esta ordem está invertida relativamente à sequência posterior-anterior correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Existem várias regiões distintas de mesoderme ao longo da linha primitiva, não apenas a paraxial.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Existem várias regiões intermédias (intermédia, paraxial) entre a mesoderme lateral e as estruturas da linha média.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Existe, sim, uma relação clara e organizada entre a posição na linha primitiva e o destino da mesoderme.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "level": "3ª-8ª Semana",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "A neurulação, processo de formação do tubo neural, é induzida pela notocorda através da:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Estimulação da via Wnt na ectoderme suprajacente"
+        },
+        {
+          "letter": "B",
+          "text": "Inibição da BMP4, transformando a ectoderme em placa neural"
+        },
+        {
+          "letter": "C",
+          "text": "Ativação direta do gene Sry"
+        },
+        {
+          "letter": "D",
+          "text": "Secreção de eritropoietina"
+        },
+        {
+          "letter": "E",
+          "text": "Formação do nó primitivo de Hensen"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A neurulação é induzida pela notocorda através da inibição da BMP4, o que transforma a ectoderme suprajacente em placa neural.",
+      "source": "",
+      "logic": "1. Rever o mecanismo molecular específico da neurulação. 2. A não corresponde ao mecanismo descrito para a neurulação - eliminar. 3. C, D e E não têm relação com a neurulação - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A estimulação da via Wnt não é o mecanismo descrito para a neurulação; trata-se da inibição da BMP4.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A ativação do gene Sry está relacionada com a diferenciação testicular, sem relação com a neurulação.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A secreção de eritropoietina não tem relação com a neurulação.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O nó primitivo de Hensen é formado numa fase anterior da gastrulação, não é o mecanismo de indução da neurulação em si.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "level": "3ª-8ª Semana",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "Os neuroporos anterior e posterior, através dos quais o tubo neural comunica com a cavidade amniótica até ao seu encerramento, fecham respetivamente:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ao 20º e 22º dias"
+        },
+        {
+          "letter": "B",
+          "text": "Ao 25º e 28º dias"
+        },
+        {
+          "letter": "C",
+          "text": "Ao 35º e 40º dias"
+        },
+        {
+          "letter": "D",
+          "text": "Ambos ao mesmo tempo, ao 30º dia"
+        },
+        {
+          "letter": "E",
+          "text": "Não encerram antes do nascimento"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Os neuroporos anterior e posterior encerram, respetivamente, ao 25º e ao 28º dias.",
+      "source": "",
+      "logic": "1. Rever os dias específicos de encerramento de cada neuroporo. 2. A, C e D não correspondem aos valores descritos no texto - eliminar. 3. E contraria diretamente o encerramento pré-natal descrito - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Estes valores não correspondem aos dias descritos no texto para o encerramento dos neuroporos.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Estes valores não correspondem aos dias descritos no texto para o encerramento dos neuroporos.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Os dois neuroporos encerram em dias distintos (25º e 28º), não simultaneamente.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Os neuroporos encerram, sim, durante a vida embrionária precoce, muito antes do nascimento.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "level": "3ª-8ª Semana",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "As células da crista neural, formadas com o processo de neurulação, migram por duas vias, dorsal e ventral. A via ventral origina, entre outras estruturas:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Exclusivamente os melanócitos"
+        },
+        {
+          "letter": "B",
+          "text": "Gânglios sensoriais, neurónios entéricos e simpáticos, células de Schwann e medula da suprarrenal"
+        },
+        {
+          "letter": "C",
+          "text": "Apenas a epiderme"
+        },
+        {
+          "letter": "D",
+          "text": "O endoderma do intestino anterior"
+        },
+        {
+          "letter": "E",
+          "text": "O sinciciotrofoblasto"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A via ventral de migração das células da crista neural origina gânglios sensoriais, neurónios entéricos e simpáticos, células de Schwann e a medula da suprarrenal.",
+      "source": "",
+      "logic": "1. Distinguir a via dorsal (melanócitos) da via ventral (estruturas neuronais e medula suprarrenal). 2. A descreve o destino da via dorsal, não da ventral - eliminar. 3. C, D e E não correspondem a derivados da crista neural - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Os melanócitos correspondem ao destino da via dorsal de migração, não da via ventral.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A epiderme deriva da ectoderme de superfície, não das células da crista neural.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O endoderma do intestino anterior tem origem germinativa distinta, sem relação com a crista neural.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O sinciciotrofoblasto deriva do trofoblasto, sem relação com a crista neural.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "level": "Anexos Embrionários",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à origem germinativa dos diferentes anexos embrionários, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "O âmnio deriva da endoderme e o saco vitelino da ectoderme"
+        },
+        {
+          "letter": "B",
+          "text": "O âmnio deriva da ectoderme, e o saco vitelino e o alantoide derivam da endoderme"
+        },
+        {
+          "letter": "C",
+          "text": "Todos os anexos embrionários derivam exclusivamente do trofoblasto"
+        },
+        {
+          "letter": "D",
+          "text": "O córion deriva da endoderme"
+        },
+        {
+          "letter": "E",
+          "text": "O alantoide deriva da mesoderme extraembrionária exclusivamente"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O âmnio deriva da ectoderme; o saco vitelino e o alantoide (que depois formam o cordão umbilical) derivam da endoderme; o córion e as vilosidades placentares derivam do trofoblasto.",
+      "source": "",
+      "logic": "1. Rever a origem germinativa específica de cada anexo embrionário. 2. A inverte as origens corretas - eliminar. 3. C contraria as origens distintas descritas (ectoderme, endoderme, trofoblasto) - eliminar. 4. D contraria a origem trofoblástica do córion - eliminar. 5. E não corresponde à origem endodérmica descrita para o alantoide - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "As origens estão trocadas: o âmnio deriva da ectoderme e o saco vitelino da endoderme.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Os anexos embrionários têm origens distintas: trofoblasto (córion), ectoderme (âmnio) e endoderme (saco vitelino e alantoide).",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O córion deriva do trofoblasto, não da endoderme.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O alantoide é descrito como tendo origem endodérmica, não mesodérmica extraembrionária exclusivamente.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "level": "Anexos Embrionários",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "Antes das 20 semanas de gestação, o líquido amniótico é semelhante aos fluidos fetais, com trocas diretas por difusão através da pele do embrião. Após as 20 semanas, o líquido amniótico passa a derivar sobretudo de:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Secreções salivares fetais"
+        },
+        {
+          "letter": "B",
+          "text": "Urina fetal (3/4 do volume) e secreções pulmonares"
+        },
+        {
+          "letter": "C",
+          "text": "Sangue materno diretamente"
+        },
+        {
+          "letter": "D",
+          "text": "Líquido cefalorraquidiano fetal"
+        },
+        {
+          "letter": "E",
+          "text": "Secreções sudoríparas fetais"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Após as 20 semanas, a pele do feto queratiniza e deixa de haver trocas diretas; o líquido amniótico passa a ser derivado sobretudo da urina fetal (3/4 do volume) e das secreções pulmonares.",
+      "source": "",
+      "logic": "1. Rever a fonte principal do líquido amniótico após as 20 semanas. 2. A, C, D e E não correspondem à fonte descrita no texto - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "As secreções salivares fetais não são referidas como a fonte principal do líquido amniótico nesta fase.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O sangue materno não constitui diretamente o líquido amniótico; existem trocas através da placenta, mas não é a fonte direta descrita.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O líquido cefalorraquidiano fetal não é referido como fonte do líquido amniótico.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "As secreções sudoríparas fetais não são referidas como a fonte principal do líquido amniótico nesta fase.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "level": "Anexos Embrionários",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente ao desenvolvimento das vilosidades coriónicas, a sequência correta de maturação é:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Terciária, secundária, primária"
+        },
+        {
+          "letter": "B",
+          "text": "Primária (core de citotrofoblasto), secundária (penetração por mesoderme), terciária (formação de capilares fetais)"
+        },
+        {
+          "letter": "C",
+          "text": "Apenas duas fases: primária e terciária"
+        },
+        {
+          "letter": "D",
+          "text": "Secundária, primária, terciária"
+        },
+        {
+          "letter": "E",
+          "text": "Todas as fases ocorrem simultaneamente desde o início"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As vilosidades coriónicas maturam sequencialmente: primária (core de citotrofoblasto revestido por sinciciotrofoblasto), secundária (penetração do core por células mesodérmicas), terciária (formação do sistema capilar vilositário/invasão por capilares fetais).",
+      "source": "",
+      "logic": "1. Rever a sequência cronológica de maturação das vilosidades coriónicas. 2. A inverte completamente a ordem - eliminar. 3. C subestima o número de fases (são três) - eliminar. 4. D apresenta uma ordem incorreta - eliminar. 5. E contraria a sequência claramente descrita - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Esta ordem está completamente invertida relativamente à sequência correta de maturação.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Existem três fases distintas de maturação das vilosidades coriónicas, não apenas duas.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Esta ordem não corresponde à sequência cronológica correta.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Existe, sim, uma sequência cronológica claramente definida para a maturação das vilosidades.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "level": "Anexos Embrionários",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "As células de Hofbauer, encontradas nas vilosidades coriónicas, têm como principal função:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Produção de hormonas esteroides placentárias"
+        },
+        {
+          "letter": "B",
+          "text": "Secreção de citocinas importantes para o crescimento e diferenciação dos tecidos envolventes, sendo células fagocíticas especializadas"
+        },
+        {
+          "letter": "C",
+          "text": "Formação da barreira hematoplacentária exclusivamente por adesão"
+        },
+        {
+          "letter": "D",
+          "text": "Transporte ativo de oxigénio"
+        },
+        {
+          "letter": "E",
+          "text": "Produção de anticorpos maternos"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As células de Hofbauer, nas vilosidades coriónicas, desempenham um papel fundamental na secreção de citocinas importantes para o crescimento e diferenciação dos tecidos envolventes, sendo células fagocíticas especializadas, grandes, com citoplasma claro e núcleo excêntrico.",
+      "source": "",
+      "logic": "1. Rever a função específica das células de Hofbauer. 2. A é função do sinciciotrofoblasto/placenta em geral (produção hormonal), não especificamente das células de Hofbauer - eliminar. 3. C, D e E não correspondem à função descrita - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A produção de hormonas esteroides é função geral da placenta (sinciciotrofoblasto), não especificamente das células de Hofbauer.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A barreira placentária é composta por várias camadas estruturais, não sendo esta a função específica das células de Hofbauer.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O transporte de oxigénio ocorre por difusão através da barreira placentária, não sendo função direta das células de Hofbauer.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A transmissão de anticorpos maternos é uma função geral da placenta, não especificamente das células de Hofbauer.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "level": "Distúrbios de Desenvolvimento",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente aos períodos críticos de suscetibilidade a agressões durante a gravidez, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "As primeiras 3 semanas correspondem ao período de maior suscetibilidade a malformações"
+        },
+        {
+          "letter": "B",
+          "text": "O período de 3 a 8 semanas (organogénese) corresponde ao período de suscetibilidade máxima"
+        },
+        {
+          "letter": "C",
+          "text": "Após as 8 semanas não existe qualquer risco de dano fetal"
+        },
+        {
+          "letter": "D",
+          "text": "A suscetibilidade é igual em todos os períodos da gestação"
+        },
+        {
+          "letter": "E",
+          "text": "O período fetal (após 8 semanas) é o de maior risco de malformações major"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O período de 3 a 8 semanas (organogénese) corresponde ao período de suscetibilidade máxima a agressões, já que nas primeiras 3 semanas as agressões tendem a causar morte ou compensação total, e após as 8 semanas os insultos causam défices minor.",
+      "source": "",
+      "logic": "1. Rever os três períodos de suscetibilidade descritos e as suas características. 2. A contraria a descrição (nas primeiras 3 semanas as agressões não causam defeitos, levando à morte ou compensação total) - eliminar. 3. C contraria a existência de défices minor pós-8 semanas - eliminar. 4. D contraria a existência de diferentes níveis de suscetibilidade - eliminar. 5. E é o oposto (o período fetal tem menor risco de malformações major) - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Nas primeiras 3 semanas, as agressões não causam defeitos porque levam à morte ou compensação total do defeito, não sendo o período de maior suscetibilidade a malformações.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Após as 8 semanas, os insultos ainda podem causar défices minor, não estando ausente todo o risco.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A suscetibilidade varia claramente entre os diferentes períodos descritos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "É o oposto: o período fetal (após 8 semanas) é o de menor risco de malformações major, causando apenas défices minor.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "level": "Distúrbios de Desenvolvimento",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "A síndrome de Kartagener, que associa situs inversus a sintomatologia respiratória, é explicada por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Uma mutação no gene Sry"
+        },
+        {
+          "letter": "B",
+          "text": "Imotilidade dos cílios, que impede a correta organização das correntes moleculares durante a embriogénese precoce"
+        },
+        {
+          "letter": "C",
+          "text": "Falha na fusão dos ductos mullerianos"
+        },
+        {
+          "letter": "D",
+          "text": "Ausência de células da crista neural"
+        },
+        {
+          "letter": "E",
+          "text": "Excesso de BMP4 na linha média"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A síndrome de Kartagener é explicada pela imotilidade dos cílios, que impede uma correta organização das correntes moleculares durante a embriogénese precoce, associando o situs inversus à sintomatologia respiratória.",
+      "source": "",
+      "logic": "1. Rever o mecanismo explicativo específico da síndrome de Kartagener. 2. A, C, D e E não correspondem ao mecanismo descrito para esta síndrome - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O gene Sry está relacionado com a diferenciação testicular, sem relação com a síndrome de Kartagener.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A falha na fusão dos ductos mullerianos relaciona-se com malformações do sistema genital feminino, não com esta síndrome.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A ausência de células da crista neural não é o mecanismo descrito para a síndrome de Kartagener.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O excesso de BMP4 na linha média não é o mecanismo descrito para esta síndrome específica.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "level": "Diagnóstico Pré-Natal",
+      "domain": "Embriologia Geral",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à datação da gestação por ecografia, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A idade gestacional cronológica é definida pelo comprimento crânio-caudal"
+        },
+        {
+          "letter": "B",
+          "text": "A idade gestacional definitiva é definida pelo comprimento crânio-caudal na ecografia do 1º trimestre"
+        },
+        {
+          "letter": "C",
+          "text": "Ambas as idades gestacionais (cronológica e definitiva) são sempre idênticas"
+        },
+        {
+          "letter": "D",
+          "text": "A ecografia transabdominal é mais invasiva que a transvaginal"
+        },
+        {
+          "letter": "E",
+          "text": "A datação da gestação não tem qualquer utilidade clínica"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A idade gestacional definitiva é definida pelo comprimento crânio-caudal na ecografia do 1º trimestre, enquanto a idade gestacional cronológica é definida a partir da data da última menstruação.",
+      "source": "",
+      "logic": "1. Distinguir idade gestacional cronológica (última menstruação) de idade gestacional definitiva (comprimento crânio-caudal). 2. A inverte as definições corretas - eliminar. 3. C contraria a existência de dois métodos distintos de datação - eliminar. 4. D é o oposto (a transvaginal é minimamente invasiva, a transabdominal não invasiva) - eliminar. 5. E contraria a importância explícita da datação para o planeamento da gravidez - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A idade gestacional cronológica é definida pela data da última menstruação, não pelo comprimento crânio-caudal.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Estas são duas medidas distintas, calculadas por métodos diferentes, podendo divergir.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "É o oposto: a abordagem transabdominal é não invasiva e a transvaginal é minimamente invasiva.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A datação da gestação é descrita como fundamental para o planeamento da gravidez, tendo clara utilidade clínica.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "level": "Pele",
+      "domain": "Sistema Tegumentar",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à origem embriológica das células da epiderme, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Os queratinócitos derivam da ectoderme e os melanócitos derivam de células da crista neural (a partir da 8ª semana)"
+        },
+        {
+          "letter": "B",
+          "text": "Os melanócitos derivam da endoderme"
+        },
+        {
+          "letter": "C",
+          "text": "Os queratinócitos derivam da crista neural"
+        },
+        {
+          "letter": "D",
+          "text": "As células de Langerhans derivam da ectoderme, tal como os queratinócitos"
+        },
+        {
+          "letter": "E",
+          "text": "Nenhuma célula epidérmica tem origem na crista neural"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Os queratinócitos derivam da ectoderme; os melanócitos derivam de células da crista neural (a partir da 8ª semana); as células de Langerhans derivam de monócitos, sendo observáveis na pele a partir da 7ª semana.",
+      "source": "",
+      "logic": "1. Rever a origem germinativa específica de cada tipo celular epidérmico. 2. B e C invertem as origens corretas - eliminar. 3. D contraria a origem monocítica das células de Langerhans (derivadas da medula óssea) - eliminar. 4. E contraria diretamente a origem dos melanócitos - eliminar. 5. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Os melanócitos derivam de células da crista neural, não da endoderme.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Os queratinócitos derivam da ectoderme, não da crista neural.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "As células de Langerhans derivam de monócitos (origem na medula óssea), não da ectoderme como os queratinócitos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Os melanócitos são precisamente um exemplo de célula epidérmica com origem na crista neural.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "level": "Pele",
+      "domain": "Sistema Tegumentar",
+      "vignette": "",
+      "labTable": null,
+      "question": "As glândulas sudoríparas, que aparecem na 14ª-15ª semana como botões da camada basal da epiderme, dão origem, nas suas células periféricas, a:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Apenas células secretoras"
+        },
+        {
+          "letter": "B",
+          "text": "Células secretoras e células mioepiteliais"
+        },
+        {
+          "letter": "C",
+          "text": "Apenas melanócitos"
+        },
+        {
+          "letter": "D",
+          "text": "Células de Langerhans"
+        },
+        {
+          "letter": "E",
+          "text": "Queratinócitos do estrato córneo"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As células periféricas dos botões das glândulas sudoríparas diferenciam-se em células secretoras e células mioepiteliais externamente.",
+      "source": "",
+      "logic": "1. Rever a diferenciação das células periféricas dos botões glandulares sudoríparos. 2. A subestima a diferenciação (falta as mioepiteliais) - eliminar. 3. C, D e E não correspondem à diferenciação descrita para estas glândulas - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A diferenciação inclui também células mioepiteliais, não apenas células secretoras.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Os melanócitos têm origem distinta (crista neural), não derivam da diferenciação dos botões das glândulas sudoríparas.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "As células de Langerhans têm origem monocítica, sem relação com a diferenciação dos botões sudoríparos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Os queratinócitos do estrato córneo resultam da diferenciação epidérmica geral, não especificamente da diferenciação das células periféricas dos botões sudoríparos.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "level": "Músculo Esquelético",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na embriologia do músculo esquelético, de origem mesodérmica, a formação dos miotubos, com alongamento e incorporação de mioblastos, ocorre em que semana?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "4ª semana"
+        },
+        {
+          "letter": "B",
+          "text": "5ª semana"
+        },
+        {
+          "letter": "C",
+          "text": "9ª semana"
+        },
+        {
+          "letter": "D",
+          "text": "20ª semana"
+        },
+        {
+          "letter": "E",
+          "text": "À nascença"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Na 5ª semana formam-se os miotubos, que se alongam incorporando mais mioblastos; alguns mioblastos proliferam e tornam-se futuras células satélite.",
+      "source": "",
+      "logic": "1. Rever a cronologia da miogénese descrita no texto. 2. A corresponde à fase anterior (proliferação e diferenciação em mioblastos) - eliminar. 3. C corresponde à síntese de miofilamentos com núcleos ainda centrais - eliminar. 4. D corresponde ao aumento de miofilamentos com núcleos já periféricos - eliminar. 5. E corresponde à fase final, com músculos já formados e inervados - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Na 4ª semana ocorre a proliferação das células mesenquimais e diferenciação em mioblastos, não ainda a formação de miotubos.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Na 9ª semana os miotubos já sintetizam miofilamentos, mas os núcleos ainda são centrais; a formação inicial dos miotubos ocorre antes.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Na 20ª semana os núcleos já se tornam periféricos, uma fase mais avançada que a formação inicial dos miotubos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "À nascença os músculos já estão formados e capazes de contrair, uma fase muito mais avançada.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "level": "Músculo Esquelético",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à embriologia do músculo esquelético, é correto afirmar que, à 9ª semana:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Os núcleos já se tornaram periféricos"
+        },
+        {
+          "letter": "B",
+          "text": "Os miotubos sintetizam 2 conjuntos de miofilamentos longitudinalmente orientados, mas os núcleos permanecem centrais"
+        },
+        {
+          "letter": "C",
+          "text": "O músculo já está totalmente formado e inervado"
+        },
+        {
+          "letter": "D",
+          "text": "Ainda não se formaram mioblastos"
+        },
+        {
+          "letter": "E",
+          "text": "Ocorre a proliferação inicial das células mesenquimais"
+        }
+      ],
+      "correct": "B",
+      "explanation": "À 9ª semana, os miotubos sintetizam 2 conjuntos de miofilamentos longitudinalmente orientados, mas os núcleos continuam centrais; só à 20ª semana os núcleos se tornam periféricos.",
+      "source": "",
+      "logic": "1. Rever especificamente o estado descrito para a 9ª semana. 2. A descreve a fase da 20ª semana, não da 9ª - eliminar. 3. C descreve a fase da nascença - eliminar. 4. D contraria a formação de mioblastos já na 4ª semana - eliminar. 5. E descreve a fase da 4ª semana - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Os núcleos tornam-se periféricos apenas na 20ª semana, permanecendo centrais na 9ª semana.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O músculo só está totalmente formado e capaz de contrair à nascença, não já na 9ª semana.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Os mioblastos já se formaram na 4ª semana, muito antes da 9ª semana.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A proliferação inicial das células mesenquimais ocorre na 4ª semana, não na 9ª.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "level": "Osso (Osteogénese)",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à ossificação óssea durante o desenvolvimento, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A ossificação endocondral não utiliza a cartilagem como modelo precursor"
+        },
+        {
+          "letter": "B",
+          "text": "A ossificação intramembranosa ocorre nos ossos planos do crânio e da face, com diferenciação direta de osteoblastos a partir do tecido conjuntivo mesenquimal"
+        },
+        {
+          "letter": "C",
+          "text": "Ambos os tipos de ossificação produzem diretamente osso compacto, sem fase de osso esponjoso"
+        },
+        {
+          "letter": "D",
+          "text": "A ossificação endocondral ocorre exclusivamente nos ossos do crânio"
+        },
+        {
+          "letter": "E",
+          "text": "A coleira óssea em torno da diáfise forma-se por ossificação endocondral"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A ossificação intramembranosa ocorre nos ossos planos do crânio e da face, em parte da mandíbula e na clavícula, com os osteoblastos a diferenciarem-se diretamente do tecido conjuntivo mesenquimal.",
+      "source": "",
+      "logic": "1. Distinguir ossificação endocondral (com precursor cartilagíneo) de intramembranosa (sem precursor cartilagíneo). 2. A contraria diretamente a definição de ossificação endocondral - eliminar. 3. C contraria a produção inicial de osso esponjoso em ambos os tipos - eliminar. 4. D é o oposto (a endocondral ocorre nos membros e ossos de sustentação de peso, a intramembranosa nos ossos do crânio) - eliminar. 5. E é o oposto (a coleira óssea forma-se por ossificação intramembranosa em torno do modelo cartilagíneo) - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É precisamente o oposto: a ossificação endocondral tem a cartilagem como modelo precursor.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Ambos os tipos de osteogénese têm o mesmo mecanismo inicial de deposição da matriz óssea, produzindo primeiro osso esponjoso.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "É o oposto: a ossificação endocondral ocorre nos membros e partes do esqueleto responsáveis pela sustentação do peso; a intramembranosa ocorre nos ossos do crânio.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A coleira óssea forma-se por ossificação intramembranosa em torno da diáfise do modelo de cartilagem, não por ossificação endocondral.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "level": "Mama",
+      "domain": "Mama",
+      "vignette": "",
+      "labTable": null,
+      "question": "O desenvolvimento embrionário da mama inicia-se com a formação das linhas mamárias/cristas lácteas, seguida do início do desenvolvimento do botão mamário, respetivamente às:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "3ª e 4ª semanas"
+        },
+        {
+          "letter": "B",
+          "text": "5ª e 6ª semanas"
+        },
+        {
+          "letter": "C",
+          "text": "10ª e 12ª semanas"
+        },
+        {
+          "letter": "D",
+          "text": "20ª e 25ª semanas"
+        },
+        {
+          "letter": "E",
+          "text": "Apenas após o nascimento"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As linhas mamárias/cristas lácteas formam-se na 5ª semana, e o desenvolvimento do botão mamário (remanescente da crista láctea) inicia-se na 6ª semana.",
+      "source": "",
+      "logic": "1. Rever a cronologia específica do desenvolvimento mamário inicial. 2. A, C e D não correspondem às semanas descritas - eliminar. 3. E contraria diretamente o início pré-natal deste processo - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Estas semanas são demasiado precoces relativamente à cronologia descrita.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Estas semanas não correspondem à cronologia descrita para o início deste processo.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Estas semanas são demasiado tardias relativamente à cronologia descrita para o início deste processo.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O desenvolvimento mamário inicia-se, sim, durante a vida embrionária, muito antes do nascimento.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "level": "Mama",
+      "domain": "Mama",
+      "vignette": "",
+      "labTable": null,
+      "question": "A falha de regressão de porções das linhas mamárias durante o desenvolvimento pode resultar em:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ausência completa de tecido mamário"
+        },
+        {
+          "letter": "B",
+          "text": "Aparecimento de tecido mamário ou mamilos acessórios"
+        },
+        {
+          "letter": "C",
+          "text": "Hipertrofia mamária bilateral simétrica exclusivamente na puberdade"
+        },
+        {
+          "letter": "D",
+          "text": "Formação de quistos de Naboth"
+        },
+        {
+          "letter": "E",
+          "text": "Malformação exclusivamente do complexo areolo-mamilar"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A falha de regressão de porções das linhas mamárias pode resultar no aparecimento de tecido mamário ou mamilos acessórios.",
+      "source": "",
+      "logic": "1. Rever a consequência específica da falha de regressão das linhas mamárias. 2. A é o oposto do descrito (excesso, não ausência, de tecido) - eliminar. 3. C não corresponde a este mecanismo - eliminar. 4. D refere-se a uma estrutura do colo uterino, sem relação com a mama - eliminar. 5. E restringe incorretamente a consequência - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É o oposto: a falha de regressão causa excesso (tecido/mamilos acessórios), não ausência de tecido mamário.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A hipertrofia mamária bilateral simétrica na puberdade não é a consequência descrita para este mecanismo específico.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Os quistos de Naboth são uma estrutura do colo uterino, sem qualquer relação com o desenvolvimento mamário.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A consequência descrita não se restringe ao complexo areolo-mamilar, podendo ocorrer ao longo de toda a linha mamária.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "level": "Tecido Nervoso",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "A neurulação, processo de formação do sistema nervoso, é induzida pela notocorda através da secreção de vários fatores tróficos, entre os quais se destaca:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A proteína resultante do gene sonic hedgehog (Shh)"
+        },
+        {
+          "letter": "B",
+          "text": "A eritropoietina"
+        },
+        {
+          "letter": "C",
+          "text": "O PSA"
+        },
+        {
+          "letter": "D",
+          "text": "A calcitonina"
+        },
+        {
+          "letter": "E",
+          "text": "A inibina mülleriana"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A notocorda secreta vários fatores tróficos e de proliferação, destacando-se a proteína resultante da tradução do gene sonic hedgehog (Shh), que atua na ectoderme suprajacente.",
+      "source": "",
+      "logic": "1. Identificar o fator específico destacado no texto para este processo. 2. B, C, D e E não têm relação com a indução da neurulação pela notocorda - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A eritropoietina está relacionada com a hematopoiese renal, sem relação com a neurulação.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O PSA é um marcador prostático, sem relação com a neurulação.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A calcitonina está relacionada com a regulação do cálcio, sem relação com a neurulação.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A inibina mülleriana está relacionada com a regressão dos ductos genitais femininos, sem relação com a neurulação.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "level": "Tecido Nervoso",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "Entre as estruturas com origem na crista neural, incluem-se:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Neurónios sensoriais, neurónios do SNA simpático, células de Schwann, meninges, melanócitos, odontoblastos e mesênquima dos arcos faríngeos"
+        },
+        {
+          "letter": "B",
+          "text": "Apenas os componentes do SNC"
+        },
+        {
+          "letter": "C",
+          "text": "Exclusivamente os melanócitos"
+        },
+        {
+          "letter": "D",
+          "text": "O endotélio dos capilares sanguíneos"
+        },
+        {
+          "letter": "E",
+          "text": "Os hepatócitos"
+        }
+      ],
+      "correct": "A",
+      "explanation": "As estruturas com origem na crista neural incluem componentes do SNP (neurónios sensoriais, neurónios do SNA simpático, células de Schwann), meninges, melanócitos, odontoblastos e mesênquima dos arcos faríngeos.",
+      "source": "",
+      "logic": "1. Rever a lista completa de estruturas derivadas da crista neural. 2. B contraria a natureza periférica, não central, destas estruturas - eliminar. 3. C subestima a lista completa de derivados - eliminar. 4. D e E não são derivados da crista neural referidos no texto - eliminar. 5. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A crista neural origina principalmente componentes do SNP (sistema nervoso periférico), não do SNC.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Os melanócitos são apenas um dos vários derivados da crista neural, existindo uma lista mais extensa.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O endotélio dos capilares sanguíneos não é referido como derivado da crista neural.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Os hepatócitos derivam da endoderme, sem relação com a crista neural.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "level": "Tecido Nervoso",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "A diferenciação do tubo neural no eixo dorso-ventral, com neurónios motores mais ventrais e neurónios sensitivos mais dorsais, é induzida pela ação conjunta de:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Notocorda (Shh) e ectoderme não neural (BMPs)"
+        },
+        {
+          "letter": "B",
+          "text": "Apenas pela mesoderme intermédia"
+        },
+        {
+          "letter": "C",
+          "text": "Exclusivamente pelo endoderma"
+        },
+        {
+          "letter": "D",
+          "text": "Pelas células de Hofbauer"
+        },
+        {
+          "letter": "E",
+          "text": "Pela crista neural exclusivamente, sem contribuição da notocorda"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A notocorda (via Shh) e a ectoderme não neural (via BMPs) 'ventralizam' o tubo neural, resultando em neurónios motores mais ventrais e neurónios sensitivos mais dorsais.",
+      "source": "",
+      "logic": "1. Rever os dois sinais moleculares conjuntos responsáveis pela diferenciação dorso-ventral do tubo neural. 2. B, C e D não correspondem aos sinais descritos - eliminar. 3. E contraria a contribuição essencial da notocorda descrita - eliminar. 4. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A mesoderme intermédia está relacionada com o desenvolvimento urogenital, sem relação com este processo específico.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O endoderma não é referido como responsável por esta diferenciação dorso-ventral do tubo neural.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "As células de Hofbauer estão relacionadas com as vilosidades coriónicas, sem relação com este processo.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A notocorda contribui, sim, de forma essencial para este processo, em conjunto com a ectoderme não neural.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "level": "Hipófise",
+      "domain": "Sistema Endócrino",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à origem embriológica da hipófise, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A adeno-hipófise deriva da ectoderme oral e a neuro-hipófise deriva da ectoderme neural"
+        },
+        {
+          "letter": "B",
+          "text": "Ambos os lobos derivam da endoderme"
+        },
+        {
+          "letter": "C",
+          "text": "A neuro-hipófise deriva da ectoderme oral"
+        },
+        {
+          "letter": "D",
+          "text": "A adeno-hipófise deriva da crista neural"
+        },
+        {
+          "letter": "E",
+          "text": "Ambos os lobos derivam do mesoderme"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A adeno-hipófise deriva da ectoderme oral e a neuro-hipófise deriva da ectoderme neural.",
+      "source": "",
+      "logic": "1. Rever a origem germinativa distinta de cada lobo hipofisário. 2. B e E atribuem a mesma origem a ambos os lobos, contrariando a distinção descrita - eliminar. 3. C inverte a origem correta - eliminar. 4. D não corresponde à origem descrita para a adeno-hipófise - eliminar. 5. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Nenhum dos lobos hipofisários deriva da endoderme.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A ectoderme oral é a origem da adeno-hipófise, não da neuro-hipófise.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A adeno-hipófise deriva da ectoderme oral, não da crista neural.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Nenhum dos lobos hipofisários deriva do mesoderme.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "level": "Tiróide",
+      "domain": "Sistema Endócrino",
+      "vignette": "",
+      "labTable": null,
+      "question": "No embrião de 4 semanas, a tiroide desenvolve-se ao nível de que bolsas faríngeas, a partir de um divertículo ventral da faringe?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1ª e 2ª bolsas faríngeas"
+        },
+        {
+          "letter": "B",
+          "text": "3ª e 4ª bolsas faríngeas"
+        },
+        {
+          "letter": "C",
+          "text": "Apenas a 1ª bolsa"
+        },
+        {
+          "letter": "D",
+          "text": "Apenas a 4ª bolsa"
+        },
+        {
+          "letter": "E",
+          "text": "Nenhuma bolsa faríngea - tem origem exclusivamente mesodérmica"
+        }
+      ],
+      "correct": "A",
+      "explanation": "No embrião de 4 semanas, a tiroide desenvolve-se ao nível da 1ª e 2ª bolsas faríngeas, a partir de um divertículo ventral da faringe.",
+      "source": "",
+      "logic": "1. Rever as bolsas faríngeas específicas associadas ao desenvolvimento inicial da tiroide. 2. B, C e D não correspondem às bolsas descritas - eliminar. 3. E contraria a origem faríngea descrita - eliminar. 4. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A 3ª e 4ª bolsas faríngeas estão associadas ao desenvolvimento da paratiroide e timo, não ao início do desenvolvimento tiroideu.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O desenvolvimento inicial da tiroide envolve tanto a 1ª como a 2ª bolsa, não apenas a 1ª.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A 4ª bolsa não é a bolsa associada ao início do desenvolvimento tiroideu.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A tiroide tem origem endodérmica associada às bolsas faríngeas, não exclusivamente mesodérmica.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "level": "Tiróide",
+      "domain": "Sistema Endócrino",
+      "vignette": "",
+      "labTable": null,
+      "question": "A tiroide encontra-se inicialmente ligada ao pavimento da faringe (futura base da língua) por qual estrutura?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ducto tireoglosso"
+        },
+        {
+          "letter": "B",
+          "text": "Ducto vitelino"
+        },
+        {
+          "letter": "C",
+          "text": "Alantoide"
+        },
+        {
+          "letter": "D",
+          "text": "Ducto de Wharton"
+        },
+        {
+          "letter": "E",
+          "text": "Ducto colédoco"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A tiroide encontra-se inicialmente ligada ao pavimento da faringe/futura base da língua pelo ducto tireoglosso.",
+      "source": "",
+      "logic": "1. Rever a estrutura embriológica de ligação da tiroide à base da língua. 2. B, C, D e E não correspondem a esta estrutura específica - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O ducto vitelino está relacionado com a conexão do intestino médio ao saco vitelino, sem relação com a tiroide.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O alantoide está relacionado com o desenvolvimento urinário/cordão umbilical, sem relação com a tiroide.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O ducto de Wharton é o ducto excretor da glândula submandibular, sem relação com a origem embriológica da tiroide.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O ducto colédoco está relacionado com o sistema biliar, sem relação com a origem embriológica da tiroide.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "level": "Glândula Suprarrenal",
+      "domain": "Sistema Endócrino",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à origem embriológica da glândula suprarrenal, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "O córtex e a medula têm a mesma origem, mesodérmica"
+        },
+        {
+          "letter": "B",
+          "text": "O córtex tem origem mesodérmica e a medula tem origem na ectoderme da crista neural"
+        },
+        {
+          "letter": "C",
+          "text": "O córtex tem origem na crista neural e a medula tem origem mesodérmica"
+        },
+        {
+          "letter": "D",
+          "text": "Ambos têm origem endodérmica"
+        },
+        {
+          "letter": "E",
+          "text": "Ambos têm origem na ectoderme oral"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O córtex da suprarrenal tem origem mesodérmica e a medula tem origem na ectoderme da crista neural.",
+      "source": "",
+      "logic": "1. Rever a distinção de origem entre córtex e medula suprarrenal. 2. A contraria a distinção clara descrita - eliminar. 3. C inverte as origens corretas - eliminar. 4. D e E não correspondem a nenhuma das origens descritas - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O córtex e a medula têm origens distintas, não a mesma origem mesodérmica.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "As origens estão trocadas: o córtex é mesodérmico e a medula é da crista neural.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Nem o córtex nem a medula têm origem endodérmica.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Nem o córtex nem a medula têm origem na ectoderme oral (esta é a origem da adeno-hipófise).",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "level": "Pâncreas Endócrino",
+      "domain": "Sistema Endócrino",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à embriologia do pâncreas, as células precursoras do pâncreas ventral e da árvore biliar extra-hepática expressam inicialmente que dois marcadores, sendo bipotenciais?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Sox-17 e Pdx-1"
+        },
+        {
+          "letter": "B",
+          "text": "Sry e Sox-9"
+        },
+        {
+          "letter": "C",
+          "text": "Cdx-2 e Hox"
+        },
+        {
+          "letter": "D",
+          "text": "WT-1 e SF-1"
+        },
+        {
+          "letter": "E",
+          "text": "Shh e Gli"
+        }
+      ],
+      "correct": "A",
+      "explanation": "As células precursoras do pâncreas ventral e da árvore biliar extra-hepática são bipotenciais, expressando inicialmente Sox-17 e Pdx-1; as células do pâncreas ventral deixam de expressar Sox-17 e mantêm a Pdx-1, e as da árvore biliar deixam de expressar Pdx-1 e mantêm a Sox-17.",
+      "source": "",
+      "logic": "1. Rever os marcadores específicos das células precursoras pancreático-biliares. 2. B corresponde à diferenciação testicular, sem relação com o pâncreas - eliminar. 3. C está relacionado com a padronização geral do tubo digestivo, não especificamente com esta bipotencialidade - eliminar. 4. D está relacionado com a diferenciação gonadal/renal - eliminar. 5. E está relacionado com a via de sinalização Shh noutros contextos - eliminar. 6. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O Sry e o Sox-9 estão relacionados com a diferenciação testicular, sem relação com a bipotencialidade pancreático-biliar.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O Cdx-2 regula genes Hox na padronização geral do tubo digestivo, não sendo os marcadores específicos desta bipotencialidade.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O WT-1 e o SF-1 estão relacionados com a diferenciação gonadal e renal, sem relação com este contexto.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O Shh e o Gli estão relacionados com outras vias de sinalização (ex. papilas gustativas, arcos faríngeos), não especificamente com estes marcadores bipotenciais.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "level": "Olho",
+      "domain": "Cabeça e Pescoço",
+      "vignette": "",
+      "labTable": null,
+      "question": "O gene regulador chave do desenvolvimento ocular é:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "PAX6"
+        },
+        {
+          "letter": "B",
+          "text": "Sry"
+        },
+        {
+          "letter": "C",
+          "text": "Cdx-2"
+        },
+        {
+          "letter": "D",
+          "text": "WT-1"
+        },
+        {
+          "letter": "E",
+          "text": "Hoxa-10"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O PAX6 é o gene regulador chave para o desenvolvimento ocular.",
+      "source": "",
+      "logic": "1. Identificar o gene explicitamente referido no texto para o desenvolvimento ocular. 2. B, C, D e E são genes referidos noutros contextos embriológicos - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O Sry está relacionado com a diferenciação testicular, sem relação com o desenvolvimento ocular.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O Cdx-2 está relacionado com a diferenciação do sistema digestivo, sem relação com o desenvolvimento ocular.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O WT-1 está relacionado com a diferenciação renal e gonadal, sem relação com o desenvolvimento ocular.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O Hoxa-10 está relacionado com a diferenciação do trato genital masculino, sem relação com o desenvolvimento ocular.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "level": "Ouvido",
+      "domain": "Cabeça e Pescoço",
+      "vignette": "",
+      "labTable": null,
+      "question": "A membrana timpânica forma-se pela fusão entre:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A ectoderme da primeira fenda faríngea e a endoderme da 1ª bolsa faríngea"
+        },
+        {
+          "letter": "B",
+          "text": "A endoderme da 2ª bolsa faríngea e a ectoderme da 3ª fenda"
+        },
+        {
+          "letter": "C",
+          "text": "A mesoderme da crista genital e a endoderme cloacal"
+        },
+        {
+          "letter": "D",
+          "text": "A ectoderme neural e a endoderme do intestino anterior"
+        },
+        {
+          "letter": "E",
+          "text": "O epitélio celómico e a crista mesonéfrica"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A membrana timpânica forma-se pela fusão entre a ectoderme da primeira fenda faríngea, que cresce para dentro, e a endoderme da 1ª bolsa faríngea.",
+      "source": "",
+      "logic": "1. Rever as estruturas específicas envolvidas na formação da membrana timpânica. 2. B, C, D e E não correspondem às estruturas descritas para este processo específico - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Estas estruturas não correspondem às descritas para a formação da membrana timpânica.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Estas estruturas estão relacionadas com o desenvolvimento gonadal e urinário, sem relação com a membrana timpânica.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Estas estruturas não correspondem às descritas para a formação da membrana timpânica.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Estas estruturas estão relacionadas com o desenvolvimento gonadal, sem relação com a membrana timpânica.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "level": "Aparelho Faríngeo",
+      "domain": "Cabeça e Pescoço",
+      "vignette": "",
+      "labTable": null,
+      "question": "A formação dos arcos faríngeos, através da migração de células da crista neural na 4ª semana, é influenciada de forma importante pela sinalização de:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Shh (Sonic hedgehog)"
+        },
+        {
+          "letter": "B",
+          "text": "Insl-3"
+        },
+        {
+          "letter": "C",
+          "text": "Pax5"
+        },
+        {
+          "letter": "D",
+          "text": "HGF"
+        },
+        {
+          "letter": "E",
+          "text": "Hhex"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A sinalização Shh desempenha um papel importante na migração das células da crista neural que formam os arcos faríngeos na 4ª semana de gestação.",
+      "source": "",
+      "logic": "1. Identificar a via de sinalização referida para este processo específico. 2. B, C, D e E são fatores referidos noutros contextos embriológicos - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O Insl-3 está relacionado com a descida testicular, sem relação com a formação dos arcos faríngeos.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O Pax5 está relacionado com a diferenciação de linfócitos B, sem relação com a formação dos arcos faríngeos.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O HGF está relacionado com o desenvolvimento hepático, sem relação com a formação dos arcos faríngeos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O Hhex está relacionado com o desenvolvimento hepático, sem relação com a formação dos arcos faríngeos.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "level": "Nariz",
+      "domain": "Cabeça e Pescoço",
+      "vignette": "",
+      "labTable": null,
+      "question": "O nariz forma-se por invaginação de qual camada germinativa na mesoderme, a partir da proeminência fronto-nasal?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ectoderme"
+        },
+        {
+          "letter": "B",
+          "text": "Endoderme"
+        },
+        {
+          "letter": "C",
+          "text": "Mesoderme intermédia"
+        },
+        {
+          "letter": "D",
+          "text": "Crista neural exclusivamente"
+        },
+        {
+          "letter": "E",
+          "text": "Neuroectoderme"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O nariz forma-se por invaginação da ectoderme na mesoderme, a partir da proeminência fronto-nasal, formando as fossas nasais.",
+      "source": "",
+      "logic": "1. Rever a origem germinativa específica descrita para a formação nasal. 2. B, C, D e E não correspondem à camada descrita - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A endoderme não é a camada germinativa referida na invaginação inicial que forma as fossas nasais.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A mesoderme intermédia está relacionada com o desenvolvimento urogenital, sem relação com a formação nasal.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A crista neural não é a camada germinativa referida para esta invaginação específica.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A neuroectoderme não é a camada referida para esta invaginação específica.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "level": "Embriologia Pulmonar",
+      "domain": "Sistema Respiratório",
+      "vignette": "",
+      "labTable": null,
+      "question": "As quatro fases de maturação pulmonar ao longo da gestação, pela ordem correta, são:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pseudoglandular, canalicular, sacular, alveolar"
+        },
+        {
+          "letter": "B",
+          "text": "Alveolar, sacular, canalicular, pseudoglandular"
+        },
+        {
+          "letter": "C",
+          "text": "Canalicular, alveolar, pseudoglandular, sacular"
+        },
+        {
+          "letter": "D",
+          "text": "Sacular, pseudoglandular, alveolar, canalicular"
+        },
+        {
+          "letter": "E",
+          "text": "Alveolar, canalicular, sacular, pseudoglandular"
+        }
+      ],
+      "correct": "A",
+      "explanation": "As 4 fases de maturação pulmonar, pela ordem correta, são: pseudoglandular, canalicular, sacular e alveolar.",
+      "source": "",
+      "logic": "1. Rever a sequência cronológica das fases de maturação pulmonar. 2. B, C, D e E apresentam ordens incorretas - eliminar todas. 3. A corresponde à ordem correta descrita no texto.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Esta ordem está invertida relativamente à sequência correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Esta ordem não corresponde à sequência cronológica correta.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Esta ordem não corresponde à sequência cronológica correta.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Esta ordem não corresponde à sequência cronológica correta.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "level": "Tubo Cardíaco",
+      "domain": "Sistema Cardiovascular",
+      "vignette": "",
+      "labTable": null,
+      "question": "O tubo cardíaco primitivo tem origem em qual folheto embrionário?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Mesoderme esplâncnica"
+        },
+        {
+          "letter": "B",
+          "text": "Ectoderme de superfície"
+        },
+        {
+          "letter": "C",
+          "text": "Endoderme do intestino anterior"
+        },
+        {
+          "letter": "D",
+          "text": "Neuroectoderme"
+        },
+        {
+          "letter": "E",
+          "text": "Crista neural exclusivamente"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O tubo cardíaco tem origem na mesoderme esplâncnica.",
+      "source": "",
+      "logic": "1. Rever a origem germinativa do tubo cardíaco. 2. B, C, D e E não correspondem à origem descrita - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A ectoderme de superfície não é a origem do tubo cardíaco.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A endoderme do intestino anterior não é a origem do tubo cardíaco, apesar da proximidade anatómica.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A neuroectoderme não é a origem do tubo cardíaco.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Apenas parte das estruturas cardíacas (via de saída) tem contribuição da crista neural; o tubo cardíaco em si é mesodérmico.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "level": "Ansa Cardíaca",
+      "domain": "Sistema Cardiovascular",
+      "vignette": "",
+      "labTable": null,
+      "question": "Durante a formação da ansa cardíaca, o coração tubular sofre rotação para a direita, resultando numa ansa em U com o ápex voltado para:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A esquerda"
+        },
+        {
+          "letter": "B",
+          "text": "A direita"
+        },
+        {
+          "letter": "C",
+          "text": "Posteriormente"
+        },
+        {
+          "letter": "D",
+          "text": "Superiormente"
+        },
+        {
+          "letter": "E",
+          "text": "Sem qualquer orientação definida"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O coração tubular sofre rotação para a direita, formando a ansa cardíaca em U, com o ápex voltado para a esquerda.",
+      "source": "",
+      "logic": "1. Rever o resultado da rotação da ansa cardíaca. 2. B inverte o resultado correto - eliminar. 3. C e D não correspondem à orientação descrita - eliminar. 4. E contraria a existência de uma orientação clara e definida - eliminar. 5. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O ápex fica voltado para a esquerda, apesar da rotação ser para a direita, não para a direita.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A orientação final do ápex não é descrita como posterior.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A orientação final do ápex não é descrita como superior.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Existe, sim, uma orientação final clara e definida, com o ápex voltado para a esquerda.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "level": "Septação Atrial",
+      "domain": "Sistema Cardiovascular",
+      "vignette": "",
+      "labTable": null,
+      "question": "O ostium primum, comunicação inicial entre os átrios em desenvolvimento, forma-se em direção a que estrutura, antes da fusão completa do septum primum?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Os coxins endocárdicos"
+        },
+        {
+          "letter": "B",
+          "text": "O septo aorticopulmonar"
+        },
+        {
+          "letter": "C",
+          "text": "O foramen interventricular"
+        },
+        {
+          "letter": "D",
+          "text": "A cavidade pericárdica"
+        },
+        {
+          "letter": "E",
+          "text": "O mesocárdio dorsal"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O ostium primum é a comunicação inicial entre os átrios, formada em direção aos coxins endocárdicos em fusão, antes da fusão completa do septum primum.",
+      "source": "",
+      "logic": "1. Rever a estrutura-alvo da formação do ostium primum. 2. B pertence à septação das vias de saída - eliminar. 3. C pertence à septação ventricular - eliminar. 4. D e E não correspondem a esta estrutura específica - eliminar. 5. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O septo aorticopulmonar pertence à septação das vias de saída, não à formação do ostium primum.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O foramen interventricular pertence à septação ventricular, não à formação do ostium primum.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A cavidade pericárdica não é a estrutura-alvo da formação do ostium primum.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O mesocárdio dorsal degenera numa fase anterior, sem relação direta com a formação do ostium primum.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "level": "Septação das Vias de Saída",
+      "domain": "Sistema Cardiovascular",
+      "vignette": "",
+      "labTable": null,
+      "question": "O septo aorticopulmonar, que divide o bulbo cardíaco e o tronco arterial em aorta e tronco pulmonar, forma-se por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Espiralização de 180º e união das cristas bulbares e do tronco"
+        },
+        {
+          "letter": "B",
+          "text": "Fusão simples sem qualquer rotação"
+        },
+        {
+          "letter": "C",
+          "text": "Degeneração do mesocárdio dorsal"
+        },
+        {
+          "letter": "D",
+          "text": "Perfuração apoptótica do septum primum"
+        },
+        {
+          "letter": "E",
+          "text": "Fusão dos coxins endocárdicos dorsal e ventral apenas"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O septo aorticopulmonar forma-se pela espiralização de 180º e união das cristas bulbares (do bulbo cardíaco) e das cristas do tronco (do tronco arterial).",
+      "source": "",
+      "logic": "1. Rever o mecanismo específico de formação do septo aorticopulmonar. 2. B contraria a espiralização descrita - eliminar. 3. C, D e E descrevem processos de outras fases embriológicas - eliminar. 4. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O texto descreve explicitamente uma espiralização de 180º, não uma fusão simples sem rotação.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A degeneração do mesocárdio dorsal ocorre numa fase anterior, sem relação com o septo aorticopulmonar.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A perfuração apoptótica pertence à degeneração cranial do septum primum, na septação atrial.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A fusão dos coxins endocárdicos pertence à septação atrioventricular, não à septação das vias de saída.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "level": "Embriologia do Sistema Linfóide",
+      "domain": "Sistema Linfóide",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à origem embriológica dos órgãos linfóides, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Todos derivam da mesoderme, exceto o timo, que deriva da mesoderme e da endoderme"
+        },
+        {
+          "letter": "B",
+          "text": "Todos derivam exclusivamente da endoderme"
+        },
+        {
+          "letter": "C",
+          "text": "O timo deriva exclusivamente da ectoderme"
+        },
+        {
+          "letter": "D",
+          "text": "Todos derivam da crista neural"
+        },
+        {
+          "letter": "E",
+          "text": "O baço deriva da endoderme"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Todos os órgãos linfóides derivam da mesoderme, exceto o timo, que deriva da mesoderme e da endoderme.",
+      "source": "",
+      "logic": "1. Rever a origem embriológica geral dos órgãos linfóides. 2. B, C, D e E não correspondem à origem predominantemente mesodérmica descrita - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A origem predominante descrita é mesodérmica, não endodérmica.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O timo deriva da mesoderme e da endoderme, não exclusivamente da ectoderme.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A origem predominante descrita é mesodérmica, não da crista neural.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O baço deriva do mesênquima (mesoderme), não da endoderme.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "level": "Embriologia GI",
+      "domain": "Sistema Gastrointestinal",
+      "vignette": "",
+      "labTable": null,
+      "question": "A padronização inicial da endoderme intestinal, na gastrulação tardia, é regulada nos domínios anterior e posterior, respetivamente, por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Nodal e FGF-4"
+        },
+        {
+          "letter": "B",
+          "text": "Shh e BMP4"
+        },
+        {
+          "letter": "C",
+          "text": "Sox-9 e NKX2.5"
+        },
+        {
+          "letter": "D",
+          "text": "HNF-4 e FoxA"
+        },
+        {
+          "letter": "E",
+          "text": "Wnt e Notch exclusivamente"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O domínio anterior é regulado pelo Nodal e o domínio posterior pelo FGF-4.",
+      "source": "",
+      "logic": "1. Identificar os reguladores específicos de cada domínio referidos no texto. 2. B, C, D e E não correspondem à regulação anterior/posterior descrita neste contexto específico - eliminar. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O Shh e o BMP4 estão envolvidos na organização radial do esófago, não na padronização inicial anterior/posterior.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O Sox-9 e o NKX2.5 estão relacionados com a formação do esfíncter pilórico, não com a padronização inicial.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O HNF-4 e o FoxA regulam a diferenciação em hepatócitos, não a padronização inicial da endoderme intestinal.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O Wnt está envolvido noutros contextos de diferenciação, e o Notch está relacionado com a diferenciação de colangiócitos, não sendo os reguladores desta padronização inicial.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "level": "Embriologia Hepática",
+      "domain": "Sistema Gastrointestinal",
+      "vignette": "",
+      "labTable": null,
+      "question": "O fígado, de origem endodérmica, é induzido a partir de que estruturas?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Mesoderme cardíaca (via FGF) e septo transverso (via BMP)"
+        },
+        {
+          "letter": "B",
+          "text": "Exclusivamente a notocorda"
+        },
+        {
+          "letter": "C",
+          "text": "Crista neural"
+        },
+        {
+          "letter": "D",
+          "text": "Mesonefro"
+        },
+        {
+          "letter": "E",
+          "text": "Ectoderme oral"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A endoderme hepática, formada a partir da endoderme do intestino, é induzida a partir da mesoderme cardíaca (via FGF) e do septo transverso (via BMP).",
+      "source": "",
+      "logic": "1. Rever as estruturas indutoras específicas do desenvolvimento hepático. 2. B, C, D e E não correspondem às estruturas indutoras descritas - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A notocorda não é referida como a estrutura indutora do desenvolvimento hepático.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A crista neural não é referida como estrutura indutora do desenvolvimento hepático.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O mesonefro não é referido como estrutura indutora do desenvolvimento hepático.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A ectoderme oral está relacionada com a origem da adeno-hipófise, sem relação com a indução hepática.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "level": "Embriologia Hepática",
+      "domain": "Sistema Gastrointestinal",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à diferenciação dos hepatoblastos bipotenciais, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Os hepatócitos são regulados por HNF-4 e FoxA, e os colangiócitos por TGF-β e Notch"
+        },
+        {
+          "letter": "B",
+          "text": "Ambos os tipos celulares são regulados exclusivamente por Sox-17"
+        },
+        {
+          "letter": "C",
+          "text": "Os colangiócitos formam-se antes dos hepatoblastos"
+        },
+        {
+          "letter": "D",
+          "text": "Apenas os hepatócitos derivam da endoderme"
+        },
+        {
+          "letter": "E",
+          "text": "A diferenciação não depende de qualquer fator de transcrição"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Os hepatoblastos, bipotenciais, diferenciam-se em hepatócitos (regulados por HNF-4 e FoxA) ou colangiócitos (regulados por TGF-β e Notch).",
+      "source": "",
+      "logic": "1. Rever os reguladores específicos de cada linhagem hepática. 2. B atribui um regulador incorreto (Sox-17 é do contexto pancreático-biliar extra-hepático) - eliminar. 3. C inverte a sequência temporal correta (os hepatoblastos formam-se antes de se diferenciarem em colangiócitos) - eliminar. 4. D contraria a origem comum endodérmica de ambos - eliminar. 5. E contraria a existência de reguladores específicos claramente descritos - eliminar. 6. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O Sox-17 está relacionado com as células precursoras da árvore biliar extra-hepática e pâncreas ventral, não com a diferenciação geral dos hepatoblastos.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Os colangiócitos diferenciam-se a partir dos hepatoblastos, que se formam primeiro, não o contrário.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Tanto os hepatócitos como os colangiócitos derivam dos hepatoblastos, de origem endodérmica comum.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A diferenciação depende, sim, de fatores de transcrição específicos claramente identificados (HNF-4, FoxA, TGF-β, Notch).",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "level": "Embriologia Pancreática",
+      "domain": "Sistema Gastrointestinal",
+      "vignette": "",
+      "labTable": null,
+      "question": "O pâncreas dorsal forma-se a partir da endoderme mais dorsal, sendo induzido por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ativinas e FGF da notocorda, com repressão do Shh"
+        },
+        {
+          "letter": "B",
+          "text": "Testosterona"
+        },
+        {
+          "letter": "C",
+          "text": "Inibina mülleriana"
+        },
+        {
+          "letter": "D",
+          "text": "PTH"
+        },
+        {
+          "letter": "E",
+          "text": "Renina"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O pâncreas dorsal forma-se a partir da endoderme mais dorsal, induzido por ativinas e FGF da notocorda, com repressão do Shh.",
+      "source": "",
+      "logic": "1. Rever os fatores indutores específicos do pâncreas dorsal. 2. B, C, D e E são hormonas de sistemas completamente distintos, sem relação com este processo - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A testosterona está relacionada com a diferenciação sexual masculina, sem relação com a indução do pâncreas dorsal.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A inibina mülleriana está relacionada com a regressão dos ductos genitais femininos, sem relação com o pâncreas.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A PTH está relacionada com a regulação do cálcio, sem relação com a indução do pâncreas dorsal.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A renina está relacionada com a regulação da pressão sanguínea renal, sem relação com o pâncreas.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "level": "Embriologia Genital Feminina",
+      "domain": "Sistema Genital Feminino",
+      "vignette": "",
+      "labTable": null,
+      "question": "O sistema de ductos que dá origem à maior parte do sistema genital feminino denomina-se:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ductos paramesonéfricos (mullerianos)"
+        },
+        {
+          "letter": "B",
+          "text": "Ductos mesonéfricos (wolffianos)"
+        },
+        {
+          "letter": "C",
+          "text": "Ducto pronéfrico"
+        },
+        {
+          "letter": "D",
+          "text": "Botão uretérico"
+        },
+        {
+          "letter": "E",
+          "text": "Alantoide"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Os ductos paramesonéfricos (mullerianos) dão origem à maior parte do sistema genital feminino - trompa de falópio, útero e epitélio da superfície do ovário.",
+      "source": "",
+      "logic": "1. Identificar o sistema de ductos responsável pela genitália feminina. 2. B é responsável pela diferenciação masculina - eliminar. 3. C, D e E pertencem ao desenvolvimento urinário ou a outras estruturas, sem relação direta - eliminar. 4. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Os ductos mesonéfricos (wolffianos) dão origem ao sistema de ductos masculino, não ao feminino.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O ducto pronéfrico é vestigial e não é responsável pela origem do sistema genital feminino.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O botão uretérico está relacionado com o desenvolvimento renal, sem relação com o sistema genital feminino.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O alantoide está relacionado com o cordão umbilical, sem relação com o sistema genital feminino.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "level": "Embriologia Genital Feminina",
+      "domain": "Sistema Genital Feminino",
+      "vignette": "",
+      "labTable": null,
+      "question": "Os ductos mullerianos aparecem, como aberturas em forma de funil do epitélio celómico, por volta de que dia pós-concepção?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "37º dia (5 semanas)"
+        },
+        {
+          "letter": "B",
+          "text": "10º dia"
+        },
+        {
+          "letter": "C",
+          "text": "60º dia (8,5 semanas)"
+        },
+        {
+          "letter": "D",
+          "text": "100º dia"
+        },
+        {
+          "letter": "E",
+          "text": "Ao nascimento"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Os ductos mullerianos (paramesonéfricos) aparecem por volta do 37º dia (5 semanas) pós-concepção, como aberturas em forma de funil do epitélio celómico.",
+      "source": "",
+      "logic": "1. Rever o dia específico do aparecimento dos ductos mullerianos. 2. B, C, D e E não correspondem ao dia descrito - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Este dia é demasiado precoce relativamente ao valor descrito no texto.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Este dia não corresponde ao aparecimento inicial, mas sim a um evento posterior (fusão dos ductos e contacto com o tubérculo mulleriano ocorre por volta do dia 54).",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Este dia é demasiado tardio relativamente ao aparecimento inicial descrito.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Os ductos mullerianos aparecem muito antes do nascimento, na fase embrionária precoce.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "level": "Embriologia Genital Feminina",
+      "domain": "Sistema Genital Feminino",
+      "vignette": "",
+      "labTable": null,
+      "question": "Por volta do dia 54 (8 semanas), os ductos mullerianos fundem-se, formando:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Um canal uterovaginal reto, revestido por epitélio colunar simples imaturo"
+        },
+        {
+          "letter": "B",
+          "text": "Diretamente o ovário definitivo"
+        },
+        {
+          "letter": "C",
+          "text": "A rede testicular"
+        },
+        {
+          "letter": "D",
+          "text": "O botão uretérico"
+        },
+        {
+          "letter": "E",
+          "text": "A cloaca"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Por volta do dia 54, os ductos mullerianos fundem-se, formando um canal uterovaginal reto (primórdio do corpo uterino, colo e vagina), revestido por epitélio colunar simples mulleriano imaturo.",
+      "source": "",
+      "logic": "1. Rever a estrutura formada pela fusão dos ductos mullerianos. 2. B contraria a origem distinta do ovário (epitélio celómico/crista genital) - eliminar. 3. C pertence ao desenvolvimento testicular masculino, sem relação - eliminar. 4. D pertence ao desenvolvimento renal - eliminar. 5. E é uma estrutura anterior e mais geral, sem relação direta com este evento específico - eliminar. 6. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O ovário tem origem distinta (crista genital), não resultando diretamente da fusão dos ductos mullerianos.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A rede testicular pertence ao desenvolvimento do sistema genital masculino, sem relação com este evento.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O botão uretérico pertence ao desenvolvimento renal, sem relação com a fusão dos ductos mullerianos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A cloaca é uma estrutura anterior e mais geral, formada numa fase distinta do desenvolvimento.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "level": "Embriologia Genital Masculina",
+      "domain": "Sistema Genital Masculino",
+      "vignette": "",
+      "labTable": null,
+      "question": "O fator determinante do testículo (Sry) estimula a expressão de:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Sox-9, iniciando a diferenciação em células de Sertoli"
+        },
+        {
+          "letter": "B",
+          "text": "Pax5"
+        },
+        {
+          "letter": "C",
+          "text": "Cdx-2"
+        },
+        {
+          "letter": "D",
+          "text": "Hhex"
+        },
+        {
+          "letter": "E",
+          "text": "HNF-4"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O Sry estimula a expressão de Sox-9, que inicia a via de diferenciação de células estromais indiferenciadas em células de Sertoli.",
+      "source": "",
+      "logic": "1. Rever o mecanismo de ação do Sry na diferenciação gonadal. 2. B, C, D e E não correspondem ao alvo direto de ativação do Sry descrito - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O Pax5 está relacionado com a diferenciação de linfócitos B, sem relação com a ação do Sry.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O Cdx-2 está relacionado com a diferenciação do sistema digestivo, sem relação com a ação do Sry.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O Hhex está relacionado com o desenvolvimento hepático, sem relação com a ação do Sry.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O HNF-4 está relacionado com a diferenciação de hepatócitos, sem relação com a ação do Sry.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "level": "Embriologia Genital Masculina",
+      "domain": "Sistema Genital Masculino",
+      "vignette": "",
+      "labTable": null,
+      "question": "A inibina mülleriana, produzida pelas células de Sertoli a partir da 8ª semana, tem como função:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Induzir a regressão dos ductos paramesonéfricos (precursores dos ductos genitais femininos)"
+        },
+        {
+          "letter": "B",
+          "text": "Estimular a diferenciação dos ductos mesonéfricos"
+        },
+        {
+          "letter": "C",
+          "text": "Promover diretamente a descida testicular"
+        },
+        {
+          "letter": "D",
+          "text": "Inibir a produção de testosterona"
+        },
+        {
+          "letter": "E",
+          "text": "Estimular a espermatogénese fetal"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A inibina mülleriana, produzida pelas células de Sertoli, induz a involução dos precursores dos ductos genitais femininos (regressão dos ductos paramesonéfricos).",
+      "source": "",
+      "logic": "1. Rever a função específica da inibina mülleriana. 2. B é função da testosterona, não da inibina mülleriana - eliminar. 3. C, D e E não correspondem à função descrita - eliminar. 4. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A estimulação dos ductos mesonéfricos é função da testosterona, produzida pelas células de Leydig, não da inibina mülleriana.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A descida testicular é regulada por outros fatores (androgénios, Insl-3, testosterona), não pela inibina mülleriana.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A inibina mülleriana não tem a função de inibir a produção de testosterona.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A espermatogénese é estimulada pelas células de Leydig na puberdade, não diretamente pela inibina mülleriana fetal.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "level": "Embriologia Genital Masculina",
+      "domain": "Sistema Genital Masculino",
+      "vignette": "",
+      "labTable": null,
+      "question": "A testosterona, produzida pelas células de Leydig fetais, estimula a diferenciação dos ductos mesonéfricos em:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ductos eferentes, epidídimo, canais deferentes e ducto ejaculatório"
+        },
+        {
+          "letter": "B",
+          "text": "Trompas uterinas"
+        },
+        {
+          "letter": "C",
+          "text": "Útero e vagina"
+        },
+        {
+          "letter": "D",
+          "text": "Ovários"
+        },
+        {
+          "letter": "E",
+          "text": "Bexiga"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A testosterona estimula a diferenciação dos ductos mesonéfricos em ductos eferentes, epidídimo, canais deferentes e ducto ejaculatório.",
+      "source": "",
+      "logic": "1. Rever as estruturas derivadas dos ductos mesonéfricos sob ação da testosterona. 2. B e C pertencem ao sistema mulleriano/genital feminino, regredido no sexo masculino - eliminar. 3. D não deriva dos ductos mesonéfricos - eliminar. 4. E pertence ao sistema urinário, com origem distinta - eliminar. 5. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "As trompas uterinas derivam dos ductos paramesonéfricos (mullerianos), que regridem no sexo masculino.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O útero e a vagina também derivam de estruturas femininas que regridem no sexo masculino.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Os ovários não derivam dos ductos mesonéfricos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A bexiga tem origem embriológica distinta (sistema urinário), não resultando da diferenciação dos ductos mesonéfricos genitais.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "level": "Embriologia Genital Masculina",
+      "domain": "Sistema Genital Masculino",
+      "vignette": "",
+      "labTable": null,
+      "question": "A segunda fase da descida testicular (transabdominal) é comandada por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Insl-3, produzido pelas células de Leydig"
+        },
+        {
+          "letter": "B",
+          "text": "Testosterona exclusivamente"
+        },
+        {
+          "letter": "C",
+          "text": "Inibina mülleriana"
+        },
+        {
+          "letter": "D",
+          "text": "Estrogénio"
+        },
+        {
+          "letter": "E",
+          "text": "PTH"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A segunda fase da descida testicular (descida transabdominal), que leva os testículos até o nível do anel inguinal, é comandada pelo Insl-3, produzido pelas células de Leydig.",
+      "source": "",
+      "logic": "1. Rever os reguladores de cada uma das três fases da descida testicular. 2. B comanda a terceira fase (transinguinal), não a segunda - eliminar. 3. C, D e E não são os reguladores desta fase específica - eliminar. 4. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "A testosterona comanda a terceira fase (descida transinguinal), não a segunda fase.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A inibina mülleriana não é o regulador descrito para a descida testicular.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O estrogénio não é referido como regulador da descida testicular.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A PTH não tem relação com a descida testicular.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "level": "Embriologia Renal",
+      "domain": "Sistema Urinário",
+      "vignette": "",
+      "labTable": null,
+      "question": "O botão uretérico, que emerge do ducto metanéfrico, induz na mesoderme circundante a formação de:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "O blastema metanéfrico, que originará os nefrónios"
+        },
+        {
+          "letter": "B",
+          "text": "O ducto pronéfrico"
+        },
+        {
+          "letter": "C",
+          "text": "O ducto mesonéfrico"
+        },
+        {
+          "letter": "D",
+          "text": "A membrana cloacal"
+        },
+        {
+          "letter": "E",
+          "text": "O epitélio celómico gonadal"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O botão uretérico induz, na mesoderme do cordão nefrogénico circundante, a formação do blastema metanéfrico, que por sua vez, induzido pelos túbulos coletores, dará origem aos nefrónios (nefrogénese).",
+      "source": "",
+      "logic": "1. Rever o processo de indução mesenquimal pelo botão uretérico. 2. B e C são ductos de fases embriológicas anteriores, não induzidos pelo botão uretérico - eliminar. 3. D e E não correspondem a este processo específico - eliminar. 4. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O ducto pronéfrico é uma estrutura vestigial de uma fase muito anterior, não induzida pelo botão uretérico.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O ducto mesonéfrico é uma estrutura de fase anterior à formação do botão uretérico, não induzida por este.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A membrana cloacal não é a estrutura induzida pelo botão uretérico na mesoderme circundante.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O epitélio celómico gonadal está relacionado com o desenvolvimento das gónadas, não com esta indução renal específica.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "level": "Embriologia Renal",
+      "domain": "Sistema Urinário",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente aos três pares de rins que se formam sucessivamente durante o desenvolvimento embrionário, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "O pronefro é a estrutura mais cranial e vestigial, o mesonefro é capaz de filtração até às 12 semanas, e o metanefro origina o rim definitivo"
+        },
+        {
+          "letter": "B",
+          "text": "O metanefro é vestigial e o pronefro origina o rim definitivo"
+        },
+        {
+          "letter": "C",
+          "text": "Todos os três pares são funcionais simultaneamente ao longo de toda a gestação"
+        },
+        {
+          "letter": "D",
+          "text": "Apenas o pronefro é funcional"
+        },
+        {
+          "letter": "E",
+          "text": "O mesonefro não tem qualquer função de filtração"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O pronefro (4 semanas, região mais cranial) é vestigial; o mesonefro, com túbulos associados a capilares, é capaz de filtração até às 12 semanas, degenerando depois no sentido crânio-caudal; o metanefro (5ª semana, região mais caudal) origina, através do botão uretérico, o rim definitivo.",
+      "source": "",
+      "logic": "1. Rever a cronologia e função de cada um dos três pares renais embrionários. 2. B inverte as funções corretas - eliminar. 3. C contraria a sucessão descrita, em que cada par regride antes do seguinte se tornar funcional - eliminar. 4. D contraria a capacidade filtrativa do mesonefro - eliminar. 5. E contraria diretamente a capacidade filtrativa descrita para o mesonefro - eliminar. 6. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "É o oposto: o metanefro origina o rim definitivo, e o pronefro é a estrutura vestigial.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Os três pares formam-se e regridem sucessivamente, não sendo todos funcionais simultaneamente ao longo de toda a gestação.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O mesonefro é também funcional (capaz de filtração até às 12 semanas), não apenas o pronefro.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O mesonefro tem, sim, capacidade de filtração, sendo capaz de funcionar como rim mesonéfrico até às 12 semanas.",
+          "source": ""
+        }
+      ]
+    }
+  ]
+}

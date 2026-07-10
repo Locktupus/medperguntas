@@ -99,13 +99,22 @@
   <!-- Navigation — two islands below quiz card -->
   <div class="qnav-area" id="qnavArea">
     <div class="qnav-islands">
-      <!-- Left island: single row — ← strip → expand -->
+      <!-- Left island: single row — ← strip → | Expandir -->
       <div class="qnav-left-island">
-        <button class="qnav-arrow-btn" id="qnavPrev" onclick="navPrev()" aria-label="Questão anterior">←</button>
+        <button class="qnav-arrow-btn" id="qnavPrev" onclick="navPrev()" aria-label="Questão anterior">
+          <svg width="7" height="13" viewBox="0 0 7 13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 1L1 6.5L6 12"/>
+          </svg>
+        </button>
         <div class="qnav-strip-wrap" id="qnavStripWrap">
           <div class="qnav-strip" id="qnavStrip"></div>
         </div>
-        <button class="qnav-arrow-btn" id="qnavNext" onclick="navNext()" aria-label="Próxima questão">→</button>
+        <button class="qnav-arrow-btn" id="qnavNext" onclick="navNext()" aria-label="Próxima questão">
+          <svg width="7" height="13" viewBox="0 0 7 13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 1l5 5.5-5 5.5"/>
+          </svg>
+        </button>
+        <span class="qnav-island-sep"></span>
         <button class="qnav-expand-btn" id="qnavExpandBtn" onclick="toggleNavMap()">
           <svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="0" y="0" width="5" height="5" rx="1"/>
@@ -113,10 +122,10 @@
             <rect x="0" y="7" width="5" height="5" rx="1"/>
             <rect x="7" y="7" width="5" height="5" rx="1"/>
           </svg>
-          Expandir Questões <span class="qnav-chev" id="qnavChev">▾</span>
+          <span class="qnav-expand-text">Expandir Questões</span> <span class="qnav-chev" id="qnavChev">▾</span>
         </button>
       </div>
-      <!-- Right island: action button -->
+      <!-- Right island: action button — no box, just button -->
       <div class="qnav-right-island">
         <button class="btn-skip" id="btnSkip" onclick="navSkip()">Saltar</button>
         <button class="btn-next" id="btnNext" onclick="nextQuestion()">Próxima →</button>
@@ -289,20 +298,55 @@ function buildCell(i,clickFn){
 }
 
 function updateNavStrip(){
-  const total=questions.length;
-  const strip=document.getElementById('qnavStrip');
-  strip.innerHTML='';
-  const half=2;
-  let start=Math.max(0,cur-half), end=Math.min(total-1,cur+half);
-  if(end-start<Math.min(4,total-1)){if(start===0)end=Math.min(total-1,4);else start=Math.max(0,end-4);}
-  for(let i=start;i<=end;i++){const idx=i;strip.appendChild(buildCell(idx,()=>navigateTo(idx)));}
-  document.getElementById('qnavPrev').disabled=(cur===0);
-  document.getElementById('qnavNext').disabled=(cur===total-1);
-  const wrap=document.getElementById('qnavStripWrap');
-  if(wrap){wrap.classList.toggle('fade-left',start>0);wrap.classList.toggle('fade-right',end<total-1);}
-  if(document.getElementById('qnavFull').classList.contains('open')) updateFullMap();
+  const total = questions.length;
+  const strip = document.getElementById('qnavStrip');
+  const wrap  = document.getElementById('qnavStripWrap');
+  strip.innerHTML = '';
+
+  // How many real cells to show on each side of the current question
+  const wrapW     = wrap ? (wrap.offsetWidth || 200) : 200;
+  const cellW     = 32;  // 28px cell + 4px gap
+  const sideCount = Math.max(2, Math.floor((wrapW / cellW - 1) / 2));
+
+  const leftCells  = Math.min(cur, sideCount);
+  const rightCells = Math.min(total - 1 - cur, sideCount);
+  const start = cur - leftCells;
+  const end   = cur + rightCells;
+
+  // Invisible spacers keep the current cell anchored to the centre at all times,
+  // including when there aren't enough questions on one side (first / last question).
+  const spacer = () => {
+    const sp = document.createElement('div');
+    sp.style.cssText = 'width:28px;height:28px;flex-shrink:0;visibility:hidden;pointer-events:none';
+    strip.appendChild(sp);
+  };
+
+  for (let s = 0; s < sideCount - leftCells; s++) spacer();   // pad left
+  for (let i = start; i <= end; i++) {
+    const idx = i;
+    strip.appendChild(buildCell(idx, () => navigateTo(idx)));
+  }
+  for (let s = 0; s < sideCount - rightCells; s++) spacer();  // pad right
+
+  document.getElementById('qnavPrev').disabled = (cur === 0);
+  document.getElementById('qnavNext').disabled = (cur === total - 1);
+
+  // Gradient fades only when real cells are hidden beyond the visible window
+  if (wrap) {
+    wrap.classList.toggle('fade-left',  start > 0);
+    wrap.classList.toggle('fade-right', end   < total - 1);
+  }
+
+  if (document.getElementById('qnavFull').classList.contains('open')) updateFullMap();
   updateBottomBar();
 }
+
+// Recompute strip on resize so it always fills available width
+let _resizeTimer;
+window.addEventListener('resize', ()=>{
+  clearTimeout(_resizeTimer);
+  _resizeTimer = setTimeout(()=>{ if(questions.length) updateNavStrip(); }, 120);
+});
 
 function updateFullMap(){
   const grid=document.getElementById('qnavFullGrid'); grid.innerHTML='';

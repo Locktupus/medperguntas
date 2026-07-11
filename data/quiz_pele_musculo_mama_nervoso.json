@@ -1,0 +1,3673 @@
+{
+  "meta": {
+    "id": "histologia_pele_musculo_esqueletico_mama_tecido_nervoso",
+    "title": "Histologia — Pele, Sistema Músculo-Esquelético, Mama e Tecido Nervoso",
+    "subtitle": "Baseado em: Muito convenientemente H&E (capítulo Histologia (e Embriologia), pp. 40-72)",
+    "icon": "🧠",
+    "type": "quiz",
+    "source": "",
+    "color": "#2e8b8b"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "level": "Tipos de Pele",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente aos dois tipos de pele, é correto afirmar que a pele espessa, encontrada nas palmas das mãos e plantas dos pés, se caracteriza por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ter epiderme fina e ausência de estrato córneo"
+        },
+        {
+          "letter": "B",
+          "text": "Ter epiderme muito espessa, estrato córneo proeminente, muitas glândulas sudoríparas écrinas (sem sebáceas nem apócrinas) e ausência de folículos pilosos"
+        },
+        {
+          "letter": "C",
+          "text": "Conter todos os tipos de glândulas e folículos pilosos abundantes"
+        },
+        {
+          "letter": "D",
+          "text": "Ser desprovida de qualquer glândula sudorípara"
+        },
+        {
+          "letter": "E",
+          "text": "Ter um estrato lúcido ausente, ao contrário da pele fina"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A pele espessa tem epiderme muito espessa com estrato córneo proeminente, muitas glândulas sudoríparas écrinas (sem sebáceas nem apócrinas) e não tem folículos pilosos.",
+      "source": "",
+      "logic": "1. Rever as características descritas para a pele espessa. 2. A contraria diretamente a espessura e presença de estrato córneo descritas - eliminar. 3. C descreve a pele fina, não a espessa - eliminar. 4. D contraria a presença de glândulas écrinas - eliminar. 5. E é o oposto (a pele espessa tem estrato lúcido, a fina não) - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A pele espessa tem, precisamente, epiderme muito espessa e estrato córneo proeminente.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Esta descrição corresponde à pele fina, que contém todos os tipos de glândulas e folículos pilosos.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A pele espessa tem, sim, muitas glândulas sudoríparas écrinas.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "É o oposto: o estrato lúcido está presente apenas na pele espessa, ausente na pele fina.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "level": "Epiderme",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na epiderme, a camada responsável pela divisão ativa das células-tronco que dão origem aos restantes estratos denomina-se:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Estrato córneo"
+        },
+        {
+          "letter": "B",
+          "text": "Estrato basal"
+        },
+        {
+          "letter": "C",
+          "text": "Estrato lúcido"
+        },
+        {
+          "letter": "D",
+          "text": "Estrato granuloso"
+        },
+        {
+          "letter": "E",
+          "text": "Estrato espinhoso"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O estrato basal é uma camada única de células cúbicas que assenta na membrana basal, possuindo células-tronco que se dividem ativamente dando origem aos restantes estratos.",
+      "source": "",
+      "logic": "1. Rever a camada epidérmica responsável pela proliferação celular. 2. A é composto por células mortas, sem divisão - eliminar. 3. C e D são camadas mais superficiais e diferenciadas, sem função proliferativa - eliminar. 4. E é composto por queratinócitos já em diferenciação, não as células-tronco proliferativas - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O estrato córneo é composto por células mortas, sem núcleo, sem capacidade de divisão.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O estrato lúcido é uma camada fina e diferenciada, sem função proliferativa.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O estrato granuloso é uma camada de queratinócitos já em diferenciação avançada, não a camada proliferativa.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O estrato espinhoso contém queratinócitos em diferenciação, não as células-tronco basais proliferativas.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "level": "Epiderme",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "O estrato lúcido, camada fina de células pavimentosas com núcleos picnóticos, está presente exclusivamente em:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pele fina"
+        },
+        {
+          "letter": "B",
+          "text": "Pele espessa"
+        },
+        {
+          "letter": "C",
+          "text": "Ambos os tipos de pele igualmente"
+        },
+        {
+          "letter": "D",
+          "text": "Mucosa oral"
+        },
+        {
+          "letter": "E",
+          "text": "Derme papilar"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O estrato lúcido está presente apenas na pele espessa (palmas das mãos e plantas dos pés).",
+      "source": "",
+      "logic": "1. Rever a distribuição do estrato lúcido pelos tipos de pele. 2. A e C contrariam diretamente a exclusividade descrita - eliminar. 3. D não é o local descrito para o estrato lúcido - eliminar. 4. E é uma camada da derme, não da epiderme - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A pele fina apresenta ausência de estrato lúcido, sendo esta uma das suas características distintivas.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O estrato lúcido está presente exclusivamente na pele espessa, não em ambos os tipos.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O estrato lúcido não é descrito como presente na mucosa oral.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A derme papilar é uma camada da derme, distinta da epiderme onde se localiza o estrato lúcido.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "level": "Epiderme",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "Os melanócitos, células dendríticas do estrato basal responsáveis pela produção de melanina, apresentam qual proporção relativamente aos queratinócitos?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1:4 a 1:40"
+        },
+        {
+          "letter": "B",
+          "text": "1:1"
+        },
+        {
+          "letter": "C",
+          "text": "1:100 a 1:200"
+        },
+        {
+          "letter": "D",
+          "text": "1:1000"
+        },
+        {
+          "letter": "E",
+          "text": "Não existe uma proporção descrita"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Os melanócitos, dispersos entre as células basais, estão numa proporção de aproximadamente 1:4 a 1:40 queratinócitos.",
+      "source": "",
+      "logic": "1. Rever a proporção específica descrita entre melanócitos e queratinócitos. 2. B, C e D não correspondem à proporção descrita - eliminar. 3. E contraria a existência de uma proporção claramente descrita - eliminar. 4. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Esta proporção não corresponde à descrita; os melanócitos são bem menos numerosos que os queratinócitos.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Esta proporção não corresponde à descrita no texto para os melanócitos.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Esta proporção não corresponde à descrita no texto para os melanócitos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Existe, sim, uma proporção claramente descrita no texto (1:4 a 1:40).",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "level": "Epiderme",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "As células de Langerhans, apresentadoras de antigénio, localizam-se predominantemente em qual estrato epidérmico, e expressam qual marcador característico?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Estrato basal; CK20"
+        },
+        {
+          "letter": "B",
+          "text": "Estrato espinhoso; CD1a"
+        },
+        {
+          "letter": "C",
+          "text": "Estrato córneo; CD68"
+        },
+        {
+          "letter": "D",
+          "text": "Estrato granuloso; S100 exclusivamente"
+        },
+        {
+          "letter": "E",
+          "text": "Estrato lúcido; CD3"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As células de Langerhans localizam-se predominantemente no estrato espinhoso (proporção aproximada de 1:53 queratinócitos) e expressam CD1a.",
+      "source": "",
+      "logic": "1. Rever a localização e o marcador específico das células de Langerhans. 2. A atribui localização e marcador errados (CK20 é específico das células de Merkel) - eliminar. 3. C e D não correspondem à localização/marcador corretos - eliminar. 4. E não corresponde ao marcador descrito - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O CK20 é o marcador mais específico das células de Merkel, não das células de Langerhans, que se localizam no estrato espinhoso, não no basal.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Esta localização e marcador não correspondem às células de Langerhans.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Esta localização não corresponde à predominante para as células de Langerhans.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O CD3 é um marcador de linfócitos T, não das células de Langerhans.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "level": "Epiderme",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "As células de Merkel, mecanorreceptoras localizadas no estrato basal, são mais específicas para qual marcador de queratina, por não ser expressa nos queratinócitos adjacentes?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "CK20"
+        },
+        {
+          "letter": "B",
+          "text": "CK7"
+        },
+        {
+          "letter": "C",
+          "text": "CK5"
+        },
+        {
+          "letter": "D",
+          "text": "CK14"
+        },
+        {
+          "letter": "E",
+          "text": "CK8"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A queratina mais específica para as células de Merkel é a CK20, porque não é expressa nos queratinócitos adjacentes.",
+      "source": "",
+      "logic": "1. Rever o marcador de queratina específico descrito para as células de Merkel. 2. B, C, D e E não correspondem ao marcador descrito para estas células - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O CK7 é referido noutro contexto (células de Toker na mama), não como marcador específico das células de Merkel.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O CK5 não é o marcador específico descrito para as células de Merkel.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O CK14 é referido noutro contexto (células luminais mamárias), não como marcador específico das células de Merkel.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O CK8 não é o marcador específico descrito para as células de Merkel.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "level": "Derme",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "A derme divide-se em duas camadas. A camada papilar, mais fina e com papilas dérmicas, é composta predominantemente por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Tecido conjuntivo denso com colagénio tipo I organizado regularmente"
+        },
+        {
+          "letter": "B",
+          "text": "Tecido conjuntivo laxo com colagénio tipo III predominante, algum colagénio tipo I, fibras elásticas finas e GAGs"
+        },
+        {
+          "letter": "C",
+          "text": "Tecido adiposo exclusivamente"
+        },
+        {
+          "letter": "D",
+          "text": "Cartilagem elástica"
+        },
+        {
+          "letter": "E",
+          "text": "Epitélio pavimentoso estratificado"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A camada papilar da derme é composta por tecido conjuntivo laxo, essencialmente com colagénio tipo III e algum colagénio tipo I, fibras elásticas irregulares e finas, e GAGs.",
+      "source": "",
+      "logic": "1. Rever a composição específica da camada papilar. 2. A descreve a camada reticular, não a papilar - eliminar. 3. C descreve a hipoderme - eliminar. 4. D não corresponde a nenhuma camada da derme - eliminar. 5. E descreve a epiderme, não a derme - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Esta descrição corresponde à camada reticular (colagénio tipo I organizado regularmente), não à camada papilar.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O tecido adiposo é característico da hipoderme, não da camada papilar da derme.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A cartilagem elástica não é um componente descrito para nenhuma camada da derme.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O epitélio pavimentoso estratificado corresponde à epiderme, não à derme.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "level": "Derme",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "Os corpos glómicos, anastomoses arteriovenosas especializadas envolvidas na termorregulação, localizam-se predominantemente:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Na epiderme"
+        },
+        {
+          "letter": "B",
+          "text": "Na camada reticular da derme, em maior número nos dedos, palmas das mãos e plantas dos pés"
+        },
+        {
+          "letter": "C",
+          "text": "Na hipoderme exclusivamente"
+        },
+        {
+          "letter": "D",
+          "text": "No estrato córneo"
+        },
+        {
+          "letter": "E",
+          "text": "Na membrana basal"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Os corpos glómicos estão localizados na camada reticular da derme, em maior número nos dedos, nas palmas das mãos e plantas dos pés.",
+      "source": "",
+      "logic": "1. Rever a localização específica dos corpos glómicos. 2. A, C, D e E não correspondem à localização descrita - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A epiderme é avascular, não podendo conter estas estruturas vasculares.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A hipoderme não é a localização descrita para os corpos glómicos, mas sim a camada reticular da derme.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O estrato córneo é composto por células mortas, sem vascularização.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A membrana basal não é a localização descrita para os corpos glómicos.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "level": "Hipoderme",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "A hipoderme (tecido subcutâneo), situada por baixo da derme, tem como funções principais:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Barreira imunológica exclusivamente"
+        },
+        {
+          "letter": "B",
+          "text": "Isolamento térmico, armazenamento de energia e amortecimento de choques mecânicos"
+        },
+        {
+          "letter": "C",
+          "text": "Produção de queratina"
+        },
+        {
+          "letter": "D",
+          "text": "Secreção de sebo"
+        },
+        {
+          "letter": "E",
+          "text": "Perceção sensorial exclusiva"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A hipoderme, composta por tecido adiposo com septos de colagénio, atua como isolante térmico, armazena energia e amortece choques mecânicos.",
+      "source": "",
+      "logic": "1. Rever as funções específicas atribuídas à hipoderme. 2. A, C, D e E não correspondem às funções principais descritas - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A barreira imunológica não é a função principal descrita para a hipoderme.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A produção de queratina é função da epiderme, não da hipoderme.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A secreção de sebo é função das glândulas sebáceas, não da hipoderme em geral.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A perceção sensorial não é a função principal descrita para a hipoderme.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "level": "Estruturas Nervosas da Pele",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "Os corpúsculos de Pacini, com aparência em camadas de cebola, são responsáveis pela deteção de:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Sensibilidade ao tato fino exclusivamente"
+        },
+        {
+          "letter": "B",
+          "text": "Mudanças de pressão e vibrações"
+        },
+        {
+          "letter": "C",
+          "text": "Sensibilidade ao frio exclusivamente"
+        },
+        {
+          "letter": "D",
+          "text": "Dor exclusivamente"
+        },
+        {
+          "letter": "E",
+          "text": "Estiramento e torção da pele"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Os corpúsculos de Pacini são responsáveis pela deteção de mudanças de pressão e vibrações.",
+      "source": "",
+      "logic": "1. Rever a função sensorial específica dos corpúsculos de Pacini. 2. A descreve o corpúsculo de Meissner - eliminar. 3. C descreve o bulbo terminal de Krause - eliminar. 4. D descreve as terminações nervosas livres - eliminar. 5. E descreve o corpúsculo de Ruffini - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A sensibilidade ao tato fino é função do corpúsculo de Meissner, não do de Pacini.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A sensibilidade ao frio é função do bulbo terminal de Krause, não do corpúsculo de Pacini.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A dor é detetada por terminações nervosas livres, não pelo corpúsculo de Pacini.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O estiramento e torção da pele são detetados pelo corpúsculo de Ruffini, não pelo de Pacini.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "level": "Anexos Cutâneos - Folículo Piloso",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "No folículo piloso, a camada de células queratinizadas fortemente compactadas, situada entre a medula e a cutícula do pelo, denomina-se:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Bainha interna"
+        },
+        {
+          "letter": "B",
+          "text": "Córtex do pelo"
+        },
+        {
+          "letter": "C",
+          "text": "Bainha externa"
+        },
+        {
+          "letter": "D",
+          "text": "Bainha de tecido conjuntivo"
+        },
+        {
+          "letter": "E",
+          "text": "Papila dérmica"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O córtex do pelo, composto por células queratinizadas fortemente compactadas, situa-se entre a medula e a cutícula do pelo.",
+      "source": "",
+      "logic": "1. Rever a organização do folículo piloso do centro para a periferia. 2. A é a camada que termina nas glândulas sebáceas, situada mais externamente - eliminar. 3. C é contínua com a pele, ainda mais externa - eliminar. 4. D é a camada mais externa - eliminar. 5. E é a estrutura que inclui a raiz do pelo, na base do folículo, não a camada intermédia - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A bainha interna situa-se mais externamente, terminando nas glândulas sebáceas, não entre a medula e a cutícula.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A bainha externa é contínua com a pele, sendo a camada mais externa do folículo, não a intermédia.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A bainha de tecido conjuntivo é a camada mais externa do folículo piloso.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A papila dérmica localiza-se no bulbo piloso, na base do folículo, não entre a medula e a cutícula.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "level": "Anexos Cutâneos - Glândulas Sebáceas",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "As glândulas sebáceas, que secretam sebo, apresentam qual tipo de secreção?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Merócrina"
+        },
+        {
+          "letter": "B",
+          "text": "Holócrina"
+        },
+        {
+          "letter": "C",
+          "text": "Apócrina"
+        },
+        {
+          "letter": "D",
+          "text": "Écrina exclusivamente"
+        },
+        {
+          "letter": "E",
+          "text": "Endócrina"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As glândulas sebáceas secretam sebo através de secreção holócrina, desenvolvendo-se a partir da bainha folicular externa.",
+      "source": "",
+      "logic": "1. Rever o tipo de secreção específico das glândulas sebáceas. 2. A, C, D e E não correspondem ao tipo de secreção descrito para estas glândulas - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A secreção merócrina não é o tipo descrito para as glândulas sebáceas.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A secreção apócrina é característica de outro tipo de glândulas sudoríparas, não das sebáceas.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A secreção écrina é característica de outro tipo de glândulas sudoríparas, não das sebáceas.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "As glândulas sebáceas são exócrinas (secretam para a superfície cutânea através de ductos), não endócrinas.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "level": "Anexos Cutâneos - Glândulas Sudoríparas",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "Comparativamente às glândulas sudoríparas écrinas, as apócrinas caracterizam-se por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Terem lúmen mais estreito e serem mais numerosas na pele espessa"
+        },
+        {
+          "letter": "B",
+          "text": "Terem lúmen grande, estarem associadas aos folículos pilosos, e só começarem a funcionar na puberdade sob controlo de hormonas sexuais"
+        },
+        {
+          "letter": "C",
+          "text": "Não terem qualquer relação com folículos pilosos"
+        },
+        {
+          "letter": "D",
+          "text": "Serem inervadas exclusivamente por fibras parassimpáticas"
+        },
+        {
+          "letter": "E",
+          "text": "Produzirem exclusivamente água e eletrólitos"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As glândulas sudoríparas apócrinas têm lúmen grande, estão associadas aos folículos pilosos (abrindo geralmente acima das glândulas sebáceas), e começam a funcionar na puberdade, sendo controladas por hormonas sexuais.",
+      "source": "",
+      "logic": "1. Rever as características distintivas das glândulas apócrinas face às écrinas. 2. A inverte as características (as écrinas são mais numerosas na pele espessa, não as apócrinas) - eliminar. 3. C contraria diretamente a associação folicular descrita - eliminar. 4. D descreve a inervação das écrinas (simpática), não das apócrinas - eliminar. 5. E descreve a secreção das écrinas (células claras), não das apócrinas - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É o oposto: as glândulas écrinas, não as apócrinas, são mais numerosas na pele espessa.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "As glândulas apócrinas estão, sim, associadas aos folículos pilosos, geralmente abrindo acima das glândulas sebáceas.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "As glândulas écrinas são inervadas principalmente por fibras simpáticas; a inervação das apócrinas não é descrita desta forma.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A produção de água e eletrólitos é característica do segmento secretor das glândulas écrinas (células claras), não das apócrinas.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "level": "Unha",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "A matriz ungueal, local a partir do qual a unha cresce, localiza-se:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "No leito ungueal distal"
+        },
+        {
+          "letter": "B",
+          "text": "Na base da unha"
+        },
+        {
+          "letter": "C",
+          "text": "No hiponíquio"
+        },
+        {
+          "letter": "D",
+          "text": "Na prega ungueal proximal exclusivamente"
+        },
+        {
+          "letter": "E",
+          "text": "Na cutícula"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A matriz ungueal está localizada na base da unha, sendo o local a partir do qual a unha cresce.",
+      "source": "",
+      "logic": "1. Rever a localização específica da matriz ungueal. 2. A, C, D e E descrevem outras estruturas da unidade ungueal, distintas da matriz - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O leito ungueal prende a unha ao dedo, sendo uma estrutura distinta da matriz ungueal.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O hiponíquio é a camada da epiderme abaixo do bordo livre da placa ungueal, distinta da matriz.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A prega ungueal proximal é uma dobra de pele que contém o eponíquio, distinta da matriz ungueal em si.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A cutícula cobre a placa ungueal proximal, sendo uma continuação do eponíquio, distinta da matriz.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "level": "Envelhecimento Cutâneo",
+      "domain": "Pele",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente ao envelhecimento intrínseco (cronológico) da pele, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "O número de melanócitos e de células de Langerhans aumenta"
+        },
+        {
+          "letter": "B",
+          "text": "O número de melanócitos diminui significativamente, o número de células de Langerhans diminui, e a hipoderme reduz o volume de lípidos"
+        },
+        {
+          "letter": "C",
+          "text": "Está associado exclusivamente à exposição à radiação UV"
+        },
+        {
+          "letter": "D",
+          "text": "A epiderme torna-se mais espessa"
+        },
+        {
+          "letter": "E",
+          "text": "A junção dermo-epidérmica torna-se mais ondulada, com derme papilar mais evidente"
+        }
+      ],
+      "correct": "B",
+      "explanation": "No envelhecimento intrínseco/cronológico, o número de melanócitos diminui significativamente, o número de células de Langerhans diminui, e a hipoderme reduz o volume de lípidos.",
+      "source": "",
+      "logic": "1. Rever as alterações específicas do envelhecimento intrínseco. 2. A é o oposto (diminuição, não aumento) - eliminar. 3. C descreve o envelhecimento extrínseco/fotoenvelhecimento, não o intrínseco - eliminar. 4. D é o oposto (a epiderme torna-se fina) - eliminar. 5. E é o oposto (a junção torna-se plana, sem derme papilar evidente) - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É o oposto: o número de melanócitos e de células de Langerhans diminui com o envelhecimento intrínseco.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A exposição à radiação UV está associada ao envelhecimento extrínseco (fotoenvelhecimento), não ao intrínseco/cronológico.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "É o oposto: a epiderme torna-se mais fina com o envelhecimento (as camadas mantêm-se as mesmas, mas mais finas).",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "É o oposto: a junção dermo-epidérmica torna-se plana, sem derme papilar evidente, com o envelhecimento.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "level": "Fáscia",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "O sistema fascial incorpora vários elementos, incluindo:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Apenas tecido adiposo"
+        },
+        {
+          "letter": "B",
+          "text": "Tecido adiposo, adventícia, bainhas neurovasculares, aponevroses, fáscias profundas e superficiais, cápsulas articulares, ligamentos, membranas, meninges e expansões miofasciais"
+        },
+        {
+          "letter": "C",
+          "text": "Exclusivamente cartilagem"
+        },
+        {
+          "letter": "D",
+          "text": "Apenas o endomísio"
+        },
+        {
+          "letter": "E",
+          "text": "Apenas tendões"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O sistema fascial incorpora elementos como tecido adiposo, adventícia e bainhas neurovasculares, aponevroses, fáscias profundas e superficiais, cápsulas articulares, ligamentos, membranas, meninges e expansões miofasciais e intermusculares, incluindo endomísio/perimísio/epimísio.",
+      "source": "",
+      "logic": "1. Rever a lista completa de elementos do sistema fascial. 2. A, C, D e E restringem incorretamente a composição a um único elemento - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O tecido adiposo é apenas um dos vários elementos que compõem o sistema fascial, não o único.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A cartilagem não é referida como componente do sistema fascial.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O endomísio é apenas um dos vários elementos que compõem o sistema fascial, não o único.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Os tendões são apenas um dos vários elementos que compõem o sistema fascial, não o único.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "level": "Fáscia",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Comparativamente aos tendões, os ligamentos caracterizam-se por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Serem mais elásticos, com menos colagénio e mais GAGs, retomando a sua forma original após redução da tensão"
+        },
+        {
+          "letter": "B",
+          "text": "Ligarem músculo ao osso"
+        },
+        {
+          "letter": "C",
+          "text": "Serem mais organizados e suportarem maior tensão"
+        },
+        {
+          "letter": "D",
+          "text": "Conterem tenoblastos"
+        },
+        {
+          "letter": "E",
+          "text": "Serem revestidos por epitenon"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Os ligamentos ligam osso a osso em articulações móveis, sendo mais elásticos (menos colagénio, mais GAGs) e retomando a sua forma original logo após a redução da tensão, com fascículos de menor diâmetro.",
+      "source": "",
+      "logic": "1. Rever a comparação específica entre ligamentos e tendões. 2. B, D e E descrevem características dos tendões, não dos ligamentos - eliminar. 3. C também descreve os tendões, que são mais organizados e suportam maior tensão - eliminar. 4. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Ligar músculo ao osso é a função dos tendões, não dos ligamentos (que ligam osso a osso).",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Ser mais organizado e suportar maior tensão é característica dos tendões, não dos ligamentos.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Os tenoblastos são fibroblastos que produzem a matriz extracelular dos tendões, não dos ligamentos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O epitenon é a bainha de tecido conjuntivo laxo que rodeia o tendão, não o ligamento.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "level": "Músculo Esquelético",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Uma unidade motora corresponde a:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Um único sarcómero"
+        },
+        {
+          "letter": "B",
+          "text": "Um conjunto de fibras musculares esqueléticas inervadas por um neurónio motor"
+        },
+        {
+          "letter": "C",
+          "text": "Um fascículo muscular isolado sem inervação"
+        },
+        {
+          "letter": "D",
+          "text": "A totalidade do músculo esquelético"
+        },
+        {
+          "letter": "E",
+          "text": "Um complexo juncional entre duas fibras musculares"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Uma unidade motora corresponde a um conjunto de fibras musculares esqueléticas inervadas por um neurónio motor.",
+      "source": "",
+      "logic": "1. Rever a definição precisa de unidade motora. 2. A não corresponde a esta definição, tratando-se de uma estrutura contrátil, não uma unidade de inervação - eliminar. 3. C contraria a natureza inervada da unidade motora - eliminar. 4. D sobrestima o conceito, que se refere a um subconjunto de fibras, não à totalidade do músculo - eliminar. 5. E não corresponde à definição - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O sarcómero é a unidade contrátil do músculo, um conceito distinto da unidade motora (unidade de inervação).",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A unidade motora implica, precisamente, inervação por um neurónio motor, não a sua ausência.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A unidade motora refere-se a um subconjunto específico de fibras inervadas por um único neurónio motor, não à totalidade do músculo.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Este conceito não corresponde à definição de unidade motora.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "level": "Músculo Esquelético",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na organização do tecido conjuntivo do músculo esquelético, o perimísio envolve:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "O músculo na sua totalidade"
+        },
+        {
+          "letter": "B",
+          "text": "Fascículos (grupos de fibras musculares)"
+        },
+        {
+          "letter": "C",
+          "text": "Cada fibra muscular individual"
+        },
+        {
+          "letter": "D",
+          "text": "Apenas o tendão"
+        },
+        {
+          "letter": "E",
+          "text": "Apenas os vasos sanguíneos"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O perimísio envolve os fascículos, definidos como grupos de fibras musculares; o epimísio envolve o músculo na sua totalidade, e o endomísio envolve cada fibra muscular individual.",
+      "source": "",
+      "logic": "1. Rever a hierarquia organizacional do tecido conjuntivo muscular. 2. A descreve o epimísio, não o perimísio - eliminar. 3. C descreve o endomísio - eliminar. 4. D e E não correspondem à função do perimísio - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O envolvimento do músculo na sua totalidade é função do epimísio, não do perimísio.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O envolvimento de cada fibra muscular individual é função do endomísio, não do perimísio.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O perimísio não envolve especificamente o tendão.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O perimísio não envolve especificamente apenas os vasos sanguíneos, embora estes o acompanhem.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "level": "Músculo Esquelético",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "O sarcómero, unidade contrátil repetitiva do músculo esquelético, corresponde à porção de miofibrilas entre:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Duas bandas A adjacentes"
+        },
+        {
+          "letter": "B",
+          "text": "Duas linhas Z adjacentes"
+        },
+        {
+          "letter": "C",
+          "text": "Duas linhas M adjacentes"
+        },
+        {
+          "letter": "D",
+          "text": "Duas bandas I adjacentes"
+        },
+        {
+          "letter": "E",
+          "text": "Dois núcleos adjacentes"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O sarcómero corresponde à porção de miofibrilas entre duas linhas Z adjacentes.",
+      "source": "",
+      "logic": "1. Rever a definição estrutural precisa do sarcómero. 2. A, C, D e E não correspondem à definição descrita para os limites do sarcómero - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A banda A corresponde ao comprimento dos miofilamentos de miosina, uma subestrutura dentro do sarcómero, não os seus limites.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A linha M é a linha central do sarcómero, não os seus limites externos.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A banda I corresponde aos miofilamentos de actina, uma subestrutura dentro do sarcómero, não os seus limites.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Os núcleos não definem os limites do sarcómero, que é uma estrutura contrátil, não nuclear.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "level": "Músculo Esquelético",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na linha Z do sarcómero, os filamentos de actina estão ancorados através de:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Miomesina"
+        },
+        {
+          "letter": "B",
+          "text": "Alfa-actinina"
+        },
+        {
+          "letter": "C",
+          "text": "Obscurina"
+        },
+        {
+          "letter": "D",
+          "text": "Miosina"
+        },
+        {
+          "letter": "E",
+          "text": "Titina exclusivamente"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A linha Z é composta por filamentos de alfa-actinina, ancorados ao sarcolema, aos quais os filamentos de actina se ancoram pela sua extremidade positiva.",
+      "source": "",
+      "logic": "1. Rever a proteína específica de ancoragem na linha Z. 2. A e C são proteínas da linha M, não da linha Z - eliminar. 3. D corresponde aos filamentos que se sobrepõem à actina na banda A, não à ancoragem na linha Z - eliminar. 4. E não é a proteína referida especificamente para esta ancoragem - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A miomesina é uma proteína da linha M, não da linha Z.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A obscurina é uma proteína da linha M, não da linha Z.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A miosina sobrepõe-se à actina na banda A, não sendo a proteína de ancoragem na linha Z.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A titina não é a proteína especificamente referida para a ancoragem dos filamentos de actina na linha Z neste contexto.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "level": "Músculo Esquelético",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à histologia geral das fibras musculares esqueléticas, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Têm um único núcleo central"
+        },
+        {
+          "letter": "B",
+          "text": "Têm múltiplos núcleos distribuídos perifericamente no sarcoplasma, próximos do sarcolema"
+        },
+        {
+          "letter": "C",
+          "text": "Não contêm miofibrilas"
+        },
+        {
+          "letter": "D",
+          "text": "São células mononucleadas com núcleo central"
+        },
+        {
+          "letter": "E",
+          "text": "Não apresentam qualquer aparência estriada"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As fibras musculares esqueléticas têm muitos núcleos distribuídos perifericamente no sarcoplasma, muito próximos da membrana celular (sarcolema).",
+      "source": "",
+      "logic": "1. Rever a organização nuclear das fibras musculares esqueléticas. 2. A e D contrariam a multinucleação descrita - eliminar. 3. C contraria diretamente a presença de miofibrilas - eliminar. 4. E contraria a aparência estriada característica descrita - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "As fibras musculares esqueléticas são multinucleadas, não têm um único núcleo.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "As fibras musculares esqueléticas contêm, precisamente, muitas miofibrilas.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "As fibras musculares esqueléticas são multinucleadas e os núcleos são periféricos, não centrais e únicos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O músculo esquelético apresenta, precisamente, uma aparência estriada característica.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "level": "Músculo Esquelético",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "O mecanismo de contração muscular inicia-se quando:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "As miofibrilas em repouso já estão em contacto"
+        },
+        {
+          "letter": "B",
+          "text": "A miosina contacta com a actina adjacente, promovendo um movimento de translação entre as miofibrilas"
+        },
+        {
+          "letter": "C",
+          "text": "O sarcómero se alonga permanentemente"
+        },
+        {
+          "letter": "D",
+          "text": "A linha Z desaparece"
+        },
+        {
+          "letter": "E",
+          "text": "Os núcleos migram para o centro da fibra"
+        }
+      ],
+      "correct": "B",
+      "explanation": "No mecanismo de contração, em repouso as miofibrilas não estão em contacto; no início do processo, a miosina contacta com a actina adjacente, promovendo um movimento de translação entre as miofibrilas.",
+      "source": "",
+      "logic": "1. Rever a sequência do mecanismo de contração descrito. 2. A contraria diretamente a descrição de repouso sem contacto - eliminar. 3. C, D e E não correspondem ao mecanismo descrito - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É o oposto: em repouso, as miofibrilas não estão em contacto.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O sarcómero encurta durante a contração, não se alonga permanentemente.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A linha Z não desaparece durante a contração; permanece como ponto de ancoragem estrutural.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A migração nuclear não é o mecanismo descrito para a contração muscular.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "level": "Cartilagem",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente aos tipos de cartilagem, a fibrocartilagem distingue-se das restantes por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Possuir pericôndrio bem desenvolvido"
+        },
+        {
+          "letter": "B",
+          "text": "Não possuir pericôndrio, sendo dependente do crescimento intersticial"
+        },
+        {
+          "letter": "C",
+          "text": "Ser exclusivamente composta por colagénio tipo II"
+        },
+        {
+          "letter": "D",
+          "text": "Calcificar precocemente com a idade"
+        },
+        {
+          "letter": "E",
+          "text": "Localizar-se exclusivamente na traqueia"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A fibrocartilagem não possui pericôndrio, estando por isso dependente do crescimento intersticial; forma-se a partir de tecido conjuntivo denso rico em fibroblastos.",
+      "source": "",
+      "logic": "1. Rever a tabela comparativa dos tipos de cartilagem. 2. A contraria diretamente a ausência de pericôndrio na fibrocartilagem - eliminar. 3. C é incorreto (contém colagénio tipo I e II) - eliminar. 4. D não é a característica distintiva descrita - eliminar. 5. E não corresponde à localização da fibrocartilagem (discos intervertebrais, sínfise púbica) - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É o oposto: a fibrocartilagem não possui pericôndrio, ao contrário da hialina e elástica.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A fibrocartilagem contém colagénio dos tipos I e II, não exclusivamente tipo II (que é característico da hialina e elástica).",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A calcificação precoce não é a característica distintiva descrita para a fibrocartilagem.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A fibrocartilagem localiza-se em discos articulares, sínfise púbica e inserções de tendões, não na traqueia (que tem cartilagem hialina).",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "level": "Cartilagem",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "A cartilagem elástica, encontrada na epiglote, laringe e canal auditivo, caracteriza-se por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Não possuir pericôndrio"
+        },
+        {
+          "letter": "B",
+          "text": "Possuir uma rede densa e rica em fibras elásticas, não calcificando com a idade"
+        },
+        {
+          "letter": "C",
+          "text": "Ser o tipo de cartilagem que reveste as superfícies articulares"
+        },
+        {
+          "letter": "D",
+          "text": "Ter condrócitos menores e mais numerosos que a cartilagem hialina"
+        },
+        {
+          "letter": "E",
+          "text": "Ser composta predominantemente por colagénio tipo I"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A cartilagem elástica possui uma rede densa e rica em fibras elásticas, tem mais flexibilidade e elasticidade que os outros tipos de cartilagem, e não calcifica com a idade.",
+      "source": "",
+      "logic": "1. Rever as características distintivas da cartilagem elástica. 2. A contraria a presença de pericôndrio na cartilagem elástica - eliminar. 3. C descreve a cartilagem hialina na superfície articular, que não tem pericôndrio nesta localização, não a elástica - eliminar. 4. D é o oposto (os condrócitos da elástica são maiores e mais abundantes que na hialina) - eliminar. 5. E é incorreto (predomina o colagénio tipo II, como na hialina) - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A cartilagem elástica possui, sim, pericôndrio, ao contrário da fibrocartilagem.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A cartilagem hialina (na sua porção articular, sem pericôndrio) reveste as superfícies articulares, não a elástica.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "É o oposto: os condrócitos da cartilagem elástica são maiores e mais abundantes que os da hialina.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A cartilagem elástica é composta predominantemente por colagénio tipo II (mais fibras elásticas), não tipo I.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "level": "Cartilagem",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na cartilagem hialina, a matriz territorial (adjacente aos condrócitos), comparativamente à matriz interterritorial, caracteriza-se por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ter mais colagénio e menos proteoglicanos, sendo menos basofílica"
+        },
+        {
+          "letter": "B",
+          "text": "Ter mais proteoglicanos e menos colagénio, apresentando coloração basofílica mais intensa"
+        },
+        {
+          "letter": "C",
+          "text": "Ser acelular"
+        },
+        {
+          "letter": "D",
+          "text": "Não conter proteoglicanos"
+        },
+        {
+          "letter": "E",
+          "text": "Ser indistinguível da matriz interterritorial"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A matriz territorial tem mais proteoglicanos e menos colagénio (coloração basofílica mais intensa); a matriz interterritorial tem mais colagénio (coloração menos intensa).",
+      "source": "",
+      "logic": "1. Rever a distinção entre matriz territorial e interterritorial. 2. A inverte as características corretas - eliminar. 3. C e D contrariam a composição celular/molecular descrita - eliminar. 4. E contraria a distinção clara descrita entre as duas matrizes - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "As características estão invertidas: a matriz territorial tem mais proteoglicanos e menos colagénio, não o contrário.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A matriz territorial é a matriz adjacente aos condrócitos, não sendo ela própria acelular no sentido de estar isolada das células.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A matriz territorial contém, precisamente, mais proteoglicanos que a interterritorial.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "As duas matrizes são distinguíveis pela sua diferente coloração e composição, não sendo indistinguíveis.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "level": "Cartilagem",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "O crescimento aposicional da cartilagem inicia-se:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Na parte interna do pericôndrio, a partir da diferenciação de células condrogénicas em condroblastos"
+        },
+        {
+          "letter": "B",
+          "text": "Exclusivamente pela divisão de condrócitos maduros no interior da matriz"
+        },
+        {
+          "letter": "C",
+          "text": "Apenas na fibrocartilagem"
+        },
+        {
+          "letter": "D",
+          "text": "Apenas após a puberdade"
+        },
+        {
+          "letter": "E",
+          "text": "A partir de osteoblastos"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O crescimento aposicional inicia-se na parte interna do pericôndrio, nas células condrogénicas, que se diferenciam em condroblastos, produzindo matriz para a região periférica; é o crescimento mais frequente no corpo humano, ocorrendo apenas na cartilagem com pericôndrio.",
+      "source": "",
+      "logic": "1. Rever o mecanismo específico do crescimento aposicional. 2. B descreve o crescimento intersticial, não o aposicional - eliminar. 3. C contraria a condição de existência de pericôndrio (a fibrocartilagem não tem) - eliminar. 4. D não corresponde à restrição temporal descrita - eliminar. 5. E não corresponde à origem celular descrita - eliminar. 6. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Esta descrição corresponde ao crescimento intersticial, não ao aposicional.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O crescimento aposicional ocorre apenas na cartilagem com pericôndrio, o que exclui precisamente a fibrocartilagem (que não tem pericôndrio).",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O crescimento aposicional não está restrito ao período pós-puberdade.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O crescimento aposicional origina-se nas células condrogénicas do pericôndrio, não em osteoblastos.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "level": "Cartilagem",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "O crescimento intersticial da cartilagem ocorre por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Deposição de matriz exclusivamente na periferia"
+        },
+        {
+          "letter": "B",
+          "text": "Divisão celular dos condrócitos, formando grupos isógenos que ocupam a lacuna da célula-mãe, separando-se depois com a secreção de nova matriz"
+        },
+        {
+          "letter": "C",
+          "text": "Diferenciação de células do pericôndrio"
+        },
+        {
+          "letter": "D",
+          "text": "Reabsorção ativa por osteoclastos"
+        },
+        {
+          "letter": "E",
+          "text": "Mineralização direta da matriz"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O crescimento intersticial inicia-se com a divisão celular dos condrócitos, formando grupos isógenos (ou filas) que ocupam a lacuna da célula-mãe; com a secreção de nova matriz, as células separam-se, ocupando a sua própria lacuna.",
+      "source": "",
+      "logic": "1. Rever o mecanismo específico do crescimento intersticial. 2. A descreve o crescimento aposicional, não o intersticial - eliminar. 3. C também descreve o crescimento aposicional - eliminar. 4. D e E não correspondem a nenhum dos mecanismos de crescimento cartilagíneo - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A deposição de matriz na periferia é característica do crescimento aposicional, não do intersticial.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A diferenciação de células do pericôndrio é característica do crescimento aposicional, não do intersticial.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A reabsorção por osteoclastos é um processo ósseo, sem relação com o crescimento cartilagíneo.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A mineralização direta da matriz não é o mecanismo descrito para o crescimento cartilagíneo.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "level": "Osso",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à matriz óssea, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Contém mais água que a cartilagem"
+        },
+        {
+          "letter": "B",
+          "text": "A porção orgânica (osteóide) é composta predominantemente por colagénio tipo I (90%)"
+        },
+        {
+          "letter": "C",
+          "text": "A porção inorgânica é composta predominantemente por colagénio"
+        },
+        {
+          "letter": "D",
+          "text": "Não contém qualquer componente mineral"
+        },
+        {
+          "letter": "E",
+          "text": "É idêntica à matriz da cartilagem hialina"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A matriz óssea contém 25% de água, comparativamente com a cartilagem (75%); a porção orgânica/osteóide é composta predominantemente por colagénio tipo I (90%) e outros tipos, menos tipo V.",
+      "source": "",
+      "logic": "1. Rever a composição da matriz óssea. 2. A é o oposto (a cartilagem tem mais água, 75% vs 25% do osso) - eliminar. 3. C confunde as porções (a inorgânica é composta por hidroxiapatita/minerais, não colagénio) - eliminar. 4. D contraria diretamente a existência de uma porção inorgânica calcificada - eliminar. 5. E contraria as diferenças de composição entre osso e cartilagem hialina - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É o oposto: a cartilagem contém mais água (75%) do que o osso (25%).",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A porção inorgânica é composta predominantemente por hidroxiapatita (fosfato de cálcio) e outros minerais, não por colagénio.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O osso possui, sim, uma porção inorgânica/calcificada significativa, composta por minerais.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A matriz óssea e a matriz da cartilagem hialina têm composições distintas (por exemplo, quanto ao conteúdo de água e mineralização).",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "level": "Osso",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Os osteoblastos, responsáveis pela produção da matriz óssea não mineralizada, diferenciam-se em osteócitos em que percentagem?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "100%"
+        },
+        {
+          "letter": "B",
+          "text": "10 a 20%, sofrendo a maioria apoptose"
+        },
+        {
+          "letter": "C",
+          "text": "50%"
+        },
+        {
+          "letter": "D",
+          "text": "0%, nunca se diferenciam em osteócitos"
+        },
+        {
+          "letter": "E",
+          "text": "90%"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Os osteoblastos produzem a matriz óssea não mineralizada; 10 a 20% diferenciam-se em osteócitos e a maioria sofre apoptose.",
+      "source": "",
+      "logic": "1. Rever a percentagem específica de diferenciação de osteoblastos em osteócitos. 2. A, C, D e E não correspondem ao valor descrito - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Esta percentagem não corresponde ao valor descrito; apenas uma minoria dos osteoblastos se diferencia em osteócitos.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Esta percentagem não corresponde ao valor descrito no texto.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Uma parte dos osteoblastos diferencia-se, sim, em osteócitos (10-20%).",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Esta percentagem é demasiado elevada relativamente ao valor descrito no texto.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "level": "Osso",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Os osteoclastos, células grandes e multinucleadas responsáveis pela reabsorção óssea, derivam de:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Osteoblastos maduros"
+        },
+        {
+          "letter": "B",
+          "text": "Células progenitoras de granulócitos e macrófagos"
+        },
+        {
+          "letter": "C",
+          "text": "Condrócitos"
+        },
+        {
+          "letter": "D",
+          "text": "Fibroblastos do periósteo"
+        },
+        {
+          "letter": "E",
+          "text": "Células estreladas hepáticas"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Os osteoclastos derivam das células progenitoras de granulócitos e macrófagos, diferenciando-se e promovendo a reabsorção óssea pelo sistema OPG/RANKL.",
+      "source": "",
+      "logic": "1. Rever a origem celular específica dos osteoclastos. 2. A, C, D e E não correspondem à origem descrita - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Os osteoblastos maduros não são a origem dos osteoclastos; têm linhagens celulares distintas.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Os condrócitos são células da cartilagem, sem relação com a origem dos osteoclastos.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Os fibroblastos do periósteo estão relacionados com a linhagem osteoprogenitora/osteoblástica, não com a origem dos osteoclastos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "As células estreladas hepáticas são células do fígado, sem relação com os osteoclastos.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "level": "Osso",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "No sistema OPG/RANKL, a osteoprotegerina (OPG), produzida pelos osteoblastos, tem como função:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Estimular diretamente a diferenciação de osteoclastos"
+        },
+        {
+          "letter": "B",
+          "text": "Ligar-se à proteína RANKL, reduzindo a diferenciação de precursores em osteoclastos e, portanto, reduzindo a reabsorção óssea"
+        },
+        {
+          "letter": "C",
+          "text": "Promover a mineralização da matriz"
+        },
+        {
+          "letter": "D",
+          "text": "Substituir a função do RANK"
+        },
+        {
+          "letter": "E",
+          "text": "Inibir os osteoblastos"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A OPG, produzida pelos osteoblastos, liga-se à proteína RANKL (nas células do estroma ou livre), reduzindo a diferenciação das células precursoras em osteoclastos e, consequentemente, reduzindo a reabsorção óssea; a sua síntese é estimulada pelo estrogénio.",
+      "source": "",
+      "logic": "1. Rever a função específica da OPG no sistema de regulação óssea. 2. A é o oposto (a OPG inibe, não estimula, a diferenciação de osteoclastos) - eliminar. 3. C, D e E não correspondem à função descrita - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É o oposto: a OPG reduz, não estimula, a diferenciação de precursores em osteoclastos.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A mineralização da matriz não é a função direta descrita para a OPG.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A OPG não substitui a função do RANK; liga-se à RANKL, impedindo a sua ligação ao RANK.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A OPG não inibe os osteoblastos; é, aliás, produzida por eles.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "level": "Osso",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na organização do osso maduro em sistemas de Havers, o canal que percorre transversalmente, ligando canais de Havers adjacentes, sem lamelas concêntricas, denomina-se:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Canal de Havers"
+        },
+        {
+          "letter": "B",
+          "text": "Canal de Volkmann"
+        },
+        {
+          "letter": "C",
+          "text": "Canalículo"
+        },
+        {
+          "letter": "D",
+          "text": "Lacuna de Howship"
+        },
+        {
+          "letter": "E",
+          "text": "Ósteon"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O canal de Volkmann percorre transversalmente ao canal de Havers, sem lamelas concêntricas, ligando canais de Havers adjacentes.",
+      "source": "",
+      "logic": "1. Rever as estruturas específicas do sistema de Havers. 2. A é o canal central com lamelas concêntricas, não o transversal - eliminar. 3. C é o prolongamento dos osteócitos, não um canal transversal - eliminar. 4. D é uma depressão associada aos osteoclastos, não um canal - eliminar. 5. E é a unidade estrutural completa (lamelas + canal central), não o canal transversal - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O canal de Havers é o canal central com suprimento vascular e nervoso, com lamelas concêntricas, não o canal transversal.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Os canalículos são prolongamentos radiais dos osteócitos, não um canal transversal entre canais de Havers.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "As lacunas de Howship são depressões na superfície óssea associadas aos osteoclastos, não um canal.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O ósteon corresponde à unidade estrutural completa (lamelas concêntricas em torno do canal central), não ao canal transversal em si.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "level": "Osso",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente à ossificação endocondral, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ocorre nos ossos planos do crânio, sem precursor cartilagíneo"
+        },
+        {
+          "letter": "B",
+          "text": "Ocorre nos membros e partes do esqueleto responsáveis pela sustentação do peso, utilizando a cartilagem hialina como modelo precursor"
+        },
+        {
+          "letter": "C",
+          "text": "Os osteoblastos diferenciam-se diretamente do tecido conjuntivo mesenquimal, sem fase cartilagínea"
+        },
+        {
+          "letter": "D",
+          "text": "É o único tipo de ossificação existente"
+        },
+        {
+          "letter": "E",
+          "text": "Não envolve qualquer centro de ossificação"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A ossificação endocondral ocorre nos membros e nas partes do esqueleto responsáveis pela sustentação do peso, com a cartilagem hialina a servir de modelo precursor: prolifera, calcifica, e é gradualmente substituída por osso.",
+      "source": "",
+      "logic": "1. Rever a definição e localização da ossificação endocondral. 2. A e C descrevem a ossificação intramembranosa, não a endocondral - eliminar. 3. D contraria a existência de dois tipos de ossificação - eliminar. 4. E contraria a formação de centros de ossificação na diáfise - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Esta descrição corresponde à ossificação intramembranosa (ossos do crânio, sem precursor cartilagíneo), não à endocondral.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Esta diferenciação direta a partir do mesênquima, sem fase cartilagínea, é característica da ossificação intramembranosa, não da endocondral.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Existem dois tipos de ossificação: endocondral e intramembranosa.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A ossificação endocondral envolve, precisamente, a formação de centros de ossificação na diáfise do modelo de cartilagem.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "level": "Osso",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na sequência de ossificação das placas de crescimento, a zona em que os condrócitos se dividem sob influência da hormona do crescimento denomina-se:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Zona de reserva"
+        },
+        {
+          "letter": "B",
+          "text": "Zona proliferativa"
+        },
+        {
+          "letter": "C",
+          "text": "Zona de calcificação provisória"
+        },
+        {
+          "letter": "D",
+          "text": "Zona de ossificação da metáfise"
+        },
+        {
+          "letter": "E",
+          "text": "Zona de maturação e hipertrofia"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Na zona proliferativa, os condrócitos dividem-se sob influência da hormona do crescimento.",
+      "source": "",
+      "logic": "1. Rever as cinco zonas da sequência de ossificação da placa de crescimento. 2. A é constituída por agregados de condrócitos em repouso, sem divisão ativa nesta zona - eliminar. 3. C, D e E descrevem fases posteriores, sem esta divisão específica sob hormona do crescimento - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Na zona de reserva, os condrócitos estão organizados aleatoriamente em pequenos agregados, sem esta divisão ativa específica.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Na zona de calcificação provisória, formam-se espículas de matriz calcificada, numa fase posterior à divisão celular.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Na zona de ossificação da metáfise, os osteoblastos formam osteóide mineralizado, numa fase ainda mais avançada.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Na zona de maturação e hipertrofia, a divisão já cessou e as células aumentam de tamanho, sendo uma fase posterior à divisão.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "level": "Articulações",
+      "domain": "Sistema Músculo-Esquelético",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na membrana sinovial que reveste a cavidade articular, os sinoviócitos tipo B, células modificadas semelhantes a fibroblastos, têm como função:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Fagocitose, tal como os sinoviócitos tipo A"
+        },
+        {
+          "letter": "B",
+          "text": "Produção dos constituintes da matriz (ácido hialurónico, colagénio e fibronectina)"
+        },
+        {
+          "letter": "C",
+          "text": "Reabsorção óssea"
+        },
+        {
+          "letter": "D",
+          "text": "Produção de queratina"
+        },
+        {
+          "letter": "E",
+          "text": "Secreção de melanina"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Os sinoviócitos tipo B, células modificadas semelhantes a fibroblastos, estão envolvidos na produção dos constituintes da matriz (ácido hialurónico, colagénio e fibronectina); os sinoviócitos tipo A correspondem a macrófagos.",
+      "source": "",
+      "logic": "1. Distinguir sinoviócitos tipo A (macrófagos) de tipo B (produtores de matriz). 2. A descreve os sinoviócitos tipo A, não os tipo B - eliminar. 3. C, D e E não correspondem à função dos sinoviócitos tipo B - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A fagocitose é função dos sinoviócitos tipo A (macrófagos), não dos tipo B.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A reabsorção óssea é função dos osteoclastos, sem relação com os sinoviócitos tipo B.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A produção de queratina é função dos queratinócitos epidérmicos, sem relação com os sinoviócitos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A secreção de melanina é função dos melanócitos, sem relação com os sinoviócitos.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "level": "Estrutura Geral",
+      "domain": "Mama",
+      "vignette": "",
+      "labTable": null,
+      "question": "A mama é composta por três componentes principais. O componente mesenquimatoso inclui, entre outros elementos:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Apenas ácinos secretores"
+        },
+        {
+          "letter": "B",
+          "text": "Tecido conjuntivo denso de sustentação, tecido conjuntivo laxo intralobular, tecido adiposo e ligamentos suspensores de Cooper"
+        },
+        {
+          "letter": "C",
+          "text": "Apenas o complexo areolo-mamilar"
+        },
+        {
+          "letter": "D",
+          "text": "Exclusivamente ductos galactóforos"
+        },
+        {
+          "letter": "E",
+          "text": "Apenas células mioepiteliais"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O componente mesenquimatoso da mama inclui tecido conjuntivo denso para sustentação e fixação, tecido conjuntivo laxo intralobular (para expansão na gravidez/amamentação), tecido adiposo, e os ligamentos suspensores de Cooper.",
+      "source": "",
+      "logic": "1. Rever os elementos do componente mesenquimatoso da mama. 2. A descreve o componente glandular, não o mesenquimatoso - eliminar. 3. C descreve o componente cutâneo - eliminar. 4. D descreve parte do componente glandular - eliminar. 5. E descreve células específicas, não o componente mesenquimatoso em geral - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Os ácinos secretores pertencem ao componente glandular, não ao mesenquimatoso.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O complexo areolo-mamilar corresponde ao componente cutâneo, não ao mesenquimatoso.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Os ductos galactóforos pertencem ao componente glandular, não ao mesenquimatoso.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "As células mioepiteliais são um tipo celular específico, não representam o componente mesenquimatoso como um todo.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "level": "Estrutura Geral",
+      "domain": "Mama",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na imuno-histoquímica da mama, o marcador p63 é utilizado para identificar:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Células epiteliais luminais"
+        },
+        {
+          "letter": "B",
+          "text": "Núcleos das células mioepiteliais"
+        },
+        {
+          "letter": "C",
+          "text": "Membrana basal"
+        },
+        {
+          "letter": "D",
+          "text": "Lípidos no leite"
+        },
+        {
+          "letter": "E",
+          "text": "Células de Toker exclusivamente"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O marcador p63, em imuno-histoquímica mamária, identifica os núcleos das células mioepiteliais.",
+      "source": "",
+      "logic": "1. Rever os marcadores específicos de IHQ mamária. 2. A é marcada por CK14, não p63 - eliminar. 3. C é marcada por colagénio IV - eliminar. 4. D é marcado por Sudan black - eliminar. 5. E é marcada por CK7 - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "As células epiteliais luminais são marcadas pela CK14, não pelo p63.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A membrana basal é marcada pelo colagénio IV, não pelo p63.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Os lípidos no leite são marcados pelo Sudan black, não pelo p63.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "As células de Toker são evidenciadas pela CK7, não pelo p63.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "level": "Complexo Areolo-Mamilar",
+      "domain": "Mama",
+      "vignette": "",
+      "labTable": null,
+      "question": "As células de Toker, células epiteliais vacuolizadas da camada basal do mamilo, são evidenciadas por qual marcador?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "CK5"
+        },
+        {
+          "letter": "B",
+          "text": "CK7"
+        },
+        {
+          "letter": "C",
+          "text": "CK14"
+        },
+        {
+          "letter": "D",
+          "text": "P63"
+        },
+        {
+          "letter": "E",
+          "text": "Colagénio IV"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As células de Toker, células epiteliais da camada basal do mamilo, com citoplasma mais abundante e pálido, são evidenciadas com marcação CK7.",
+      "source": "",
+      "logic": "1. Rever o marcador específico das células de Toker. 2. A, C, D e E são marcadores de outras estruturas mamárias (mioepiteliais, membrana basal, luminais) - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O CK5 é utilizado noutro contexto (camada luminal interna na ginecomastia), não para as células de Toker.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O CK14 marca as células epiteliais luminais em geral, não especificamente as células de Toker.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O p63 marca os núcleos das células mioepiteliais, não as células de Toker.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O colagénio IV marca a membrana basal, não as células de Toker.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "level": "Complexo Areolo-Mamilar",
+      "domain": "Mama",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na base do mamilo, os ductos lactíferos são revestidos por dupla camada de epitélio cúbico estratificado; na extremidade do mamilo, este epitélio é substituído por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Epitélio cilíndrico simples"
+        },
+        {
+          "letter": "B",
+          "text": "Epitélio pavimentoso estratificado queratinizado"
+        },
+        {
+          "letter": "C",
+          "text": "Epitélio de transição"
+        },
+        {
+          "letter": "D",
+          "text": "Epitélio pseudo-estratificado ciliado"
+        },
+        {
+          "letter": "E",
+          "text": "Epitélio cúbico simples"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Na extremidade do mamilo, o epitélio é substituído por epitélio pavimentoso estratificado queratinizado, ao contrário da dupla camada de epitélio cúbico estratificado na base.",
+      "source": "",
+      "logic": "1. Rever a transição epitelial ao longo dos ductos lactíferos no mamilo. 2. A, C, D e E não correspondem ao tipo de epitélio descrito para a extremidade do mamilo - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "O epitélio cilíndrico simples não é descrito para esta transição específica.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O epitélio de transição não é descrito para o mamilo.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O epitélio pseudo-estratificado ciliado não é descrito para o mamilo.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O epitélio cúbico simples não corresponde ao tipo descrito para a extremidade do mamilo (que é pavimentoso estratificado queratinizado).",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "level": "Evolução do Tecido Mamário",
+      "domain": "Mama",
+      "vignette": "",
+      "labTable": null,
+      "question": "Durante a gravidez, no primeiro trimestre, ocorre predominantemente:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Maturação completa dos alvéolos com secreção acumulada"
+        },
+        {
+          "letter": "B",
+          "text": "Alongamento e ramificação dos ductos terminais, com proliferação das células epiteliais e mioepiteliais"
+        },
+        {
+          "letter": "C",
+          "text": "Involução dos lóbulos"
+        },
+        {
+          "letter": "D",
+          "text": "Diminuição da pigmentação mamária"
+        },
+        {
+          "letter": "E",
+          "text": "Formação de calcificações mamárias"
+        }
+      ],
+      "correct": "B",
+      "explanation": "No primeiro trimestre da gravidez, ocorre alongamento e ramificação dos ductos terminais, proliferação das células epiteliais e mioepiteliais, e aumento mamário e da pigmentação.",
+      "source": "",
+      "logic": "1. Rever as alterações específicas de cada trimestre da gravidez. 2. A descreve o terceiro trimestre, não o primeiro - eliminar. 3. C contraria o crescimento ativo descrito para a gravidez - eliminar. 4. D é o oposto (há aumento, não diminuição, da pigmentação) - eliminar. 5. E não é uma alteração fisiológica da gravidez precoce - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A maturação completa dos alvéolos com secreção acumulada ocorre no terceiro trimestre, não no primeiro.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A gravidez está associada a um crescimento ativo do tecido mamário, não a involução.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "É o oposto: há aumento, não diminuição, da pigmentação mamária durante a gravidez.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "As calcificações mamárias são mais associadas à mama involutiva pós-50 anos, não à gravidez precoce.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "level": "Evolução do Tecido Mamário",
+      "domain": "Mama",
+      "vignette": "",
+      "labTable": null,
+      "question": "Durante a lactação, a oxitocina, produzida na neuro-hipófise, tem como função:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Estimular a produção de leite pelas células ductais"
+        },
+        {
+          "letter": "B",
+          "text": "Induzir a contração das células mioepiteliais para a ejeção do leite"
+        },
+        {
+          "letter": "C",
+          "text": "Aumentar a pigmentação areolar"
+        },
+        {
+          "letter": "D",
+          "text": "Reduzir a secreção de IgA"
+        },
+        {
+          "letter": "E",
+          "text": "Inibir a prolactina"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A oxitocina, produzida na neuro-hipófise, induz a contração das células mioepiteliais na mama para a ejeção do leite; a prolactina, sintetizada pelos mamotrofos da adeno-hipófise, atua nas células ductais estimulando a produção e libertação do leite.",
+      "source": "",
+      "logic": "1. Distinguir as funções da oxitocina (ejeção) e da prolactina (produção) durante a lactação. 2. A descreve a função da prolactina, não da oxitocina - eliminar. 3. C, D e E não correspondem à função descrita para a oxitocina - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A estimulação da produção de leite é função da prolactina (adeno-hipófise), não da oxitocina.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O aumento da pigmentação areolar está relacionado com hormonas ováricas na puberdade/gravidez, não é a função descrita para a oxitocina na lactação.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A oxitocina não tem a função descrita de reduzir a secreção de IgA; as células plasmáticas adicionam IgA às secreções.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A oxitocina não inibe a prolactina; ambas atuam de forma complementar durante a lactação.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "level": "Evolução do Tecido Mamário",
+      "domain": "Mama",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente às alterações mamárias na menopausa, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Há aumento do número de lóbulos"
+        },
+        {
+          "letter": "B",
+          "text": "Há aumento do tecido adiposo, diminuição dos lóbulos e estroma com menos colagénio"
+        },
+        {
+          "letter": "C",
+          "text": "O estroma torna-se mais rico em colagénio"
+        },
+        {
+          "letter": "D",
+          "text": "Não ocorre qualquer alteração significativa"
+        },
+        {
+          "letter": "E",
+          "text": "Há proliferação ductal ativa"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Na menopausa, ocorre involução mamária: aumento do tecido adiposo, diminuição dos lóbulos, estroma com menos colagénio, podendo surgir quistos.",
+      "source": "",
+      "logic": "1. Rever as alterações mamárias específicas da menopausa. 2. A é o oposto (diminuição, não aumento, dos lóbulos) - eliminar. 3. C é o oposto (menos, não mais, colagénio) - eliminar. 4. D contraria diretamente as alterações involutivas descritas - eliminar. 5. E contraria o processo involutivo, não proliferativo, descrito - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É o oposto: há diminuição, não aumento, do número de lóbulos na menopausa.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "É o oposto: o estroma torna-se mais pobre, não mais rico, em colagénio na menopausa.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Ocorrem, sim, alterações involutivas significativas na menopausa.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A menopausa está associada a involução, não a proliferação ductal ativa.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "level": "Mama Masculina",
+      "domain": "Mama",
+      "vignette": "",
+      "labTable": null,
+      "question": "Os elementos epiteliais da mama masculina normal consistem em:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Lóbulos bem desenvolvidos, semelhantes aos da mama feminina adulta"
+        },
+        {
+          "letter": "B",
+          "text": "Ductos ramificados sem formação de lóbulos"
+        },
+        {
+          "letter": "C",
+          "text": "Ácinos secretores maduros"
+        },
+        {
+          "letter": "D",
+          "text": "Ausência completa de qualquer estrutura ductal"
+        },
+        {
+          "letter": "E",
+          "text": "Tecido adiposo exclusivamente, sem componente epitelial"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Os elementos epiteliais da mama masculina consistem em ductos ramificados sem formação de lóbulos.",
+      "source": "",
+      "logic": "1. Rever a descrição específica da mama masculina normal. 2. A contraria diretamente a ausência de lóbulos descrita - eliminar. 3. C contraria a ausência de formação lobular/acinar - eliminar. 4. D contraria a presença de ductos ramificados - eliminar. 5. E contraria a existência de componente epitelial ductal - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É precisamente o oposto: a mama masculina não forma lóbulos, ao contrário da mama feminina adulta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Sem formação de lóbulos, não há desenvolvimento de ácinos secretores maduros na mama masculina normal.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A mama masculina tem, sim, ductos ramificados como estrutura epitelial.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A mama masculina tem componente epitelial (ductos ramificados), não é composta exclusivamente por tecido adiposo.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "level": "Mama Masculina / Ginecomastia",
+      "domain": "Mama",
+      "vignette": "",
+      "labTable": null,
+      "question": "A ginecomastia na puberdade, um dos três padrões de ginecomastia fisiológica, ocorre em que percentagem de adolescentes, regredindo tipicamente em 6-12 meses?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1-5%"
+        },
+        {
+          "letter": "B",
+          "text": "30-60%"
+        },
+        {
+          "letter": "C",
+          "text": "90-100%"
+        },
+        {
+          "letter": "D",
+          "text": "Nunca ocorre fisiologicamente na puberdade"
+        },
+        {
+          "letter": "E",
+          "text": "Apenas em 10%"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A ginecomastia na puberdade ocorre em 30-60% dos adolescentes, associada ao aumento de estrogénios, regredindo tipicamente em 6-12 meses.",
+      "source": "",
+      "logic": "1. Rever a percentagem específica descrita para a ginecomastia puberal. 2. A, C e E não correspondem ao valor descrito - eliminar. 3. D contraria diretamente a existência deste padrão fisiológico - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Esta percentagem é demasiado baixa relativamente ao valor descrito no texto.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Esta percentagem é demasiado elevada relativamente ao valor descrito no texto.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A ginecomastia na puberdade é, precisamente, um dos três padrões de ginecomastia fisiológica descritos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Esta percentagem não corresponde ao valor descrito no texto (30-60%).",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "level": "Mama Masculina / Ginecomastia",
+      "domain": "Mama",
+      "vignette": "",
+      "labTable": null,
+      "question": "Na ginecomastia, a camada luminal interna do epitélio ductal, CK5 positiva e negativa para recetores de estrogénio e progesterona, tem a particularidade de:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Estar também presente na mama masculina normal"
+        },
+        {
+          "letter": "B",
+          "text": "Não estar presente na mama normal"
+        },
+        {
+          "letter": "C",
+          "text": "Corresponder às células mioepiteliais"
+        },
+        {
+          "letter": "D",
+          "text": "Ser idêntica à camada luminal intermédia"
+        },
+        {
+          "letter": "E",
+          "text": "Expressar recetores hormonais positivos"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A camada luminal interna, CK5+ e negativa para recetores de estrogénio e progesterona, identificada na ginecomastia, não está presente na mama normal.",
+      "source": "",
+      "logic": "1. Rever a particularidade específica desta camada na ginecomastia. 2. A contraria diretamente a afirmação de que não está presente na mama normal - eliminar. 3. C confunde esta camada com a camada mioepitelial externa, distinta - eliminar. 4. D contraria a distinção entre as três camadas descritas na ginecomastia - eliminar. 5. E é o oposto (é negativa para recetores hormonais) - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É precisamente o oposto: esta camada não está presente na mama normal, sendo uma particularidade da ginecomastia.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "As células mioepiteliais correspondem à camada externa CK5+, distinta desta camada luminal interna.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A camada luminal intermédia é constituída por células cubóides a colunares, positivas para recetores hormonais, distinta da camada luminal interna.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "É o oposto: esta camada é negativa, não positiva, para recetores de estrogénio e progesterona.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "level": "Neurónio",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "Os neurónios pseudounipolares, cujo corpo celular apresenta um único prolongamento que se divide em dois, caracterizam-se por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Não possuírem dendritos, sendo típicos de neurónios sensitivos"
+        },
+        {
+          "letter": "B",
+          "text": "Serem neurónios motores exclusivamente"
+        },
+        {
+          "letter": "C",
+          "text": "Possuírem múltiplas dendrites"
+        },
+        {
+          "letter": "D",
+          "text": "Serem exclusivos dos recetores dos sentidos especiais"
+        },
+        {
+          "letter": "E",
+          "text": "Corresponderem a interneurónios"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Os neurónios pseudounipolares têm um corpo celular com um prolongamento que se divide em dois; este tipo de neurónio não tem dendritos, sendo típico de neurónios sensitivos.",
+      "source": "",
+      "logic": "1. Rever as três classificações morfológicas dos neurónios. 2. B descreve os neurónios multipolares (motores e interneurónios) - eliminar. 3. C contraria diretamente a ausência de dendritos descrita - eliminar. 4. D descreve os neurónios bipolares - eliminar. 5. E descreve também os neurónios multipolares - eliminar. 6. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Os neurónios motores são tipicamente multipolares, não pseudounipolares.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "É o oposto: os neurónios pseudounipolares não têm dendritos.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Os recetores dos sentidos especiais correspondem tipicamente aos neurónios bipolares, não aos pseudounipolares.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Os interneurónios são tipicamente multipolares, não pseudounipolares.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "level": "Neurónio",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "Os corpúsculos de Nissl, visíveis no citoplasma perinuclear do corpo celular dos neurónios, correspondem a:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Mitocôndrias"
+        },
+        {
+          "letter": "B",
+          "text": "Retículo endoplasmático rugoso (RER) desenvolvido"
+        },
+        {
+          "letter": "C",
+          "text": "Grânulos de melanina"
+        },
+        {
+          "letter": "D",
+          "text": "Lisossomas"
+        },
+        {
+          "letter": "E",
+          "text": "Complexo de Golgi exclusivamente"
+        }
+      ],
+      "correct": "B",
+      "explanation": "O citoplasma perinuclear do corpo celular dos neurónios apresenta um RER desenvolvido, onde são visíveis os corpúsculos de Nissl.",
+      "source": "",
+      "logic": "1. Rever a identidade organelar dos corpúsculos de Nissl. 2. A, C, D e E não correspondem à identidade descrita para os corpúsculos de Nissl - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "As mitocôndrias não são a identidade descrita para os corpúsculos de Nissl.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Os grânulos de melanina não são a identidade descrita para os corpúsculos de Nissl; a neuromelanina é referida especificamente na substância nigra.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Os lisossomas não são a identidade descrita para os corpúsculos de Nissl.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O Complexo de Golgi é uma organela distinta, também presente no corpo celular, mas não corresponde aos corpúsculos de Nissl (que são RER).",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "level": "Neurónio",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente aos axónios, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Têm origem no cone axónico, a partir do qual deixam de existir a maioria dos organelos, mantendo-se microtúbulos, neurofilamentos, mitocôndrias e vesículas"
+        },
+        {
+          "letter": "B",
+          "text": "São sempre mais curtos que os dendritos"
+        },
+        {
+          "letter": "C",
+          "text": "Têm Complexo de Golgi bem desenvolvido ao longo de todo o seu comprimento"
+        },
+        {
+          "letter": "D",
+          "text": "Não transmitem qualquer informação a outras células"
+        },
+        {
+          "letter": "E",
+          "text": "São mielinizados apenas no cone axónico"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Os axónios têm origem no cone axónico, a partir do qual deixam de existir a maioria dos organelos, mantendo-se apenas microtúbulos, neurofilamentos, mitocôndrias e vesículas.",
+      "source": "",
+      "logic": "1. Rever a organização estrutural específica do axónio a partir do cone axónico. 2. B contraria a existência de axónios muito longos (até mais de um metro) - eliminar. 3. C contraria diretamente a ausência de Golgi no axónio - eliminar. 4. D contraria a função primária de transmissão de informação - eliminar. 5. E é o oposto (o cone axónico e as arborizações terminais não têm mielina) - eliminar. 6. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Os axónios podem ser muito mais longos que os dendritos, atingindo mais de um metro nos neurónios motores do SNC.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O Complexo de Golgi localiza-se no corpo celular; a partir do cone axónico, a maioria dos organelos deixa de estar presente.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Os axónios têm, precisamente, a função de transmitir informações para outro neurónio ou célula efetora.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "É o oposto: o cone axónico e as arborizações terminais não têm mielina; a mielina cobre o restante trajeto do axónio.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "level": "Neurónio",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "A condução saltatória, mais rápida e com menor gasto energético, ocorre em fibras:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Não mielinizadas exclusivamente"
+        },
+        {
+          "letter": "B",
+          "text": "Mielinizadas"
+        },
+        {
+          "letter": "C",
+          "text": "Musculares lisas"
+        },
+        {
+          "letter": "D",
+          "text": "Do tecido conjuntivo"
+        },
+        {
+          "letter": "E",
+          "text": "Epiteliais"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Em fibras mielinizadas ocorre condução saltatória, mais rápida e com menores gastos energéticos.",
+      "source": "",
+      "logic": "1. Rever o tipo de fibra associado à condução saltatória. 2. A contraria diretamente o tipo de fibra descrito - eliminar. 3. C, D e E não correspondem a tecido nervoso, sem relação com condução saltatória - eliminar. 4. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É o oposto: a condução saltatória ocorre em fibras mielinizadas, não em fibras não mielinizadas.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O músculo liso não é o tipo de tecido associado à condução saltatória, que é um fenómeno neuronal.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O tecido conjuntivo não é o tipo de tecido associado à condução saltatória, que é um fenómeno neuronal.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "O tecido epitelial não é o tipo de tecido associado à condução saltatória, que é um fenómeno neuronal.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "level": "Neuroglia Periférica",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "As células de Schwann são responsáveis pela produção da bainha de mielina no sistema nervoso periférico, sendo esta constituída essencialmente por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Proteínas (80%)"
+        },
+        {
+          "letter": "B",
+          "text": "Lípidos (80%)"
+        },
+        {
+          "letter": "C",
+          "text": "Água (80%)"
+        },
+        {
+          "letter": "D",
+          "text": "Colagénio"
+        },
+        {
+          "letter": "E",
+          "text": "Queratina"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A bainha de mielina é constituída essencialmente por lípidos (80%), isolando o axónio do endoneuro e garantindo a rápida condução do impulso nervoso.",
+      "source": "",
+      "logic": "1. Rever a composição específica da bainha de mielina. 2. A, C, D e E não correspondem à composição predominante descrita - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "As proteínas não são o componente predominante (80%) descrito para a bainha de mielina.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A água não é o componente predominante descrito para a bainha de mielina.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O colagénio não é um componente da bainha de mielina.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A queratina não é um componente da bainha de mielina, sendo característica da epiderme.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "level": "Neuroglia Periférica",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "O nó de Ranvier corresponde a:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "O espaço entre duas células de Schwann adjacentes"
+        },
+        {
+          "letter": "B",
+          "text": "O corpo celular da célula de Schwann"
+        },
+        {
+          "letter": "C",
+          "text": "A região do cone axónico"
+        },
+        {
+          "letter": "D",
+          "text": "Uma estrutura exclusiva do SNC"
+        },
+        {
+          "letter": "E",
+          "text": "O local de origem dos dendritos"
+        }
+      ],
+      "correct": "A",
+      "explanation": "O nó de Ranvier corresponde ao espaço entre duas células de Schwann adjacentes.",
+      "source": "",
+      "logic": "1. Rever a definição precisa do nó de Ranvier. 2. B, C, D e E não correspondem à definição descrita - eliminar todas. 3. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "O corpo celular da célula de Schwann é uma estrutura distinta do espaço entre células adjacentes que define o nó de Ranvier.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A região do cone axónico é uma estrutura distinta, na origem do axónio no corpo celular do neurónio.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O nó de Ranvier é uma estrutura do sistema nervoso periférico (associado às células de Schwann), não exclusiva do SNC.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Os dendritos originam-se no corpo celular do neurónio, sem relação direta com o nó de Ranvier.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "level": "Neuroglia Periférica",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "As células satélite, que envolvem os corpos celulares dos neurónios dos gânglios, têm função semelhante às células de Schwann, mas distinguem-se destas por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Produzirem também mielina"
+        },
+        {
+          "letter": "B",
+          "text": "Não produzirem mielina"
+        },
+        {
+          "letter": "C",
+          "text": "Serem exclusivas do SNC"
+        },
+        {
+          "letter": "D",
+          "text": "Serem responsáveis pela fagocitose"
+        },
+        {
+          "letter": "E",
+          "text": "Formarem a barreira hematoencefálica"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As células satélite, pequenas células cúbicas em torno dos corpos celulares dos neurónios dos gânglios, mantêm um microambiente controlado e dão isolamento (função semelhante às células de Schwann), mas não produzem mielina.",
+      "source": "",
+      "logic": "1. Rever a distinção funcional entre células satélite e células de Schwann. 2. A contraria diretamente a ausência de produção de mielina - eliminar. 3. C contraria a localização periférica (gânglios) das células satélite - eliminar. 4. D e E não correspondem à função descrita para as células satélite - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "É precisamente o oposto: as células satélite não produzem mielina, ao contrário das células de Schwann.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "As células satélite localizam-se nos gânglios do sistema nervoso periférico, não são exclusivas do SNC.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A fagocitose é função da microglia (SNC), não das células satélite.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A formação da barreira hematoencefálica é função dos astrócitos, não das células satélite.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "level": "Neuroglia Central",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "Os astrócitos, as maiores células da neuroglia central, contribuem para a manutenção da barreira hematoencefálica através de:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Produção de mielina"
+        },
+        {
+          "letter": "B",
+          "text": "Junções de oclusão que confinam os neurotransmissores na fenda sináptica"
+        },
+        {
+          "letter": "C",
+          "text": "Fagocitose ativa"
+        },
+        {
+          "letter": "D",
+          "text": "Produção de líquido cefalorraquidiano"
+        },
+        {
+          "letter": "E",
+          "text": "Formação de nós de Ranvier"
+        }
+      ],
+      "correct": "B",
+      "explanation": "Os astrócitos possuem filamentos de GFAP, mantêm as junções de oclusão na barreira hematoencefálica e confinam os neurotransmissores na fenda sináptica.",
+      "source": "",
+      "logic": "1. Rever a função específica dos astrócitos na barreira hematoencefálica. 2. A descreve os oligodendrócitos, não os astrócitos - eliminar. 3. C descreve a microglia - eliminar. 4. D e E não correspondem à função descrita para os astrócitos - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A produção de mielina no SNC é função dos oligodendrócitos, não dos astrócitos.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "A fagocitose ativa é função da microglia, não dos astrócitos.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A produção de líquido cefalorraquidiano está associada às células ependimárias/plexo coroide, não diretamente aos astrócitos nesta função.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Os nós de Ranvier são formados entre células de Schwann no SNP, sem relação com a função dos astrócitos.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "level": "Neuroglia Central",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "Os oligodendrócitos, responsáveis pela mielinização no SNC, distinguem-se das células de Schwann por:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Um oligodendrócito poder mielinizar mais do que um axónio, através de múltiplos prolongamentos"
+        },
+        {
+          "letter": "B",
+          "text": "Produzirem menos mielina por célula"
+        },
+        {
+          "letter": "C",
+          "text": "Não terem qualquer relação com axónios"
+        },
+        {
+          "letter": "D",
+          "text": "Serem células fagocitárias"
+        },
+        {
+          "letter": "E",
+          "text": "Formarem a barreira hematoencefálica"
+        }
+      ],
+      "correct": "A",
+      "explanation": "Um oligodendrócito pode mielinizar mais do que um axónio, sendo cada prolongamento responsável por enrolar-se em torno de um axónio, formando camadas concêntricas; isto contrasta com a célula de Schwann, que mieliniza apenas um axónio.",
+      "source": "",
+      "logic": "1. Rever a diferença específica entre oligodendrócitos e células de Schwann na capacidade de mielinização. 2. B contraria a maior capacidade descrita para os oligodendrócitos - eliminar. 3. C contraria diretamente a função mielinizante descrita - eliminar. 4. D descreve a microglia - eliminar. 5. E descreve os astrócitos - eliminar. 6. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Não é descrito que os oligodendrócitos produzam menos mielina por célula; pelo contrário, podem mielinizar múltiplos axónios.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Os oligodendrócitos têm, precisamente, uma relação direta e essencial com os axónios que mielinizam.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A função fagocitária é atribuída à microglia, não aos oligodendrócitos.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A formação da barreira hematoencefálica é função dos astrócitos, não dos oligodendrócitos.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "level": "Neuroglia Central",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "A microglia, células fagocitárias do SNC, representa aproximadamente que percentagem das células gliais centrais?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "50%"
+        },
+        {
+          "letter": "B",
+          "text": "5%"
+        },
+        {
+          "letter": "C",
+          "text": "90%"
+        },
+        {
+          "letter": "D",
+          "text": "25%"
+        },
+        {
+          "letter": "E",
+          "text": "0,5%"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A microglia representa cerca de 5% das células gliais do SNC, sendo as células neurogliais mais pequenas, proliferando e fagocitando em regiões de lesão e doença.",
+      "source": "",
+      "logic": "1. Rever a percentagem específica descrita para a microglia. 2. A, C, D e E não correspondem ao valor descrito - eliminar todas. 3. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Esta percentagem é demasiado elevada relativamente ao valor descrito no texto.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Esta percentagem é demasiado elevada relativamente ao valor descrito no texto.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Esta percentagem não corresponde ao valor descrito no texto.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Esta percentagem é demasiado baixa relativamente ao valor descrito no texto.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "level": "Correlações Clínicas",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "A miastenia gravis, doença autoimune que afeta a transmissão neuromuscular, é causada por uma reação autoimune contra:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A mielina"
+        },
+        {
+          "letter": "B",
+          "text": "A acetilcolina (ou o seu recetor)"
+        },
+        {
+          "letter": "C",
+          "text": "Os canais de sódio"
+        },
+        {
+          "letter": "D",
+          "text": "O RER dos neurónios"
+        },
+        {
+          "letter": "E",
+          "text": "Os astrócitos"
+        }
+      ],
+      "correct": "B",
+      "explanation": "A miastenia gravis é causada por uma reação autoimune anti-acetilcolina (ou o seu recetor), afetando a transmissão na placa motora.",
+      "source": "",
+      "logic": "1. Rever o alvo autoimune específico da miastenia gravis. 2. A descreve a esclerose múltipla, não a miastenia gravis - eliminar. 3. C descreve o mecanismo de ação da tetrodotoxina, não da miastenia gravis - eliminar. 4. D e E não são alvos descritos para nenhuma das patologias mencionadas - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A reação autoimune contra a mielina é característica da esclerose múltipla, não da miastenia gravis.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O bloqueio dos canais de sódio é o mecanismo descrito para a tetrodotoxina (uma neurotoxina), não para a miastenia gravis.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O RER dos neurónios não é o alvo descrito para a miastenia gravis.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "Os astrócitos não são o alvo descrito para a miastenia gravis.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "level": "Histologia do Sistema Nervoso Maduro",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "A denominação substância cinzenta/branca, com base na observação macroscópica, corresponde respetivamente a:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Zonas ricas em corpos neuronais / zonas pobres em corpos neuronais, ricas em mielina"
+        },
+        {
+          "letter": "B",
+          "text": "Zonas pobres em corpos neuronais / zonas ricas em corpos neuronais"
+        },
+        {
+          "letter": "C",
+          "text": "Zonas exclusivamente gliais / zonas exclusivamente neuronais"
+        },
+        {
+          "letter": "D",
+          "text": "Camadas superficiais / camadas profundas, sem relação com composição celular"
+        },
+        {
+          "letter": "E",
+          "text": "Zonas vasculares / zonas avasculares"
+        }
+      ],
+      "correct": "A",
+      "explanation": "A substância cinzenta corresponde a zonas ricas em corpos neuronais; a substância branca corresponde a zonas pobres em corpos neuronais, ricas em mielina.",
+      "source": "",
+      "logic": "1. Rever a definição histológica de substância cinzenta e branca. 2. B inverte as definições corretas - eliminar. 3. C, D e E não correspondem à distinção descrita, baseada na riqueza em corpos neuronais e mielina - eliminar. 4. A é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "As definições estão invertidas: a substância cinzenta é rica em corpos neuronais, e a branca é pobre nestes.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "Esta distinção não corresponde à definição histológica descrita, baseada na densidade de corpos neuronais e mielina.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "A distinção entre substância cinzenta e branca baseia-se na composição celular (corpos neuronais/mielina), não apenas na profundidade.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "A distinção não se baseia em vascularização, mas sim na densidade de corpos neuronais e mielina.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "level": "Histologia do Sistema Nervoso Maduro",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "No cerebelo, a camada de células de Purkinje, neurónios especiais com substância de Nissl proeminente, projeta os seus axónios para:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A camada molecular"
+        },
+        {
+          "letter": "B",
+          "text": "A camada granular"
+        },
+        {
+          "letter": "C",
+          "text": "Diretamente para a medula espinhal, sem passar por outras camadas"
+        },
+        {
+          "letter": "D",
+          "text": "O córtex cerebral exclusivamente"
+        },
+        {
+          "letter": "E",
+          "text": "Não projetam axónios"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As células de Purkinje, com substância de Nissl proeminente, têm os seus axónios projetados na camada granular do córtex cerebelar.",
+      "source": "",
+      "logic": "1. Rever a organização das três camadas do córtex cerebelar (molecular, Purkinje, granular) e o trajeto axonal descrito. 2. A é a camada hipocelular acima da camada de Purkinje, não o destino da projeção axonal - eliminar. 3. C e D não correspondem ao trajeto descrito - eliminar. 4. E contraria diretamente a existência desta projeção - eliminar. 5. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "A camada molecular é hipocelular e situa-se acima da camada de Purkinje, não sendo o destino descrito para os seus axónios.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "O trajeto descrito é para a camada granular do próprio córtex cerebelar, não diretamente para a medula espinhal.",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "O córtex cerebral é uma estrutura distinta do cerebelo, não sendo o destino descrito para os axónios das células de Purkinje.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "As células de Purkinje projetam, precisamente, os seus axónios para a camada granular.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "level": "Histologia do Sistema Nervoso Maduro",
+      "domain": "Tecido Nervoso",
+      "vignette": "",
+      "labTable": null,
+      "question": "Relativamente às meninges, é correto afirmar que:",
+      "options": [
+        {
+          "letter": "A",
+          "text": "São compostas apenas por uma camada"
+        },
+        {
+          "letter": "B",
+          "text": "Compreendem, da mais interna para a mais externa, pia máter, aracnóide (tecido conjuntivo laxo) e duramáter (tecido colagenoso)"
+        },
+        {
+          "letter": "C",
+          "text": "A duramáter é a camada mais interna"
+        },
+        {
+          "letter": "D",
+          "text": "Não têm qualquer relação com os astrócitos"
+        },
+        {
+          "letter": "E",
+          "text": "São exclusivas do sistema nervoso periférico"
+        }
+      ],
+      "correct": "B",
+      "explanation": "As meninges compreendem, da mais interna para a mais externa, a pia máter, a aracnóide (tecido conjuntivo laxo) e a duramáter (tecido colagenoso); os astrócitos enviam prolongamentos para a pia máter, formando uma rede de suporte.",
+      "source": "",
+      "logic": "1. Rever a organização das três camadas meníngeas, da mais interna para a mais externa. 2. A contraria a existência de três camadas distintas - eliminar. 3. C inverte a posição correta (a duramáter é a mais externa) - eliminar. 4. D contraria a relação descrita entre astrócitos e pia máter - eliminar. 5. E contraria a localização das meninges no SNC (cérebro e medula espinhal) - eliminar. 6. B é a correta.",
+      "distractors": [
+        {
+          "letter": "A",
+          "text": "As meninges são compostas por três camadas distintas (pia máter, aracnóide, duramáter), não apenas uma.",
+          "source": ""
+        },
+        {
+          "letter": "B",
+          "text": "Opção correta.",
+          "source": ""
+        },
+        {
+          "letter": "C",
+          "text": "É o oposto: a duramáter é a camada mais externa, não a mais interna (a pia máter é a mais interna).",
+          "source": ""
+        },
+        {
+          "letter": "D",
+          "text": "Os astrócitos enviam, precisamente, prolongamentos para a pia máter, formando uma rede de suporte.",
+          "source": ""
+        },
+        {
+          "letter": "E",
+          "text": "As meninges envolvem o sistema nervoso central (cérebro e medula espinhal), não são exclusivas do sistema nervoso periférico.",
+          "source": ""
+        }
+      ]
+    }
+  ]
+}

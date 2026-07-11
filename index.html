@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>VésperaQUIZ — NOVA Medical School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ══ BANNER ══ -->
+<header class="site-banner" id="siteBanner">
+  <div class="banner-home" aria-label="VésperaQUIZ">
+    <img src="assets/logo.png" alt="VésperaQUIZ" class="banner-logo-img" onload="this.closest('.banner-home').classList.add('has-img')" onerror="this.remove()">
+    <svg class="banner-crest" viewBox="0 0 100 118" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M34 24 L30 11 L40 18 L50 8 L60 18 L70 11 L66 24 Z"/>
+      <circle cx="30" cy="10" r="1.6" fill="currentColor" stroke="none"/><circle cx="50" cy="7" r="1.8" fill="currentColor" stroke="none"/><circle cx="70" cy="10" r="1.6" fill="currentColor" stroke="none"/>
+      <path d="M22 40 C11 52 11 76 26 92" stroke-width="1.9"/><path d="M17 51 q-6 1 -8 6 q6 1 9 -3" stroke-width="1.5"/><path d="M14 64 q-6 1 -8 6 q6 1 9 -3" stroke-width="1.5"/>
+      <path d="M78 40 C89 52 89 76 74 92" stroke-width="1.9"/><path d="M83 51 q6 1 8 6 q-6 1 -9 -3" stroke-width="1.5"/><path d="M86 64 q6 1 8 6 q-6 1 -9 -3" stroke-width="1.5"/>
+      <path d="M30 30 H70 V64 C70 84 58 96 50 104 C42 96 30 84 30 64 Z"/>
+      <path d="M50 58 V84" stroke-width="2"/><path d="M50 58 C45 54 38 54 32 56 V80 C38 78 45 78 50 82" stroke-width="1.9"/>
+      <path d="M50 58 C55 54 62 54 68 56 V80 C62 78 55 78 50 82" stroke-width="1.9"/>
+      <path d="M45 46 C45 41 55 41 55 46 C55 50 50 50 50 54" stroke-width="2.2"/><circle cx="50" cy="59.5" r="1.3" fill="currentColor" stroke="none"/>
+    </svg>
+    <span class="banner-word"><b>Véspera</b><i>QUIZ</i></span>
+  </div>
+  <div class="banner-context"></div>
+  <div class="banner-actions">
+    <span class="banner-tagline">NOVA Medical School</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Véspera<span class="q">QUIZ</span></h1>
+        <p>Banco de questões organizado por disciplina para a NOVA Medical School. Casos clínicos, exames anteriores e bancos temáticos, sempre à mão.</p>
+      </div>
+      <div class="hero-stats" id="heroStats"></div>
+    </div>
+  </section>
+
+  <!-- Fast travel -->
+  <nav class="fast-nav" id="fastNav" aria-label="Ir para disciplina"></nav>
+
+  <!-- Disciplines -->
+  <div id="disciplines">
+    <div class="empty-state"><div class="icon">⏳</div><p>A carregar…</p></div>
+  </div>
+
+  <!-- Import -->
+  <div class="import-section">
+    <div class="section-label">Importar Quiz</div>
+    <div id="dropZone" class="import-zone">
+      <div class="iz-icon">📂</div>
+      <h3>Importar ficheiro JSON</h3>
+      <p>Arrasta um ficheiro <strong>.json</strong> para aqui, ou clica para escolher do dispositivo.</p>
+      <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">Escolher ficheiro</button>
+      <input type="file" id="fileInput" accept=".json,application/json">
+    </div>
+    <div id="importedWrap" style="display:none;margin-top:16px"><div class="quiz-grid"><div id="importedCard"></div></div></div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const LOCAL_KEY='mq_imported_bank';
+const PROGRESS_PREFIX='mq_progress_';
+const COLLAPSE_KEY='mq_disc_collapsed';
+const QUIZ_PAGE='quiz.html';
+
+const TYPE_LABELS={
+  clinical:{label:'Casos Clínicos',cls:'tag-clinical'},questions:{label:'Questões',cls:'tag-questions'},
+  exam:{label:'Exames',cls:'tag-exam'},test:{label:'Testes',cls:'tag-test'},mcq:{label:'Escolha Múltipla',cls:'tag-mcq'},
+  practical:{label:'Casos Práticos',cls:'tag-practical'},mixed:{label:'Banco Misto',cls:'tag-mixed'},general:{label:'Banco Geral',cls:'tag-gen'}
+};
+
+function shadeColor(hex,pct){const n=parseInt(hex.replace('#',''),16);const r=Math.min(255,Math.max(0,(n>>16)+pct));const g=Math.min(255,Math.max(0,((n>>8)&0xff)+pct));const b=Math.min(255,Math.max(0,(n&0xff)+pct));return'#'+((1<<24)|(r<<16)|(g<<8)|b).toString(16).slice(1);}
+function hexToRgba(hex,a){const n=parseInt(hex.replace('#',''),16);return`rgba(${(n>>16)&0xff},${(n>>8)&0xff},${n&0xff},${a})`;}
+function quizGrad(hex){return`linear-gradient(102deg,${shadeColor(hex,-28)} 0%,${hex} 55%,${shadeColor(hex,46)} 100%)`;}
+
+let toastTimer;
+function showToast(msg,isError=false){const t=document.getElementById('toast');t.textContent=msg;t.className='toast'+(isError?' error':'');clearTimeout(toastTimer);void t.offsetWidth;t.classList.add('show');toastTimer=setTimeout(()=>t.classList.remove('show'),3000);}
+function getProgress(id){try{const r=localStorage.getItem(PROGRESS_PREFIX+id);return r?JSON.parse(r):null;}catch(_){return null;}}
+function clearProgress(id){localStorage.removeItem(PROGRESS_PREFIX+id);}
+
+function getCollapsed(){try{return new Set(JSON.parse(localStorage.getItem(COLLAPSE_KEY))||[]);}catch(_){return new Set();}}
+function saveCollapsed(set){localStorage.setItem(COLLAPSE_KEY,JSON.stringify([...set]));}
+
+/* ── quiz card (no % correct) ── */
+function buildCard(b){
+  const color=b.color||'#0F438C', grad=quizGrad(color);
+  const ti=TYPE_LABELS[b.type]||{label:b.type,cls:'tag-gen'};
+  const progress=getProgress(b.file), total=b.questionCount||0;
+  const hasProgress=progress&&progress.cur>0&&progress.cur<(total||999);
+  const fileEsc=(b.file||'').replace(/'/g,"\\'");
+
+  let statsHtml='';
+  if(hasProgress){
+    const done=progress.cur, pctDone=Math.round(done/(total||done)*100);
+    statsHtml=`
+      <div class="res-card-stats">
+        <span>${done}/${total} questões</span>
+        <span class="res-stat-right">✓ ${progress.score}</span>
+        <span class="res-stat-wrong">✗ ${progress.wrong}</span>
+      </div>
+      <div class="res-card-prog-wrap"><div class="res-card-prog-fill" style="width:${pctDone}%;background:${grad}"></div></div>`;
+  }
+  const levels=(b.levels||[]).map(l=>`<span class="tag tag-l">${l}</span>`).join('');
+  const resetBtn=hasProgress?`<button class="btn-icon-reset" onclick="freshStart(event,'${fileEsc}')" title="Recomeçar" aria-label="Recomeçar">↺</button>`:'';
+
+  const el=document.createElement('div');
+  el.innerHTML=`
+    <div class="res-card" data-file="${b.file}" style="--i:${cardIdx++%8};--card-grad:${grad};--quiz-color:${color};--quiz-glow:${hexToRgba(color,.3)}">
+      <div class="res-card-head">
+        <span class="res-card-type">${hasProgress?'● Em progresso':ti.label}</span>
+        <span class="res-card-motif" aria-hidden="true">${b.icon||'📋'}</span>
+      </div>
+      <div class="res-card-body">
+        <div class="res-card-title">${b.title}</div>
+        <div class="res-card-sub">${b.subtitle||''}</div>
+        <div class="res-card-tags">
+          <span class="tag tag-q">${total} questões</span>
+          ${!hasProgress?`<span class="tag ${ti.cls}">${ti.label}</span>`:''}
+          ${levels}
+        </div>
+        <div class="res-card-bottom">
+          ${statsHtml}
+          <div class="res-card-btns">
+            <div class="res-card-btns-left">
+              <button class="btn btn-primary btn-continue" style="--quiz-grad:${grad};--quiz-glow:${hexToRgba(color,.32)}" onclick="goToQuiz('${fileEsc}')">${hasProgress?'▶ Continuar':'▶ Iniciar quiz'}</button>
+            </div>
+            ${resetBtn}
+          </div>
+        </div>
+      </div>
+    </div>`;
+  return el.firstElementChild;
+}
+
+let cardIdx=0;
+const _banks=[];
+let _disciplines={};
+
+function disciplineMeta(id){
+  if(_disciplines[id])return {id,..._disciplines[id]};
+  /* fallback: derive from string id/title */
+  const name=id&&id.charAt(0).toUpperCase()+id.slice(1).replace(/_/g,' ');
+  return {id:id||'outros',name:name||'Outros',year:'',semester:'',color:'#0F438C',icon:'📚',order:99};
+}
+
+async function loadPermanent(){
+  let banks=[], disciplines={};
+  try{const res=await fetch('data/index.json');if(res.ok){const data=await res.json();banks=data.quizzes||data;disciplines=data.disciplines||{};}}catch(_){}
+
+  const wrap=document.getElementById('disciplines');
+  if(!banks.length){wrap.innerHTML=`<div class="empty-state"><div class="icon">📭</div><p>Nenhum quiz encontrado.</p></div>`;return;}
+  _banks.length=0;banks.forEach(b=>_banks.push(b));
+  _disciplines=disciplines;
+
+  /* group quizzes by discipline id */
+  const discMap={};
+  banks.forEach(b=>{const id=b.discipline||'outros';(discMap[id]||(discMap[id]=[])).push(b);});
+  let discList=Object.keys(discMap).map(id=>({...disciplineMeta(id),items:discMap[id]}));
+
+  /* sort by year → semester → order → name */
+  const key=d=>`${d.year||'zzz'}|${d.semester||'zzz'}|${String(d.order??99).padStart(3,'0')}|${d.name}`;
+  discList.sort((a,b)=>key(a).localeCompare(key(b),'pt'));
+
+  /* group by year+semester */
+  const groups=[];const gmap={};
+  discList.forEach(d=>{const gk=`${d.year||''}__${d.semester||''}`;if(!gmap[gk]){gmap[gk]={year:d.year,semester:d.semester,items:[]};groups.push(gmap[gk]);}gmap[gk].items.push(d);});
+
+  const collapsed=getCollapsed();
+  cardIdx=0;
+
+  wrap.innerHTML=groups.map(g=>{
+    const gl=[g.year,g.semester].filter(Boolean).join(' · ');
+    const sections=g.items.map(d=>{
+      const grad=quizGrad(d.color);
+      const isC=collapsed.has(d.id);
+      const qn=d.items.reduce((s,b)=>s+(b.questionCount||0),0);
+      return `<section class="disc-section${isC?' collapsed':''}" id="disc-${d.id}" style="--dc:${grad};--dc-tint:${hexToRgba(d.color,.07)}">
+        <div class="disc-head" onclick="toggleDisc('${d.id}')">
+          <span class="disc-icon" style="--dc:${grad}"><span>${d.icon||'📚'}</span></span>
+          <div class="disc-titles">
+            <div class="disc-title">${d.name}</div>
+            <div class="disc-sub">${[d.year,d.semester].filter(Boolean).map(x=>`<b>${x}</b>`).join('<span style="color:var(--muted-light)">·</span>')}</div>
+          </div>
+          <div class="disc-badges">
+            <span class="disc-count">${d.items.length} quiz${d.items.length!==1?'zes':''} · ${qn} questões</span>
+            <span class="disc-toggle" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+          </div>
+        </div>
+        <div class="disc-body"><div class="quiz-grid" data-disc="${d.id}"></div></div>
+      </section>`;
+    }).join('');
+    return `<div class="year-group">${gl?`<div class="year-label"><span class="yl-txt">${gl}</span><span class="yl-line"></span></div>`:''}${sections}</div>`;
+  }).join('');
+
+  /* mount cards */
+  discList.forEach(d=>{
+    const grid=wrap.querySelector(`.quiz-grid[data-disc="${d.id}"]`);
+    if(grid)d.items.forEach(b=>grid.appendChild(buildCard(b)));
+  });
+
+  /* fast-nav */
+  document.getElementById('fastNav').innerHTML=discList.map(d=>
+    `<button class="fast-chip" onclick="jumpTo('${d.id}')" style="--fc:${hexToRgba(d.color,.14)}"><span class="dot">${d.icon||'📚'}</span>${d.name}<span class="n">${d.items.length}</span></button>`
+  ).join('');
+
+  const totalQ=banks.reduce((s,b)=>s+(b.questionCount||0),0);
+  document.getElementById('heroStats').innerHTML=`
+    <div class="hero-stat"><span class="num">${discList.length}</span><span class="lbl">Disciplinas</span></div>
+    <div class="hero-stat"><span class="num">${banks.length}</span><span class="lbl">Quizzes</span></div>
+    <div class="hero-stat"><span class="num">${totalQ}</span><span class="lbl">Questões</span></div>`;
+}
+
+function toggleDisc(id){
+  const sec=document.getElementById('disc-'+id);if(!sec)return;
+  const collapsed=getCollapsed();
+  if(sec.classList.toggle('collapsed'))collapsed.add(id);else collapsed.delete(id);
+  saveCollapsed(collapsed);
+}
+function jumpTo(id){
+  const sec=document.getElementById('disc-'+id);if(!sec)return;
+  if(sec.classList.contains('collapsed')){sec.classList.remove('collapsed');const c=getCollapsed();c.delete(id);saveCollapsed(c);}
+  sec.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function goToQuiz(file){window.location.href=`${QUIZ_PAGE}?bank=${encodeURIComponent(file)}`;}
+function freshStart(event,file){
+  event.stopPropagation();clearProgress(file);
+  const slot=document.querySelector(`#disciplines [data-file="${file}"]`);const b=_banks.find(x=>x.file===file);
+  if(slot&&b){const nc=buildCard(b);nc.parentElement||slot.replaceWith(nc);}
+  else loadPermanent();
+}
+
+/* ── imported bank ── */
+function checkImported(){
+  const raw=localStorage.getItem(LOCAL_KEY);
+  if(!raw){document.getElementById('dropZone').style.display='block';document.getElementById('importedWrap').style.display='none';return;}
+  let bank;try{bank=JSON.parse(raw);}catch(_){document.getElementById('dropZone').style.display='block';return;}
+  const meta=bank.meta||{};
+  const b={file:'local',color:meta.color||'#0F438C',icon:meta.icon||'📋',title:meta.title||'Quiz importado',subtitle:meta.subtitle||'',type:meta.type||'general',questionCount:bank.questions?.length||0,levels:[]};
+  const slot=document.getElementById('importedCard');slot.innerHTML='';slot.appendChild(buildCard(b));
+  document.getElementById('dropZone').style.display='none';
+  document.getElementById('importedWrap').style.display='block';
+}
+function handleFile(file){
+  if(!file||!file.name.endsWith('.json')){showToast('❌ Ficheiro inválido — precisa de ser .json',true);return;}
+  const reader=new FileReader();
+  reader.onload=e=>{
+    let bank;try{bank=JSON.parse(e.target.result);}catch(_){showToast('❌ JSON inválido',true);return;}
+    if(!bank.questions||!Array.isArray(bank.questions)||!bank.questions.length){showToast('❌ Ficheiro sem questões válidas',true);return;}
+    clearProgress('local');localStorage.setItem(LOCAL_KEY,e.target.result);showToast('✅ Ficheiro carregado!');
+    setTimeout(()=>{window.location.href=`${QUIZ_PAGE}?bank=local`;},600);
+  };
+  reader.readAsText(file);
+}
+const dropZone=document.getElementById('dropZone');
+dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag-over');});
+dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag-over');handleFile(e.dataTransfer.files[0]);});
+document.getElementById('fileInput').addEventListener('change',e=>{handleFile(e.target.files[0]);e.target.value='';});
+
+/* ── banner auto-hide ── */
+(function(){const banner=document.getElementById('siteBanner');let last=0;window.addEventListener('scroll',()=>{const y=window.scrollY;if(y>banner.offsetHeight&&y>last)banner.classList.add('banner-hidden');else banner.classList.remove('banner-hidden');last=y;},{passive:true});})();
+
+loadPermanent();
+checkImported();
+</script>
+</body>
+</html>

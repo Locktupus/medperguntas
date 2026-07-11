@@ -1,0 +1,125 @@
+{
+  "_comment": "VésperaQUIZ — ficheiro de índice. 'disciplines' define cada cadeira (nome, ano letivo, semestre, cor, ícone, ordem). Cada quiz aponta para uma cadeira através de 'discipline' (o id). A página inicial agrupa e ordena por ano → semestre → order. Podes personalizar livremente. NÃO edites os JSON dos bancos de questões.",
+  "_types": {
+    "clinical": { "label": "Casos Clínicos", "color": "#9A3412", "description": "Casos clínicos com vinheta, análise laboratorial e raciocínio diagnóstico." },
+    "questions": { "label": "Questões", "color": "#1548E8", "description": "Banco de questões teóricas gerais de uma disciplina." },
+    "exam": { "label": "Exames", "color": "#6D28D9", "description": "Questões retiradas de exames de anos anteriores." },
+    "test": { "label": "Testes", "color": "#166534", "description": "Questões de testes de avaliação contínua." },
+    "mcq": { "label": "Escolha Múltipla", "color": "#0369A1", "description": "Questões de escolha múltipla sem vinheta clínica." },
+    "practical": { "label": "Casos Práticos", "color": "#92400E", "description": "Casos práticos de aplicação clínica ou laboratorial." },
+    "mixed": { "label": "Banco Misto", "color": "#374151", "description": "Mistura de diferentes tipos de questões de uma ou mais disciplinas." },
+    "general": { "label": "Banco Geral", "color": "#475569", "description": "(Legado) Banco geral de questões." }
+  },
+  "disciplines": {
+    "histologia_embriologia": {
+      "name": "Histologia e Embriologia",
+      "year": "1.º Ano",
+      "semester": "1.º Semestre",
+      "color": "#910D39",
+      "icon": "🔬",
+      "order": 1
+    },
+    "bioquimica_nutricional": {
+      "name": "Bioquímica Nutricional",
+      "year": "1.º Ano",
+      "semester": "2.º Semestre",
+      "color": "#4A8F3F",
+      "icon": "🧪",
+      "order": 1
+    },
+    "fisiologia": {
+      "name": "Fisiologia",
+      "year": "1.º Ano",
+      "semester": "2.º Semestre",
+      "color": "#128078",
+      "icon": "🫀",
+      "order": 2
+    }
+  },
+  "quizzes": [
+    {
+      "id": "renal_casos_clinicos",
+      "file": "renal_casos_clinicos.json",
+      "discipline": "fisiologia",
+      "title": "Fisiologia Renal — Casos Clínicos",
+      "subtitle": "Costanzo Fisiologia, Cap. 6 · 20 questões",
+      "icon": "🫘",
+      "type": "clinical",
+      "questionCount": 20,
+      "levels": ["L1", "L2", "L3"],
+      "color": "#128078"
+    },
+    {
+      "id": "bn_exame23_24_exame25",
+      "file": "compilacaobnluisapinto2.json",
+      "discipline": "bioquimica_nutricional",
+      "title": "Bioquímica Nutricional — Compilação Luisa Pinto",
+      "subtitle": "Compilação criada por Luisa Pinto, Adaptada",
+      "icon": "🍉",
+      "type": "test",
+      "questionCount": 146,
+      "levels": ["L1", "L2", "L3"],
+      "color": "#4a8f3f"
+    },
+    {
+      "id": "examehisto",
+      "file": "perguntasexamehisto.json",
+      "discipline": "histologia_embriologia",
+      "title": "Histologia e Embriologia — Exames Compilados",
+      "subtitle": "1ª Fase 22/23 · 2ª Fase 22/23 · 1ª Fase 23/24 — Adaptados e da Drive Principal",
+      "icon": "🧫",
+      "type": "exam",
+      "questionCount": 96,
+      "levels": ["L1", "L2", "L3"],
+      "color": "#910d39"
+    },
+    {
+      "id": "embriologia_geral_todos_sistemas",
+      "file": "quiz_embriologia_todos_sistemas.json",
+      "discipline": "histologia_embriologia",
+      "title": "Embriologia — Revisão Transversal a Todos os Sistemas",
+      "subtitle": "Muito Convenientemente H&E — capítulo geral de Embriologia e secções específicas ao longo do manual",
+      "icon": "🧫",
+      "type": "questions",
+      "questionCount": 60,
+      "levels": ["L1", "L2", "L3"],
+      "color": "#7a5ea8"
+    },
+    {
+      "id": "histologia_embriologia_gastrointestinal_genital_urinario",
+      "file": "quiz_gastro_genital_urinario.json",
+      "discipline": "histologia_embriologia",
+      "title": "Histologia e Embriologia — Gastrointestinal, Genital Feminino, Genital Masculino e Urinário",
+      "subtitle": "Muito Convenientemente H&E (caps. 11-14, pp. 120-172)",
+      "icon": "🧬",
+      "type": "questions",
+      "questionCount": 80,
+      "levels": ["L1", "L2", "L3"],
+      "color": "#c0745a"
+    },
+    {
+      "id": "histologia_embriologia_endocrino_cabeca_pescoco_respiratorio_cardio_sangue_linfoide",
+      "file": "quiz_histologia_embriologia.json",
+      "discipline": "histologia_embriologia",
+      "title": "Histologia e Embriologia — Endócrino, Cabeça e Pescoço, Respiratório, Cardiovascular, Sangue/Medula Óssea e Linfóide",
+      "subtitle": "Muito Convenientemente H&E (caps. 5-10, pp. 73-119)",
+      "icon": "🔬",
+      "type": "questions",
+      "questionCount": 100,
+      "levels": ["L1", "L2", "L3"],
+      "color": "#4a90d9"
+    },
+    {
+      "id": "histologia_pele_musculo_esqueletico_mama_tecido_nervoso",
+      "file": "quiz_pele_musculo_mama_nervoso.json",
+      "discipline": "histologia_embriologia",
+      "title": "Histologia — Pele, Sistema Músculo-Esquelético, Mama e Tecido Nervoso",
+      "subtitle": "Muito Convenientemente H&E (pp. 40-72)",
+      "icon": "🧠",
+      "type": "questions",
+      "questionCount": 60,
+      "levels": ["L1", "L2", "L3"],
+      "color": "#2e8b8b"
+    }
+  ]
+}

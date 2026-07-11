@@ -208,6 +208,8 @@ h1,h2,h3,h4,h5,h6{font-family:var(--serif)}
 .hero-inner{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:26px;flex-wrap:wrap}
 .hero h1{font-family:var(--serif);font-weight:700;font-size:2rem;letter-spacing:-.01em;line-height:1.1;margin-bottom:8px}
 .hero h1 .q{font-family:var(--ui);font-weight:700;font-size:1.15rem;letter-spacing:.12em;vertical-align:middle;margin-left:8px;color:rgba(255,255,255,.8)}
+.hero-brand{max-width:560px}
+.hero-logo{height:66px;width:auto;max-width:100%;display:block;margin-bottom:16px;filter:drop-shadow(0 2px 7px rgba(0,0,0,.2))}
 .hero p{font-size:.92rem;color:rgba(255,255,255,.82);max-width:46ch;line-height:1.6}
 .hero-stats{display:flex;gap:14px;flex-shrink:0}
 .hero-stat{
@@ -228,10 +230,15 @@ h1,h2,h3,h4,h5,h6{font-family:var(--serif)}
 .fast-chip .n{font-size:.68rem;font-weight:700;color:var(--muted);background:var(--surface-2);border-radius:99px;padding:1px 7px}
 
 /* ── year / semester group ── */
-.year-group{margin-bottom:14px}
-.year-label{display:flex;align-items:center;gap:10px;margin:26px 0 16px}
-.year-label .yl-txt{font-family:var(--ui);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--muted)}
-.year-label .yl-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+.year-group{margin-bottom:8px}
+.year-label{display:flex;align-items:center;gap:14px;margin:34px 0 18px}
+.year-group:first-child .year-label{margin-top:6px}
+.yl-badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--ui);font-weight:700;font-size:.82rem;color:#fff;
+  background:var(--grad);border-radius:99px;padding:8px 17px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;white-space:nowrap}
+.yl-badge::after{content:'';position:absolute;inset:0;background-image:var(--dots);background-size:12px 12px;opacity:.55}
+.yl-badge svg,.yl-badge span{position:relative;z-index:1}
+.yl-year{opacity:.72;font-weight:600}
+.year-label .yl-line{flex:1;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--border-mid),var(--border) 40%,transparent)}
 
 /* ── discipline section (collapsible) ── */
 .disc-section{margin-bottom:16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
@@ -261,8 +268,8 @@ h1,h2,h3,h4,h5,h6{font-family:var(--serif)}
 
 .quiz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
 
-@keyframes card-enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.quiz-grid>div{animation:card-enter .4s cubic-bezier(.22,.68,0,1.2) both;animation-delay:calc(var(--i,0)*70ms)}
+/* cards render immediately (no entrance delay) */
+.quiz-grid>div{animation:none}
 
 /* ── Quiz card ── */
 .res-card{
@@ -339,6 +346,27 @@ h1,h2,h3,h4,h5,h6{font-family:var(--serif)}
 .import-zone h3{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px}
 .import-zone p{font-size:.82rem;color:var(--muted);margin-bottom:18px;line-height:1.55}
 #fileInput{display:none}
+
+/* imported quiz — full-width horizontal card, functional */
+.import-card{display:flex;align-items:center;gap:18px;background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);
+  box-shadow:var(--shadow-sm);padding:16px 18px 16px 16px;position:relative;overflow:hidden}
+.import-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--card-grad,var(--grad))}
+.import-card-badge{width:56px;height:56px;border-radius:15px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:1.7rem;background:var(--card-grad,var(--grad));position:relative;overflow:hidden;box-shadow:var(--shadow-sm);margin-left:8px}
+.import-card-badge::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.2);border-radius:50%;transform:scale(.66)}
+.import-card-main{flex:1;min-width:0}
+.ic-tag{font-family:var(--ui);font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--quiz-color);margin-bottom:4px}
+.ic-title{font-family:var(--serif);font-size:1.08rem;font-weight:700;color:var(--text);line-height:1.25;letter-spacing:-.01em}
+.ic-sub{font-family:var(--ui);font-size:.78rem;color:var(--muted);margin-top:3px;margin-bottom:8px}
+.ic-meta{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--ui);font-size:.74rem;color:var(--muted);font-variant-numeric:tabular-nums;margin-bottom:8px}
+.import-card-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.ic-remove:hover{border-color:var(--red-border);color:var(--red);background:var(--red-bg)}
+@media(max-width:640px){
+  .import-card{flex-direction:column;align-items:stretch}
+  .import-card-badge{margin-left:0}
+  .import-card-actions{justify-content:flex-start}
+  .import-card-actions .btn-primary{flex:1}
+}
 
 .empty-state{grid-column:1/-1;text-align:center;padding:48px 20px;color:var(--muted)}
 .empty-state .icon{font-size:1.8rem;margin-bottom:10px}

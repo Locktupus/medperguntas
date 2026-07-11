@@ -38,8 +38,8 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
-      <div>
-        <h1>Véspera<span class="q">QUIZ</span></h1>
+      <div class="hero-brand">
+        <img src="assets/logo.png" alt="VésperaQUIZ" class="hero-logo">
         <p>Banco de questões organizado por disciplina para a NOVA Medical School. Casos clínicos, exames anteriores e bancos temáticos, sempre à mão.</p>
       </div>
       <div class="hero-stats" id="heroStats"></div>
@@ -64,7 +64,7 @@
       <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">Escolher ficheiro</button>
       <input type="file" id="fileInput" accept=".json,application/json">
     </div>
-    <div id="importedWrap" style="display:none;margin-top:16px"><div class="quiz-grid"><div id="importedCard"></div></div></div>
+    <div id="importedWrap" style="display:none;margin-top:16px"><div id="importedCard"></div></div>
   </div>
 
 </div>
@@ -177,7 +177,7 @@ async function loadPermanent(){
 
   /* group by year+semester */
   const groups=[];const gmap={};
-  discList.forEach(d=>{const gk=`${d.year||''}__${d.semester||''}`;if(!gmap[gk]){gmap[gk]={year:d.year,semester:d.semester,items:[]};groups.push(gmap[gk]);}gmap[gk].items.push(d);});
+  discList.forEach(d=>{const gk=`${d.year||''}__${d.semester||''}`;if(!gmap[gk]){gmap[gk]={id:'yg-'+groups.length,year:d.year,semester:d.semester,items:[]};groups.push(gmap[gk]);}gmap[gk].items.push(d);});
 
   const collapsed=getCollapsed();
   cardIdx=0;
@@ -203,7 +203,9 @@ async function loadPermanent(){
         <div class="disc-body"><div class="quiz-grid" data-disc="${d.id}"></div></div>
       </section>`;
     }).join('');
-    return `<div class="year-group">${gl?`<div class="year-label"><span class="yl-txt">${gl}</span><span class="yl-line"></span></div>`:''}${sections}</div>`;
+    const calIco=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>`;
+    const badge=gl?`<div class="year-label"><span class="yl-badge">${calIco}<span><span class="yl-year">${g.year||''}</span>${g.semester?' · '+g.semester:''}</span></span><span class="yl-line"></span></div>`:'';
+    return `<div class="year-group" id="${g.id}">${badge}${sections}</div>`;
   }).join('');
 
   /* mount cards */
@@ -212,10 +214,13 @@ async function loadPermanent(){
     if(grid)d.items.forEach(b=>grid.appendChild(buildCard(b)));
   });
 
-  /* fast-nav */
-  document.getElementById('fastNav').innerHTML=discList.map(d=>
-    `<button class="fast-chip" onclick="jumpTo('${d.id}')" style="--fc:${hexToRgba(d.color,.14)}"><span class="dot">${d.icon||'📚'}</span>${d.name}<span class="n">${d.items.length}</span></button>`
-  ).join('');
+  /* fast-nav — one chip per year/semester group */
+  const calIcoNav=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>`;
+  document.getElementById('fastNav').innerHTML=groups.map(g=>{
+    const label=[g.year,g.semester].filter(Boolean).join(' · ')||'Quizzes';
+    const qz=g.items.reduce((s,d)=>s+d.items.length,0);
+    return `<button class="fast-chip" onclick="jumpToGroup('${g.id}')"><span class="dot">${calIcoNav}</span>${label}<span class="n">${qz}</span></button>`;
+  }).join('');
 
   const totalQ=banks.reduce((s,b)=>s+(b.questionCount||0),0);
   document.getElementById('heroStats').innerHTML=`
@@ -235,23 +240,60 @@ function jumpTo(id){
   if(sec.classList.contains('collapsed')){sec.classList.remove('collapsed');const c=getCollapsed();c.delete(id);saveCollapsed(c);}
   sec.scrollIntoView({behavior:'smooth',block:'start'});
 }
+function jumpToGroup(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
 
 function goToQuiz(file){window.location.href=`${QUIZ_PAGE}?bank=${encodeURIComponent(file)}`;}
 function freshStart(event,file){
-  event.stopPropagation();clearProgress(file);
-  const slot=document.querySelector(`#disciplines [data-file="${file}"]`);const b=_banks.find(x=>x.file===file);
-  if(slot&&b){const nc=buildCard(b);nc.parentElement||slot.replaceWith(nc);}
+  if(event)event.stopPropagation();
+  clearProgress(file);
+  if(file==='local'){checkImported();return;}       /* imported card re-renders itself */
+  const slot=document.querySelector(`[data-file="${file}"]`);
+  const b=_banks.find(x=>x.file===file);
+  if(slot&&b)slot.replaceWith(buildCard(b));          /* swap card in place → instant reset */
   else loadPermanent();
 }
 
-/* ── imported bank ── */
+/* ── imported bank (functional, removable) ── */
+function importedBank(){try{return JSON.parse(localStorage.getItem(LOCAL_KEY));}catch(_){return null;}}
+function launchImported(){window.location.href=`${QUIZ_PAGE}?bank=local`;}
+function replaceImported(){document.getElementById('fileInput').click();}
+function removeImported(){clearProgress('local');localStorage.removeItem(LOCAL_KEY);checkImported();showToast('🗑️ Quiz importado removido');}
+
 function checkImported(){
-  const raw=localStorage.getItem(LOCAL_KEY);
-  if(!raw){document.getElementById('dropZone').style.display='block';document.getElementById('importedWrap').style.display='none';return;}
-  let bank;try{bank=JSON.parse(raw);}catch(_){document.getElementById('dropZone').style.display='block';return;}
+  const bank=importedBank();
+  if(!bank||!bank.questions){document.getElementById('importedCard').innerHTML='';document.getElementById('dropZone').style.display='block';document.getElementById('importedWrap').style.display='none';return;}
   const meta=bank.meta||{};
-  const b={file:'local',color:meta.color||'#0F438C',icon:meta.icon||'📋',title:meta.title||'Quiz importado',subtitle:meta.subtitle||'',type:meta.type||'general',questionCount:bank.questions?.length||0,levels:[]};
-  const slot=document.getElementById('importedCard');slot.innerHTML='';slot.appendChild(buildCard(b));
+  const color=meta.color||'#0F438C', grad=quizGrad(color);
+  const total=bank.questions.length;
+  const progress=getProgress('local');
+  const hasProgress=progress&&progress.cur>0&&progress.cur<total;
+  const pctDone=hasProgress?Math.round(progress.cur/total*100):0;
+
+  const progHtml=hasProgress?`
+    <div class="ic-meta">
+      <span>${progress.cur}/${total} questões</span>
+      <span class="res-stat-right">✓ ${progress.score}</span>
+      <span class="res-stat-wrong">✗ ${progress.wrong}</span>
+    </div>
+    <div class="res-card-prog-wrap" style="max-width:280px"><div class="res-card-prog-fill" style="width:${pctDone}%;background:${grad}"></div></div>`
+    : `<div class="ic-meta"><span>${total} questões</span></div>`;
+
+  document.getElementById('importedCard').innerHTML=`
+    <div class="import-card" style="--card-grad:${grad};--quiz-color:${color};--quiz-glow:${hexToRgba(color,.3)}">
+      <div class="import-card-badge">${meta.icon||'📋'}</div>
+      <div class="import-card-main">
+        <div class="ic-tag">${hasProgress?'● Em progresso':'● Importado'}</div>
+        <div class="ic-title">${meta.title||'Quiz importado'}</div>
+        <div class="ic-sub">${meta.subtitle||'Ficheiro local'}</div>
+        ${progHtml}
+      </div>
+      <div class="import-card-actions">
+        <button class="btn btn-primary" style="--quiz-grad:${grad};--quiz-glow:${hexToRgba(color,.32)}" onclick="launchImported()">${hasProgress?'▶ Continuar':'▶ Iniciar quiz'}</button>
+        <button class="btn btn-ghost btn-sm" onclick="replaceImported()">↩ Trocar ficheiro</button>
+        ${hasProgress?`<button class="btn-icon-reset" onclick="freshStart(event,'local')" title="Recomeçar" aria-label="Recomeçar">↺</button>`:''}
+        <button class="btn-icon-reset ic-remove" onclick="removeImported()" title="Remover" aria-label="Remover quiz importado">✕</button>
+      </div>
+    </div>`;
   document.getElementById('dropZone').style.display='none';
   document.getElementById('importedWrap').style.display='block';
 }

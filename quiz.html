@@ -256,18 +256,14 @@ body{display:flex;flex-direction:column;min-height:100dvh;background:var(--bg)}
 .fin-title-text{font-size:.82rem;color:rgba(255,255,255,.78);font-weight:500}
 
 .finish-body{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:0 24px 26px;box-shadow:var(--shadow-md);position:relative;z-index:3;margin-top:-52px}
-/* gauge overlaps the hero */
-.fin-ring-wrap{position:relative;width:168px;height:168px;margin:-64px auto 10px}
-.fin-ring-wrap::before{content:'';position:absolute;inset:-9px;border-radius:50%;background:var(--white);z-index:0;box-shadow:var(--shadow-sm)}
-.fin-ring{position:relative;z-index:1;width:100%;height:100%;transform:rotate(-90deg)}
-.fin-ring circle{fill:none;stroke-width:13;stroke-linecap:round}
-.fin-ring-bg{stroke:var(--blue-tint-2)}
-.fin-ring-wrong{stroke:var(--red)}
-.fin-ring-unclass{stroke:#F3C7C7}
-.fin-ring-fill{stroke:var(--green)}
-.fin-ring-center{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
-.fin-ring-pct{font-family:var(--serif);font-size:2.05rem;font-weight:700;color:var(--quiz-color);line-height:1;letter-spacing:-.02em}
-.fin-ring-sub{font-family:var(--ui);font-size:.56rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-top:5px}
+/* semicircle "half-moon" gauge, overlaps the hero */
+.fin-gauge{position:relative;width:260px;max-width:84%;margin:-56px auto 4px}
+.fin-gauge-svg{width:100%;height:auto;display:block;overflow:visible}
+.fin-gauge-track{fill:none;stroke:var(--blue-tint-2);stroke-width:14;stroke-linecap:round}
+.fin-gauge-fill{fill:none;stroke:var(--green-2);stroke-width:14;stroke-linecap:round;transition:stroke-dashoffset 1s cubic-bezier(.22,.68,0,1.2)}
+.fin-gauge-center{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.fin-ring-pct{font-family:var(--serif);font-size:2.5rem;font-weight:700;color:var(--text);line-height:1;letter-spacing:-.02em}
+.fin-ring-sub{font-family:var(--ui);font-size:.58rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.11em;margin-top:6px}
 /* result rows (reference-style) */
 .result-rows{display:flex;flex-direction:column;gap:10px;margin:10px 0 20px}
 .result-row{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--surface-2);border:1px solid var(--border);
@@ -476,21 +472,18 @@ body{display:flex;flex-direction:column;min-height:100dvh;background:var(--bg)}
 <section class="finish" id="finishScreen">
   <div class="finish-inner">
     <div class="finish-hero">
-      <div class="fin-rank" id="finRank">🏅 Resultado</div>
-      <span class="fin-medal" id="finMedal">🏅</span>
+      <div class="fin-rank" id="finRank">Resultado</div>
       <p class="fin-headline" id="finHeadline">Concluído!</p>
       <div class="finish-score" id="finScore"></div>
       <p class="fin-title-text" id="finTitle"></p>
     </div>
     <div class="finish-body">
-      <div class="fin-ring-wrap">
-        <svg class="fin-ring" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-          <circle class="fin-ring-bg" cx="60" cy="60" r="46"/>
-          <circle class="fin-ring-unclass" cx="60" cy="60" r="46" id="finRingUnclass"/>
-          <circle class="fin-ring-wrong" cx="60" cy="60" r="46" id="finRingWrong"/>
-          <circle class="fin-ring-fill" cx="60" cy="60" r="46" id="finRingFill"/>
+      <div class="fin-gauge">
+        <svg class="fin-gauge-svg" viewBox="0 0 200 118" xmlns="http://www.w3.org/2000/svg">
+          <path class="fin-gauge-track" d="M8 106 A92 92 0 0 1 192 106"/>
+          <path class="fin-gauge-fill" id="gaugeFill" d="M8 106 A92 92 0 0 1 192 106"/>
         </svg>
-        <div class="fin-ring-center"><span class="fin-ring-pct" id="finPct">—</span><span class="fin-ring-sub">Correctas</span></div>
+        <div class="fin-gauge-center"><span class="fin-ring-pct" id="finPct">—</span><span class="fin-ring-sub">Correctas</span></div>
       </div>
       <div class="result-rows">
         <button class="result-row correct" onclick="showReview()">
@@ -879,7 +872,6 @@ function doFinish(){
   const ranks=['Perfeição absoluta','Excelente resultado','Muito bom','Resultado razoável','Continua a estudar'];
   const headlines=['Perfeito!','Excelente!','Muito bom!','Nada mal!','Continua a estudar!'];
   const msgs=['Perfeição absoluta! Domínio total do tema.','Excelente! Estás muito bem preparado para o exame.','Muito bom! Revê os erros para consolidar o conhecimento.','Razoável. Foca-te nos pontos mais fracos antes do exame.','Há trabalho pela frente. Revê o material e tenta novamente.'];
-  document.getElementById('finMedal').textContent=medals[tier];
   document.getElementById('finRank').textContent=`${medals[tier]} ${ranks[tier]}`;
   document.getElementById('finHeadline').textContent=headlines[tier];
   document.getElementById('finTitle').textContent=bank.meta?.title??'Quiz Concluído';
@@ -896,16 +888,14 @@ function doFinish(){
   document.getElementById('finUnclassRow').style.display=hasUncl?'':'none';
   if(hasUncl)document.getElementById('finUnclassN').textContent=unclassifiableSet.size;
 
-  const C=2*Math.PI*46;
-  const correctLen=C*score/total,wrongLen=C*wrong/total,unclassLen=C*unclassifiableSet.size/total;
-  const fillEl=document.getElementById('finRingFill'),wrongEl=document.getElementById('finRingWrong'),unclEl=document.getElementById('finRingUnclass');
-  fillEl.style.transition='none';fillEl.style.strokeDasharray=`${Math.max(0,correctLen)} ${C}`;fillEl.style.strokeDashoffset=correctLen;
-  wrongEl.style.transition='none';wrongEl.style.strokeDasharray=`${Math.max(0,wrongLen)} ${C}`;wrongEl.style.strokeDashoffset=`${correctLen}`;wrongEl.style.opacity='0';
-  unclEl.style.transition='none';unclEl.style.strokeDasharray=`${Math.max(0,unclassLen)} ${C}`;unclEl.style.strokeDashoffset=`${correctLen+wrongLen}`;unclEl.style.opacity='0';
+  const L=Math.PI*92;                       // semicircle arc length (radius 92)
+  const fillEl=document.getElementById('gaugeFill');
+  fillEl.style.transition='none';
+  fillEl.style.strokeDasharray=`${L} ${L}`;
+  fillEl.style.strokeDashoffset=L;          // start empty
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    fillEl.style.transition='stroke-dashoffset .9s cubic-bezier(.22,.68,0,1.2)';fillEl.style.strokeDashoffset='0';
-    setTimeout(()=>{wrongEl.style.transition='opacity .4s ease';wrongEl.style.opacity='1';},650);
-    setTimeout(()=>{unclEl.style.transition='opacity .4s ease';unclEl.style.opacity='1';},1000);
+    fillEl.style.transition='stroke-dashoffset 1s cubic-bezier(.22,.68,0,1.2)';
+    fillEl.style.strokeDashoffset=L*(1-pct/100);
   }));
   window.scrollTo({top:0,behavior:'smooth'});
 }
